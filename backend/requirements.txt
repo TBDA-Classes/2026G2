@@ -1,8 +1,0 @@
-# Python packages needed for our project
-# Install these with: pip install -r requirements.txt
-
-fastapi==0.104.1          # The web framework - handles HTTP requests/responses
-uvicorn==0.24.0           # Web server that runs FastAPI
-sqlalchemy==2.0.23        # Tool to work with databases using Python
-psycopg[binary]==3.2.12   # PostgreSQL driver - connects Python to PostgreSQL
-python-dotenv==1.0.0      # Reads configuration from .env files
