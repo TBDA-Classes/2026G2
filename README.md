@@ -1,7 +1,3 @@
-# 2026G2
-Documentation: https://tbda-classes.github.io/2026G2/
-## Project Overview
-
 # CeDInt Storey 1 — Energy Forecasting & Waste Detection
 
 **Tools for Big Data Analytics · Group 2 · ETSII-UPM · 2026**
@@ -83,11 +79,16 @@ circuits. Lower is better. Best per row in **bold**.
 
 Everything lives on `main`. See [Working conventions](#6-working-conventions).
 
-### Raw data
+### Reference and context data
+
+The building's own meter data is not in the repository in raw form. It enters through the
+Sprint 1 cleaning notebook and exists here only as cleaned output (see below) and inside the
+frozen dataset.
 
 | File | Contents |
 |---|---|
-| `S1-B2 Data 2019.csv` … `S1-B2 Data 2025-26.csv` | Source meter exports. Years 2019, 2020, 2022, 2023, 2024, 2025–26 (no 2021 file) |
+| `S1-B2 Data 2019.csv` … `S1-B2 Data 2025-26.csv` | **Madrid city meteorological data, not building data.** Daily values for 26 stations, magnitudes 81–89 (wind speed and direction, temperature, humidity, pressure, solar radiation, rainfall), each with a validity flag. Downloaded as the weather context variables requested in the backlog feedback. Not yet used by any model |
+| `CSV Explanation (ES).pdf` | Official format description for the files above (Madrid *Servicio de Calidad del Aire*, Spanish) |
 | `Storey1_data_dictionary_missing_anomalies_EN.xlsx` | Data dictionary, missing values and known anomalies |
 | `Spatial Mapping - Number per area.pdf` | Measurement points per floor, zone and system |
 | `proyectoedificio-planta-{1,2,3}.svg` | Building floor plans |
@@ -153,6 +154,25 @@ raw CSV exports
                   └─ Task 7 .... hourly dataset v1.1 (one row per circuit-hour)
                        └─ Tasks 7/8, Sprint 3 models
 ```
+
+### Two regimes
+
+The frozen dataset holds two periods recorded at different resolutions, with a gap between them:
+
+| Regime | Period | Resolution | Rows |
+|---|---|---|---|
+| Historical | 2020-04 → 2023-02 | hourly | 405,382 |
+| Recent | 2025-08-18 → 2025-10-13 | 1 minute | 868,074 |
+
+There is **no data between 2023-02-28 and 2025-08-18**. The cumulative counters `Ea` and `Er`
+also reset between the two regimes (in 16 of 17 series), so they must never be differenced across
+the boundary. All current modelling uses the recent regime only; Task 6 and the Sprint 3 rules
+require the two to be evaluated separately.
+
+Note that `energy_Wh` *is* correctly derived in both regimes — it equals the increment of `Er` to
+within the stored rounding (0.01 Wh) on 100 % of counter-derived rows in each. The historical
+period is therefore usable without rebuilding the target, which makes it the largest untapped
+source for Sprint 4 (~25,000 hours per circuit, against ~710 in the current training window).
 
 **Which file should I use?**
 
