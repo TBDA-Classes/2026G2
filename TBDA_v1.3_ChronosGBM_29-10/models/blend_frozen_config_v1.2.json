@@ -1,0 +1,28 @@
+{
+  "model": "ML_Blend",
+  "created_utc": "2026-10-28T09:45:29+00:00",
+  "rule": "w \u00d7 frozen GBM + (1 \u2212 w) \u00d7 frozen Chronos median; w chosen per horizon on validation (D7b).",
+  "weights": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "gbm_config": "34c1a4c3ba7427d1893ef86e2bad57941839a7ac97cc03e36db601cd822758f0",
+  "chronos_config": "e3152674e7f561d8c3304497870b80ffa753b293fb3984ec10444938ab29660d",
+  "horizons": {
+    "+1h": {
+      "w_gbm": 0.5,
+      "validation_score": 0.276362
+    },
+    "+6h": {
+      "w_gbm": 0.0,
+      "validation_score": 0.352506
+    },
+    "day-ahead": {
+      "w_gbm": 0.0,
+      "validation_score": 0.366143
+    }
+  }
+}

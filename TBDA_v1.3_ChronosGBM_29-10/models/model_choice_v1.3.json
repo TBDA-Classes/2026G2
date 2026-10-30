@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-10-29T14:45:11+00:00",
+  "d10_agreed": "2026-10-29 \u2014 Emily Wiesner, Alex (D10a: option B, D10b: 0.005, D10c: baselines tracked)",
+  "d10": {
+    "tie_margin": 0.005,
+    "tie_break": "mean scaled RMSE over the training circuits",
+    "include_baselines": false,
+    "simplicity": [
+      "B3_persistence",
+      "B1_last_week",
+      "B2_weekday_hour_median",
+      "ML_Chronos",
+      "ML_GBM",
+      "ML_ChronosGBM",
+      "ML_Blend"
+    ],
+    "baselines": "tracked as reference in every tuning log and here (D10c), not candidates (D10a)"
+  },
+  "note": "Chosen on validation only. Commit this file BEFORE any test forecast is made (point 8).",
+  "horizons": {
+    "+1h": {
+      "model": "ML_Blend",
+      "validation_score": 0.271198,
+      "validation_scaled_RMSE": 0.607842,
+      "tied": [
+        "ML_ChronosGBM",
+        "ML_Blend"
+      ],
+      "best_baseline": "B3_persistence",
+      "best_baseline_score": 0.358625,
+      "gap_to_best_baseline": -0.087427,
+      "baselines_within_tie_margin": []
+    },
+    "+6h": {
+      "model": "ML_Blend",
+      "validation_score": 0.348824,
+      "validation_scaled_RMSE": 0.705936,
+      "tied": [
+        "ML_ChronosGBM",
+        "ML_Blend"
+      ],
+      "best_baseline": "B2_weekday_hour_median",
+      "best_baseline_score": 0.521143,
+      "gap_to_best_baseline": -0.172319,
+      "baselines_within_tie_margin": []
+    },
+    "day-ahead": {
+      "model": "ML_Blend",
+      "validation_score": 0.351347,
+      "validation_scaled_RMSE": 0.702718,
+      "tied": [
+        "ML_Chronos",
+        "ML_Blend"
+      ],
+      "best_baseline": "B3_persistence",
+      "best_baseline_score": 0.37081,
+      "gap_to_best_baseline": -0.019463,
+      "baselines_within_tie_margin": []
+    }
+  }
+}

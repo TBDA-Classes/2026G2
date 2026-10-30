@@ -1,0 +1,89 @@
+series_id,hour_utc,split,reason,energy_n_obs,energy_max_gap_min,W_mean,energy_Wh_v11,energy_source,energy_spread_share
+NE|HVAC,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",12,2.0,,,counter,0.0
+NE|Plugs & Sockets,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",14,1.0,,,counter,0.2857142857142857
+NE|Plugs & Sockets,2025-08-27 05:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),44,12.0,192.13924528301885,1892.01,counter,0.5
+NW|Emerg. Lighting,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",14,1.0,,,counter,0.21428571428571427
+NW|Emerg. Lighting,2025-08-18 19:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),52,5.0,13.75,136.12,counter,0.09615384615384616
+NW|Emerg. Lighting,2025-08-18 20:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),47,4.0,12.483333333333333,114.17,spread,0.7446808510638298
+NW|Emerg. Lighting,2025-08-18 21:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),53,4.0,12.991833333333334,27.83,spread,1.0
+NW|Emerg. Lighting,2025-08-19 01:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),50,5.0,11.8,141.48,spread,0.56
+NW|Emerg. Lighting,2025-08-19 09:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,13.514999999999999,117.8,spread,1.0
+NW|Emerg. Lighting,2025-08-19 10:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,14.674833333333334,45.64,spread,1.0
+NW|Emerg. Lighting,2025-08-19 13:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,13.716666666666667,120.45,spread,1.0
+NW|Emerg. Lighting,2025-08-19 14:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,13.933333333333334,48.76,spread,1.0
+NW|Emerg. Lighting,2025-08-20 04:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,13.283333333333333,188.28,spread,0.7142857142857143
+NW|Emerg. Lighting,2025-08-20 08:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),48,5.0,12.35,193.92,spread,0.6875
+NW|Emerg. Lighting,2025-08-20 19:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),51,3.0,13.158333333333333,213.01999999999998,spread,0.5490196078431373
+NW|Emerg. Lighting,2025-08-27 03:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),49,5.0,12.6,43.1,spread,1.0
+NW|Emerg. Lighting,2025-08-27 04:00 UTC,train,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,12.0,42.64,spread,1.0
+NW|Emerg. Lighting,2025-10-04 22:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,14.45,411.45,counter,0.0
+NW|Emerg. Lighting,2025-10-05 03:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),48,5.0,13.825,193.23,counter,0.125
+NW|Emerg. Lighting,2025-10-05 04:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,13.441666666666666,187.27,counter,0.15384615384615385
+NW|Emerg. Lighting,2025-10-05 05:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,13.649833333333333,355.46000000000004,counter,0.125
+NW|Emerg. Lighting,2025-10-05 06:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,14.608333333333333,678.94,counter,0.0392156862745098
+NW|Emerg. Lighting,2025-10-05 07:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,14.575,501.32,counter,0.04
+NW|Emerg. Lighting,2025-10-05 08:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),53,4.0,15.208333333333334,173.25,counter,0.11320754716981132
+NW|Emerg. Lighting,2025-10-05 09:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,14.541666666666666,170.18,counter,0.04
+NW|Emerg. Lighting,2025-10-05 10:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,15.530666666666667,318.55,counter,0.07692307692307693
+NW|Emerg. Lighting,2025-10-05 13:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,13.119666666666665,430.62,counter,0.125
+NW|Emerg. Lighting,2025-10-05 14:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,14.325,284.47,counter,0.07692307692307693
+NW|Emerg. Lighting,2025-10-05 16:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,14.75,142.17,counter,0.11538461538461539
+NW|Emerg. Lighting,2025-10-05 17:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,14.758333333333333,384.76,counter,0.08333333333333333
+NW|Emerg. Lighting,2025-10-05 18:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,14.566666666666666,133.22,counter,0.04
+NW|Emerg. Lighting,2025-10-05 20:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,15.166666666666666,127.2,counter,0.0784313725490196
+NW|Emerg. Lighting,2025-10-05 21:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,14.866833333333334,121.22,counter,0.08163265306122448
+NW|Emerg. Lighting,2025-10-05 22:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,14.05,221.2,counter,0.14285714285714285
+NW|Emerg. Lighting,2025-10-05 23:00 UTC,test,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,14.791666666666666,114.22,counter,0.0392156862745098
+NW|Emerg. Lighting,2025-10-06 00:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,14.741666666666667,110.25,counter,0.2
+NW|Emerg. Lighting,2025-10-06 01:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,14.841666666666667,197.67,counter,0.11538461538461539
+NW|Emerg. Lighting,2025-10-06 03:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),53,4.0,14.8,96.24,counter,0.03773584905660377
+NW|Emerg. Lighting,2025-10-06 05:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),53,4.0,15.958333333333334,90.28,counter,0.1509433962264151
+NW|Emerg. Lighting,2025-10-06 06:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,16.525,85.3,counter,0.08
+NW|Emerg. Lighting,2025-10-06 07:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,16.616666666666667,141.32,counter,0.038461538461538464
+NW|Emerg. Lighting,2025-10-06 08:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),47,5.0,16.258333333333333,76.55,counter,0.0425531914893617
+NW|Emerg. Lighting,2025-10-06 09:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,15.891666666666667,71.21,counter,0.09803921568627451
+NW|Emerg. Lighting,2025-10-06 10:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,16.224833333333333,70.71,counter,0.04
+NW|Emerg. Lighting,2025-10-06 11:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,5.0,15.166500000000001,64.12,counter,0.2
+NW|Emerg. Lighting,2025-10-06 13:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,16.258333333333333,134.78,counter,0.0392156862745098
+NW|Emerg. Lighting,2025-10-06 14:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),47,5.0,13.761333333333333,53.23,counter,0.23404255319148937
+NW|Emerg. Lighting,2025-10-06 15:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,5.0,14.65,75.45,counter,0.06
+NW|Emerg. Lighting,2025-10-06 16:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,13.641666666666667,41.26,counter,0.08
+NW|Emerg. Lighting,2025-10-06 17:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,14.2835,87.67,counter,0.04081632653061224
+NW|Emerg. Lighting,2025-10-06 19:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,13.916666666666666,32.25,counter,0.10204081632653061
+NW|Emerg. Lighting,2025-10-07 03:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,14.283333333333333,31.22,counter,0.20833333333333334
+NW|Emerg. Lighting,2025-10-07 04:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,14.735999999999999,36.28,counter,0.0
+NW|Emerg. Lighting,2025-10-07 05:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),47,5.0,15.3625,91.6,counter,0.0
+NW|Emerg. Lighting,2025-10-07 07:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,14.833333333333334,47.22,counter,0.14583333333333334
+NW|Emerg. Lighting,2025-10-07 08:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,15.983333333333333,53.28,counter,0.0392156862745098
+NW|Emerg. Lighting,2025-10-07 09:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,15.8,56.18,counter,0.0
+NW|Emerg. Lighting,2025-10-07 11:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,14.808333333333334,65.19,counter,0.12
+NW|Emerg. Lighting,2025-10-07 14:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,13.758333333333333,195.7,counter,0.1568627450980392
+NW|Emerg. Lighting,2025-10-07 18:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,13.658333333333333,164.48,counter,0.04081632653061224
+NW|Emerg. Lighting,2025-10-07 21:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,13.158333333333333,272.59000000000003,counter,0.12
+NW|Emerg. Lighting,2025-10-07 22:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),47,5.0,14.222000000000001,103.24,counter,0.0851063829787234
+NW|Emerg. Lighting,2025-10-07 23:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,5.0,13.738833333333334,202.41000000000003,counter,0.0784313725490196
+NW|Emerg. Lighting,2025-10-08 00:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),48,4.0,13.327833333333333,110.18,counter,0.041666666666666664
+NW|Emerg. Lighting,2025-10-08 02:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,15.358333333333333,120.22,counter,0.12
+NW|Emerg. Lighting,2025-10-08 03:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,5.0,14.116666666666667,124.25,counter,0.1
+NW|Emerg. Lighting,2025-10-08 04:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),47,5.0,14.458333333333334,243.51999999999998,counter,0.0
+NW|Emerg. Lighting,2025-10-08 06:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,13.941666666666666,256.4,counter,0.04081632653061224
+NW|Emerg. Lighting,2025-10-08 07:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,5.0,14.633333333333333,138.24,counter,0.0784313725490196
+NW|Emerg. Lighting,2025-10-08 08:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),47,5.0,14.725,273.33,counter,0.0425531914893617
+NW|Emerg. Lighting,2025-10-08 10:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,14.306999999999999,153.25,counter,0.08163265306122448
+NW|Emerg. Lighting,2025-10-08 12:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,14.1,161.26,counter,0.13725490196078433
+NW|Emerg. Lighting,2025-10-08 14:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),49,5.0,13.675,166.21,counter,0.12244897959183673
+NW|Emerg. Lighting,2025-10-08 15:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,12.544833333333335,170.24,counter,0.08
+NW|Emerg. Lighting,2025-10-08 18:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),49,4.0,14.816666666666666,345.27,counter,0.0
+NW|Emerg. Lighting,2025-10-08 20:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,14.708333333333334,365.56,counter,0.0
+NW|Emerg. Lighting,2025-10-08 21:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),51,4.0,14.189,194.28,counter,0.0784313725490196
+NW|Emerg. Lighting,2025-10-08 22:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),52,4.0,15.025,199.22,counter,0.038461538461538464
+NW|Emerg. Lighting,2025-10-08 23:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,15.333333333333334,388.5,counter,0.04
+NW|Emerg. Lighting,2025-10-09 00:00 UTC,outside,now invalid: energy > 2 x power + 1 Wh (D2),50,4.0,15.691666666666666,398.54,counter,0.0
+NW|HVAC,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",13,1.0,,,counter,0.15384615384615385
+NW|Hand Dryer,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",13,1.0,,,counter,0.07692307692307693
+NW|Hand Dryer,2025-08-27 05:00 UTC,train,"now valid: fewer than 30 readings, no gap > 15 min (D1)",28,5.0,2.972972972972973,,power,0.10714285714285714
+NW|Hand Dryer,2025-08-27 14:00 UTC,train,"now valid: fewer than 30 readings, no gap > 15 min (D1)",13,1.0,,,power,0.0
+NW|Lighting,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",13,1.0,,,counter,0.15384615384615385
+NW|Plugs & Sockets,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",14,1.0,,,counter,0.42857142857142855
+NW|RACK,2025-08-18 18:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",14,1.0,,,counter,0.0
+NW|RACK,2025-10-13 14:00 UTC,outside,"now valid: fewer than 30 readings, no gap > 15 min (D1)",28,4.0,186.25714285714287,,counter,0.0
