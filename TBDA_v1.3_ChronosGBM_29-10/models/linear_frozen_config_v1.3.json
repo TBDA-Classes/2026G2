@@ -1,0 +1,518 @@
+{
+  "model": "ML_Linear",
+  "grid_version": "v1.3",
+  "created_utc": "2026-10-31T12:45:20+00:00",
+  "rule": "Fitted on the training circuits' training data only. Chosen on validation by mean_scaled_MAE over the training circuits (D6), ties by rule D10. Test not used.",
+  "d10_agreed": "2026-10-29 \u2014 Emily Wiesner, Alex (D10a: option B, D10b: 0.005, D10c: baselines tracked)",
+  "dataset": {
+    "file": "Storey1_hourly_v1.2.parquet",
+    "version": "1.2",
+    "sha256": "abd78317869c9466ff065c2a3d648ed949f6487e05a9e10a84137f8fa030a575",
+    "source_sha256": "10691347b942d279eafce8409d804784e12eee4f7122285da797cab39ffb37d9"
+  },
+  "series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SE|Plugs & Sockets",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "training_series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "splits_utc": {
+    "train": [
+      "2025-08-19 00:00",
+      "2025-09-22 00:00"
+    ],
+    "validation": [
+      "2025-09-22 00:00",
+      "2025-09-29 00:00"
+    ],
+    "test": [
+      "2025-09-29 00:00",
+      "2025-10-06 00:00"
+    ]
+  },
+  "numeric_inputs": [
+    "last_val",
+    "mean_24",
+    "std_24",
+    "mean_168",
+    "lag_T24",
+    "lag_T168",
+    "wk_median",
+    "last_age_h",
+    "n_24",
+    "n_168",
+    "n_weeks",
+    "lead"
+  ],
+  "categorical_inputs": [
+    "hour",
+    "weekday"
+  ],
+  "grid": [
+    {
+      "loss": "ridge",
+      "alpha": 0.001,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.001,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.001,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.003,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.003,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.003,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.01,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.01,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.01,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.03,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.03,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.03,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.1,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.1,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.1,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.3,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.3,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 0.3,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 1.0,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 1.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 1.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 3.0,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 3.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 3.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 10.0,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 10.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 10.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 30.0,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 30.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 30.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 100.0,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 100.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 100.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 300.0,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 300.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 300.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 1000.0,
+      "clip": "none"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 1000.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "ridge",
+      "alpha": 1000.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 1e-05,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 1e-05,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 1e-05,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 3e-05,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 3e-05,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 3e-05,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0001,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0001,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0001,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0003,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0003,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0003,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.001,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.001,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.001,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.003,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.003,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.003,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.01,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.01,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.01,
+      "clip": "p01_p99"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.1,
+      "clip": "none"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.1,
+      "clip": "minmax"
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.1,
+      "clip": "p01_p99"
+    }
+  ],
+  "modes": [
+    "pooled",
+    "per_series"
+  ],
+  "n_configurations": 132,
+  "horizons": {
+    "+1h": {
+      "mode": "per_series",
+      "loss": "lad",
+      "alpha": 0.01,
+      "clip": "p01_p99",
+      "config_index": 62,
+      "validation_score": 0.291863,
+      "validation_scaled_RMSE": 0.6673,
+      "n_tied": 6,
+      "best_score": 0.290982,
+      "fit_cutoff_utc": "2025-09-22 00:00:00+00:00",
+      "training_rows": 10145,
+      "scale_Wh": {
+        "NE|HVAC": 2.62428,
+        "NE|Plugs & Sockets": 191.526779,
+        "NW|Emerg. Lighting": 10.035914,
+        "NW|HVAC": 124.228352,
+        "NW|Hand Dryer": 0.875795,
+        "NW|Lighting": 46.943507,
+        "NW|Plugs & Sockets": 563.267145,
+        "NW|RACK": 185.71308,
+        "SE|Emerg. Lighting": 2.265667,
+        "SE|HVAC": 46.861565,
+        "SE|Lighting": 129.325439,
+        "SE|Plugs & Sockets": 255.188684,
+        "SW|Emerg. Lighting": 11.865888,
+        "SW|Hand Dryer": 0.891978,
+        "SW|Lighting": 43.083878,
+        "SW|Plugs & Sockets": 265.052515
+      }
+    },
+    "+6h": {
+      "mode": "per_series",
+      "loss": "lad",
+      "alpha": 0.01,
+      "clip": "p01_p99",
+      "config_index": 62,
+      "validation_score": 0.397484,
+      "validation_scaled_RMSE": 0.76305,
+      "n_tied": 2,
+      "best_score": 0.397484,
+      "fit_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "training_rows": 10070,
+      "scale_Wh": {
+        "NE|HVAC": 2.620185,
+        "NE|Plugs & Sockets": 191.524858,
+        "NW|Emerg. Lighting": 10.03282,
+        "NW|HVAC": 124.754794,
+        "NW|Hand Dryer": 0.880567,
+        "NW|Lighting": 46.516142,
+        "NW|Plugs & Sockets": 564.03085,
+        "NW|RACK": 185.71813,
+        "SE|Emerg. Lighting": 2.264715,
+        "SE|HVAC": 46.904338,
+        "SE|Lighting": 130.309634,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.86573,
+        "SW|Hand Dryer": 0.89587,
+        "SW|Lighting": 43.441764,
+        "SW|Plugs & Sockets": 265.22541
+      }
+    },
+    "day-ahead": {
+      "mode": "pooled",
+      "loss": "lad",
+      "alpha": 0.01,
+      "clip": "none",
+      "config_index": 60,
+      "validation_score": 0.390544,
+      "validation_scaled_RMSE": 0.717151,
+      "n_tied": 6,
+      "best_score": 0.387093,
+      "fit_cutoff_utc": "2025-09-21 22:00:00+00:00",
+      "training_rows": 10115,
+      "scale_Wh": {
+        "NE|HVAC": 2.621799,
+        "NE|Plugs & Sockets": 191.528279,
+        "NW|Emerg. Lighting": 10.033968,
+        "NW|HVAC": 124.484647,
+        "NW|Hand Dryer": 0.878265,
+        "NW|Lighting": 46.763107,
+        "NW|Plugs & Sockets": 563.632623,
+        "NW|RACK": 185.713681,
+        "SE|Emerg. Lighting": 2.264929,
+        "SE|HVAC": 46.878414,
+        "SE|Lighting": 129.715517,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.866984,
+        "SW|Hand Dryer": 0.894787,
+        "SW|Lighting": 43.22654,
+        "SW|Plugs & Sockets": 265.127215
+      }
+    }
+  },
+  "versions": {
+    "python": "3.12.3",
+    "sklearn": "1.6.1",
+    "pandas": "2.2.3",
+    "numpy": "2.1.1"
+  }
+}
