@@ -1,0 +1,4 @@
+horizon,all16,trained8,unseen8_SE_SW,trained8_without_event_days,all16_without_event_days,event_rows,trained8_rows,share_of_trained8_error_from_event_rows
++1h,0.6132,0.9072,0.3192,0.3225,0.3209,48,1344,0.6604
++6h,0.8307,1.2888,0.3726,0.5831,0.4778,48,1344,0.5745
+day-ahead,0.8379,1.2968,0.3789,0.5949,0.4869,48,1344,0.5692
