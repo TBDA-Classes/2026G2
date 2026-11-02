@@ -1,0 +1,9 @@
+# Versions the Task 8 model was frozen with (Python 3.13)
+pandas==3.0.5
+numpy==2.5.3
+scikit-learn==1.9.1
+pyarrow==26.0.0
+holidays==0.106
+openpyxl==3.1.5
+joblib==1.6.0
+pytest==9.1.1
