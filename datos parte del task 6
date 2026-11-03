@@ -1,0 +1,778 @@
+"""Minimal pure-Python Parquet reader (enough for files written by pandas/pyarrow).
+
+Supports: flat schemas, data page v1/v2, PLAIN + dictionary encodings, RLE/bit-packed levels,
+UNCOMPRESSED / SNAPPY / GZIP codecs, types BOOLEAN, INT32, INT64, FLOAT, DOUBLE, BYTE_ARRAY,
+timestamp logical types (tz kept from pandas metadata when present).
+"""
+import gzip
+import io
+import json
+import struct
+import zlib
+
+import numpy as np
+import pandas as pd
+
+
+# ------------------------------------------------------------------ thrift compact protocol
+class TReader:
+    def __init__(self, buf, pos=0):
+        self.b, self.p = buf, pos
+
+    def byte(self):
+        v = self.b[self.p]; self.p += 1; return v
+
+    def varint(self):
+        r = s = 0
+        while True:
+            x = self.byte(); r |= (x & 0x7F) << s; s += 7
+            if not x & 0x80:
+                return r
+
+    def zz(self):
+        v = self.varint(); return (v >> 1) ^ -(v & 1)
+
+    def binary(self):
+        n = self.varint(); v = self.b[self.p:self.p + n]; self.p += n; return v
+
+    def value(self, t):
+        if t in (1, 2):
+            return t == 1
+        if t == 3:
+            v = self.byte(); return v - 256 if v > 127 else v
+        if t in (4, 5, 6):
+            return self.zz()
+        if t == 7:
+            v = struct.unpack_from("<d", self.b, self.p)[0]; self.p += 8; return v
+        if t == 8:
+            return self.binary()
+        if t in (9, 10):
+            h = self.byte(); n = h >> 4; et = h & 0x0F
+            if n == 15:
+                n = self.varint()
+            if et in (1, 2):
+                return [self.byte() == 1 for _ in range(n)]
+            return [self.value(et) for _ in range(n)]
+        if t == 11:
+            n = self.varint()
+            if n == 0:
+                return {}
+            kv = self.byte(); kt, vt = kv >> 4, kv & 0x0F
+            return {self.value(kt): self.value(vt) for _ in range(n)}
+        if t == 12:
+            return self.struct()
+        raise ValueError(f"thrift type {t}")
+
+    def struct(self):
+        out, last = {}, 0
+        while True:
+            h = self.byte()
+            if h == 0:
+                return out
+            t = h & 0x0F; d = h >> 4
+            fid = last + d if d else self.zz()
+            last = fid
+            out[fid] = self.value(t)
+
+
+# ------------------------------------------------------------------ codecs
+def snappy_decompress(src):
+    r = TReader(src); n = r.varint(); out = bytearray(); p = r.p
+    while p < len(src):
+        tag = src[p]; p += 1; kind = tag & 3
+        if kind == 0:
+            ln = tag >> 2
+            if ln >= 60:
+                nb = ln - 59; ln = int.from_bytes(src[p:p + nb], "little"); p += nb
+            ln += 1; out += src[p:p + ln]; p += ln
+            continue
+        if kind == 1:
+            ln = ((tag >> 2) & 7) + 4; off = ((tag >> 5) << 8) | src[p]; p += 1
+        elif kind == 2:
+            ln = (tag >> 2) + 1; off = int.from_bytes(src[p:p + 2], "little"); p += 2
+        else:
+            ln = (tag >> 2) + 1; off = int.from_bytes(src[p:p + 4], "little"); p += 4
+        start = len(out) - off
+        for i in range(ln):
+            out.append(out[start + i])
+    assert len(out) == n
+    return bytes(out)
+
+
+def decompress(codec, data, size):
+    if codec == 0:
+        return data
+    if codec == 1:
+        return snappy_decompress(data)
+    if codec == 2:
+        return zlib.decompress(data, 47)
+    raise ValueError(f"unsupported codec {codec}")
+
+
+# ------------------------------------------------------------------ encodings
+def rle_bitpacked(buf, bit_width, count, pos=0, end=None):
+    end = len(buf) if end is None else end
+    out = []; r = TReader(buf, pos); bw_bytes = (bit_width + 7) // 8
+    while len(out) < count and r.p < end:
+        h = r.varint()
+        if h & 1:
+            groups = h >> 1; nbytes = groups * bit_width
+            chunk = int.from_bytes(buf[r.p:r.p + nbytes], "little"); r.p += nbytes
+            mask = (1 << bit_width) - 1
+            for i in range(groups * 8):
+                out.append((chunk >> (i * bit_width)) & mask if bit_width else 0)
+        else:
+            n = h >> 1
+            v = int.from_bytes(buf[r.p:r.p + bw_bytes], "little"); r.p += bw_bytes
+            out.extend([v] * n)
+    return out[:count]
+
+
+def plain(buf, ptype, n, pos=0):
+    if ptype == 0:
+        bits = np.unpackbits(np.frombuffer(buf, np.uint8, offset=pos), bitorder="little")
+        return bits[:n].astype(bool)
+    if ptype in (1, 2, 4, 5):
+        dt = {1: "<i4", 2: "<i8", 4: "<f4", 5: "<f8"}[ptype]
+        return np.frombuffer(buf, dt, count=n, offset=pos).copy()
+    if ptype == 6:
+        out = []; p = pos
+        for _ in range(n):
+            ln = struct.unpack_from("<i", buf, p)[0]; p += 4
+            out.append(bytes(buf[p:p + ln]).decode("utf-8")); p += ln
+        return np.array(out, dtype=object)
+    raise ValueError(f"ptype {ptype}")
+
+
+# ------------------------------------------------------------------ reader
+def read_parquet(path):
+    b = open(path, "rb").read()
+    flen = int.from_bytes(b[-8:-4], "little")
+    meta = TReader(b, len(b) - 8 - flen).struct()
+    schema = meta[2]
+    leaves = [s for s in schema[1:] if 5 not in s or not s.get(5)]
+    names = [s[4].decode() for s in leaves]
+    kv = {x[1].decode(): x.get(2, b"").decode() for x in meta.get(5, [])}
+    pmeta = json.loads(kv["pandas"]) if "pandas" in kv else {}
+    cols = {nm: [] for nm in names}
+    for rg in meta[4]:
+        for ci, cc in enumerate(rg[1]):
+            md = cc[3]; ptype = md[1]; codec = md[4]
+            nm = names[ci]; sch = leaves[ci]
+            max_def = 1 if sch.get(3, 0) == 1 else 0
+            start = md.get(11, md[9])
+            r = TReader(b, start); total = md[5]; got = 0; dictv = None
+            while got < total:
+                ph = r.struct(); page = b[r.p:r.p + ph[3]]; r.p += ph[3]
+                ptyp = ph[1]
+                if ptyp == 2:                                 # dictionary page
+                    d = decompress(codec, page, ph[2]); dh = ph[7]
+                    dictv = plain(d, ptype, dh[1]); continue
+                if ptyp == 0:                                 # data page v1
+                    d = decompress(codec, page, ph[2]); dh = ph[5]; n = dh[1]; enc = dh[2]; p = 0
+                    if max_def:
+                        ln = struct.unpack_from("<i", d, 0)[0]
+                        defs = rle_bitpacked(d, 1, n, 4, 4 + ln); p = 4 + ln
+                    else:
+                        defs = [1] * n
+                elif ptyp == 3:                               # data page v2
+                    dh = ph[8]; n = dh[1]; enc = dh[4]; dl = dh[5]; rl = dh.get(6, 0)
+                    lv = page[:rl + dl]
+                    defs = rle_bitpacked(lv, 1, n, rl, rl + dl) if max_def else [1] * n
+                    body = page[rl + dl:]
+                    compressed = dh.get(7, True)
+                    d = decompress(codec, body, ph[2] - rl - dl) if compressed else body; p = 0
+                else:
+                    raise ValueError(f"page type {ptyp}")
+                nn = int(sum(defs))
+                if enc in (2, 8):                             # dictionary indices
+                    bw = d[p]; idx = rle_bitpacked(d, bw, nn, p + 1)
+                    vals = dictv[np.asarray(idx, dtype=np.int64)]
+                elif enc == 0:
+                    vals = plain(d, ptype, nn, p)
+                else:
+                    raise ValueError(f"encoding {enc}")
+                if nn == n:
+                    cols[nm].append(np.asarray(vals))
+                else:
+                    full = np.empty(n, dtype=object); m = np.asarray(defs, bool)
+                    full[m] = vals; full[~m] = None
+                    cols[nm].append(full)
+                got += n
+    df = pd.DataFrame({nm: np.concatenate(v) if v else [] for nm, v in cols.items()})
+    tz = {c["name"]: (c.get("metadata") or {}).get("timezone") for c in pmeta.get("columns", [])}
+    for s in leaves:
+        nm = s[4].decode(); lt = s.get(10, {}); ct = s.get(6)
+        if 8 in lt or ct in (9, 10):                          # TIMESTAMP
+            unit = "ns"
+            if 8 in lt:
+                u = lt[8].get(2, {})
+                unit = "ms" if 1 in u else "us" if 2 in u else "ns"
+            elif ct == 9:
+                unit = "ms"
+            else:
+                unit = "us"
+            v = pd.to_numeric(df[nm], errors="coerce")
+            ts = pd.to_datetime(v, unit=unit, utc=True)
+            z = tz.get(nm)
+            df[nm] = ts.dt.tz_convert(z) if z else ts.dt.tz_localize(None)
+        elif df[nm].dtype == object and s[1] in (1, 2, 4, 5):
+            df[nm] = pd.to_numeric(df[nm], errors="coerce")
+        elif df[nm].dtype == object and s[1] == 0:
+            df[nm] = df[nm].astype("boolean")
+    return df
+
+# Task 6 — Final model comparison (Sprint 3)
+
+**Owner:** Edoardo Menegozzo · **Date:** 3 Nov 2026 · **Results:** [RESULTS.md](RESULTS.md)
+
+This task compares every forecasting model of the team on exactly the same hours. It reports MAE and RMSE with 95% confidence intervals and says which model is best for each horizon and zone.
+
+**Main result:** the final model, Blend v1.3, has a test MAE of 22.2 / 34.7 / 34.2 Wh at +1 h / +6 h / day-ahead on all 16 circuits. It is the best model, or tied with the best, at every horizon, and it beats Baseline B everywhere.
+
+![Test MAE with 95% CI](figures/task6_test_mae_16circuits.png)
+
+## What I did
+
+1. **Collected all models.** There are 11:
+   - **Baselines** B1, B2 and B3.
+   - **Sprint 3 models:** Linear Regression, Random Forest, GBM v1.0 and Chronos-Bolt Small v1.1.
+   - **v1.3 models:** GBM v1.3, Chronos-Bolt v1.3, ChronosGBM v1.3 and Blend v1.3.
+2. **Regenerated the forecasts from the frozen models** and checked them against each owner's numbers (table below). Nothing was fitted or tuned again.
+3. **Rebuilt Model 1 (Linear Regression)** from its `PARAMETERS.md`, because its script was not in the repository. Its test forecasts match the official file within 0.0005 Wh, so I could use its validation forecasts.
+4. **Ran the frozen v1.3 models on the test week.** This covers GBM v1.3, ChronosGBM v1.3 and Blend v1.3, using Emily's Chronos v1.3 test forecasts. Each test was run once, after the final model had been chosen on validation (rule D10, 29 Oct).
+5. **Built one fair comparison** (`task6_compare.py`):
+   - **Same hours.** Only hours that are valid in both dataset versions (v1.1 and v1.2) and forecast by every model are scored. Where both are valid, the actual values are identical.
+   - **Metrics.** MAE (primary), RMSE, WAPE, and scaled MAE (MAE ÷ the circuit's training mean).
+   - **Confidence intervals.** 95% CIs from a circular block bootstrap: 24-hour blocks, 2,000 resamples, with all circuits of an hour kept together.
+   - **Pairwise tests.** Every pair of models is compared. A difference counts as significant only if its CI excludes 0.
+   - **Groupings.** All circuits, NE/NW, SE/SW, and each zone.
+6. **Ran six comparisons:** test and validation, each on 16 and on 8 circuits, plus the two test runs without the NE|HVAC event of 3 Oct.
+7. **Error analysis:** by hour of day, weekday/weekend, date, circuit, and hours ahead.
+
+## Checks
+
+| Model | Check | Result |
+|---|---|---|
+| B1, B2, B3, GBM v1.0 | validation MAE, 8 circuits, 1,120 h | 66.7 / 54.2 / 31.3 / 33.3 Wh, identical to the Sprint 3 report |
+| GBM v1.0, B1–B3 (dataset v1.1) | test MAE per circuit | 96/96 identical to `task1_rf_test_comparison.csv` |
+| Linear Regression | rebuilt test forecasts | max. difference 0.0005 Wh |
+| Linear Regression | validation scaled MAE | 0.340 / 0.392 / 0.395, identical |
+| Chronos-Bolt Small v1.1 | validation scores | 0.254905 / 0.338586 / 0.322740, identical |
+| Chronos-Bolt v1.3 | validation scores | identical |
+| Chronos-Bolt v1.3 | test forecasts vs Emily's file | difference < 1e-12 Wh |
+| GBM v1.3, ChronosGBM v1.3, Blend v1.3 | validation scores | equal to the 3rd–4th decimal |
+
+## Folder
+
+| Path | Content |
+|---|---|
+| `RESULTS.md` | which model is best, all tables, error analysis |
+| `task6_compare.py` | the comparison (same hours, metrics, bootstrap CIs, pairwise tests, error tables) |
+| `run_task6_all.sh` | runs all six comparisons and the figure |
+| `minipq.py` | small Parquet reader (our environment had no pyarrow) |
+| `generation/run_task6_v13_predictions.py` | v1.3 forecasts from the frozen models; run inside the TBDA_v1.3 folder |
+| `generation/task6_linear_rebuild.py`, `generation/run_task6_v11_validation.py` | Linear rebuild and v1.1 validation forecasts; run inside Task78_rev0_19-10 |
+| `data/` | circuit scales for scaled MAE, list of the test events |
+| `results/predictions/` | one CSV per model and split: `<model>_test_predictions.csv`, `<model>_validation_predictions.csv` |
+| `results/task6_<split>_<n>circuits[_without_events]/` | `metrics_with_CI.csv`, `pairwise_differences.csv`, `best_model_per_scope.csv`, `metrics_per_circuit.csv`, `circuit_wins.csv`, `error_by_*.csv`, `alignment_checks.csv`, `mae_with_ci.png`, `log.txt` |
+| `figures/` | `task6_test_mae_16circuits.png` and the script that makes it |
+
+## How to run
+
+```
+pip install pandas numpy matplotlib
+bash run_task6_all.sh          # ~1 min, rewrites results/task6_*/ and figures/
+```
+
+## Model names in the files
+
+| File name | Model | Dataset | Trained on → forecasts |
+|---|---|---|---|
+| `B1_last_week` | Baseline A, same hour last week | v1.2 | — → 16 |
+| `B2_weekday_hour_median` | Baseline B, training median per weekday × hour | v1.2 | — → 16 |
+| `B3_persistence` | Baseline C, last valid hour (≤ 24 h old) | v1.2 | — → 16 |
+| `ML_Linear` | Linear Regression, pooled LAD, design B | v1.1 | 8 → 16 |
+| `ML_RandomForest` | Random Forest, pooled | v1.1 | 8 → 16 |
+| `ML_GBM_v1.0` | Gradient boosting, Sprint 2 | v1.1 | 8 → 8 |
+| `ML_GBM_v1.3` | Gradient boosting, v1.3 grid | v1.2 | 15 → 16 |
+| `ML_Chronos_v1.1` | Chronos-Bolt Small, zero-shot | v1.1 | — → 8 |
+| `ML_Chronos_v1.3` | Chronos-Bolt v1.3 (base/tiny/base) | v1.2 | — → 16 |
+| `ML_ChronosGBM_v1.3` | GBM with Chronos inputs | v1.2 | 15 → 16 |
+| `ML_Blend_v1.3` | **final model**, weighted average of GBM, ChronosGBM and Chronos v1.3 | v1.2 | 15 → 16 |
+
+# Task 6 — Results: which model is best
+
+**Short answer:** the final model **Blend v1.3** (`ML_Blend_v1.3`) is the best model, or tied with the best, at every horizon. On the test week (16 circuits) its MAE is **22.2 Wh at +1 h, 34.7 Wh at +6 h and 34.2 Wh day-ahead**. That is 49%, 21% and 22% below Baseline B, and every one of these differences is significant. It beats persistence significantly only at +6 h; at +1 h and day-ahead it is lower than persistence, but tied.
+
+Test week 29 Sep – 5 Oct 2025. Every model is scored on the same hours: 1,911 per horizon on the 16 circuits and 1,318 on the 8 NE/NW circuits. MAE is in Wh, and lower is better. A model counts as better only when the 95% CI of the MAE difference excludes 0.
+
+![Test MAE with 95% CI, 16 circuits](figures/task6_test_mae_16circuits.png)
+
+## 1. Test, all 16 circuits
+
+| Model | MAE +1 h | MAE +6 h | MAE day-ahead | RMSE +1 h | RMSE +6 h | RMSE day-ahead | scaled MAE day-ahead |
+|---|---|---|---|---|---|---|---|
+| **Blend v1.3 (final model)** | 22.2 | 34.7 | **34.2** | 93.5 | 135.5 | 139.0 | **0.498** |
+| Chronos-Bolt v1.3 | **21.5** | 36.9 | 36.2 | **87.6** | 139.3 | 148.5 | 0.506 |
+| ChronosGBM v1.3 | 24.7 | **34.2** | 35.9 | 105.6 | 139.6 | 147.0 | 0.521 |
+| Gradient boosting v1.3 | 26.3 | 37.1 | 35.7 | 113.3 | 148.7 | 143.9 | 0.514 |
+| Random Forest | 27.7 | 37.4 | 37.4 | 108.9 | 140.5 | 141.4 | 0.551 |
+| Linear Regression | 25.1 | 39.4 | 39.7 | 95.5 | 135.9 | **138.0** | 0.642 |
+| Baseline C (persistence) | 24.0 | 57.8 | 41.5 | 98.5 | 208.0 | 167.6 | 0.536 |
+| Baseline B (weekday × hour) | 43.7 | 43.7 | 43.7 | 165.5 | 165.5 | 165.5 | 0.596 |
+| Baseline A (last week) | 59.1 | 59.1 | 59.1 | 204.1 | 204.1 | 204.1 | 0.697 |
+
+95% CIs for every value: `results/task6_test_16circuits/metrics_with_CI.csv`.
+
+## 2. Best model per horizon
+
+| Horizon | Lowest test MAE | Blend v1.3 vs best | Blend v1.3 vs Baseline B | Blend v1.3 vs persistence |
+|---|---|---|---|---|
+| +1 h | Chronos-Bolt v1.3 (21.5) | +0.6 Wh, tie | −21.6 Wh (CI −26.9 to −16.7), **better** | −1.8 Wh (CI −4.7 to +2.6), tie |
+| +6 h | ChronosGBM v1.3 (34.2) | +0.5 Wh, tie | −9.0 Wh (CI −12.4 to −4.9), **better** | −23.1 Wh (CI −31.8 to −15.7), **better** |
+| day-ahead | **Blend v1.3** (34.2) | — | −9.6 Wh (CI −14.9 to −4.2), **better** | −7.3 Wh (CI −16.8 to +0.1), tie (significant in scaled MAE) |
+
+- Blend v1.3 beats Baseline B on 16, 14 and 14 of the 16 circuits (+1 h, +6 h, day-ahead).
+- **At +1 h** the Blend is significantly better than gradient boosting v1.3 and Random Forest. **At +6 h and day-ahead** it is significantly better than Chronos-Bolt v1.3 alone. The other day-ahead differences between ML models are ties.
+- **At +1 h** no model is significantly better than persistence. The closest is Chronos-Bolt v1.3: −2.4 Wh, CI −4.5 to +0.1.
+- **Without the NE|HVAC event of 3 Oct**, the conclusions are the same (`results/task6_test_16circuits_without_events/`).
+- **On the SE/SW circuits**, which are not or barely in training, persistence has the lowest MAE at +6 h and day-ahead.
+
+## 3. The 8 NE/NW circuits (continuity with Sprints 2 and 3)
+
+| Model | Val +1 h | Val +6 h | Val day-ahead | Test +1 h | Test +6 h | Test day-ahead |
+|---|---|---|---|---|---|---|
+| Blend v1.3 (final model) | 27.8 | **40.7** | 36.0 | 29.4 | 46.0 | 43.8 |
+| Chronos-Bolt v1.3 | 26.4 | 41.6 | **35.0** | **28.5** | 49.1 | 46.9 |
+| ChronosGBM v1.3 | 30.2 | 41.3 | 44.8 | 32.3 | 44.3 | **42.7** |
+| Gradient boosting v1.3 | 32.6 | 43.6 | 41.9 | 34.6 | 46.8 | 43.5 |
+| Chronos-Bolt Small v1.1 | **26.1** | 41.4 | 37.4 | 29.0 | **42.1** | 43.6 |
+| Random Forest | 27.6 | 41.9 | 41.5 | 33.0 | 44.2 | 43.7 |
+| Linear Regression | 30.0 | 43.4 | 43.5 | 31.4 | 45.5 | 45.6 |
+| Gradient boosting v1.0 (Sprint 2) | 33.3 | 46.4 | 48.3 | 35.1 | 48.9 | 47.8 |
+| Baseline C (persistence) | 31.3 | 66.8 | 58.2 | 31.5 | 79.7 | 54.8 |
+| Baseline B | 54.2 | 54.4 | 54.2 | 47.8 | 47.8 | 47.8 |
+| Baseline A | 66.7 | 66.7 | 66.7 | 60.5 | 60.5 | 60.5 |
+
+On these 8 circuits the top models are tied at every horizon.
+
+Compared with the Sprint 2 model (gradient boosting v1.0):
+- **Blend v1.3** is significantly better at +1 h (−5.7 Wh, CI −10.9 to −1.5).
+- **Gradient boosting v1.3 and Random Forest** are significantly better day-ahead.
+- **Random Forest, Linear Regression and Chronos-Bolt Small** are significantly better at +6 h.
+
+## 4. Validation, all 16 circuits (where the final model was chosen)
+
+| Model | +1 h | +6 h | day-ahead |
+|---|---|---|---|
+| Chronos-Bolt v1.3 | **19.1** | 31.6 | **27.5** |
+| Blend v1.3 | 19.7 | **31.3** | 28.8 |
+| ChronosGBM v1.3 | 21.4 | **31.3** | 36.5 |
+| Linear Regression | 22.9 | 35.7 | 36.2 |
+| Gradient boosting v1.3 | 23.3 | 39.0 | 37.7 |
+| Random Forest | 23.9 | 39.9 | 39.8 |
+| Baseline C (persistence) | 22.8 | 50.6 | 38.5 |
+| Baseline B | 48.6 | 48.8 | 48.7 |
+| Baseline A | 55.9 | 55.9 | 55.9 |
+
+Rule D10 (scaled MAE, tie margin 0.005, tie-break scaled RMSE) chose Blend v1.3 at every horizon on 29 Oct. The Blend weights (gradient boosting v1.3 / ChronosGBM v1.3 / Chronos-Bolt v1.3) are 0.30/0.20/0.50 at +1 h, 0.10/0.35/0.55 at +6 h and 0.15/0.10/0.75 day-ahead. Chronos-Bolt v1.3 alone was best on validation day-ahead (27.5 Wh) but is weaker on the test week (36.2 Wh). The combination is more stable.
+
+## 5. Where the errors are (test, 16 circuits, day-ahead, Blend v1.3)
+
+- **Hour of day.** The error is 49.4 Wh at 00–05 h, 46.1 at 06–08 h, 24.8 at 09–13 h, 28.5 at 14–18 h and 21.5 at 19–23 h.
+  - Between 00:00 and 09:00, 79% of the error comes from **NW|Plugs & Sockets**.
+  - Its mean night consumption rises from 514 Wh/h in training to 980 Wh/h in validation and 1,043 Wh/h in test (1,924 Wh/h on the night of 30 Sep).
+  - This is a change in operation that should be checked with the data owner.
+- **Weekday / weekend.** 41.3 Wh on weekdays vs 19.1 Wh at the weekend.
+- **Circuit.** NW|Plugs & Sockets 250.9 Wh, NW|Lighting 49.1, SE|Lighting 40.4, NW|HVAC 28.9, SE|Plugs & Sockets 24.9. All other circuits are below 11 Wh.
+- **Hours ahead.** 49.7 Wh (1–3 h), 48.0 (4–6), 35.4 (7–12), 29.6 (13–18), 21.4 (19–24). The error does not grow with the hours ahead. Forecasts are issued at 00:00, so hours ahead equal the clock hour, and this is the same night effect.
+- **Events.** Removing the NE|HVAC run of 3 Oct changes MAE by less than 1 Wh (34.2 → 33.7) but almost halves scaled MAE (0.498 → 0.264). The 18 impossible NW|Emerg. Lighting hours are invalid in dataset v1.2 (D2), so they are not scored.
+
+## 6. Limitations
+
+- There is one test week only, so many differences between the best models are ties.
+- Two dataset versions are compared (v1.1 and v1.2). Only hours valid in both are scored.
+- SE/SW coverage in the test week is low; for example, SE|Plugs & Sockets has 63 of 168 hours scored.
+- Power (W) and current (I) were not modelled by any model.
+
+#!/bin/bash
+# Task 6 — every comparison of the report (test/validation x 16/8 circuits, test without the NE|HVAC event).
+#   bash run_task6_all.sh            -> results/task6_<run>/
+set -e
+cd "$(dirname "$0")"
+export SCALE_FILE=data/task6_circuit_scale_train_mean_v1.2.csv EVENTS_FILE=data/task6_events_test.csv
+P=results/predictions
+M16="ML_RandomForest ML_Linear ML_GBM_v1.3 ML_Chronos_v1.3 ML_ChronosGBM_v1.3 ML_Blend_v1.3 B1_last_week B2_weekday_hour_median B3_persistence"
+M8="$M16 ML_GBM_v1.0 ML_Chronos_v1.1"
+files(){ split=$1; shift; for m in "$@"; do echo "$P/${m}_${split}_predictions.csv"; done; }
+run(){ out=$1; shift; echo ">> $out"; mkdir -p results/$out; OUT_DIR=results/$out python3 task6_compare.py "$@" > results/$out/log.txt 2>&1; }
+SPLIT_LABEL=Test       run task6_test_16circuits                $(files test $M16)
+SPLIT_LABEL=Test       run task6_test_8circuits                 $(files test $M8)
+SPLIT_LABEL=Test EXCLUDE_EVENTS=1 run task6_test_16circuits_without_events $(files test $M16)
+SPLIT_LABEL=Test EXCLUDE_EVENTS=1 run task6_test_8circuits_without_events  $(files test $M8)
+SPLIT_LABEL=Validation run task6_validation_16circuits          $(files validation $M16)
+SPLIT_LABEL=Validation run task6_validation_8circuits           $(files validation $M8)
+python3 figures/task6_make_figure.py
+
+"""
+CeDInt — Sprint 3, Task 6: final model comparison
+==================================================
+
+Compares any number of models on EXACTLY the same test hours.
+
+INPUT
+-----
+One CSV per model in the folder `predictions/` (or paths given on the command line),
+with at least: model, zone, circuit_zone, horizon_h, target_hour, actual_Wh, predicted_Wh.
+
+The script tolerates the known format differences between teams:
+- `zone` / `circuit_zone` swapped (the circuit is always the value containing "|")
+- timestamps with or without "+0000"
+
+WHAT IT DOES
+------------
+1. Normalises every file and checks it (duplicates, missing hours, same actual values).
+2. Inner-joins all models on (circuit, horizon, target_hour) and keeps only the hours where
+   a valid actual value exists -> every model is scored on identical rows.
+3. MAE and RMSE (Wh) per model x horizon x group (all 16 circuits, trained NE/NW, unseen SE/SW)
+   and per circuit.
+4. 95% confidence intervals with a circular moving-block bootstrap:
+   blocks of 24 consecutive test hours, all circuits of an hour kept together
+   (errors are correlated in time and across circuits).
+5. Paired comparison: CI of the MAE difference between every pair of models.
+   If the CI does not contain 0, the difference is significant.
+6. Best model per horizon and per zone (NE, NW, SE, SW) with the significance verdict.
+
+RUN
+---
+pip install pandas numpy matplotlib
+python task6_compare.py results/predictions/*_test_predictions.csv
+"""
+
+import sys
+from pathlib import Path
+from itertools import combinations
+
+import numpy as np
+import pandas as pd
+
+N_BOOT = 2000
+BLOCK_H = 24
+SEED = 42
+import os
+OUT = Path(os.environ.get("OUT_DIR", Path(__file__).resolve().parent / "results" / "task6_comparison"))
+HORIZON_NAME = {1: "+1h", 6: "+6h", 24: "day-ahead"}
+SPLIT_LABEL = os.environ.get("SPLIT_LABEL", "Test")
+SCALE_FILE = os.environ.get("SCALE_FILE")          # circuit,scale_Wh  -> scaled MAE (MAE / training mean)
+EVENTS_FILE = os.environ.get("EVENTS_FILE")        # circuit,target_hour,event
+EXCLUDE_EVENTS = os.environ.get("EXCLUDE_EVENTS") == "1"
+TZ_LOCAL = "Europe/Madrid"
+TRAINED_ZONES = {"NE", "NW"}
+
+
+# ---------------------------------------------------------------- 1. load + normalise
+def load(path):
+    d = pd.read_csv(path)
+    need = {"model", "zone", "circuit_zone", "horizon_h", "target_hour",
+            "actual_Wh", "predicted_Wh"}
+    missing = need - set(d.columns)
+    if missing:
+        raise ValueError(f"{path}: missing columns {missing}")
+
+    # the circuit is the column whose values contain "|"
+    if d["zone"].astype(str).str.contains(r"\|").all():
+        circuit, area = d["zone"], d["circuit_zone"]
+    else:
+        circuit, area = d["circuit_zone"], d["zone"]
+
+    out = pd.DataFrame({
+        "model": d["model"].astype(str),
+        "circuit": circuit.astype(str),
+        "zone": area.astype(str),
+        "horizon_h": d["horizon_h"].astype(int),
+        "target_hour": pd.to_datetime(d["target_hour"], utc=True),
+        "actual_Wh": pd.to_numeric(d["actual_Wh"], errors="coerce"),
+        "predicted_Wh": pd.to_numeric(d["predicted_Wh"], errors="coerce"),
+    })
+    if "lead_h" in d.columns:
+        out["lead_h"] = d["lead_h"]
+
+    dup = out.duplicated(["circuit", "horizon_h", "target_hour"]).sum()
+    print(f"{Path(path).name}: model={out.model.iloc[0]}, rows={len(out):,}, "
+          f"circuits={out.circuit.nunique()}, duplicates={dup}, "
+          f"rows with actual={out.actual_Wh.notna().sum():,}")
+    if dup:
+        raise ValueError(f"{path}: duplicated (circuit, horizon, hour) rows")
+    return out
+
+
+# ---------------------------------------------------------------- 2. align
+def align(frames):
+    key = ["circuit", "zone", "horizon_h", "target_hour"]
+    base = frames[0][key + ["actual_Wh"] + (["lead_h"] if "lead_h" in frames[0] else [])]
+    wide = base.copy()
+    checks = []
+    for f in frames:
+        name = f.model.iloc[0]
+        m = wide.merge(f[key + ["actual_Wh", "predicted_Wh"]], on=key, how="inner",
+                       suffixes=("", "_other"))
+        both = m.actual_Wh.notna() & m.actual_Wh_other.notna()
+        same_actual = np.isclose(m.loc[both, "actual_Wh"], m.loc[both, "actual_Wh_other"]).mean()
+        same_missing = (m.actual_Wh.isna() == m.actual_Wh_other.isna()).mean()
+        checks.append({"model": name, "rows_matched": len(m),
+                       "same_actual_values_%": round(100 * same_actual, 2),
+                       "same_missing_hours_%": round(100 * same_missing, 2)})
+        m.loc[m.actual_Wh_other.isna(), "actual_Wh"] = np.nan        # keep only hours valid in EVERY file
+        wide = m.drop(columns="actual_Wh_other").rename(columns={"predicted_Wh": name})
+    models = [f.model.iloc[0] for f in frames]
+    before = len(wide)
+    wide = wide.dropna(subset=["actual_Wh"] + models).reset_index(drop=True)
+    if EXCLUDE_EVENTS:
+        ev = pd.read_csv(EVENTS_FILE); ev["target_hour"] = pd.to_datetime(ev.target_hour, utc=True)
+        k = wide.set_index(["circuit", "target_hour"]).index.isin(ev.set_index(["circuit", "target_hour"]).index)
+        print(f"Excluding {k.sum():,} rows of known events ({EVENTS_FILE})")
+        wide = wide[~k].reset_index(drop=True)
+    wide["group"] = np.where(wide.zone.isin(TRAINED_ZONES), "NE/NW circuits", "SE/SW circuits")
+    print(f"\nAligned rows: {before:,} -> {len(wide):,} with a valid actual for every model")
+    return wide, models, pd.DataFrame(checks)
+
+
+# ---------------------------------------------------------------- 3-5. metrics + bootstrap
+_SCALE = {}
+def load_scale():
+    if not SCALE_FILE:
+        return None
+    if "s" not in _SCALE:
+        _SCALE["s"] = pd.read_csv(SCALE_FILE).set_index("circuit")["scale_Wh"]
+    return _SCALE["s"]
+
+
+def block_indices(hours, rng):
+    """Circular moving-block bootstrap over the ordered list of test hours."""
+    n = len(hours)
+    n_blocks = int(np.ceil(n / BLOCK_H))
+    starts = rng.integers(0, n, n_blocks)
+    idx = (starts[:, None] + np.arange(BLOCK_H)[None, :]).ravel() % n
+    return idx[:n]
+
+
+def evaluate(sub, models, rng_seed):
+    """Point MAE/RMSE + bootstrap CIs for every model and every pair difference."""
+    hours = np.sort(sub.target_hour.unique())
+    hour_pos = {h: i for i, h in enumerate(hours)}
+    pos = sub.target_hour.map(hour_pos).to_numpy()
+    y = sub.actual_Wh.to_numpy()
+    err = {m: sub[m].to_numpy() - y for m in models}
+
+    # per-hour sums so each bootstrap draw is cheap
+    n_h = np.bincount(pos, minlength=len(hours)).astype(float)
+    abs_h = {m: np.bincount(pos, np.abs(err[m]), len(hours)) for m in models}
+    sq_h = {m: np.bincount(pos, err[m] ** 2, len(hours)) for m in models}
+    y_h = np.bincount(pos, np.abs(y), len(hours))
+
+    scale = load_scale()
+    if scale is not None:
+        circ = sub.circuit.to_numpy(); cats = np.unique(circ); ci = np.searchsorted(cats, circ)
+        sc = scale.reindex(cats).to_numpy()
+        cell = pos * len(cats) + ci; ncell = len(hours) * len(cats)
+        n_hc = np.bincount(cell, minlength=ncell).reshape(len(hours), len(cats)).astype(float)
+        abs_hc = {m: np.bincount(cell, np.abs(err[m]), ncell).reshape(len(hours), len(cats)) for m in models}
+        def smae(a, n):
+            with np.errstate(invalid="ignore", divide="ignore"):
+                return np.nanmean((a / n) / sc)
+        boot_smae = {m: np.empty(N_BOOT) for m in models}
+    rng = np.random.default_rng(rng_seed)
+    boot_mae = {m: np.empty(N_BOOT) for m in models}
+    boot_rmse = {m: np.empty(N_BOOT) for m in models}
+    boot_wape = {m: np.empty(N_BOOT) for m in models}
+    for b in range(N_BOOT):
+        idx = block_indices(hours, rng)
+        n = n_h[idx].sum()
+        for m in models:
+            boot_mae[m][b] = abs_h[m][idx].sum() / n
+            boot_rmse[m][b] = np.sqrt(sq_h[m][idx].sum() / n)
+            boot_wape[m][b] = 100 * abs_h[m][idx].sum() / y_h[idx].sum()
+            if scale is not None:
+                boot_smae[m][b] = smae(abs_hc[m][idx].sum(0), n_hc[idx].sum(0))
+
+    rows = []
+    for m in models:
+        rows.append({
+            "model": m, "n": len(sub),
+            "MAE_Wh": np.abs(err[m]).mean(),
+            "MAE_lo": np.percentile(boot_mae[m], 2.5),
+            "MAE_hi": np.percentile(boot_mae[m], 97.5),
+            "RMSE_Wh": np.sqrt((err[m] ** 2).mean()),
+            "RMSE_lo": np.percentile(boot_rmse[m], 2.5),
+            "RMSE_hi": np.percentile(boot_rmse[m], 97.5),
+            "WAPE_%": 100 * np.abs(err[m]).sum() / np.abs(y).sum(),
+            "WAPE_lo": np.percentile(boot_wape[m], 2.5),
+            "WAPE_hi": np.percentile(boot_wape[m], 97.5),
+        })
+        if scale is not None:
+            rows[-1].update({"scaled_MAE": smae(abs_hc[m].sum(0), n_hc.sum(0)),
+                             "sMAE_lo": np.percentile(boot_smae[m], 2.5), "sMAE_hi": np.percentile(boot_smae[m], 97.5)})
+    pairs = []
+    for a, b in combinations(models, 2):
+        diff = boot_mae[a] - boot_mae[b]
+        point = np.abs(err[a]).mean() - np.abs(err[b]).mean()
+        lo, hi = np.percentile(diff, [2.5, 97.5])
+        p = 2 * min((diff <= 0).mean(), (diff >= 0).mean())
+        pairs.append({"model_A": a, "model_B": b, "MAE_A_minus_B": point,
+                      "diff_lo": lo, "diff_hi": hi, "p_value": min(p, 1.0),
+                      "significant": not (lo <= 0 <= hi),
+                      "better": (a if point < 0 else b) if not (lo <= 0 <= hi) else "tie"})
+        if scale is not None:
+            d2 = boot_smae[a] - boot_smae[b]; lo2, hi2 = np.percentile(d2, [2.5, 97.5])
+            pairs[-1].update({"sMAE_A_minus_B": smae(abs_hc[a].sum(0), n_hc.sum(0)) - smae(abs_hc[b].sum(0), n_hc.sum(0)),
+                              "sMAE_diff_lo": lo2, "sMAE_diff_hi": hi2, "sMAE_significant": not (lo2 <= 0 <= hi2)})
+    return pd.DataFrame(rows), pd.DataFrame(pairs)
+
+
+def best_with_verdict(metrics, pairs):
+    best = metrics.sort_values("MAE_Wh").iloc[0].model
+    second = metrics.sort_values("MAE_Wh").iloc[1].model
+    p = pairs[((pairs.model_A == best) & (pairs.model_B == second))
+              | ((pairs.model_A == second) & (pairs.model_B == best))].iloc[0]
+    out = [best, second, ("significant" if p.significant else "not significant (tie)")]
+    if "scaled_MAE" in metrics:
+        o = metrics.sort_values("scaled_MAE"); bs, ss = o.iloc[0].model, o.iloc[1].model
+        q = pairs[((pairs.model_A == bs) & (pairs.model_B == ss)) | ((pairs.model_A == ss) & (pairs.model_B == bs))].iloc[0]
+        out += [bs, ss, "significant" if q.sMAE_significant else "not significant (tie)"]
+    return out
+
+
+# ---------------------------------------------------------------- 6. run
+def main(paths):
+    OUT.mkdir(exist_ok=True)
+    print("=" * 70 + "\nLOADING\n" + "=" * 70)
+    frames = [load(p) for p in paths]
+    wide, models, checks = align(frames)
+    print("\nConsistency checks (vs the first file):")
+    print(checks.to_string(index=False))
+    checks.to_csv(OUT / "alignment_checks.csv", index=False)
+
+    all_metrics, all_pairs, best_rows = [], [], []
+    seed = SEED
+    scopes = [("all circuits", lambda d: d),
+              ("NE/NW circuits", lambda d: d[d.group == "NE/NW circuits"]),
+              ("SE/SW circuits", lambda d: d[d.group == "SE/SW circuits"])]
+    scopes += [(f"zone {z}", (lambda z: lambda d: d[d.zone == z])(z))
+               for z in sorted(wide.zone.unique())]
+
+    for h in sorted(wide.horizon_h.unique()):
+        for scope, f in scopes:
+            sub = f(wide[wide.horizon_h == h])
+            if sub.empty:
+                continue
+            seed += 1
+            met, pairs = evaluate(sub, models, seed)
+            met.insert(0, "scope", scope)
+            met.insert(0, "horizon", HORIZON_NAME.get(h, h))
+            pairs.insert(0, "scope", scope)
+            pairs.insert(0, "horizon", HORIZON_NAME.get(h, h))
+            all_metrics.append(met)
+            all_pairs.append(pairs)
+            r = best_with_verdict(met, pairs)
+            row = {"horizon": HORIZON_NAME.get(h, h), "scope": scope, "best_model": r[0], "second": r[1], "difference": r[2]}
+            if len(r) > 3:
+                row.update({"best_by_scaled_MAE": r[3], "second_scaled": r[4], "difference_scaled": r[5]})
+            best_rows.append(row)
+
+    metrics = pd.concat(all_metrics, ignore_index=True)
+    pairs = pd.concat(all_pairs, ignore_index=True)
+    best = pd.DataFrame(best_rows)
+
+    # per-circuit point metrics (no CI: too few hours for some circuits)
+    per_circuit = (wide.melt(id_vars=["circuit", "zone", "horizon_h", "actual_Wh"],
+                             value_vars=models, var_name="model", value_name="pred")
+                   .assign(ae=lambda d: (d.pred - d.actual_Wh).abs(),
+                           se=lambda d: (d.pred - d.actual_Wh) ** 2)
+                   .groupby(["horizon_h", "zone", "circuit", "model"])
+                   .agg(n=("ae", "size"), MAE_Wh=("ae", "mean"), RMSE_Wh=("se", "mean"))
+                   .assign(RMSE_Wh=lambda d: np.sqrt(d.RMSE_Wh)).reset_index())
+
+    long = (wide.melt(id_vars=["circuit", "zone", "group", "horizon_h", "target_hour", "actual_Wh"] + (["lead_h"] if "lead_h" in wide else []),
+                      value_vars=models, var_name="model", value_name="pred")
+            .assign(ae=lambda d: (d.pred - d.actual_Wh).abs()))
+    loc = long.target_hour.dt.tz_convert(TZ_LOCAL)
+    long["hour_local"] = loc.dt.hour
+    long["day_type"] = np.where(loc.dt.weekday >= 5, "weekend", "weekday")
+    long["date_local"] = loc.dt.date.astype(str)
+    long["horizon"] = long.horizon_h.map(HORIZON_NAME)
+    sc = load_scale()
+    if sc is not None:
+        long["sae"] = long.ae / long.circuit.map(sc)
+    def tab(by, fn):
+        cols = {"MAE_Wh": ("ae", "mean")} | ({"scaled_MAE_mean_rows": ("sae", "mean")} if sc is not None else {})
+        t = long.groupby(by + ["model"], observed=True).agg(n=("ae", "size"), **cols).reset_index()
+        t.round(3).to_csv(OUT / fn, index=False)
+    tab(["horizon", "hour_local"], "error_by_hour_of_day.csv")
+    tab(["horizon", "day_type"], "error_by_day_type.csv")
+    tab(["horizon", "date_local"], "error_by_date.csv")
+    if "lead_h" in long:
+        da = long[long.horizon == "day-ahead"].copy()
+        da["hours_ahead"] = pd.cut(da.lead_h, [0, 3, 6, 12, 18, 24], labels=["1-3", "4-6", "7-12", "13-18", "19-24"])
+        cols = {"MAE_Wh": ("ae", "mean")} | ({"scaled_MAE_mean_rows": ("sae", "mean")} if sc is not None else {})
+        da.groupby(["hours_ahead", "model"], observed=True).agg(n=("ae", "size"), **cols).reset_index().round(3).to_csv(OUT / "error_day_ahead_by_hours_ahead.csv", index=False)
+    # circuits where each model beats each baseline / each other model (per-circuit MAE)
+    pc = long.groupby(["horizon", "circuit", "model"]).ae.mean().unstack()
+    wins = []
+    for hz, g in pc.groupby(level=0):
+        for a in models:
+            for b in models:
+                if a != b:
+                    wins.append({"horizon": hz, "model": a, "vs": b, "circuits_better": int((g[a] < g[b]).sum()), "circuits": len(g)})
+    pd.DataFrame(wins).to_csv(OUT / "circuit_wins.csv", index=False)
+
+    metrics.round(4).to_csv(OUT / "metrics_with_CI.csv", index=False)
+    pairs.round(4).to_csv(OUT / "pairwise_differences.csv", index=False)
+    best.to_csv(OUT / "best_model_per_scope.csv", index=False)
+    per_circuit.round(2).to_csv(OUT / "metrics_per_circuit.csv", index=False)
+
+    pd.set_option("display.width", 160)
+    print("\n" + "=" * 70 + "\nMAE / RMSE WITH 95% CI (block bootstrap, 24h blocks)\n" + "=" * 70)
+    show = metrics[metrics.scope.isin(["all circuits", "NE/NW circuits", "SE/SW circuits"])]
+    print(show.to_string(index=False, float_format=lambda x: f"{x:,.1f}"))
+    print("\n" + "=" * 70 + "\nPAIRWISE MAE DIFFERENCES (A - B, negative = A better)\n" + "=" * 70)
+    print(pairs[pairs.scope == "all circuits"].to_string(index=False, float_format=lambda x: f"{x:,.2f}"))
+    print("\n" + "=" * 70 + "\nBEST MODEL\n" + "=" * 70)
+    print(best.to_string(index=False))
+
+    plot(metrics, models)
+    print(f"\nResults in {OUT}")
+
+
+def plot(metrics, models):
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        return
+    scopes = [s for s in ["all circuits", "NE/NW circuits", "SE/SW circuits"] if s in set(metrics.scope)]
+    horizons = list(dict.fromkeys(metrics.horizon))
+    fig, axes = plt.subplots(1, len(scopes), figsize=(5.5 * len(scopes), 4.4), sharey=False, squeeze=False)
+    axes = axes[0]
+    width = 0.8 / len(models)
+    for ax, sc in zip(axes, scopes):
+        for j, m in enumerate(models):
+            r = metrics[(metrics.scope == sc) & (metrics.model == m)].set_index("horizon").loc[horizons]
+            x = np.arange(len(horizons)) + j * width
+            ax.bar(x, r.MAE_Wh, width, label=m,
+                   yerr=[r.MAE_Wh - r.MAE_lo, r.MAE_hi - r.MAE_Wh], capsize=3)
+        ax.set_xticks(np.arange(len(horizons)) + width * (len(models) - 1) / 2, horizons)
+        ax.set_title(sc)
+        ax.set_ylabel(f"{SPLIT_LABEL} MAE (Wh), 95% CI")
+        ax.grid(axis="y", alpha=.3)
+    axes[0].legend(fontsize=8)
+    fig.tight_layout()
+    fig.savefig(OUT / "mae_with_ci.png", dpi=150)
+
+
+if __name__ == "__main__":
+    files = sys.argv[1:] or sorted(str(p) for p in (Path(__file__).parent / "results" / "predictions").glob("*_test_predictions.csv"))
+    if len(files) < 2:
+        sys.exit("Give at least two prediction CSVs.")
+    main(files)
