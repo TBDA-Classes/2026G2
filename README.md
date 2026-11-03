@@ -1,282 +1,78 @@
-# CeDInt Storey 1 — Energy Forecasting & Waste Detection
+# Task 6 — Final model comparison (Sprint 3)
 
-**Tools for Big Data Analytics · Group 2 · ETSII-UPM · 2026**
+**Owner:** Edoardo Menegozzo · **Date:** 3 Nov 2026 · **Results:** [RESULTS.md](RESULTS.md)
 
-Short-term forecasting of electrical energy consumption in the CeDInt building
-(Storey 1, UPM), as the basis for detecting unusual consumption and energy waste.
+This task compares every forecasting model of the team on exactly the same hours. It reports MAE and RMSE with 95% confidence intervals and says which model is best for each horizon and zone.
 
-| | |
-|---|---|
-| **Current sprint** | Sprint 3 — 19 October to 1 November 2026 |
-| **Forecasting target** | `energy_Wh` — active energy consumed per interval |
-| **Horizons** | +1 hour, +6 hours, day-ahead (24 h) |
-| **Primary metric** | MAE (RMSE secondary) |
-| **Final presentation** | 30 November 2026 |
+**Main result:** the final model, Blend v1.3, has a test MAE of 22.2 / 34.7 / 34.2 Wh at +1 h / +6 h / day-ahead on all 16 circuits. It is the best model, or tied with the best, at every horizon, and it beats Baseline B everywhere.
 
----
+![Test MAE with 95% CI](figures/task6_test_mae_16circuits.png)
 
-## 1. The problem
+## What I did
 
-The building's energy meters record **cumulative** counters (`Ea`, `Er`), instantaneous
-power (`W`) and current (`I`), across four zones (NE, NW, SE, SW) and several device
-categories (HVAC, Lighting, Plugs & Sockets, RACK, Hand Dryer, Emergency Lighting).
+1. **Collected all models.** There are 11:
+   - **Baselines** B1, B2 and B3.
+   - **Sprint 3 models:** Linear Regression, Random Forest, GBM v1.0 and Chronos-Bolt Small v1.1.
+   - **v1.3 models:** GBM v1.3, Chronos-Bolt v1.3, ChronosGBM v1.3 and Blend v1.3.
+2. **Regenerated the forecasts from the frozen models** and checked them against each owner's numbers (table below). Nothing was fitted or tuned again.
+3. **Rebuilt Model 1 (Linear Regression)** from its `PARAMETERS.md`, because its script was not in the repository. Its test forecasts match the official file within 0.0005 Wh, so I could use its validation forecasts.
+4. **Ran the frozen v1.3 models on the test week.** This covers GBM v1.3, ChronosGBM v1.3 and Blend v1.3, using Emily's Chronos v1.3 test forecasts. Each test was run once, after the final model had been chosen on validation (rule D10, 29 Oct).
+5. **Built one fair comparison** (`task6_compare.py`):
+   - **Same hours.** Only hours that are valid in both dataset versions (v1.1 and v1.2) and forecast by every model are scored. Where both are valid, the actual values are identical.
+   - **Metrics.** MAE (primary), RMSE, WAPE, and scaled MAE (MAE ÷ the circuit's training mean).
+   - **Confidence intervals.** 95% CIs from a circular block bootstrap: 24-hour blocks, 2,000 resamples, with all circuits of an hour kept together.
+   - **Pairwise tests.** Every pair of models is compared. A difference counts as significant only if its CI excludes 0.
+   - **Groupings.** All circuits, NE/NW, SE/SW, and each zone.
+6. **Ran six comparisons:** test and validation, each on 16 and on 8 circuits, plus the two test runs without the NE|HVAC event of 3 Oct.
+7. **Error analysis:** by hour of day, weekday/weekend, date, circuit, and hours ahead.
 
-Raw counters cannot be forecast directly. The cleaning stage derives `energy_Wh`, the
-active energy consumed **within each interval** (`Er[N] − Er[N−1]`), which is the
-quantity every model in this repository predicts.
+## Checks
 
----
-
-## 2. Status
-
-**Sprint 1** — Data cleaning and EDA · complete
-**Sprint 2** — Timestamps, merge, freeze, modelling spec, baselines, first ML model · complete
-**Sprint 3** — Two new models, fair comparison, uncertainty, final report · in progress
-
-### Results so far
-
-Scaled MAE = MAE ÷ each circuit's training mean, averaged over the 8 eligible
-circuits. Lower is better. Best per row in **bold**.
-
-**Validation week** (22–28 Sep 2025) — used for model selection
-
-| Horizon | B1 last week | B2 weekday×hour | B3 persistence | Gradient boosting | Linear |
-|---|---|---|---|---|---|
-| +1 h | 0.578 | 0.427 | 0.290 | **0.246** | 0.272 |
-| +6 h | 0.578 | 0.429 | 0.460 | 0.355 | **0.350** |
-| day-ahead | 0.578 | 0.427 | 0.367 | 0.384 | **0.348** |
-
-**Test week** (29 Sep – 5 Oct 2025) — run once, after model settings were frozen
-
-| Horizon | B1 | B2 | B3 | Gradient boosting | Linear |
-|---|---|---|---|---|---|
-| +1 h | 1.266 | 1.166 | **0.930** | 1.032 | 2.080 |
-| +6 h | 1.267 | 1.167 | 1.887 | **1.175** | 1.276 |
-| day-ahead | 1.267 | 1.166 | **1.162** | 1.173 | 1.260 |
-
-**Reading these results honestly:**
-
-- At **+1 h** the gradient-boosting model clearly beats both Task 7 baselines.
-- At **+6 h and day-ahead** it does not yet beat the weekday×hour median (B2).
-  With only ~35 days of training, each weekday appears about five times, so the
-  model mostly learns "tomorrow resembles today at this circuit's level".
-- The linear model is competitive on validation but **fails badly at +1 h on the
-  test week** (2.080). NE|HVAC ran at ~690 Wh/h on 3 October against a normal
-  ~3 Wh/h; because the linear model's inputs include 24 h and 168 h means, it
-  extrapolated that jump for a day. Tree models do not extrapolate this way.
-- Two events dominate the test scores. Any claim about which model is "best"
-  must state which week, which horizon, and which hours were included.
-
-> **Known inconsistency, open in Sprint 3 Task 3.** The Task 8 and Task 1 packages
-> both report a "without 2 events" figure but define it differently — Task 8 removes
-> the affected *hours* across 8 circuits, Task 1 removes the two affected *circuits*
-> and averages over 6. The resulting numbers are not comparable and must be
-> recomputed on one agreed set of hours before any model is declared best.
-
----
-
-## 3. Repository map
-
-Everything lives on `main`. See [Working conventions](#6-working-conventions).
-
-### Reference and context data
-
-The building's own meter data is not in the repository in raw form. It enters through the
-Sprint 1 cleaning notebook and exists here only as cleaned output (see below) and inside the
-frozen dataset.
-
-| File | Contents |
-|---|---|
-| `S1-B2 Data 2019.csv` … `S1-B2 Data 2025-26.csv` | **Madrid city meteorological data, not building data.** Daily values for 26 stations, magnitudes 81–89 (wind speed and direction, temperature, humidity, pressure, solar radiation, rainfall), each with a validity flag. Downloaded as the weather context variables requested in the backlog feedback. Not yet used by any model |
-| `CSV Explanation (ES).pdf` | Official format description for the files above (Madrid *Servicio de Calidad del Aire*, Spanish) |
-| `Storey1_data_dictionary_missing_anomalies_EN.xlsx` | Data dictionary, missing values and known anomalies |
-| `Spatial Mapping - Number per area.pdf` | Measurement points per floor, zone and system |
-| `proyectoedificio-planta-{1,2,3}.svg` | Building floor plans |
-| `upm_calendar.xlsx`, `build_calendar.py` | UPM academic calendar: working / weekend / holiday / vacation / lockdown day types |
-
-### Sprint 1 — Cleaning and exploration
-
-| File | Contents |
-|---|---|
-| `Sensor_data_cleaning_Storey1_v4.ipynb` | Cleaning pipeline. Derives `energy_Wh`, flags faults rather than deleting them |
-| `CLEAN DATA all zones.zip` | Cleaned data, one folder per zone. See [below](#the-clean-data-package) |
-| `eda_analysis.py`, `EDA_Analysis.pdf` | Exploratory data analysis of the electrical quantities |
-| `TBDA - Sprint 1.pdf` | Sprint 1 report |
-
-### Sprint 2 — Preparation and first models
-
-| Task | File | Contents |
+| Model | Check | Result |
 |---|---|---|
-| 1 | `Task1_data_NE_NW.zip`, `Task1_data_SE_SW (1).zip`, `Task1_documents.zip` | Madrid local timestamps added next to UTC (DST-aware), plus QA per zone |
-| 2 | `Task2_Temporal_QA_compact.zip` | Temporal quality checks |
-| 3–4 | `task3_task4_final_qa.zip` | Merged dataset, QA, and the **frozen dataset** `Storey1_ALL_ZONES_FROZEN_v1.0` |
-| 5 | `CeDInt__Modelling_Problem_Specification.pdf` | What is predicted and why: targets, horizons, regimes |
-| 6 | `task6.pdf`, `task6_split_design.py` | Train / validation / test strategy and evaluation protocol |
-| 7–8 | `Task7&8_rev0_19-10.zip` | Baselines and first ML model — 38 files, 26 tests, frozen models |
-| 7–8 | `TBDA_Task7_Task8_Summary.pdf` | Guide to the above package. **Read this first** |
-| 7–8 | `Task8_ModelMetrics_Summary.xlsx` | Evaluation metrics for all four models |
-| — | `Sprint 2 - Tasks Presentation.pdf` | Sprint 2 task plan |
+| B1, B2, B3, GBM v1.0 | validation MAE, 8 circuits, 1,120 h | 66.7 / 54.2 / 31.3 / 33.3 Wh, identical to the Sprint 3 report |
+| GBM v1.0, B1–B3 (dataset v1.1) | test MAE per circuit | 96/96 identical to `task1_rf_test_comparison.csv` |
+| Linear Regression | rebuilt test forecasts | max. difference 0.0005 Wh |
+| Linear Regression | validation scaled MAE | 0.340 / 0.392 / 0.395, identical |
+| Chronos-Bolt Small v1.1 | validation scores | 0.254905 / 0.338586 / 0.322740, identical |
+| Chronos-Bolt v1.3 | validation scores | identical |
+| Chronos-Bolt v1.3 | test forecasts vs Emily's file | difference < 1e-12 Wh |
+| GBM v1.3, ChronosGBM v1.3, Blend v1.3 | validation scores | equal to the 3rd–4th decimal |
 
-### Sprint 3 — In progress
+## Folder
 
-| Task | Status | File |
-|---|---|---|
-| 1 — Random Tree + Linear Regression | Linear done | `Task1_linear_regression (3).zip` |
-| 2 — Additional model (optional) | Not started | — |
-| 3 — Compare all models, investigate errors | Not started | — |
-| 4 — Prediction uncertainty | Not started | — |
-| 5 — Final report and Sprint 4 handover | Not started | — |
-
-Plan: `Sprint 3 - updated Teamwork Plan.pdf`
-
-### Project management
-
-| File | Contents |
+| Path | Content |
 |---|---|
-| `TBDA_Group2_CeDInt_Refined_October_8.pdf` | **Current product backlog** (Energy Waste & Anomaly Detection) |
-| `CeDInt_DataPack_Product_Backlog_Feedback_October_7.pdf` | Client-view backlog with tutor feedback |
-| `BackLog Draft - Refused on 5 oct.pdf` | Earlier draft, superseded |
-| `Group 2.zip` | Business case, change log, risk/issue log, sprint reports, weekly Scrum reports |
-| `Updates week 4.pdf` | Weekly progress update |
-| `Source Evaluation.xlsx` | Assessment of data sources |
-| `Task B1 - description.pdf`, `requirements.txt` | Shared Python environment setup |
-| `CSV Explanation (ES).pdf` | Format notes for an external Madrid air-quality CSV (context data, Spanish) |
+| `RESULTS.md` | which model is best, all tables, error analysis |
+| `task6_compare.py` | the comparison (same hours, metrics, bootstrap CIs, pairwise tests, error tables) |
+| `run_task6_all.sh` | runs all six comparisons and the figure |
+| `minipq.py` | small Parquet reader (our environment had no pyarrow) |
+| `generation/run_task6_v13_predictions.py` | v1.3 forecasts from the frozen models; run inside the TBDA_v1.3 folder |
+| `generation/task6_linear_rebuild.py`, `generation/run_task6_v11_validation.py` | Linear rebuild and v1.1 validation forecasts; run inside Task78_rev0_19-10 |
+| `data/` | circuit scales for scaled MAE, list of the test events |
+| `results/predictions/` | one CSV per model and split: `<model>_test_predictions.csv`, `<model>_validation_predictions.csv` |
+| `results/task6_<split>_<n>circuits[_without_events]/` | `metrics_with_CI.csv`, `pairwise_differences.csv`, `best_model_per_scope.csv`, `metrics_per_circuit.csv`, `circuit_wins.csv`, `error_by_*.csv`, `alignment_checks.csv`, `mae_with_ci.png`, `log.txt` |
+| `figures/` | `task6_test_mae_16circuits.png` and the script that makes it |
 
----
-
-## 4. Data pipeline
+## How to run
 
 ```
-raw CSV exports
-   └─ Sprint 1 cleaning ........ energy_Wh derived, faults flagged
-        └─ Task 1 timestamps ... Madrid local time added beside UTC
-             └─ Task 3–4 ....... zones merged, QA, FROZEN v1.0
-                  └─ Task 7 .... hourly dataset v1.1 (one row per circuit-hour)
-                       └─ Tasks 7/8, Sprint 3 models
+pip install pandas numpy matplotlib
+bash run_task6_all.sh          # ~1 min, rewrites results/task6_*/ and figures/
 ```
 
-### Two regimes
+## Model names in the files
 
-The frozen dataset holds two periods recorded at different resolutions, with a gap between them:
-
-| Regime | Period | Resolution | Rows |
+| File name | Model | Dataset | Trained on → forecasts |
 |---|---|---|---|
-| Historical | 2020-04 → 2023-02 | hourly | 405,382 |
-| Recent | 2025-08-18 → 2025-10-13 | 1 minute | 868,074 |
-
-There is **no data between 2023-02-28 and 2025-08-18**. The cumulative counters `Ea` and `Er`
-also reset between the two regimes (in 16 of 17 series), so they must never be differenced across
-the boundary. All current modelling uses the recent regime only; Task 6 and the Sprint 3 rules
-require the two to be evaluated separately.
-
-Note that `energy_Wh` *is* correctly derived in both regimes — it equals the increment of `Er` to
-within the stored rounding (0.01 Wh) on 100 % of counter-derived rows in each. The historical
-period is therefore usable without rebuilding the target, which makes it the largest untapped
-source for Sprint 4 (~25,000 hours per circuit, against ~710 in the current training window).
-
-**Which file should I use?**
-
-- Modelling → the **frozen dataset** `Storey1_ALL_ZONES_FROZEN_v1.0.csv.xz`
-  inside `task3_task4_final_qa.zip`. Never modify it; work on a derived copy.
-- Already-hourly modelling input → `derived/Storey1_hourly_v1.1.parquet` inside
-  `Task7&8_rev0_19-10.zip`.
-- Understanding the cleaning → `CLEAN DATA all zones.zip` and the notebook.
-
-### The clean data package
-
-`CLEAN DATA all zones.zip` contains one folder per zone, each with seven files
-(example for NE):
-
-| File | Purpose |
-|---|---|
-| `clean_Storey1_NE_CLEAN_DATA` | The deliverable — model-ready data, one row per original timestamp |
-| `audit_NE` | Every cell the script changed, value before and after |
-| `correction_log_NE` | How many cells each rule changed, per sensor |
-| `rules_NE` | What each rule detects, why, what was done, which alternatives were rejected |
-| `counter_events_NE` | Dates where an energy counter reset or jumped |
-| `sensor_quality_NE` | Which sensors to trust as a modelling target, and why |
-| `run_config_NE` | Thresholds and run ID, so the run can be reproduced |
-
-The cleaning **flags** suspect data rather than deleting it, so that modellers can
-exclude or down-weight it as a deliberate, documented decision.
-
----
-
-## 5. Modelling setup
-
-**Evaluation split** (from Task 6, 2025 regime — all dates UTC):
-
-| Set | Period | Use |
-|---|---|---|
-| Training | 19 Aug – 21 Sep 2025 | Fit models, compute training statistics |
-| Validation | 22 – 28 Sep 2025 | Choose models and settings |
-| Test | 29 Sep – 5 Oct 2025 | Final evaluation, run once |
-
-**Rules**
-
-1. Never modify the frozen dataset.
-2. Same evaluation periods, targets and horizons for every model.
-3. Validation selects; test is run once and never used for tuning.
-4. Missing or unreliable energy is never replaced with zero.
-5. The 2020–2023 and 2025 periods are treated as separate regimes.
-
-**Eligible circuits** — 8 of 16 qualify (all NE and NW). A circuit needs ≥ 90 %
-valid hours in validation and test. SE and SW are excluded: beyond missing hours,
-their energy and power readings contradict each other.
-
-**Baselines**
-
-- **B1** — same hour last week (value from 168 h earlier)
-- **B2** — median for that weekday and hour, from training data only
-- **B3** — persistence: the last valid hour before the forecast is made
-
----
-
-## 6. Known data limitations
-
-Open questions for the data owner, carried into Sprint 3:
-
-- **SE / SW circuits** — energy and power readings disagree (e.g. SE|Lighting up
-  to 2,097 Wh recorded at 0.5 W). Currently excluded from modelling.
-- **NW|Emergency Lighting, 5–6 Oct 2025** — 18 hours with energy 10,000–45,000×
-  the measured power. Kept in the official results and flagged.
-- **Outages** — after an outage a single reading carries the whole gap (e.g.
-  10,229 Wh covering 1,006 minutes on 17 Sep). Such hours are marked invalid.
-- **Short training window** — only ~35 days of 2025 data. The 2020–2023 history
-  (~25,000 hours per circuit) is the largest untapped source for Sprint 4.
-- **Context variables** — no weather or academic-calendar inputs are used yet.
-
----
-
-## 7. Reproducing the models
-
-```bash
-pip install -r requirements.txt
-```
-
-Then, from the unpacked `Task7&8_rev0_19-10.zip` with the frozen dataset placed
-in `data/`:
-
-```bash
-python -m pytest -q tests/        # 26 tests
-python run_task7.py --data data/Storey1_ALL_ZONES_FROZEN_v1.0.csv.xz --out derived
-python run_task7_baselines.py     # baselines B1, B2
-python run_task8_tune.py          # train, select on validation, freeze
-python run_task8_test.py          # run frozen models once on the test week
-python run_task8_analysis.py      # error analysis
-```
-
-The linear model (`Task1_linear_regression (3).zip`) imports from `task8_model.py`,
-so place `task1_linear.py` in the same folder before running it.
-
----
-
-## 8. Working conventions
-
-- **All work goes to `main`.** The `Data-cleaning-process` branch was merged in
-  [#46](../../pull/46) and is no longer used — it remains only so that previously
-  shared links keep working.
-- Use folders inside `main` for organisation, not branches.
-- Write a real commit message describing what changed.
-- Every task produces a file, table, graph or written decision.
-- Do not claim a model is better unless the comparison supports it.
+| `B1_last_week` | Baseline A, same hour last week | v1.2 | — → 16 |
+| `B2_weekday_hour_median` | Baseline B, training median per weekday × hour | v1.2 | — → 16 |
+| `B3_persistence` | Baseline C, last valid hour (≤ 24 h old) | v1.2 | — → 16 |
+| `ML_Linear` | Linear Regression, pooled LAD, design B | v1.1 | 8 → 16 |
+| `ML_RandomForest` | Random Forest, pooled | v1.1 | 8 → 16 |
+| `ML_GBM_v1.0` | Gradient boosting, Sprint 2 | v1.1 | 8 → 8 |
+| `ML_GBM_v1.3` | Gradient boosting, v1.3 grid | v1.2 | 15 → 16 |
+| `ML_Chronos_v1.1` | Chronos-Bolt Small, zero-shot | v1.1 | — → 8 |
+| `ML_Chronos_v1.3` | Chronos-Bolt v1.3 (base/tiny/base) | v1.2 | — → 16 |
+| `ML_ChronosGBM_v1.3` | GBM with Chronos inputs | v1.2 | 15 → 16 |
+| `ML_Blend_v1.3` | **final model**, weighted average of GBM, ChronosGBM and Chronos v1.3 | v1.2 | 15 → 16 |
