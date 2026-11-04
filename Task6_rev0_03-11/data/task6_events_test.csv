@@ -1,0 +1,43 @@
+circuit,target_hour,event
+NW|Emerg. Lighting,2025-10-04 22:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 03:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 04:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 05:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 06:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 07:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 08:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 09:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 10:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 13:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 14:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 16:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 17:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 18:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 20:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 21:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 22:00:00+00:00,NW_EmergLighting_impossible
+NW|Emerg. Lighting,2025-10-05 23:00:00+00:00,NW_EmergLighting_impossible
+NE|HVAC,2025-10-02 22:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-02 23:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 00:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 01:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 02:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 03:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 04:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 05:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 06:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 07:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 08:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 09:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 10:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 11:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 12:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 13:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 14:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 15:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 16:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 17:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 18:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 19:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 20:00:00+00:00,NE_HVAC_run_3Oct
+NE|HVAC,2025-10-03 21:00:00+00:00,NE_HVAC_run_3Oct
