@@ -1,0 +1,265 @@
+horizon_h,zone,circuit,model,n,MAE_Wh,RMSE_Wh
+1,NE,NE|HVAC,B1_last_week,140,0.72,0.94
+1,NE,NE|HVAC,B2_weekday_hour_median,140,0.56,0.76
+1,NE,NE|HVAC,B3_persistence,140,0.61,0.82
+1,NE,NE|HVAC,ML_Blend_v1.3,140,0.48,0.58
+1,NE,NE|HVAC,ML_ChronosGBM_v1.3,140,0.46,0.58
+1,NE,NE|HVAC,ML_Chronos_v1.1,140,0.47,0.58
+1,NE,NE|HVAC,ML_Chronos_v1.3,140,0.48,0.58
+1,NE,NE|HVAC,ML_GBM_v1.0,140,0.5,0.63
+1,NE,NE|HVAC,ML_GBM_v1.3,140,0.48,0.6
+1,NE,NE|HVAC,ML_Linear,140,0.6,0.77
+1,NE,NE|HVAC,ML_RandomForest,140,0.49,0.65
+1,NE,NE|Plugs & Sockets,B1_last_week,140,7.84,10.22
+1,NE,NE|Plugs & Sockets,B2_weekday_hour_median,140,6.62,8.64
+1,NE,NE|Plugs & Sockets,B3_persistence,140,6.46,10.08
+1,NE,NE|Plugs & Sockets,ML_Blend_v1.3,140,5.47,7.35
+1,NE,NE|Plugs & Sockets,ML_ChronosGBM_v1.3,140,9.1,11.04
+1,NE,NE|Plugs & Sockets,ML_Chronos_v1.1,140,4.13,6.65
+1,NE,NE|Plugs & Sockets,ML_Chronos_v1.3,140,4.07,6.47
+1,NE,NE|Plugs & Sockets,ML_GBM_v1.0,140,7.52,9.06
+1,NE,NE|Plugs & Sockets,ML_GBM_v1.3,140,8.45,9.9
+1,NE,NE|Plugs & Sockets,ML_Linear,140,6.15,9.49
+1,NE,NE|Plugs & Sockets,ML_RandomForest,140,4.91,7.03
+1,NW,NW|Emerg. Lighting,B1_last_week,140,1.04,1.22
+1,NW,NW|Emerg. Lighting,B2_weekday_hour_median,140,0.97,1.13
+1,NW,NW|Emerg. Lighting,B3_persistence,140,0.66,0.81
+1,NW,NW|Emerg. Lighting,ML_Blend_v1.3,140,0.51,0.62
+1,NW,NW|Emerg. Lighting,ML_ChronosGBM_v1.3,140,0.53,0.67
+1,NW,NW|Emerg. Lighting,ML_Chronos_v1.1,140,0.48,0.58
+1,NW,NW|Emerg. Lighting,ML_Chronos_v1.3,140,0.47,0.56
+1,NW,NW|Emerg. Lighting,ML_GBM_v1.0,140,0.68,0.83
+1,NW,NW|Emerg. Lighting,ML_GBM_v1.3,140,0.73,0.87
+1,NW,NW|Emerg. Lighting,ML_Linear,140,0.62,0.76
+1,NW,NW|Emerg. Lighting,ML_RandomForest,140,0.55,0.67
+1,NW,NW|HVAC,B1_last_week,140,137.54,179.83
+1,NW,NW|HVAC,B2_weekday_hour_median,140,77.2,127.05
+1,NW,NW|HVAC,B3_persistence,140,1.38,1.75
+1,NW,NW|HVAC,ML_Blend_v1.3,140,2.11,3.08
+1,NW,NW|HVAC,ML_ChronosGBM_v1.3,140,3.15,4.06
+1,NW,NW|HVAC,ML_Chronos_v1.1,140,1.75,3.36
+1,NW,NW|HVAC,ML_Chronos_v1.3,140,2.77,4.33
+1,NW,NW|HVAC,ML_GBM_v1.0,140,1.82,3.55
+1,NW,NW|HVAC,ML_GBM_v1.3,140,1.57,2.1
+1,NW,NW|HVAC,ML_Linear,140,3.0,3.72
+1,NW,NW|HVAC,ML_RandomForest,140,0.58,0.83
+1,NW,NW|Hand Dryer,B1_last_week,140,1.16,1.73
+1,NW,NW|Hand Dryer,B2_weekday_hour_median,140,1.0,1.51
+1,NW,NW|Hand Dryer,B3_persistence,140,0.89,1.71
+1,NW,NW|Hand Dryer,ML_Blend_v1.3,140,0.77,1.32
+1,NW,NW|Hand Dryer,ML_ChronosGBM_v1.3,140,0.73,1.35
+1,NW,NW|Hand Dryer,ML_Chronos_v1.1,140,0.76,1.36
+1,NW,NW|Hand Dryer,ML_Chronos_v1.3,140,0.82,1.29
+1,NW,NW|Hand Dryer,ML_GBM_v1.0,140,0.71,1.33
+1,NW,NW|Hand Dryer,ML_GBM_v1.3,140,0.75,1.39
+1,NW,NW|Hand Dryer,ML_Linear,140,0.85,1.6
+1,NW,NW|Hand Dryer,ML_RandomForest,140,0.73,1.33
+1,NW,NW|Lighting,B1_last_week,140,55.43,73.5
+1,NW,NW|Lighting,B2_weekday_hour_median,140,35.56,59.25
+1,NW,NW|Lighting,B3_persistence,140,27.0,51.95
+1,NW,NW|Lighting,ML_Blend_v1.3,140,21.69,40.62
+1,NW,NW|Lighting,ML_ChronosGBM_v1.3,140,20.83,41.12
+1,NW,NW|Lighting,ML_Chronos_v1.1,140,24.3,42.7
+1,NW,NW|Lighting,ML_Chronos_v1.3,140,24.14,42.49
+1,NW,NW|Lighting,ML_GBM_v1.0,140,20.1,40.32
+1,NW,NW|Lighting,ML_GBM_v1.3,140,21.46,40.53
+1,NW,NW|Lighting,ML_Linear,140,26.29,48.66
+1,NW,NW|Lighting,ML_RandomForest,140,21.87,42.2
+1,NW,NW|Plugs & Sockets,B1_last_week,140,324.76,540.57
+1,NW,NW|Plugs & Sockets,B2_weekday_hour_median,140,307.69,539.3
+1,NW,NW|Plugs & Sockets,B3_persistence,140,208.32,366.19
+1,NW,NW|Plugs & Sockets,ML_Blend_v1.3,140,188.49,348.68
+1,NW,NW|Plugs & Sockets,ML_ChronosGBM_v1.3,140,204.47,374.38
+1,NW,NW|Plugs & Sockets,ML_Chronos_v1.1,140,173.91,336.51
+1,NW,NW|Plugs & Sockets,ML_Chronos_v1.3,140,175.46,334.16
+1,NW,NW|Plugs & Sockets,ML_GBM_v1.0,140,232.61,409.45
+1,NW,NW|Plugs & Sockets,ML_GBM_v1.3,140,225.2,392.7
+1,NW,NW|Plugs & Sockets,ML_Linear,140,197.63,346.77
+1,NW,NW|Plugs & Sockets,ML_RandomForest,140,188.85,352.83
+1,NW,NW|RACK,B1_last_week,140,4.97,6.09
+1,NW,NW|RACK,B2_weekday_hour_median,140,3.71,4.76
+1,NW,NW|RACK,B3_persistence,140,5.43,7.48
+1,NW,NW|RACK,ML_Blend_v1.3,140,2.52,3.24
+1,NW,NW|RACK,ML_ChronosGBM_v1.3,140,2.46,2.96
+1,NW,NW|RACK,ML_Chronos_v1.1,140,2.98,4.09
+1,NW,NW|RACK,ML_Chronos_v1.3,140,2.95,4.06
+1,NW,NW|RACK,ML_GBM_v1.0,140,2.62,3.15
+1,NW,NW|RACK,ML_GBM_v1.3,140,2.5,2.99
+1,NW,NW|RACK,ML_Linear,140,5.12,7.07
+1,NW,NW|RACK,ML_RandomForest,140,2.93,3.46
+6,NE,NE|HVAC,B1_last_week,140,0.72,0.94
+6,NE,NE|HVAC,B2_weekday_hour_median,140,0.56,0.77
+6,NE,NE|HVAC,B3_persistence,140,0.51,0.76
+6,NE,NE|HVAC,ML_Blend_v1.3,140,0.48,0.58
+6,NE,NE|HVAC,ML_ChronosGBM_v1.3,140,0.48,0.58
+6,NE,NE|HVAC,ML_Chronos_v1.1,140,0.48,0.57
+6,NE,NE|HVAC,ML_Chronos_v1.3,140,0.49,0.6
+6,NE,NE|HVAC,ML_GBM_v1.0,140,0.49,0.59
+6,NE,NE|HVAC,ML_GBM_v1.3,140,0.46,0.59
+6,NE,NE|HVAC,ML_Linear,140,0.54,0.65
+6,NE,NE|HVAC,ML_RandomForest,140,0.49,0.58
+6,NE,NE|Plugs & Sockets,B1_last_week,140,7.84,10.22
+6,NE,NE|Plugs & Sockets,B2_weekday_hour_median,140,6.6,8.63
+6,NE,NE|Plugs & Sockets,B3_persistence,140,6.03,9.13
+6,NE,NE|Plugs & Sockets,ML_Blend_v1.3,140,4.18,6.46
+6,NE,NE|Plugs & Sockets,ML_ChronosGBM_v1.3,140,5.0,7.12
+6,NE,NE|Plugs & Sockets,ML_Chronos_v1.1,140,4.02,6.3
+6,NE,NE|Plugs & Sockets,ML_Chronos_v1.3,140,4.05,6.37
+6,NE,NE|Plugs & Sockets,ML_GBM_v1.0,140,6.64,8.62
+6,NE,NE|Plugs & Sockets,ML_GBM_v1.3,140,6.78,8.67
+6,NE,NE|Plugs & Sockets,ML_Linear,140,4.79,6.78
+6,NE,NE|Plugs & Sockets,ML_RandomForest,140,6.4,8.33
+6,NW,NW|Emerg. Lighting,B1_last_week,140,1.04,1.22
+6,NW,NW|Emerg. Lighting,B2_weekday_hour_median,140,0.98,1.13
+6,NW,NW|Emerg. Lighting,B3_persistence,140,0.72,0.87
+6,NW,NW|Emerg. Lighting,ML_Blend_v1.3,140,0.55,0.68
+6,NW,NW|Emerg. Lighting,ML_ChronosGBM_v1.3,140,0.7,0.84
+6,NW,NW|Emerg. Lighting,ML_Chronos_v1.1,140,0.46,0.57
+6,NW,NW|Emerg. Lighting,ML_Chronos_v1.3,140,0.51,0.63
+6,NW,NW|Emerg. Lighting,ML_GBM_v1.0,140,0.81,0.96
+6,NW,NW|Emerg. Lighting,ML_GBM_v1.3,140,0.89,1.05
+6,NW,NW|Emerg. Lighting,ML_Linear,140,0.56,0.67
+6,NW,NW|Emerg. Lighting,ML_RandomForest,140,0.53,0.66
+6,NW,NW|HVAC,B1_last_week,140,137.54,179.83
+6,NW,NW|HVAC,B2_weekday_hour_median,140,78.26,127.42
+6,NW,NW|HVAC,B3_persistence,140,2.69,13.88
+6,NW,NW|HVAC,ML_Blend_v1.3,140,5.63,15.34
+6,NW,NW|HVAC,ML_ChronosGBM_v1.3,140,7.49,17.65
+6,NW,NW|HVAC,ML_Chronos_v1.1,140,7.22,19.55
+6,NW,NW|HVAC,ML_Chronos_v1.3,140,3.48,12.51
+6,NW,NW|HVAC,ML_GBM_v1.0,140,32.15,50.74
+6,NW,NW|HVAC,ML_GBM_v1.3,140,15.03,30.5
+6,NW,NW|HVAC,ML_Linear,140,33.68,43.21
+6,NW,NW|HVAC,ML_RandomForest,140,13.42,23.22
+6,NW,NW|Hand Dryer,B1_last_week,140,1.16,1.73
+6,NW,NW|Hand Dryer,B2_weekday_hour_median,140,1.0,1.51
+6,NW,NW|Hand Dryer,B3_persistence,140,1.22,1.85
+6,NW,NW|Hand Dryer,ML_Blend_v1.3,140,0.86,1.35
+6,NW,NW|Hand Dryer,ML_ChronosGBM_v1.3,140,0.83,1.37
+6,NW,NW|Hand Dryer,ML_Chronos_v1.1,140,0.85,1.39
+6,NW,NW|Hand Dryer,ML_Chronos_v1.3,140,0.91,1.38
+6,NW,NW|Hand Dryer,ML_GBM_v1.0,140,0.88,1.37
+6,NW,NW|Hand Dryer,ML_GBM_v1.3,140,0.83,1.36
+6,NW,NW|Hand Dryer,ML_Linear,140,0.96,1.41
+6,NW,NW|Hand Dryer,ML_RandomForest,140,0.86,1.33
+6,NW,NW|Lighting,B1_last_week,140,55.43,73.5
+6,NW,NW|Lighting,B2_weekday_hour_median,140,35.58,59.24
+6,NW,NW|Lighting,B3_persistence,140,52.83,77.02
+6,NW,NW|Lighting,ML_Blend_v1.3,140,34.23,53.44
+6,NW,NW|Lighting,ML_ChronosGBM_v1.3,140,33.21,53.73
+6,NW,NW|Lighting,ML_Chronos_v1.1,140,35.82,54.12
+6,NW,NW|Lighting,ML_Chronos_v1.3,140,37.81,56.33
+6,NW,NW|Lighting,ML_GBM_v1.0,140,34.8,54.73
+6,NW,NW|Lighting,ML_GBM_v1.3,140,32.82,51.98
+6,NW,NW|Lighting,ML_Linear,140,36.05,52.84
+6,NW,NW|Lighting,ML_RandomForest,140,34.93,54.83
+6,NW,NW|Plugs & Sockets,B1_last_week,140,324.76,540.57
+6,NW,NW|Plugs & Sockets,B2_weekday_hour_median,140,308.37,539.34
+6,NW,NW|Plugs & Sockets,B3_persistence,140,466.43,665.53
+6,NW,NW|Plugs & Sockets,ML_Blend_v1.3,140,277.07,460.14
+6,NW,NW|Plugs & Sockets,ML_ChronosGBM_v1.3,140,279.63,482.23
+6,NW,NW|Plugs & Sockets,ML_Chronos_v1.1,140,279.42,472.87
+6,NW,NW|Plugs & Sockets,ML_Chronos_v1.3,140,282.38,466.52
+6,NW,NW|Plugs & Sockets,ML_GBM_v1.0,140,292.3,498.95
+6,NW,NW|Plugs & Sockets,ML_GBM_v1.3,140,289.06,490.97
+6,NW,NW|Plugs & Sockets,ML_Linear,140,267.14,449.03
+6,NW,NW|Plugs & Sockets,ML_RandomForest,140,274.64,479.98
+6,NW,NW|RACK,B1_last_week,140,4.97,6.09
+6,NW,NW|RACK,B2_weekday_hour_median,140,3.75,4.78
+6,NW,NW|RACK,B3_persistence,140,4.17,5.13
+6,NW,NW|RACK,ML_Blend_v1.3,140,2.91,3.96
+6,NW,NW|RACK,ML_ChronosGBM_v1.3,140,2.95,3.98
+6,NW,NW|RACK,ML_Chronos_v1.1,140,2.95,4.05
+6,NW,NW|RACK,ML_Chronos_v1.3,140,2.95,4.0
+6,NW,NW|RACK,ML_GBM_v1.0,140,3.18,4.25
+6,NW,NW|RACK,ML_GBM_v1.3,140,2.93,3.99
+6,NW,NW|RACK,ML_Linear,140,3.56,4.57
+6,NW,NW|RACK,ML_RandomForest,140,3.57,4.57
+24,NE,NE|HVAC,B1_last_week,140,0.72,0.94
+24,NE,NE|HVAC,B2_weekday_hour_median,140,0.55,0.75
+24,NE,NE|HVAC,B3_persistence,140,0.6,0.83
+24,NE,NE|HVAC,ML_Blend_v1.3,140,0.49,0.6
+24,NE,NE|HVAC,ML_ChronosGBM_v1.3,140,0.51,0.58
+24,NE,NE|HVAC,ML_Chronos_v1.1,140,0.47,0.58
+24,NE,NE|HVAC,ML_Chronos_v1.3,140,0.5,0.63
+24,NE,NE|HVAC,ML_GBM_v1.0,140,0.48,0.57
+24,NE,NE|HVAC,ML_GBM_v1.3,140,0.49,0.57
+24,NE,NE|HVAC,ML_Linear,140,0.54,0.65
+24,NE,NE|HVAC,ML_RandomForest,140,0.49,0.57
+24,NE,NE|Plugs & Sockets,B1_last_week,140,7.84,10.22
+24,NE,NE|Plugs & Sockets,B2_weekday_hour_median,140,6.62,8.64
+24,NE,NE|Plugs & Sockets,B3_persistence,140,5.83,7.96
+24,NE,NE|Plugs & Sockets,ML_Blend_v1.3,140,4.56,6.7
+24,NE,NE|Plugs & Sockets,ML_ChronosGBM_v1.3,140,6.05,8.04
+24,NE,NE|Plugs & Sockets,ML_Chronos_v1.1,140,4.21,6.45
+24,NE,NE|Plugs & Sockets,ML_Chronos_v1.3,140,4.41,6.56
+24,NE,NE|Plugs & Sockets,ML_GBM_v1.0,140,6.72,8.78
+24,NE,NE|Plugs & Sockets,ML_GBM_v1.3,140,6.53,8.46
+24,NE,NE|Plugs & Sockets,ML_Linear,140,4.98,6.97
+24,NE,NE|Plugs & Sockets,ML_RandomForest,140,6.31,8.23
+24,NW,NW|Emerg. Lighting,B1_last_week,140,1.04,1.22
+24,NW,NW|Emerg. Lighting,B2_weekday_hour_median,140,0.97,1.13
+24,NW,NW|Emerg. Lighting,B3_persistence,140,0.56,0.69
+24,NW,NW|Emerg. Lighting,ML_Blend_v1.3,140,0.48,0.6
+24,NW,NW|Emerg. Lighting,ML_ChronosGBM_v1.3,140,0.64,0.78
+24,NW,NW|Emerg. Lighting,ML_Chronos_v1.1,140,0.49,0.61
+24,NW,NW|Emerg. Lighting,ML_Chronos_v1.3,140,0.48,0.61
+24,NW,NW|Emerg. Lighting,ML_GBM_v1.0,140,0.86,1.03
+24,NW,NW|Emerg. Lighting,ML_GBM_v1.3,140,0.79,0.95
+24,NW,NW|Emerg. Lighting,ML_Linear,140,0.57,0.68
+24,NW,NW|Emerg. Lighting,ML_RandomForest,140,0.51,0.62
+24,NW,NW|HVAC,B1_last_week,140,137.54,179.83
+24,NW,NW|HVAC,B2_weekday_hour_median,140,77.47,127.09
+24,NW,NW|HVAC,B3_persistence,140,0.98,1.29
+24,NW,NW|HVAC,ML_Blend_v1.3,140,7.4,19.16
+24,NW,NW|HVAC,ML_ChronosGBM_v1.3,140,21.78,33.15
+24,NW,NW|HVAC,ML_Chronos_v1.1,140,12.9,33.07
+24,NW,NW|HVAC,ML_Chronos_v1.3,140,5.24,17.24
+24,NW,NW|HVAC,ML_GBM_v1.0,140,65.63,92.0
+24,NW,NW|HVAC,ML_GBM_v1.3,140,11.08,29.24
+24,NW,NW|HVAC,ML_Linear,140,35.08,44.6
+24,NW,NW|HVAC,ML_RandomForest,140,13.43,22.09
+24,NW,NW|Hand Dryer,B1_last_week,140,1.16,1.73
+24,NW,NW|Hand Dryer,B2_weekday_hour_median,140,1.0,1.51
+24,NW,NW|Hand Dryer,B3_persistence,140,0.92,1.46
+24,NW,NW|Hand Dryer,ML_Blend_v1.3,140,0.9,1.44
+24,NW,NW|Hand Dryer,ML_ChronosGBM_v1.3,140,0.83,1.36
+24,NW,NW|Hand Dryer,ML_Chronos_v1.1,140,0.85,1.41
+24,NW,NW|Hand Dryer,ML_Chronos_v1.3,140,0.93,1.47
+24,NW,NW|Hand Dryer,ML_GBM_v1.0,140,0.85,1.34
+24,NW,NW|Hand Dryer,ML_GBM_v1.3,140,0.85,1.38
+24,NW,NW|Hand Dryer,ML_Linear,140,0.96,1.41
+24,NW,NW|Hand Dryer,ML_RandomForest,140,0.86,1.33
+24,NW,NW|Lighting,B1_last_week,140,55.43,73.5
+24,NW,NW|Lighting,B2_weekday_hour_median,140,35.58,59.25
+24,NW,NW|Lighting,B3_persistence,140,38.43,56.69
+24,NW,NW|Lighting,ML_Blend_v1.3,140,30.48,50.94
+24,NW,NW|Lighting,ML_ChronosGBM_v1.3,140,30.49,52.18
+24,NW,NW|Lighting,ML_Chronos_v1.1,140,29.58,49.62
+24,NW,NW|Lighting,ML_Chronos_v1.3,140,32.19,52.59
+24,NW,NW|Lighting,ML_GBM_v1.0,140,36.53,55.74
+24,NW,NW|Lighting,ML_GBM_v1.3,140,31.36,52.87
+24,NW,NW|Lighting,ML_Linear,140,35.22,52.04
+24,NW,NW|Lighting,ML_RandomForest,140,33.84,54.01
+24,NW,NW|Plugs & Sockets,B1_last_week,140,324.76,540.57
+24,NW,NW|Plugs & Sockets,B2_weekday_hour_median,140,307.96,539.3
+24,NW,NW|Plugs & Sockets,B3_persistence,140,414.09,575.64
+24,NW,NW|Plugs & Sockets,ML_Blend_v1.3,140,240.92,443.98
+24,NW,NW|Plugs & Sockets,ML_ChronosGBM_v1.3,140,294.63,515.58
+24,NW,NW|Plugs & Sockets,ML_Chronos_v1.1,140,247.59,454.7
+24,NW,NW|Plugs & Sockets,ML_Chronos_v1.3,140,232.96,440.69
+24,NW,NW|Plugs & Sockets,ML_GBM_v1.0,140,271.88,448.64
+24,NW,NW|Plugs & Sockets,ML_GBM_v1.3,140,280.75,482.75
+24,NW,NW|Plugs & Sockets,ML_Linear,140,267.05,442.32
+24,NW,NW|Plugs & Sockets,ML_RandomForest,140,272.98,471.32
+24,NW,NW|RACK,B1_last_week,140,4.97,6.09
+24,NW,NW|RACK,B2_weekday_hour_median,140,3.73,4.77
+24,NW,NW|RACK,B3_persistence,140,4.29,5.58
+24,NW,NW|RACK,ML_Blend_v1.3,140,2.95,4.02
+24,NW,NW|RACK,ML_ChronosGBM_v1.3,140,3.12,4.19
+24,NW,NW|RACK,ML_Chronos_v1.1,140,2.97,4.07
+24,NW,NW|RACK,ML_Chronos_v1.3,140,2.96,4.04
+24,NW,NW|RACK,ML_GBM_v1.0,140,3.14,4.24
+24,NW,NW|RACK,ML_GBM_v1.3,140,3.08,4.16
+24,NW,NW|RACK,ML_Linear,140,3.71,4.72
+24,NW,NW|RACK,ML_RandomForest,140,3.59,4.59
