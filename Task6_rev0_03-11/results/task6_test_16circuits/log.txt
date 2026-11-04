@@ -1,0 +1,253 @@
+======================================================================
+LOADING
+======================================================================
+ML_RandomForest_test_predictions.csv: model=ML_RandomForest, rows=8,064, circuits=16, duplicates=0, rows with actual=6,264
+ML_Linear_test_predictions.csv: model=ML_Linear, rows=8,064, circuits=16, duplicates=0, rows with actual=6,264
+ML_GBM_v1.3_test_predictions.csv: model=ML_GBM_v1.3, rows=8,064, circuits=16, duplicates=0, rows with actual=6,948
+ML_Chronos_v1.3_test_predictions.csv: model=ML_Chronos_v1.3, rows=8,064, circuits=16, duplicates=0, rows with actual=6,948
+ML_ChronosGBM_v1.3_test_predictions.csv: model=ML_ChronosGBM_v1.3, rows=8,064, circuits=16, duplicates=0, rows with actual=6,948
+ML_Blend_v1.3_test_predictions.csv: model=ML_Blend_v1.3, rows=8,064, circuits=16, duplicates=0, rows with actual=6,948
+B1_last_week_test_predictions.csv: model=B1_last_week, rows=8,064, circuits=16, duplicates=0, rows with actual=6,948
+B2_weekday_hour_median_test_predictions.csv: model=B2_weekday_hour_median, rows=8,064, circuits=16, duplicates=0, rows with actual=6,948
+B3_persistence_test_predictions.csv: model=B3_persistence, rows=8,064, circuits=16, duplicates=0, rows with actual=6,948
+
+Aligned rows: 8,064 -> 5,733 with a valid actual for every model
+
+Consistency checks (vs the first file):
+                 model  rows_matched  same_actual_values_%  same_missing_hours_%
+       ML_RandomForest          8064                 100.0                100.00
+             ML_Linear          8064                 100.0                100.00
+           ML_GBM_v1.3          8064                 100.0                 86.98
+       ML_Chronos_v1.3          8064                 100.0                 89.25
+    ML_ChronosGBM_v1.3          8064                 100.0                 89.25
+         ML_Blend_v1.3          8064                 100.0                 89.25
+          B1_last_week          8064                 100.0                 89.25
+B2_weekday_hour_median          8064                 100.0                 89.25
+        B3_persistence          8064                 100.0                 89.25
+
+======================================================================
+MAE / RMSE WITH 95% CI (block bootstrap, 24h blocks)
+======================================================================
+  horizon          scope                  model    n  MAE_Wh  MAE_lo  MAE_hi  RMSE_Wh  RMSE_lo  RMSE_hi  WAPE_%  WAPE_lo  WAPE_hi  scaled_MAE  sMAE_lo  sMAE_hi
+      +1h   all circuits        ML_RandomForest 1911    27.7    20.4    36.4    108.9     71.3    148.4    20.4     16.4     24.3         0.5      0.2      1.0
+      +1h   all circuits              ML_Linear 1911    25.1    20.6    29.9     95.5     70.5    120.0    18.5     16.6     20.4         0.5      0.3      0.9
+      +1h   all circuits            ML_GBM_v1.3 1911    26.3    18.3    35.4    113.3     71.6    156.5    19.4     15.0     23.6         0.4      0.2      0.9
+      +1h   all circuits        ML_Chronos_v1.3 1911    21.5    15.5    28.0     87.6     60.4    112.5    15.8     12.5     18.7         0.4      0.2      0.8
+      +1h   all circuits     ML_ChronosGBM_v1.3 1911    24.7    17.9    33.2    105.6     66.1    147.8    18.2     14.5     22.0         0.4      0.2      0.9
+      +1h   all circuits          ML_Blend_v1.3 1911    22.2    15.9    29.5     93.5     61.1    125.8    16.3     12.9     19.6         0.4      0.2      0.9
+      +1h   all circuits           B1_last_week 1911    59.1    46.4    73.2    204.1    153.3    248.1    43.4     31.9     58.7         0.7      0.4      1.2
+      +1h   all circuits B2_weekday_hour_median 1911    43.7    33.3    55.3    165.5    112.8    223.3    32.1     27.3     37.0         0.6      0.3      1.1
+      +1h   all circuits         B3_persistence 1911    24.0    18.5    29.6     98.5     70.7    125.0    17.6     14.9     20.3         0.4      0.2      0.8
+      +1h NE/NW circuits        ML_RandomForest 1318    33.0    23.2    43.9    127.7     83.5    173.3    19.7     15.1     24.1         0.7      0.2      1.7
+      +1h NE/NW circuits              ML_Linear 1318    31.4    26.7    35.6    112.6     84.6    140.4    18.8     17.1     20.5         0.7      0.3      1.5
+      +1h NE/NW circuits            ML_GBM_v1.3 1318    34.6    24.1    45.6    135.7     88.4    184.2    20.7     15.8     25.0         0.7      0.2      1.7
+      +1h NE/NW circuits        ML_Chronos_v1.3 1318    28.5    21.9    34.8    104.9     75.0    132.2    17.1     14.0     19.5         0.7      0.2      1.5
+      +1h NE/NW circuits     ML_ChronosGBM_v1.3 1318    32.3    23.3    42.8    126.5     81.8    175.4    19.4     15.2     23.5         0.7      0.2      1.7
+      +1h NE/NW circuits          ML_Blend_v1.3 1318    29.4    21.5    37.8    112.1     76.0    149.3    17.6     14.0     20.8         0.7      0.2      1.6
+      +1h NE/NW circuits           B1_last_week 1318    60.5    49.0    73.1    225.2    162.1    283.4    36.2     29.3     44.0         1.0      0.4      1.9
+      +1h NE/NW circuits B2_weekday_hour_median 1318    47.8    32.1    64.6    187.2    118.4    258.8    28.6     21.0     35.3         0.9      0.3      1.8
+      +1h NE/NW circuits         B3_persistence 1318    31.5    26.0    36.6    117.9     87.5    146.9    18.9     16.4     21.2         0.7      0.2      1.4
+      +1h SE/SW circuits        ML_RandomForest  593    16.1    13.0    19.6     45.0     35.8     53.6    23.8     20.4     28.6         0.2      0.2      0.3
+      +1h SE/SW circuits              ML_Linear  593    11.3     9.2    14.0     35.0     26.1     43.9    16.6     13.6     20.6         0.2      0.2      0.3
+      +1h SE/SW circuits            ML_GBM_v1.3  593     8.0     6.3     9.7     21.3     14.2     27.2    11.9     10.2     13.3         0.1      0.1      0.1
+      +1h SE/SW circuits        ML_Chronos_v1.3  593     6.1     4.6     8.1     15.2     11.0     18.6     9.0      7.0     11.8         0.1      0.1      0.2
+      +1h SE/SW circuits     ML_ChronosGBM_v1.3  593     7.8     6.1     9.3     18.8     15.7     21.6    11.5      9.1     14.0         0.1      0.1      0.1
+      +1h SE/SW circuits          ML_Blend_v1.3  593     6.1     4.8     7.7     16.1     10.8     20.1     9.0      7.5     11.1         0.1      0.1      0.1
+      +1h SE/SW circuits           B1_last_week  593    55.9    26.5    86.1    146.9     89.4    188.5    82.6     39.0    133.3         0.4      0.3      0.6
+      +1h SE/SW circuits B2_weekday_hour_median  593    34.6    26.0    43.5    101.6     80.1    119.2    51.1     40.7     64.4         0.3      0.3      0.4
+      +1h SE/SW circuits         B3_persistence  593     7.2     5.7     9.1     19.3     14.3     23.2    10.6      8.6     13.3         0.2      0.2      0.2
+      +6h   all circuits        ML_RandomForest 1911    37.4    28.7    47.4    140.5     87.9    196.7    27.4     23.4     32.1         0.5      0.3      1.0
+      +6h   all circuits              ML_Linear 1911    39.4    31.2    50.1    135.9     87.8    189.4    28.9     24.1     34.7         0.6      0.3      1.1
+      +6h   all circuits            ML_GBM_v1.3 1911    37.1    27.0    48.5    148.7     90.3    206.8    27.2     22.0     32.5         0.5      0.3      1.0
+      +6h   all circuits        ML_Chronos_v1.3 1911    36.9    25.1    49.2    139.3     91.3    184.7    27.1     20.5     33.1         0.6      0.3      1.1
+      +6h   all circuits     ML_ChronosGBM_v1.3 1911    34.2    25.0    44.2    139.6     86.4    195.1    25.1     20.6     29.7         0.5      0.2      1.0
+      +6h   all circuits          ML_Blend_v1.3 1911    34.7    24.2    46.2    135.5     85.8    185.5    25.5     19.7     31.1         0.5      0.3      1.0
+      +6h   all circuits           B1_last_week 1911    59.1    46.1    71.9    204.1    154.8    246.4    43.4     31.2     57.4         0.7      0.4      1.2
+      +6h   all circuits B2_weekday_hour_median 1911    43.7    33.4    54.5    165.5    112.1    221.0    32.1     27.3     36.7         0.6      0.3      1.1
+      +6h   all circuits         B3_persistence 1911    57.8    40.9    76.8    208.0    135.7    282.2    42.5     33.3     51.7         0.9      0.4      1.8
+      +6h NE/NW circuits        ML_RandomForest 1318    44.2    33.2    58.8    166.0    105.4    235.5    26.5     21.5     32.0         0.8      0.3      1.8
+      +6h NE/NW circuits              ML_Linear 1318    45.5    36.0    58.5    159.3    105.0    223.7    27.2     22.9     32.4         1.0      0.4      2.0
+      +6h NE/NW circuits            ML_GBM_v1.3 1318    46.8    34.6    62.0    177.6    112.8    247.5    28.1     22.5     33.9         0.8      0.3      1.8
+      +6h NE/NW circuits        ML_Chronos_v1.3 1318    49.1    36.5    63.0    166.6    114.9    220.8    29.4     23.5     35.0         0.9      0.4      2.0
+      +6h NE/NW circuits     ML_ChronosGBM_v1.3 1318    44.3    32.7    58.8    166.8    107.5    234.1    26.5     21.1     32.1         0.8      0.3      1.8
+      +6h NE/NW circuits          ML_Blend_v1.3 1318    46.0    34.2    60.0    162.1    108.1    222.0    27.5     22.1     33.0         0.9      0.3      1.9
+      +6h NE/NW circuits           B1_last_week 1318    60.5    49.0    73.0    225.2    162.3    285.2    36.2     29.0     43.9         1.0      0.4      1.9
+      +6h NE/NW circuits B2_weekday_hour_median 1318    47.8    32.9    66.0    187.2    119.5    259.9    28.6     21.4     35.9         0.9      0.3      1.8
+      +6h NE/NW circuits         B3_persistence 1318    79.7    60.3   104.6    249.9    168.6    339.7    47.7     38.7     57.6         1.5      0.5      3.4
+      +6h SE/SW circuits        ML_RandomForest  593    22.2    17.9    27.0     48.6     29.9     66.7    32.8     27.8     37.8         0.3      0.2      0.3
+      +6h SE/SW circuits              ML_Linear  593    25.8    20.1    32.5     55.8     39.0     72.7    38.2     29.2     49.4         0.3      0.2      0.3
+      +6h SE/SW circuits            ML_GBM_v1.3  593    15.5    13.4    17.8     33.8     26.9     40.7    22.8     20.2     25.9         0.2      0.2      0.2
+      +6h SE/SW circuits        ML_Chronos_v1.3  593     9.7     5.2    15.1     29.5     13.0     43.3    14.3      8.2     21.6         0.2      0.1      0.2
+      +6h SE/SW circuits     ML_ChronosGBM_v1.3  593    11.8     9.7    14.3     30.7     21.8     40.1    17.5     14.5     21.3         0.2      0.1      0.2
+      +6h SE/SW circuits          ML_Blend_v1.3  593     9.7     6.8    13.2     27.0     15.3     38.2    14.4     10.5     19.0         0.2      0.1      0.2
+      +6h SE/SW circuits           B1_last_week  593    55.9    26.8    85.2    146.9     87.8    187.6    82.6     38.4    131.7         0.4      0.3      0.6
+      +6h SE/SW circuits B2_weekday_hour_median  593    34.6    26.3    44.0    101.6     80.8    119.2    51.1     40.6     64.2         0.3      0.3      0.4
+      +6h SE/SW circuits         B3_persistence  593     9.2     6.3    13.9     25.0     17.3     33.2    13.6      9.5     20.2         0.2      0.2      0.2
+day-ahead   all circuits        ML_RandomForest 1911    37.4    28.3    47.7    141.4     85.9    198.9    27.4     23.1     32.2         0.6      0.3      1.0
+day-ahead   all circuits              ML_Linear 1911    39.7    31.1    50.3    138.0     87.8    192.6    29.2     24.3     34.6         0.6      0.3      1.1
+day-ahead   all circuits            ML_GBM_v1.3 1911    35.7    24.9    48.7    143.9     85.1    204.9    26.2     20.4     32.7         0.5      0.2      1.0
+day-ahead   all circuits        ML_Chronos_v1.3 1911    36.2    24.3    49.0    148.5     82.8    200.7    26.6     19.6     33.3         0.5      0.2      1.0
+day-ahead   all circuits     ML_ChronosGBM_v1.3 1911    35.9    24.4    49.4    147.0     81.5    211.5    26.4     20.0     33.5         0.5      0.2      1.0
+day-ahead   all circuits          ML_Blend_v1.3 1911    34.2    23.1    46.4    139.0     79.0    191.4    25.1     18.6     31.5         0.5      0.2      1.0
+day-ahead   all circuits           B1_last_week 1911    59.1    46.1    72.3    204.1    155.5    246.3    43.4     31.7     58.0         0.7      0.4      1.2
+day-ahead   all circuits B2_weekday_hour_median 1911    43.7    33.1    54.2    165.5    111.1    221.5    32.1     27.1     36.6         0.6      0.3      1.1
+day-ahead   all circuits         B3_persistence 1911    41.5    27.4    56.4    167.6    103.2    226.4    30.5     22.6     37.8         0.5      0.3      1.0
+day-ahead NE/NW circuits        ML_RandomForest 1318    43.7    32.2    57.8    166.9    104.2    235.4    26.2     20.9     31.7         0.8      0.3      1.8
+day-ahead NE/NW circuits              ML_Linear 1318    45.6    35.8    57.7    161.3    105.0    225.0    27.3     22.8     32.1         1.0      0.4      2.0
+day-ahead NE/NW circuits            ML_GBM_v1.3 1318    43.5    31.6    57.9    170.2    105.7    240.7    26.0     20.6     31.7         0.8      0.3      1.8
+day-ahead NE/NW circuits        ML_Chronos_v1.3 1318    46.9    34.8    60.2    175.2    102.4    230.3    28.1     22.0     33.7         0.8      0.3      1.8
+day-ahead NE/NW circuits     ML_ChronosGBM_v1.3 1318    42.7    30.1    58.0    169.8    102.8    243.6    25.6     19.6     31.6         0.8      0.3      1.8
+day-ahead NE/NW circuits          ML_Blend_v1.3 1318    43.8    32.7    56.4    163.7     97.9    222.6    26.2     20.8     31.3         0.8      0.3      1.8
+day-ahead NE/NW circuits           B1_last_week 1318    60.5    48.7    72.9    225.2    161.2    281.8    36.2     29.3     44.1         1.0      0.4      1.9
+day-ahead NE/NW circuits B2_weekday_hour_median 1318    47.8    32.4    65.5    187.2    120.7    258.5    28.6     21.1     35.7         0.9      0.3      1.8
+day-ahead NE/NW circuits         B3_persistence 1318    54.8    40.2    70.6    198.6    132.6    263.2    32.8     25.8     39.4         0.9      0.4      1.9
+day-ahead SE/SW circuits        ML_RandomForest  593    23.2    18.9    27.9     49.8     31.8     67.8    34.3     28.8     39.2         0.3      0.2      0.3
+day-ahead SE/SW circuits              ML_Linear  593    26.7    19.3    34.1     60.0     39.2     79.5    39.4     27.9     51.7         0.3      0.2      0.3
+day-ahead SE/SW circuits            ML_GBM_v1.3  593    18.5    12.9    26.2     48.6     26.0     70.2    27.3     19.8     39.2         0.2      0.2      0.3
+day-ahead SE/SW circuits        ML_Chronos_v1.3  593    12.4     5.5    22.6     53.7     13.0     85.7    18.3      8.5     33.2         0.2      0.1      0.2
+day-ahead SE/SW circuits     ML_ChronosGBM_v1.3  593    21.0    12.4    32.6     74.5     24.7    115.4    31.0     19.0     46.6         0.2      0.2      0.3
+day-ahead SE/SW circuits          ML_Blend_v1.3  593    12.7     5.9    22.5     52.5     13.5     83.5    18.8      9.3     33.7         0.2      0.1      0.2
+day-ahead SE/SW circuits           B1_last_week  593    55.9    24.5    85.0    146.9     84.1    186.9    82.6     35.7    131.3         0.4      0.3      0.6
+day-ahead SE/SW circuits B2_weekday_hour_median  593    34.6    26.2    44.0    101.6     82.0    120.2    51.1     40.1     64.2         0.3      0.3      0.4
+day-ahead SE/SW circuits         B3_persistence  593    12.0     5.5    21.4     53.7     13.3     85.4    17.8      8.6     31.5         0.2      0.2      0.2
+
+======================================================================
+PAIRWISE MAE DIFFERENCES (A - B, negative = A better)
+======================================================================
+  horizon        scope                model_A                model_B  MAE_A_minus_B  diff_lo  diff_hi  p_value  significant                 better  sMAE_A_minus_B  sMAE_diff_lo  sMAE_diff_hi  sMAE_significant
+      +1h all circuits        ML_RandomForest              ML_Linear           2.60    -1.05     7.93     0.28        False                    tie           -0.00         -0.13          0.12             False
+      +1h all circuits        ML_RandomForest            ML_GBM_v1.3           1.39    -0.67     3.29     0.18        False                    tie            0.05          0.03          0.06              True
+      +1h all circuits        ML_RandomForest        ML_Chronos_v1.3           6.20     3.07     9.97     0.00         True        ML_Chronos_v1.3            0.08          0.04          0.15              True
+      +1h all circuits        ML_RandomForest     ML_ChronosGBM_v1.3           3.02     1.56     4.61     0.00         True     ML_ChronosGBM_v1.3            0.06          0.04          0.08              True
+      +1h all circuits        ML_RandomForest          ML_Blend_v1.3           5.58     3.82     7.46     0.00         True          ML_Blend_v1.3            0.07          0.05          0.11              True
+      +1h all circuits        ML_RandomForest           B1_last_week         -31.33   -50.20   -13.65     0.00         True        ML_RandomForest           -0.21         -0.30         -0.11              True
+      +1h all circuits        ML_RandomForest B2_weekday_hour_median         -16.00   -20.42   -11.87     0.00         True        ML_RandomForest           -0.11         -0.16         -0.07              True
+      +1h all circuits        ML_RandomForest         B3_persistence           3.78     0.09     9.47     0.04         True         B3_persistence            0.05         -0.03          0.15             False
+      +1h all circuits              ML_Linear            ML_GBM_v1.3          -1.21    -7.17     3.10     0.74        False                    tie            0.05         -0.08          0.18             False
+      +1h all circuits              ML_Linear        ML_Chronos_v1.3           3.60     1.07     5.75     0.00         True        ML_Chronos_v1.3            0.09          0.00          0.19              True
+      +1h all circuits              ML_Linear     ML_ChronosGBM_v1.3           0.42    -4.98     3.62     0.76        False                    tie            0.06         -0.06          0.19             False
+      +1h all circuits              ML_Linear          ML_Blend_v1.3           2.98    -1.08     5.59     0.14        False                    tie            0.08         -0.02          0.19             False
+      +1h all circuits              ML_Linear           B1_last_week         -33.92   -50.88   -17.54     0.00         True              ML_Linear           -0.21         -0.33         -0.10              True
+      +1h all circuits              ML_Linear B2_weekday_hour_median         -18.59   -27.17   -11.52     0.00         True              ML_Linear           -0.11         -0.25          0.03             False
+      +1h all circuits              ML_Linear         B3_persistence           1.18    -0.03     2.27     0.06        False                    tie            0.05         -0.00          0.14             False
+      +1h all circuits            ML_GBM_v1.3        ML_Chronos_v1.3           4.81     0.99     9.22     0.01         True        ML_Chronos_v1.3            0.04         -0.00          0.10             False
+      +1h all circuits            ML_GBM_v1.3     ML_ChronosGBM_v1.3           1.63    -0.30     3.34     0.09        False                    tie            0.01          0.01          0.02              True
+      +1h all circuits            ML_GBM_v1.3          ML_Blend_v1.3           4.19     1.95     6.52     0.00         True          ML_Blend_v1.3            0.03          0.01          0.06              True
+      +1h all circuits            ML_GBM_v1.3           B1_last_week         -32.71   -52.85   -14.22     0.00         True            ML_GBM_v1.3           -0.26         -0.33         -0.16              True
+      +1h all circuits            ML_GBM_v1.3 B2_weekday_hour_median         -17.38   -20.90   -14.17     0.00         True            ML_GBM_v1.3           -0.16         -0.22         -0.11              True
+      +1h all circuits            ML_GBM_v1.3         B3_persistence           2.39    -1.96     8.78     0.45        False                    tie            0.00         -0.07          0.10             False
+      +1h all circuits        ML_Chronos_v1.3     ML_ChronosGBM_v1.3          -3.18    -6.82    -0.51     0.01         True        ML_Chronos_v1.3           -0.02         -0.08          0.01             False
+      +1h all circuits        ML_Chronos_v1.3          ML_Blend_v1.3          -0.62    -2.85     1.14     0.61        False                    tie           -0.01         -0.04          0.01             False
+      +1h all circuits        ML_Chronos_v1.3           B1_last_week         -37.53   -55.25   -21.12     0.00         True        ML_Chronos_v1.3           -0.29         -0.39         -0.19              True
+      +1h all circuits        ML_Chronos_v1.3 B2_weekday_hour_median         -22.20   -29.37   -15.80     0.00         True        ML_Chronos_v1.3           -0.19         -0.28         -0.12              True
+      +1h all circuits        ML_Chronos_v1.3         B3_persistence          -2.42    -4.50     0.07     0.06        False                    tie           -0.03         -0.11          0.04             False
+      +1h all circuits     ML_ChronosGBM_v1.3          ML_Blend_v1.3           2.56     1.48     3.98     0.00         True          ML_Blend_v1.3            0.01         -0.00          0.04             False
+      +1h all circuits     ML_ChronosGBM_v1.3           B1_last_week         -34.35   -52.85   -17.21     0.00         True     ML_ChronosGBM_v1.3           -0.27         -0.35         -0.17              True
+      +1h all circuits     ML_ChronosGBM_v1.3 B2_weekday_hour_median         -19.02   -23.74   -14.37     0.00         True     ML_ChronosGBM_v1.3           -0.17         -0.23         -0.13              True
+      +1h all circuits     ML_ChronosGBM_v1.3         B3_persistence           0.76    -2.89     6.58     0.81        False                    tie           -0.01         -0.08          0.09             False
+      +1h all circuits          ML_Blend_v1.3           B1_last_week         -36.91   -55.16   -20.37     0.00         True          ML_Blend_v1.3           -0.29         -0.37         -0.18              True
+      +1h all circuits          ML_Blend_v1.3 B2_weekday_hour_median         -21.58   -26.92   -16.66     0.00         True          ML_Blend_v1.3           -0.19         -0.25         -0.13              True
+      +1h all circuits          ML_Blend_v1.3         B3_persistence          -1.80    -4.71     2.64     0.39        False                    tie           -0.03         -0.10          0.05             False
+      +1h all circuits           B1_last_week B2_weekday_hour_median          15.33    -5.13    37.68     0.14        False                    tie            0.10         -0.04          0.21             False
+      +1h all circuits           B1_last_week         B3_persistence          35.11    18.00    52.47     0.00         True         B3_persistence            0.26          0.15          0.37              True
+      +1h all circuits B2_weekday_hour_median         B3_persistence          19.78    12.67    28.57     0.00         True         B3_persistence            0.16          0.06          0.28              True
+      +6h all circuits        ML_RandomForest              ML_Linear          -2.00    -5.85     1.70     0.34        False                    tie           -0.08         -0.25          0.01             False
+      +6h all circuits        ML_RandomForest            ML_GBM_v1.3           0.27    -2.97     2.50     0.76        False                    tie            0.04          0.03          0.05              True
+      +6h all circuits        ML_RandomForest        ML_Chronos_v1.3           0.50    -5.03     5.10     0.82        False                    tie           -0.00         -0.08          0.05             False
+      +6h all circuits        ML_RandomForest     ML_ChronosGBM_v1.3           3.15     1.24     5.01     0.00         True     ML_ChronosGBM_v1.3            0.05          0.03          0.07              True
+      +6h all circuits        ML_RandomForest          ML_Blend_v1.3           2.65    -0.82     5.64     0.12        False                    tie            0.03         -0.02          0.06             False
+      +6h all circuits        ML_RandomForest           B1_last_week         -21.69   -40.61    -3.15     0.00         True        ML_RandomForest           -0.15         -0.23         -0.04              True
+      +6h all circuits        ML_RandomForest B2_weekday_hour_median          -6.36    -9.53    -3.33     0.00         True        ML_RandomForest           -0.05         -0.09         -0.01              True
+      +6h all circuits        ML_RandomForest         B3_persistence         -20.46   -31.16   -11.31     0.00         True        ML_RandomForest           -0.31         -0.80         -0.05              True
+      +6h all circuits              ML_Linear            ML_GBM_v1.3           2.28    -2.86     6.53     0.34        False                    tie            0.12          0.03          0.29              True
+      +6h all circuits              ML_Linear        ML_Chronos_v1.3           2.50    -4.40     8.15     0.42        False                    tie            0.08          0.01          0.20              True
+      +6h all circuits              ML_Linear     ML_ChronosGBM_v1.3           5.15     0.72     9.22     0.02         True     ML_ChronosGBM_v1.3            0.14          0.04          0.30              True
+      +6h all circuits              ML_Linear          ML_Blend_v1.3           4.65    -0.42     9.07     0.07        False                    tie            0.11          0.03          0.25              True
+      +6h all circuits              ML_Linear           B1_last_week         -19.69   -36.28    -3.22     0.01         True              ML_Linear           -0.06         -0.18          0.08             False
+      +6h all circuits              ML_Linear B2_weekday_hour_median          -4.36   -10.50     1.86     0.18        False                    tie            0.04         -0.09          0.23             False
+      +6h all circuits              ML_Linear         B3_persistence         -18.46   -30.44    -7.57     0.00         True              ML_Linear           -0.23         -0.72          0.10             False
+      +6h all circuits            ML_GBM_v1.3        ML_Chronos_v1.3           0.22    -3.25     3.46     0.89        False                    tie           -0.04         -0.11          0.01             False
+      +6h all circuits            ML_GBM_v1.3     ML_ChronosGBM_v1.3           2.87     0.36     5.91     0.02         True     ML_ChronosGBM_v1.3            0.01         -0.00          0.03             False
+      +6h all circuits            ML_GBM_v1.3          ML_Blend_v1.3           2.37     0.05     4.57     0.04         True          ML_Blend_v1.3           -0.01         -0.05          0.02             False
+      +6h all circuits            ML_GBM_v1.3           B1_last_week         -21.96   -41.90    -2.00     0.01         True            ML_GBM_v1.3           -0.19         -0.27         -0.07              True
+      +6h all circuits            ML_GBM_v1.3 B2_weekday_hour_median          -6.63    -9.99    -3.18     0.00         True            ML_GBM_v1.3           -0.08         -0.13         -0.05              True
+      +6h all circuits            ML_GBM_v1.3         B3_persistence         -20.74   -30.06   -12.63     0.00         True            ML_GBM_v1.3           -0.35         -0.84         -0.09              True
+      +6h all circuits        ML_Chronos_v1.3     ML_ChronosGBM_v1.3           2.65    -0.85     7.07     0.17        False                    tie            0.05          0.01          0.12              True
+      +6h all circuits        ML_Chronos_v1.3          ML_Blend_v1.3           2.15     0.38     4.48     0.01         True          ML_Blend_v1.3            0.03          0.01          0.06              True
+      +6h all circuits        ML_Chronos_v1.3           B1_last_week         -22.19   -43.66    -0.98     0.04         True        ML_Chronos_v1.3           -0.14         -0.24         -0.05              True
+      +6h all circuits        ML_Chronos_v1.3 B2_weekday_hour_median          -6.86   -11.38    -1.36     0.01         True        ML_Chronos_v1.3           -0.04         -0.12          0.05             False
+      +6h all circuits        ML_Chronos_v1.3         B3_persistence         -20.96   -29.07   -14.14     0.00         True        ML_Chronos_v1.3           -0.31         -0.78         -0.05              True
+      +6h all circuits     ML_ChronosGBM_v1.3          ML_Blend_v1.3          -0.50    -2.79     1.37     0.69        False                    tie           -0.02         -0.06          0.00             False
+      +6h all circuits     ML_ChronosGBM_v1.3           B1_last_week         -24.84   -43.81    -5.38     0.00         True     ML_ChronosGBM_v1.3           -0.20         -0.28         -0.09              True
+      +6h all circuits     ML_ChronosGBM_v1.3 B2_weekday_hour_median          -9.51   -12.65    -6.28     0.00         True     ML_ChronosGBM_v1.3           -0.10         -0.15         -0.06              True
+      +6h all circuits     ML_ChronosGBM_v1.3         B3_persistence         -23.61   -33.84   -15.13     0.00         True     ML_ChronosGBM_v1.3           -0.36         -0.85         -0.11              True
+      +6h all circuits          ML_Blend_v1.3           B1_last_week         -24.34   -44.84    -3.78     0.00         True          ML_Blend_v1.3           -0.17         -0.26         -0.08              True
+      +6h all circuits          ML_Blend_v1.3 B2_weekday_hour_median          -9.01   -12.43    -4.93     0.00         True          ML_Blend_v1.3           -0.07         -0.14         -0.01              True
+      +6h all circuits          ML_Blend_v1.3         B3_persistence         -23.11   -31.80   -15.73     0.00         True          ML_Blend_v1.3           -0.34         -0.81         -0.08              True
+      +6h all circuits           B1_last_week B2_weekday_hour_median          15.33    -5.39    36.47     0.15        False                    tie            0.10         -0.04          0.21             False
+      +6h all circuits           B1_last_week         B3_persistence           1.23   -25.16    28.01     0.96        False                    tie           -0.17         -0.67          0.15             False
+      +6h all circuits B2_weekday_hour_median         B3_persistence         -14.10   -23.50    -6.61     0.00         True B2_weekday_hour_median           -0.27         -0.76          0.01             False
+day-ahead all circuits        ML_RandomForest              ML_Linear          -2.33    -6.50     1.52     0.26        False                    tie           -0.09         -0.27          0.01             False
+day-ahead all circuits        ML_RandomForest            ML_GBM_v1.3           1.63    -0.93     3.58     0.20        False                    tie            0.04          0.01          0.05              True
+day-ahead all circuits        ML_RandomForest        ML_Chronos_v1.3           1.15    -6.99     6.92     0.74        False                    tie            0.04          0.02          0.07              True
+day-ahead all circuits        ML_RandomForest     ML_ChronosGBM_v1.3           1.41    -2.69     4.36     0.43        False                    tie            0.03         -0.01          0.05             False
+day-ahead all circuits        ML_RandomForest          ML_Blend_v1.3           3.20    -2.25     7.52     0.23        False                    tie            0.05          0.03          0.08              True
+day-ahead all circuits        ML_RandomForest           B1_last_week         -21.70   -41.14    -3.62     0.01         True        ML_RandomForest           -0.15         -0.23         -0.05              True
+day-ahead all circuits        ML_RandomForest B2_weekday_hour_median          -6.37    -9.78    -3.37     0.00         True        ML_RandomForest           -0.04         -0.09         -0.01              True
+day-ahead all circuits        ML_RandomForest         B3_persistence          -4.14   -12.84     1.96     0.26        False                    tie            0.02         -0.01          0.04             False
+day-ahead all circuits              ML_Linear            ML_GBM_v1.3           3.97    -0.59     9.11     0.10        False                    tie            0.13          0.02          0.31              True
+day-ahead all circuits              ML_Linear        ML_Chronos_v1.3           3.48    -4.81     8.52     0.36        False                    tie            0.14          0.02          0.32              True
+day-ahead all circuits              ML_Linear     ML_ChronosGBM_v1.3           3.75    -1.74     9.63     0.20        False                    tie            0.12          0.00          0.31              True
+day-ahead all circuits              ML_Linear          ML_Blend_v1.3           5.54    -0.13     9.80     0.06        False                    tie            0.14          0.03          0.33              True
+day-ahead all circuits              ML_Linear           B1_last_week         -19.37   -36.26    -3.43     0.01         True              ML_Linear           -0.06         -0.18          0.09             False
+day-ahead all circuits              ML_Linear B2_weekday_hour_median          -4.04   -10.24     2.44     0.22        False                    tie            0.05         -0.09          0.24             False
+day-ahead all circuits              ML_Linear         B3_persistence          -1.81   -12.82     6.96     0.77        False                    tie            0.11         -0.00          0.28             False
+day-ahead all circuits            ML_GBM_v1.3        ML_Chronos_v1.3          -0.48    -8.67     5.36     0.91        False                    tie            0.01         -0.01          0.03             False
+day-ahead all circuits            ML_GBM_v1.3     ML_ChronosGBM_v1.3          -0.22    -2.49     1.52     0.93        False                    tie           -0.01         -0.03          0.01             False
+day-ahead all circuits            ML_GBM_v1.3          ML_Blend_v1.3           1.57    -3.62     5.55     0.54        False                    tie            0.02          0.00          0.03              True
+day-ahead all circuits            ML_GBM_v1.3           B1_last_week         -23.34   -44.13    -3.64     0.01         True            ML_GBM_v1.3           -0.18         -0.28         -0.06              True
+day-ahead all circuits            ML_GBM_v1.3 B2_weekday_hour_median          -8.01   -11.72    -3.91     0.00         True            ML_GBM_v1.3           -0.08         -0.12         -0.05              True
+day-ahead all circuits            ML_GBM_v1.3         B3_persistence          -5.77   -13.95    -0.78     0.00         True            ML_GBM_v1.3           -0.02         -0.05          0.01             False
+day-ahead all circuits        ML_Chronos_v1.3     ML_ChronosGBM_v1.3           0.26    -6.51     9.35     0.95        False                    tie           -0.01         -0.04          0.01             False
+day-ahead all circuits        ML_Chronos_v1.3          ML_Blend_v1.3           2.05     0.01     5.21     0.05         True          ML_Blend_v1.3            0.01          0.00          0.02              True
+day-ahead all circuits        ML_Chronos_v1.3           B1_last_week         -22.85   -43.31    -2.51     0.03         True        ML_Chronos_v1.3           -0.19         -0.29         -0.07              True
+day-ahead all circuits        ML_Chronos_v1.3 B2_weekday_hour_median          -7.52   -13.97    -0.17     0.04         True        ML_Chronos_v1.3           -0.09         -0.13         -0.06              True
+day-ahead all circuits        ML_Chronos_v1.3         B3_persistence          -5.29   -15.09     4.22     0.28        False                    tie           -0.03         -0.05         -0.00              True
+day-ahead all circuits     ML_ChronosGBM_v1.3          ML_Blend_v1.3           1.79    -4.22     6.60     0.56        False                    tie            0.02          0.01          0.04              True
+day-ahead all circuits     ML_ChronosGBM_v1.3           B1_last_week         -23.12   -44.62    -2.45     0.03         True     ML_ChronosGBM_v1.3           -0.18         -0.28         -0.04              True
+day-ahead all circuits     ML_ChronosGBM_v1.3 B2_weekday_hour_median          -7.79   -12.36    -2.63     0.00         True     ML_ChronosGBM_v1.3           -0.07         -0.11         -0.04              True
+day-ahead all circuits     ML_ChronosGBM_v1.3         B3_persistence          -5.56   -14.00     0.00     0.05        False                    tie           -0.02         -0.05          0.02             False
+day-ahead all circuits          ML_Blend_v1.3           B1_last_week         -24.91   -45.38    -5.21     0.01         True          ML_Blend_v1.3           -0.20         -0.30         -0.08              True
+day-ahead all circuits          ML_Blend_v1.3 B2_weekday_hour_median          -9.58   -14.89    -4.15     0.00         True          ML_Blend_v1.3           -0.10         -0.14         -0.07              True
+day-ahead all circuits          ML_Blend_v1.3         B3_persistence          -7.35   -16.83     0.09     0.05        False                    tie           -0.04         -0.07         -0.01              True
+day-ahead all circuits           B1_last_week B2_weekday_hour_median          15.33    -4.61    37.17     0.14        False                    tie            0.10         -0.03          0.21             False
+day-ahead all circuits           B1_last_week         B3_persistence          17.56    -5.38    41.95     0.15        False                    tie            0.16          0.05          0.25              True
+day-ahead all circuits B2_weekday_hour_median         B3_persistence           2.23    -7.37     8.92     0.56        False                    tie            0.06          0.02          0.11              True
+
+======================================================================
+BEST MODEL
+======================================================================
+  horizon          scope         best_model             second            difference best_by_scaled_MAE   second_scaled     difference_scaled
+      +1h   all circuits    ML_Chronos_v1.3      ML_Blend_v1.3 not significant (tie)    ML_Chronos_v1.3   ML_Blend_v1.3 not significant (tie)
+      +1h NE/NW circuits    ML_Chronos_v1.3      ML_Blend_v1.3 not significant (tie)     B3_persistence ML_Chronos_v1.3 not significant (tie)
+      +1h SE/SW circuits    ML_Chronos_v1.3      ML_Blend_v1.3 not significant (tie) ML_ChronosGBM_v1.3   ML_Blend_v1.3 not significant (tie)
+      +1h        zone NE    ML_Chronos_v1.3      ML_Blend_v1.3 not significant (tie)     B3_persistence       ML_Linear not significant (tie)
+      +1h        zone NW    ML_Chronos_v1.3      ML_Blend_v1.3 not significant (tie)     B3_persistence   ML_Blend_v1.3 not significant (tie)
+      +1h        zone SE      ML_Blend_v1.3    ML_Chronos_v1.3 not significant (tie) ML_ChronosGBM_v1.3   ML_Blend_v1.3 not significant (tie)
+      +1h        zone SW    ML_Chronos_v1.3      ML_Blend_v1.3           significant ML_ChronosGBM_v1.3     ML_GBM_v1.3 not significant (tie)
+      +6h   all circuits ML_ChronosGBM_v1.3      ML_Blend_v1.3 not significant (tie) ML_ChronosGBM_v1.3     ML_GBM_v1.3 not significant (tie)
+      +6h NE/NW circuits    ML_RandomForest ML_ChronosGBM_v1.3 not significant (tie) ML_ChronosGBM_v1.3     ML_GBM_v1.3 not significant (tie)
+      +6h SE/SW circuits     B3_persistence    ML_Chronos_v1.3 not significant (tie)      ML_Blend_v1.3 ML_Chronos_v1.3 not significant (tie)
+      +6h        zone NE ML_ChronosGBM_v1.3      ML_Blend_v1.3 not significant (tie)    ML_RandomForest     ML_GBM_v1.3 not significant (tie)
+      +6h        zone NW    ML_RandomForest ML_ChronosGBM_v1.3 not significant (tie) ML_ChronosGBM_v1.3     ML_GBM_v1.3 not significant (tie)
+      +6h        zone SE     B3_persistence      ML_Blend_v1.3 not significant (tie)      ML_Blend_v1.3 ML_Chronos_v1.3 not significant (tie)
+      +6h        zone SW    ML_Chronos_v1.3      ML_Blend_v1.3 not significant (tie)      ML_Blend_v1.3 ML_Chronos_v1.3 not significant (tie)
+day-ahead   all circuits      ML_Blend_v1.3        ML_GBM_v1.3 not significant (tie)      ML_Blend_v1.3 ML_Chronos_v1.3           significant
+day-ahead NE/NW circuits ML_ChronosGBM_v1.3        ML_GBM_v1.3 not significant (tie)      ML_Blend_v1.3     ML_GBM_v1.3 not significant (tie)
+day-ahead SE/SW circuits     B3_persistence    ML_Chronos_v1.3 not significant (tie)    ML_Chronos_v1.3   ML_Blend_v1.3 not significant (tie)
+day-ahead        zone NE      ML_Blend_v1.3    ML_Chronos_v1.3 not significant (tie)     B3_persistence   ML_Blend_v1.3 not significant (tie)
+day-ahead        zone NW ML_ChronosGBM_v1.3        ML_GBM_v1.3 not significant (tie)      ML_Blend_v1.3     ML_GBM_v1.3 not significant (tie)
+day-ahead        zone SE     B3_persistence    ML_Chronos_v1.3 not significant (tie)    ML_Chronos_v1.3   ML_Blend_v1.3           significant
+day-ahead        zone SW     B3_persistence      ML_Blend_v1.3 not significant (tie)      ML_Blend_v1.3 ML_Chronos_v1.3 not significant (tie)
+
+Results in results/task6_test_16circuits
