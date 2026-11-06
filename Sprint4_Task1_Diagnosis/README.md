@@ -9,6 +9,4 @@ Diagnosis of Blend v1.3, the model selected at the end of Sprint 3.
 - Part 3: Data conditions and possible explanations.
 
 Each contribution is stored in a separate subfolder.
-A shared synthesis will bring together the findings and investigation priorities.
-
 Documentation is being consolidated.
