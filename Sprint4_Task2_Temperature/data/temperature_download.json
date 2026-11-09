@@ -1,0 +1,20 @@
+{
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast",
+  "params": {
+    "latitude": 40.4044,
+    "longitude": -3.8368,
+    "start_date": "2025-08-01",
+    "end_date": "2025-10-13",
+    "hourly": "temperature_2m,temperature_2m_previous_day2",
+    "timezone": "UTC"
+  },
+  "downloaded_utc": "2026-11-09T15:44:44+00:00",
+  "grid_latitude": 40.414238,
+  "grid_longitude": -3.8543038,
+  "grid_elevation_m": 718.0,
+  "units": {
+    "time": "iso8601",
+    "temperature_2m": "\u00b0C",
+    "temperature_2m_previous_day2": "\u00b0C"
+  }
+}

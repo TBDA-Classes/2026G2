@@ -1,0 +1,31 @@
+check,value,ok
+source,Open-Meteo Previous Runs API (hourly),
+"grid point (lat, lon)","40.414, -3.854",
+distance from CeDInt (km),1.8,yes
+grid elevation (m),718.0,
+units,°C,yes
+time zone of timestamps,UTC (same as the energy dataset),yes
+first / last hour,2025-08-01 00:00:00+00:00 / 2025-10-13 23:00:00+00:00,
+expected hours,1776,
+hours present,1776,yes
+duplicated hours,0,yes
+missing temp_obs_C,0,yes
+missing temp_fc48_C,0,yes
+values inside -15..45 °C,8.2 .. 39.3,yes
+aggregation rule,none needed: the source is already hourly,
+"48 h forecast error, MAE (°C), train",0.57,
+"48 h forecast error, MAE (°C), validation",0.53,
+vs station Casa de Campo (24): days / correlation / mean difference / MAE (°C),39 / 0.983 / -0.24 / 0.60,yes
+vs station El Pardo (58): days / correlation / mean difference / MAE (°C),41 / 0.957 / +1.58 / 1.62,yes
+temperature train: min / mean / max (°C),13.2 / 23.9 / 35.2,
+temperature validation: min / mean / max (°C),8.2 / 16.5 / 25.7,
+validation hours colder than the coldest training hour,28%,
+"E0 reproduces frozen GBM v1.3, +1h: max forecast difference (Wh) / validation score frozen vs E0",0 / 0.2824 vs 0.2824,yes
+"E0 reproduces frozen GBM v1.3, +6h: max forecast difference (Wh) / validation score frozen vs E0",0 / 0.3975 vs 0.3975,yes
+"E0 reproduces frozen GBM v1.3, day-ahead: max forecast difference (Wh) / validation score frozen vs E0",0 / 0.3970 vs 0.3970,yes
+"E0 reproduces frozen ChronosGBM v1.3, +1h: max forecast difference (Wh) / validation score frozen vs E0",28 / 0.2665 vs 0.2658,yes
+"E0 reproduces frozen ChronosGBM v1.3, +6h: max forecast difference (Wh) / validation score frozen vs E0",0 / 0.3461 vs 0.3461,yes
+"E0 reproduces frozen ChronosGBM v1.3, day-ahead: max forecast difference (Wh) / validation score frozen vs E0",1e+02 / 0.3762 vs 0.3780,yes
+"E0 reproduces frozen Blend v1.3, +1h: max forecast difference (Wh) / validation score frozen vs E0",5.5 / 0.2712 vs 0.2709,yes
+"E0 reproduces frozen Blend v1.3, +6h: max forecast difference (Wh) / validation score frozen vs E0",0 / 0.3488 vs 0.3488,yes
+"E0 reproduces frozen Blend v1.3, day-ahead: max forecast difference (Wh) / validation score frozen vs E0",10 / 0.3513 vs 0.3519,yes

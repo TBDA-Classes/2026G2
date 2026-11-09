@@ -1,0 +1,10 @@
+horizon,model,scaled_MAE_E0,scaled_MAE_E1,change,scaled_RMSE_E0,scaled_RMSE_E1,result
++1h,GBM v1.3,0.2824,0.3144,0.0319,0.6341,0.6615,worse
++1h,ChronosGBM v1.3,0.2658,0.2697,0.004,0.6196,0.621,no clear change (within 0.005)
++1h,Blend v1.3,0.2709,0.2778,0.0068,0.6078,0.6113,worse
++6h,GBM v1.3,0.3975,0.4561,0.0587,0.7509,0.7608,worse
++6h,ChronosGBM v1.3,0.3461,0.3696,0.0235,0.7185,0.7153,worse
++6h,Blend v1.3,0.3488,0.3568,0.008,0.7059,0.7011,worse
+day-ahead,GBM v1.3,0.397,0.3915,-0.0055,0.7497,0.7428,better
+day-ahead,ChronosGBM v1.3,0.378,0.3738,-0.0042,0.7318,0.7303,no clear change (within 0.005)
+day-ahead,Blend v1.3,0.3519,0.3516,-0.0003,0.7031,0.7027,no clear change (within 0.005)

@@ -1,0 +1,4 @@
+horizon,all,n_valid_hours,MAE_E0_Wh,MAE_E1_Wh,MAE_change_pct,RMSE_E0_Wh,RMSE_E1_Wh,RMSE_change_pct
++1h,all circuits,2413,23.085,23.791,3.056,107.547,108.159,0.57
++6h,all circuits,2413,35.346,35.672,0.92,144.364,144.094,-0.187
+day-ahead,all circuits,2413,33.838,33.742,-0.285,141.129,140.861,-0.19
