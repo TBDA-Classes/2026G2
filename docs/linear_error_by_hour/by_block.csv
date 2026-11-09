@@ -1,0 +1,25 @@
+subset,horizon_label,block,scaled_MAE
+"trained 8, all hours",+1h,00-05,0.5126
+"trained 8, all hours",+1h,06-11,1.3427
+"trained 8, all hours",+1h,12-17,1.3481
+"trained 8, all hours",+1h,18-23,0.4255
+"trained 8, all hours",+6h,00-05,0.5325
+"trained 8, all hours",+6h,06-11,2.0097
+"trained 8, all hours",+6h,12-17,2.0594
+"trained 8, all hours",+6h,18-23,0.5536
+"trained 8, all hours",day-ahead,00-05,0.5308
+"trained 8, all hours",day-ahead,06-11,2.0027
+"trained 8, all hours",day-ahead,12-17,2.0778
+"trained 8, all hours",day-ahead,18-23,0.5759
+"trained 8, without event days",+1h,00-05,0.4465
+"trained 8, without event days",+1h,06-11,0.3191
+"trained 8, without event days",+1h,12-17,0.3178
+"trained 8, without event days",+1h,18-23,0.2067
+"trained 8, without event days",+6h,00-05,0.4695
+"trained 8, without event days",+6h,06-11,0.7370
+"trained 8, without event days",+6h,12-17,0.7861
+"trained 8, without event days",+6h,18-23,0.3398
+"trained 8, without event days",day-ahead,00-05,0.4717
+"trained 8, without event days",day-ahead,06-11,0.7437
+"trained 8, without event days",day-ahead,12-17,0.8041
+"trained 8, without event days",day-ahead,18-23,0.3601

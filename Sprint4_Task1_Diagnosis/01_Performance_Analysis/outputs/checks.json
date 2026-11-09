@@ -1,0 +1,9 @@
+{
+  "input_sha256": "c1c7fff765b98bc080d8bcdf98dfbd5b61f83f132237b61cec731a498826db7b",
+  "total_rows": 8064,
+  "valid_pairs": 7239,
+  "excluded_pairs": 825,
+  "unique_circuits": 16,
+  "duplicate_keys": 0,
+  "weighted_reconciliation": "passed"
+}

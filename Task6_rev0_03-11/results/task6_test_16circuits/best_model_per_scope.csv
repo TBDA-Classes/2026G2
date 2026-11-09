@@ -1,0 +1,22 @@
+horizon,scope,best_model,second,difference,best_by_scaled_MAE,second_scaled,difference_scaled
++1h,all circuits,ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie),ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie)
++1h,NE/NW circuits,ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie),B3_persistence,ML_Chronos_v1.3,not significant (tie)
++1h,SE/SW circuits,ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie),ML_ChronosGBM_v1.3,ML_Blend_v1.3,not significant (tie)
++1h,zone NE,ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie),B3_persistence,ML_Linear,not significant (tie)
++1h,zone NW,ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie),B3_persistence,ML_Blend_v1.3,not significant (tie)
++1h,zone SE,ML_Blend_v1.3,ML_Chronos_v1.3,not significant (tie),ML_ChronosGBM_v1.3,ML_Blend_v1.3,not significant (tie)
++1h,zone SW,ML_Chronos_v1.3,ML_Blend_v1.3,significant,ML_ChronosGBM_v1.3,ML_GBM_v1.3,not significant (tie)
++6h,all circuits,ML_ChronosGBM_v1.3,ML_Blend_v1.3,not significant (tie),ML_ChronosGBM_v1.3,ML_GBM_v1.3,not significant (tie)
++6h,NE/NW circuits,ML_RandomForest,ML_ChronosGBM_v1.3,not significant (tie),ML_ChronosGBM_v1.3,ML_GBM_v1.3,not significant (tie)
++6h,SE/SW circuits,B3_persistence,ML_Chronos_v1.3,not significant (tie),ML_Blend_v1.3,ML_Chronos_v1.3,not significant (tie)
++6h,zone NE,ML_ChronosGBM_v1.3,ML_Blend_v1.3,not significant (tie),ML_RandomForest,ML_GBM_v1.3,not significant (tie)
++6h,zone NW,ML_RandomForest,ML_ChronosGBM_v1.3,not significant (tie),ML_ChronosGBM_v1.3,ML_GBM_v1.3,not significant (tie)
++6h,zone SE,B3_persistence,ML_Blend_v1.3,not significant (tie),ML_Blend_v1.3,ML_Chronos_v1.3,not significant (tie)
++6h,zone SW,ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie),ML_Blend_v1.3,ML_Chronos_v1.3,not significant (tie)
+day-ahead,all circuits,ML_Blend_v1.3,ML_GBM_v1.3,not significant (tie),ML_Blend_v1.3,ML_Chronos_v1.3,significant
+day-ahead,NE/NW circuits,ML_ChronosGBM_v1.3,ML_GBM_v1.3,not significant (tie),ML_Blend_v1.3,ML_GBM_v1.3,not significant (tie)
+day-ahead,SE/SW circuits,B3_persistence,ML_Chronos_v1.3,not significant (tie),ML_Chronos_v1.3,ML_Blend_v1.3,not significant (tie)
+day-ahead,zone NE,ML_Blend_v1.3,ML_Chronos_v1.3,not significant (tie),B3_persistence,ML_Blend_v1.3,not significant (tie)
+day-ahead,zone NW,ML_ChronosGBM_v1.3,ML_GBM_v1.3,not significant (tie),ML_Blend_v1.3,ML_GBM_v1.3,not significant (tie)
+day-ahead,zone SE,B3_persistence,ML_Chronos_v1.3,not significant (tie),ML_Chronos_v1.3,ML_Blend_v1.3,significant
+day-ahead,zone SW,B3_persistence,ML_Blend_v1.3,not significant (tie),ML_Blend_v1.3,ML_Chronos_v1.3,not significant (tie)

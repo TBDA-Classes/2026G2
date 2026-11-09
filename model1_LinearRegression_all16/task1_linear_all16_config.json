@@ -1,0 +1,145 @@
+{
+  "model": "ML_Linear",
+  "created_utc": "2026-11-02T16:16:23+00:00",
+  "rule": "Trained on the 8 NE/NW circuits, predicts all 16; chosen on validation by mean scaled MAE over all 16 circuits. Test not used.",
+  "dataset": {
+    "file": "Storey1_hourly_v1.1.parquet",
+    "version": "1.1",
+    "sha256": "363dfdfababacb8de4d453c3fddde4e129538e289b346351d5c6bbcd66e8db8b",
+    "source_sha256": "10691347b942d279eafce8409d804784e12eee4f7122285da797cab39ffb37d9"
+  },
+  "training_circuits": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK"
+  ],
+  "predicted_circuits": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SE|Plugs & Sockets",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "splits_utc": {
+    "train": [
+      "2025-08-19 00:00",
+      "2025-09-22 00:00"
+    ],
+    "validation": [
+      "2025-09-22 00:00",
+      "2025-09-29 00:00"
+    ],
+    "test": [
+      "2025-09-29 00:00",
+      "2025-10-06 00:00"
+    ]
+  },
+  "numeric_inputs": [
+    "last_val",
+    "mean_24",
+    "std_24",
+    "mean_168",
+    "lag_T24",
+    "lag_T168",
+    "wk_median",
+    "last_age_h",
+    "n_24",
+    "n_168",
+    "n_weeks",
+    "lead"
+  ],
+  "categorical_inputs": [
+    "hour",
+    "weekday"
+  ],
+  "grid": [
+    {
+      "loss": "ridge",
+      "alpha": 0.01
+    },
+    {
+      "loss": "ridge",
+      "alpha": 1.0
+    },
+    {
+      "loss": "ridge",
+      "alpha": 10.0
+    },
+    {
+      "loss": "ridge",
+      "alpha": 100.0
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.0001
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.001
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.01
+    },
+    {
+      "loss": "lad",
+      "alpha": 0.1
+    }
+  ],
+  "designs": [
+    "A_with_identity",
+    "B_without_identity"
+  ],
+  "horizons": {
+    "+1h": {
+      "design": "B_without_identity",
+      "loss": "lad",
+      "alpha": 0.001,
+      "validation_score_all16": 0.339893,
+      "fit_cutoff_utc": "2025-09-22 00:00:00+00:00",
+      "training_rows": 5681
+    },
+    "+6h": {
+      "design": "B_without_identity",
+      "loss": "lad",
+      "alpha": 0.001,
+      "validation_score_all16": 0.391829,
+      "fit_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "training_rows": 5641
+    },
+    "day-ahead": {
+      "design": "B_without_identity",
+      "loss": "lad",
+      "alpha": 0.001,
+      "validation_score_all16": 0.394896,
+      "fit_cutoff_utc": "2025-09-21 22:00:00+00:00",
+      "training_rows": 5665
+    }
+  },
+  "versions": {
+    "python": "3.13.18",
+    "sklearn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3"
+  }
+}

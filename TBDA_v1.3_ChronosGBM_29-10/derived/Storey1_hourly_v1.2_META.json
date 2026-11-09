@@ -1,0 +1,140 @@
+{
+  "derived_dataset": "Storey1_hourly_v1.2.parquet",
+  "derived_version": "1.2",
+  "created_utc": "2026-10-28T09:27:30+00:00",
+  "source_file": "Storey1_ALL_ZONES_FROZEN_v1.0.csv.xz",
+  "source_dataset_version": "1.0",
+  "source_sha256_file": "10691347b942d279eafce8409d804784e12eee4f7122285da797cab39ffb37d9",
+  "source_sha256_uncompressed_csv": "6355c0cd63157318d7e5693d9f9b08ce7574c81b5c1e8ce675050ac9f57d5aa0",
+  "derived_sha256": "abd78317869c9466ff065c2a3d648ed949f6487e05a9e10a84137f8fa030a575",
+  "parameters": {
+    "THRESHOLD": 1,
+    "ENERGY_MAX_GAP": 15,
+    "ENERGY_TAIL_MAX": 5,
+    "MAX_GAP": 5,
+    "MIN_COVERAGE_MIN": 30,
+    "CONSISTENCY_RATIO": 2.0,
+    "CONSISTENCY_TOL_WH": 1.0,
+    "ZERO_WITH_POWER_W": 1.0,
+    "decisions": "DECISIONS_v1.2.md",
+    "SPLITS": {
+      "train": [
+        "2025-08-19 00:00",
+        "2025-09-22 00:00"
+      ],
+      "validation": [
+        "2025-09-22 00:00",
+        "2025-09-29 00:00"
+      ],
+      "test": [
+        "2025-09-29 00:00",
+        "2025-10-06 00:00"
+      ]
+    },
+    "SPLIT_TZ": "UTC",
+    "SPLIT_SOURCE": "Task 6 (task6.pdf \u00a74)",
+    "TZ_LOCAL": "Europe/Madrid",
+    "REGIME": "recent_2025 (utc >= 2024-01-01)",
+    "holidays": "ES/MD"
+  },
+  "rows_total": 21456,
+  "n_series": 16,
+  "rows_by_series_split": {
+    "NE|HVAC": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "NE|Plugs & Sockets": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "NW|Emerg. Lighting": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "NW|HVAC": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "NW|Hand Dryer": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "NW|Lighting": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "NW|Plugs & Sockets": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "NW|RACK": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SE|Emerg. Lighting": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SE|HVAC": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SE|Lighting": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SE|Plugs & Sockets": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SW|Emerg. Lighting": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SW|Hand Dryer": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SW|Lighting": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    },
+    "SW|Plugs & Sockets": {
+      "outside": 189,
+      "test": 168,
+      "train": 816,
+      "validation": 168
+    }
+  }
+}

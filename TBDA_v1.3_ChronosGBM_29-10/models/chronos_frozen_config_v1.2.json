@@ -1,0 +1,153 @@
+{
+  "model": "ML_Chronos",
+  "created_utc": "2026-10-28T09:37:36+00:00",
+  "rule": "Zero-shot: nothing fitted on our data. Context length chosen on validation by mean_scaled_MAE over the training circuits (DECISIONS_v1.2.md D6). All circuits are forecast. Test not used before freezing.",
+  "weights": {
+    "name": "chronos-bolt-small (config _name_or_path: autogluon/chronos-bolt-small)",
+    "model_sha256": "06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd",
+    "config_sha256": "9ca0ebbe049ccebacb0546361e8aa728f0cf104cd18d1838d78d296aa317bd21"
+  },
+  "dataset": {
+    "file": "Storey1_hourly_v1.2.parquet",
+    "version": "1.2",
+    "sha256": "abd78317869c9466ff065c2a3d648ed949f6487e05a9e10a84137f8fa030a575"
+  },
+  "series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SE|Plugs & Sockets",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "selection_series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "splits_utc": {
+    "train": [
+      "2025-08-19 00:00",
+      "2025-09-22 00:00"
+    ],
+    "validation": [
+      "2025-09-22 00:00",
+      "2025-09-29 00:00"
+    ],
+    "test": [
+      "2025-09-29 00:00",
+      "2025-10-06 00:00"
+    ]
+  },
+  "day_ahead_issue": "00:00 Europe/Madrid",
+  "point_forecast": "median (0.5 quantile), clipped at 0",
+  "quantiles": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "prediction_length": 24,
+  "ctx_grid": [
+    168,
+    336,
+    504,
+    672
+  ],
+  "horizons": {
+    "+1h": {
+      "ctx_len": 672,
+      "validation_score": 0.28758,
+      "scale_Wh": {
+        "NE|HVAC": 2.62428,
+        "NE|Plugs & Sockets": 191.526779,
+        "NW|Emerg. Lighting": 10.035914,
+        "NW|HVAC": 124.228352,
+        "NW|Hand Dryer": 0.875795,
+        "NW|Lighting": 46.943507,
+        "NW|Plugs & Sockets": 563.267145,
+        "NW|RACK": 185.71308,
+        "SE|Emerg. Lighting": 2.265667,
+        "SE|HVAC": 46.861565,
+        "SE|Lighting": 129.325439,
+        "SE|Plugs & Sockets": 255.188684,
+        "SW|Emerg. Lighting": 11.865888,
+        "SW|Hand Dryer": 0.891978,
+        "SW|Lighting": 43.083878,
+        "SW|Plugs & Sockets": 265.052515
+      }
+    },
+    "+6h": {
+      "ctx_len": 504,
+      "validation_score": 0.352506,
+      "scale_Wh": {
+        "NE|HVAC": 2.620185,
+        "NE|Plugs & Sockets": 191.524858,
+        "NW|Emerg. Lighting": 10.03282,
+        "NW|HVAC": 124.754794,
+        "NW|Hand Dryer": 0.880567,
+        "NW|Lighting": 46.516142,
+        "NW|Plugs & Sockets": 564.03085,
+        "NW|RACK": 185.71813,
+        "SE|Emerg. Lighting": 2.264715,
+        "SE|HVAC": 46.904338,
+        "SE|Lighting": 130.309634,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.86573,
+        "SW|Hand Dryer": 0.89587,
+        "SW|Lighting": 43.441764,
+        "SW|Plugs & Sockets": 265.22541
+      }
+    },
+    "day-ahead": {
+      "ctx_len": 168,
+      "validation_score": 0.366143,
+      "scale_Wh": {
+        "NE|HVAC": 2.621799,
+        "NE|Plugs & Sockets": 191.528279,
+        "NW|Emerg. Lighting": 10.033968,
+        "NW|HVAC": 124.484647,
+        "NW|Hand Dryer": 0.878265,
+        "NW|Lighting": 46.763107,
+        "NW|Plugs & Sockets": 563.632623,
+        "NW|RACK": 185.713681,
+        "SE|Emerg. Lighting": 2.264929,
+        "SE|HVAC": 46.878414,
+        "SE|Lighting": 129.715517,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.866984,
+        "SW|Hand Dryer": 0.894787,
+        "SW|Lighting": 43.22654,
+        "SW|Plugs & Sockets": 265.127215
+      }
+    }
+  },
+  "versions": {
+    "python": "3.13.18",
+    "chronos": "2.3.2",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.20.2",
+    "pandas": "3.0.5"
+  }
+}

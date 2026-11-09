@@ -1,0 +1,145 @@
+subset,horizon_label,hour,scaled_MAE
+"trained 8, all hours",+1h,0,0.9964
+"trained 8, all hours",+1h,1,0.9368
+"trained 8, all hours",+1h,2,0.3069
+"trained 8, all hours",+1h,3,0.2006
+"trained 8, all hours",+1h,4,0.1613
+"trained 8, all hours",+1h,5,0.4734
+"trained 8, all hours",+1h,6,0.4905
+"trained 8, all hours",+1h,7,0.7846
+"trained 8, all hours",+1h,8,0.9338
+"trained 8, all hours",+1h,9,0.4475
+"trained 8, all hours",+1h,10,0.5803
+"trained 8, all hours",+1h,11,4.8194
+"trained 8, all hours",+1h,12,1.0785
+"trained 8, all hours",+1h,13,3.0563
+"trained 8, all hours",+1h,14,1.8298
+"trained 8, all hours",+1h,15,1.1789
+"trained 8, all hours",+1h,16,0.3132
+"trained 8, all hours",+1h,17,0.6319
+"trained 8, all hours",+1h,18,0.3780
+"trained 8, all hours",+1h,19,0.6300
+"trained 8, all hours",+1h,20,0.6417
+"trained 8, all hours",+1h,21,0.3617
+"trained 8, all hours",+1h,22,0.3586
+"trained 8, all hours",+1h,23,0.1830
+"trained 8, all hours",+6h,0,0.9596
+"trained 8, all hours",+6h,1,0.4749
+"trained 8, all hours",+6h,2,0.4314
+"trained 8, all hours",+6h,3,0.3820
+"trained 8, all hours",+6h,4,0.3438
+"trained 8, all hours",+6h,5,0.6036
+"trained 8, all hours",+6h,6,0.6772
+"trained 8, all hours",+6h,7,1.1195
+"trained 8, all hours",+6h,8,1.4902
+"trained 8, all hours",+6h,9,1.1564
+"trained 8, all hours",+6h,10,0.7379
+"trained 8, all hours",+6h,11,6.8771
+"trained 8, all hours",+6h,12,7.0686
+"trained 8, all hours",+6h,13,2.6880
+"trained 8, all hours",+6h,14,0.4182
+"trained 8, all hours",+6h,15,1.0382
+"trained 8, all hours",+6h,16,0.7934
+"trained 8, all hours",+6h,17,0.3498
+"trained 8, all hours",+6h,18,0.6380
+"trained 8, all hours",+6h,19,1.0246
+"trained 8, all hours",+6h,20,0.6227
+"trained 8, all hours",+6h,21,0.3151
+"trained 8, all hours",+6h,22,0.3742
+"trained 8, all hours",+6h,23,0.3473
+"trained 8, all hours",day-ahead,0,0.9297
+"trained 8, all hours",day-ahead,1,0.4696
+"trained 8, all hours",day-ahead,2,0.4411
+"trained 8, all hours",day-ahead,3,0.3903
+"trained 8, all hours",day-ahead,4,0.3476
+"trained 8, all hours",day-ahead,5,0.6065
+"trained 8, all hours",day-ahead,6,0.6834
+"trained 8, all hours",day-ahead,7,1.0952
+"trained 8, all hours",day-ahead,8,1.4609
+"trained 8, all hours",day-ahead,9,1.1448
+"trained 8, all hours",day-ahead,10,0.7221
+"trained 8, all hours",day-ahead,11,6.9099
+"trained 8, all hours",day-ahead,12,7.1097
+"trained 8, all hours",day-ahead,13,2.7317
+"trained 8, all hours",day-ahead,14,0.4212
+"trained 8, all hours",day-ahead,15,1.0551
+"trained 8, all hours",day-ahead,16,0.7910
+"trained 8, all hours",day-ahead,17,0.3583
+"trained 8, all hours",day-ahead,18,0.6514
+"trained 8, all hours",day-ahead,19,1.0591
+"trained 8, all hours",day-ahead,20,0.6386
+"trained 8, all hours",day-ahead,21,0.3060
+"trained 8, all hours",day-ahead,22,0.4069
+"trained 8, all hours",day-ahead,23,0.3933
+"trained 8, without event days",+1h,0,0.9336
+"trained 8, without event days",+1h,1,0.8853
+"trained 8, without event days",+1h,2,0.3089
+"trained 8, without event days",+1h,3,0.2034
+"trained 8, without event days",+1h,4,0.1561
+"trained 8, without event days",+1h,5,0.1919
+"trained 8, without event days",+1h,6,0.4563
+"trained 8, without event days",+1h,7,0.4838
+"trained 8, without event days",+1h,8,0.3673
+"trained 8, without event days",+1h,9,0.3109
+"trained 8, without event days",+1h,10,0.1258
+"trained 8, without event days",+1h,11,0.1704
+"trained 8, without event days",+1h,12,0.2078
+"trained 8, without event days",+1h,13,0.4463
+"trained 8, without event days",+1h,14,0.3158
+"trained 8, without event days",+1h,15,0.5192
+"trained 8, without event days",+1h,16,0.1605
+"trained 8, without event days",+1h,17,0.2570
+"trained 8, without event days",+1h,18,0.1746
+"trained 8, without event days",+1h,19,0.2220
+"trained 8, without event days",+1h,20,0.3046
+"trained 8, without event days",+1h,21,0.1935
+"trained 8, without event days",+1h,22,0.1773
+"trained 8, without event days",+1h,23,0.1680
+"trained 8, without event days",+6h,0,0.9791
+"trained 8, without event days",+6h,1,0.3645
+"trained 8, without event days",+6h,2,0.4276
+"trained 8, without event days",+6h,3,0.3784
+"trained 8, without event days",+6h,4,0.3420
+"trained 8, without event days",+6h,5,0.3252
+"trained 8, without event days",+6h,6,0.4051
+"trained 8, without event days",+6h,7,0.5711
+"trained 8, without event days",+6h,8,0.4459
+"trained 8, without event days",+6h,9,0.3860
+"trained 8, without event days",+6h,10,0.4197
+"trained 8, without event days",+6h,11,2.1942
+"trained 8, without event days",+6h,12,2.1837
+"trained 8, without event days",+6h,13,0.9817
+"trained 8, without event days",+6h,14,0.4085
+"trained 8, without event days",+6h,15,0.4097
+"trained 8, without event days",+6h,16,0.3827
+"trained 8, without event days",+6h,17,0.3503
+"trained 8, without event days",+6h,18,0.4596
+"trained 8, without event days",+6h,19,0.4494
+"trained 8, without event days",+6h,20,0.4316
+"trained 8, without event days",+6h,21,0.2829
+"trained 8, without event days",+6h,22,0.2191
+"trained 8, without event days",+6h,23,0.1962
+"trained 8, without event days",day-ahead,0,0.9719
+"trained 8, without event days",day-ahead,1,0.3590
+"trained 8, without event days",day-ahead,2,0.4379
+"trained 8, without event days",day-ahead,3,0.3871
+"trained 8, without event days",day-ahead,4,0.3463
+"trained 8, without event days",day-ahead,5,0.3284
+"trained 8, without event days",day-ahead,6,0.4115
+"trained 8, without event days",day-ahead,7,0.5636
+"trained 8, without event days",day-ahead,8,0.4329
+"trained 8, without event days",day-ahead,9,0.3905
+"trained 8, without event days",day-ahead,10,0.4199
+"trained 8, without event days",day-ahead,11,2.2440
+"trained 8, without event days",day-ahead,12,2.2388
+"trained 8, without event days",day-ahead,13,1.0262
+"trained 8, without event days",day-ahead,14,0.4191
+"trained 8, without event days",day-ahead,15,0.4113
+"trained 8, without event days",day-ahead,16,0.3744
+"trained 8, without event days",day-ahead,17,0.3546
+"trained 8, without event days",day-ahead,18,0.4533
+"trained 8, without event days",day-ahead,19,0.4870
+"trained 8, without event days",day-ahead,20,0.4554
+"trained 8, without event days",day-ahead,21,0.3008
+"trained 8, without event days",day-ahead,22,0.2339
+"trained 8, without event days",day-ahead,23,0.2302

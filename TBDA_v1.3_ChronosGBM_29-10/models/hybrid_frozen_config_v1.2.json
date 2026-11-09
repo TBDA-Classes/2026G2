@@ -1,0 +1,255 @@
+{
+  "model": "ML_ChronosGBM",
+  "created_utc": "2026-10-28T09:45:29+00:00",
+  "rule": "GBM with the frozen Chronos-Bolt forecast as inputs. Fitted on the training circuits' training data only; chosen on validation by mean_scaled_MAE over the training circuits (DECISIONS_v1.2.md D6, D7). Test not used before freezing.",
+  "dataset": {
+    "file": "Storey1_hourly_v1.2.parquet",
+    "version": "1.2",
+    "sha256": "abd78317869c9466ff065c2a3d648ed949f6487e05a9e10a84137f8fa030a575",
+    "source_sha256": "10691347b942d279eafce8409d804784e12eee4f7122285da797cab39ffb37d9"
+  },
+  "chronos_config": {
+    "file": "chronos_frozen_config_v1.2.json",
+    "sha256": "e3152674e7f561d8c3304497870b80ffa753b293fb3984ec10444938ab29660d",
+    "weights_sha256": "06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd"
+  },
+  "chronos_cache": {
+    "file": "chronos_cache_v1.2.parquet",
+    "sha256": "2e4c183bab46a8cfbce6b667d6e248e51fdbc4114432a0782608e72aa800f7a1"
+  },
+  "series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SE|Plugs & Sockets",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "training_series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "cold_start_series": [
+    "SE|Plugs & Sockets"
+  ],
+  "splits_utc": {
+    "train": [
+      "2025-08-19 00:00",
+      "2025-09-22 00:00"
+    ],
+    "validation": [
+      "2025-09-22 00:00",
+      "2025-09-29 00:00"
+    ],
+    "test": [
+      "2025-09-29 00:00",
+      "2025-10-06 00:00"
+    ]
+  },
+  "day_ahead_issue": "00:00 Europe/Madrid",
+  "features": [
+    "last_val",
+    "mean_24",
+    "std_24",
+    "mean_168",
+    "lag_T24",
+    "lag_T168",
+    "wk_median",
+    "last_age_h",
+    "n_24",
+    "n_168",
+    "n_weeks",
+    "hour",
+    "weekday",
+    "is_weekend",
+    "lead",
+    "chr_q10",
+    "chr_q50",
+    "chr_q90",
+    "chr_width",
+    "chr_ctx_h"
+  ],
+  "fixed_params": {
+    "loss": "absolute_error",
+    "max_iter": 300,
+    "early_stopping": false,
+    "l2_regularization": 0.0,
+    "random_state": 0
+  },
+  "grid": [
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50
+    }
+  ],
+  "modes": [
+    "pooled",
+    "per_series"
+  ],
+  "horizons": {
+    "+1h": {
+      "mode": "pooled",
+      "params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20
+      },
+      "config_index": 2,
+      "validation_score": 0.282535,
+      "fit_cutoff_utc": "2025-09-22 00:00:00+00:00",
+      "chronos_ctx_len": 672,
+      "training_rows": 10145,
+      "scale_Wh": {
+        "NE|HVAC": 2.62428,
+        "NE|Plugs & Sockets": 191.526779,
+        "NW|Emerg. Lighting": 10.035914,
+        "NW|HVAC": 124.228352,
+        "NW|Hand Dryer": 0.875795,
+        "NW|Lighting": 46.943507,
+        "NW|Plugs & Sockets": 563.267145,
+        "NW|RACK": 185.71308,
+        "SE|Emerg. Lighting": 2.265667,
+        "SE|HVAC": 46.861565,
+        "SE|Lighting": 129.325439,
+        "SE|Plugs & Sockets": 255.188684,
+        "SW|Emerg. Lighting": 11.865888,
+        "SW|Hand Dryer": 0.891978,
+        "SW|Lighting": 43.083878,
+        "SW|Plugs & Sockets": 265.052515
+      },
+      "model_file": "hybrid_v1.2_p1h.joblib",
+      "model_sha256": "9c03a2666d8524ff02f8e02acb220402c10746483e0c2d77d4a2ecc4a3994748"
+    },
+    "+6h": {
+      "mode": "pooled",
+      "params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 50
+      },
+      "config_index": 3,
+      "validation_score": 0.388522,
+      "fit_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "chronos_ctx_len": 504,
+      "training_rows": 10070,
+      "scale_Wh": {
+        "NE|HVAC": 2.620185,
+        "NE|Plugs & Sockets": 191.524858,
+        "NW|Emerg. Lighting": 10.03282,
+        "NW|HVAC": 124.754794,
+        "NW|Hand Dryer": 0.880567,
+        "NW|Lighting": 46.516142,
+        "NW|Plugs & Sockets": 564.03085,
+        "NW|RACK": 185.71813,
+        "SE|Emerg. Lighting": 2.264715,
+        "SE|HVAC": 46.904338,
+        "SE|Lighting": 130.309634,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.86573,
+        "SW|Hand Dryer": 0.89587,
+        "SW|Lighting": 43.441764,
+        "SW|Plugs & Sockets": 265.22541
+      },
+      "model_file": "hybrid_v1.2_p6h.joblib",
+      "model_sha256": "16aa23747c7de828c424e21fdf765dedecb7388601b3ba42a6718893f21231de"
+    },
+    "day-ahead": {
+      "mode": "pooled",
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20
+      },
+      "config_index": 6,
+      "validation_score": 0.403218,
+      "fit_cutoff_utc": "2025-09-21 22:00:00+00:00",
+      "chronos_ctx_len": 168,
+      "training_rows": 10115,
+      "scale_Wh": {
+        "NE|HVAC": 2.621799,
+        "NE|Plugs & Sockets": 191.528279,
+        "NW|Emerg. Lighting": 10.033968,
+        "NW|HVAC": 124.484647,
+        "NW|Hand Dryer": 0.878265,
+        "NW|Lighting": 46.763107,
+        "NW|Plugs & Sockets": 563.632623,
+        "NW|RACK": 185.713681,
+        "SE|Emerg. Lighting": 2.264929,
+        "SE|HVAC": 46.878414,
+        "SE|Lighting": 129.715517,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.866984,
+        "SW|Hand Dryer": 0.894787,
+        "SW|Lighting": 43.22654,
+        "SW|Plugs & Sockets": 265.127215
+      },
+      "model_file": "hybrid_v1.2_day-ahead.joblib",
+      "model_sha256": "182be683035415231f8b228294ae3883f41ed011dd9cf1aebca051f1ca2382f5"
+    }
+  },
+  "versions": {
+    "python": "3.13.18",
+    "sklearn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3"
+  }
+}

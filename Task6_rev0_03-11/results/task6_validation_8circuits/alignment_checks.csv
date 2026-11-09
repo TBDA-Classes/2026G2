@@ -1,0 +1,12 @@
+model,rows_matched,same_actual_values_%,same_missing_hours_%
+ML_RandomForest,8064,100.0,100.0
+ML_Linear,8064,100.0,100.0
+ML_GBM_v1.3,8064,100.0,92.37
+ML_Chronos_v1.3,8064,100.0,95.68
+ML_ChronosGBM_v1.3,8064,100.0,95.68
+ML_Blend_v1.3,8064,100.0,95.68
+B1_last_week,8064,100.0,95.68
+B2_weekday_hour_median,8064,100.0,95.68
+B3_persistence,8064,100.0,95.68
+ML_GBM_v1.0,4032,100.0,100.0
+ML_Chronos_v1.1,4032,100.0,100.0

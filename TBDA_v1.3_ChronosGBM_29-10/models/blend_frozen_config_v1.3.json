@@ -1,0 +1,42 @@
+{
+  "model": "ML_Blend",
+  "grid_version": "v1.3",
+  "created_utc": "2026-10-29T14:45:10+00:00",
+  "rule": "w_gbm x frozen GBM + w_hybrid x frozen ChronosGBM + w_chronos x frozen Chronos point forecast; weights on a 0.05 grid summing to 1, chosen per horizon on validation by rule D10.",
+  "d10_agreed": "2026-10-29 \u2014 Emily Wiesner, Alex (D10a: option B, D10b: 0.005, D10c: baselines tracked)",
+  "n_combinations": 231,
+  "configs": {
+    "task8": "8d57bbbfd596ff0d90ab90a0500a7a8fd9045db3a9715ed54a4406bd57a218fa",
+    "chronos": "d3d2a8eef48bad75b8fb1acd0c8136157a367b2b9fa9b8825965f8dcd9256f5a",
+    "hybrid": "28c5c375d6d97984f76d4b496a790fb36ed58ac15b99f67918d83d473afc7828"
+  },
+  "horizons": {
+    "+1h": {
+      "w_gbm": 0.3,
+      "w_hybrid": 0.2,
+      "w_chronos": 0.5,
+      "validation_score": 0.271198,
+      "validation_scaled_RMSE": 0.607842,
+      "n_tied": 116,
+      "best_score": 0.266385
+    },
+    "+6h": {
+      "w_gbm": 0.1,
+      "w_hybrid": 0.35,
+      "w_chronos": 0.55,
+      "validation_score": 0.348824,
+      "validation_scaled_RMSE": 0.705936,
+      "n_tied": 48,
+      "best_score": 0.343884
+    },
+    "day-ahead": {
+      "w_gbm": 0.15,
+      "w_hybrid": 0.1,
+      "w_chronos": 0.75,
+      "validation_score": 0.351347,
+      "validation_scaled_RMSE": 0.702718,
+      "n_tied": 27,
+      "best_score": 0.34741
+    }
+  }
+}

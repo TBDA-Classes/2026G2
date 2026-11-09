@@ -1,0 +1,983 @@
+{
+  "model": "ML_GBM",
+  "grid_version": "v1.3",
+  "created_utc": "2026-10-29T13:59:27+00:00",
+  "rule": "Fitted on the training circuits' training data only. Chosen on validation by rule D10 (tie margin 0.005 scaled MAE, tie-break mean scaled RMSE; DECISIONS_v1.2.md). Test not used before freezing.",
+  "d10_agreed": "2026-10-29 \u2014 Emily Wiesner, Alex (D10a: option B, D10b: 0.005, D10c: baselines tracked)",
+  "dataset": {
+    "file": "Storey1_hourly_v1.2.parquet",
+    "version": "1.2",
+    "sha256": "abd78317869c9466ff065c2a3d648ed949f6487e05a9e10a84137f8fa030a575",
+    "source_sha256": "10691347b942d279eafce8409d804784e12eee4f7122285da797cab39ffb37d9"
+  },
+  "series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SE|Plugs & Sockets",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "training_series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "cold_start_series": [
+    "SE|Plugs & Sockets"
+  ],
+  "splits_utc": {
+    "train": [
+      "2025-08-19 00:00",
+      "2025-09-22 00:00"
+    ],
+    "validation": [
+      "2025-09-22 00:00",
+      "2025-09-29 00:00"
+    ],
+    "test": [
+      "2025-09-29 00:00",
+      "2025-10-06 00:00"
+    ]
+  },
+  "day_ahead_issue": "00:00 Europe/Madrid",
+  "features": [
+    "last_val",
+    "mean_24",
+    "std_24",
+    "mean_168",
+    "lag_T24",
+    "lag_T168",
+    "wk_median",
+    "last_age_h",
+    "n_24",
+    "n_168",
+    "n_weeks",
+    "hour",
+    "weekday",
+    "is_weekend",
+    "lead"
+  ],
+  "fixed_params": {
+    "loss": "absolute_error",
+    "max_iter": 300,
+    "early_stopping": false,
+    "random_state": 0
+  },
+  "grid": [
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.03,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 7,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 10,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 50,
+      "l2_regularization": 1.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 0.0
+    },
+    {
+      "learning_rate": 0.2,
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0
+    }
+  ],
+  "n_combinations": 128,
+  "mode": "pooled",
+  "horizons": {
+    "+1h": {
+      "mode": "pooled",
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 50,
+        "l2_regularization": 1.0
+      },
+      "config_index": 77,
+      "validation_score": 0.282424,
+      "validation_scaled_RMSE": 0.634092,
+      "best_baseline": "B3_persistence",
+      "best_baseline_score": 0.358625,
+      "n_tied": 4,
+      "best_score": 0.281693,
+      "fit_cutoff_utc": "2025-09-22 00:00:00+00:00",
+      "training_rows": 10145,
+      "scale_Wh": {
+        "NE|HVAC": 2.62428,
+        "NE|Plugs & Sockets": 191.526779,
+        "NW|Emerg. Lighting": 10.035914,
+        "NW|HVAC": 124.228352,
+        "NW|Hand Dryer": 0.875795,
+        "NW|Lighting": 46.943507,
+        "NW|Plugs & Sockets": 563.267145,
+        "NW|RACK": 185.71308,
+        "SE|Emerg. Lighting": 2.265667,
+        "SE|HVAC": 46.861565,
+        "SE|Lighting": 129.325439,
+        "SE|Plugs & Sockets": 255.188684,
+        "SW|Emerg. Lighting": 11.865888,
+        "SW|Hand Dryer": 0.891978,
+        "SW|Lighting": 43.083878,
+        "SW|Plugs & Sockets": 265.052515
+      },
+      "model_file": "task8_v1.3_p1h.joblib",
+      "model_sha256": "c6baf3072787c6178a16dcc5c0bdce22cdf1099a9b67aef6ddc19bf7c14bc12c"
+    },
+    "+6h": {
+      "mode": "pooled",
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 10,
+        "l2_regularization": 1.0
+      },
+      "config_index": 65,
+      "validation_score": 0.397454,
+      "validation_scaled_RMSE": 0.750897,
+      "best_baseline": "B2_weekday_hour_median",
+      "best_baseline_score": 0.521143,
+      "n_tied": 1,
+      "best_score": 0.397454,
+      "fit_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "training_rows": 10070,
+      "scale_Wh": {
+        "NE|HVAC": 2.620185,
+        "NE|Plugs & Sockets": 191.524858,
+        "NW|Emerg. Lighting": 10.03282,
+        "NW|HVAC": 124.754794,
+        "NW|Hand Dryer": 0.880567,
+        "NW|Lighting": 46.516142,
+        "NW|Plugs & Sockets": 564.03085,
+        "NW|RACK": 185.71813,
+        "SE|Emerg. Lighting": 2.264715,
+        "SE|HVAC": 46.904338,
+        "SE|Lighting": 130.309634,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.86573,
+        "SW|Hand Dryer": 0.89587,
+        "SW|Lighting": 43.441764,
+        "SW|Plugs & Sockets": 265.22541
+      },
+      "model_file": "task8_v1.3_p6h.joblib",
+      "model_sha256": "c31f8ce577867f8347a3c0daac427a62525e791bf1f5099f128ec1d18cb500bf"
+    },
+    "day-ahead": {
+      "mode": "pooled",
+      "params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 20,
+        "l2_regularization": 0.0
+      },
+      "config_index": 34,
+      "validation_score": 0.396952,
+      "validation_scaled_RMSE": 0.749718,
+      "best_baseline": "B3_persistence",
+      "best_baseline_score": 0.37081,
+      "n_tied": 4,
+      "best_score": 0.396952,
+      "fit_cutoff_utc": "2025-09-21 22:00:00+00:00",
+      "training_rows": 10115,
+      "scale_Wh": {
+        "NE|HVAC": 2.621799,
+        "NE|Plugs & Sockets": 191.528279,
+        "NW|Emerg. Lighting": 10.033968,
+        "NW|HVAC": 124.484647,
+        "NW|Hand Dryer": 0.878265,
+        "NW|Lighting": 46.763107,
+        "NW|Plugs & Sockets": 563.632623,
+        "NW|RACK": 185.713681,
+        "SE|Emerg. Lighting": 2.264929,
+        "SE|HVAC": 46.878414,
+        "SE|Lighting": 129.715517,
+        "SE|Plugs & Sockets": 255.205166,
+        "SW|Emerg. Lighting": 11.866984,
+        "SW|Hand Dryer": 0.894787,
+        "SW|Lighting": 43.22654,
+        "SW|Plugs & Sockets": 265.127215
+      },
+      "model_file": "task8_v1.3_day-ahead.joblib",
+      "model_sha256": "4e1eb807fd1132f3059f01f25ff68e10c55ae2bfda4ff5d0d1c633b39291514d"
+    }
+  },
+  "versions": {
+    "python": "3.13.15",
+    "sklearn": "1.9.1",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4"
+  }
+}
