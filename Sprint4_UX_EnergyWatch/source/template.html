@@ -46,6 +46,7 @@ h1,h2,h3{font-family:var(--font-d);margin:0;letter-spacing:-.01em;text-wrap:bala
 .nav button svg{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .nav button:hover{background:var(--surface);color:var(--ink)}
 .nav button[aria-current="page"]{background:var(--surface);color:var(--brand);box-shadow:var(--shadow)}
+.nav .soon{margin-left:auto;font:500 10.5px var(--font-b);border:1px dashed var(--line);color:var(--muted);border-radius:99px;padding:0 7px}
 .nav .badge{margin-left:auto;font:500 11px var(--font-m);background:var(--high);color:#fff;border-radius:99px;padding:1px 7px}
 .railfoot{margin-top:auto;font-size:12px;color:var(--muted);display:grid;gap:8px;padding:0 6px}
 .railfoot .model{background:var(--brand-soft);color:var(--brand);border-radius:10px;padding:8px 10px;font-weight:500}
@@ -198,7 +199,7 @@ input[type=range]{accent-color:var(--brand-2);width:100%}
   .brand,.railfoot{display:none}
   .nav{flex-direction:row;overflow-x:auto;width:100%;gap:2px}
   .nav button{flex-direction:column;gap:2px;font-size:10.5px;padding:6px 9px;flex:none;align-items:center;text-align:center}
-  .nav .badge{display:none}
+  .nav .badge,.nav .soon{display:none}
   body{padding-bottom:90px}
   .top{position:static}.top:before{display:none}
   .g2,.g3{grid-template-columns:minmax(0,1fr)}
@@ -208,6 +209,15 @@ input[type=range]{accent-color:var(--brand-2);width:100%}
   .hm{grid-template-columns:54px repeat(24,minmax(0,1fr))}.hm .hh:nth-child(odd){visibility:hidden}
   .plan{aspect-ratio:auto;grid-template-rows:auto auto;min-height:0}
 }
+
+.mstrip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin:10px 0 4px}
+.mstrip div{border:1px solid var(--line);border-radius:7px;background:var(--surface-2);text-align:center;font-size:11px;color:var(--muted);padding:14px 0 6px;position:relative;overflow:hidden}
+.mstrip div i{position:absolute;left:0;top:0;height:7px;background:var(--brand-2)}
+.mstrip div span{position:relative}
+.mstrip div.on{color:var(--ink);font-weight:600;background:var(--brand-soft)}
+.steps{margin:6px 0 0;padding-left:20px}.steps li{margin:5px 0}
+.filters[hidden]{display:none}
+.ghost{border:1.5px dashed var(--line);border-radius:12px;background:var(--surface-2);padding:12px}
 </style>
 
 <div class="app">
@@ -259,8 +269,9 @@ const SCREENS=[
  ['waste','Waste patterns','M4 4h4v4H4zM10 4h4v4h-4zM16 4h4v4h-4zM4 10h4v4H4zM10 10h4v4h-4zM16 10h4v4h-4zM4 16h4v4H4zM10 16h4v4h-4z'],
  ['savings','Savings','M12 3v18M17 7.5C17 5.5 14.8 4.5 12 4.5S7 5.7 7 7.8s2 3 5 3.8 5 1.600 5 3.800S14.800 19.500 12 19.500 7 18 7 16'],
  ['replay','Replay','M6 4l14 8-14 8z'],
- ['reliab','Reliability & data','M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6zM8.500 12l2.500 2.500L16 9.500']];
-const TITLES={overview:['Overview','What happened in the building and what it may have cost'],expected:['Actual vs expected','When consumption left its normal range'],zones:['Floor & zones','Where on Storey 1 attention is needed'],alerts:['Alerts','What to inspect first'],waste:['Waste patterns','Recurring unnecessary use by day and hour'],savings:['Savings','Estimated excess energy, cost and CO₂ with their main sources'],replay:['Replay','Run a past period as if it were live'],reliab:['Reliability & data','How far the expected values and alerts can be trusted']};
+ ['reliab','Reliability & data','M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6zM8.500 12l2.500 2.500L16 9.500'],
+ ['forecast','Forecast','M3 17l4-4 3 3 5-7 6 5M3 21h18M16 4h5v5']]
+const TITLES={overview:['Overview','What happened in the building and what it may have cost'],expected:['Actual vs expected','When consumption left its normal range'],zones:['Floor & zones','Where on Storey 1 attention is needed'],alerts:['Alerts','What to inspect first'],waste:['Waste patterns','Recurring unnecessary use by day and hour'],savings:['Savings','Estimated excess energy, cost and CO₂ with their main sources'],replay:['Replay','Run a past period as if it were live'],reliab:['Reliability & data','How far the expected values and alerts can be trusted'],forecast:['Forecast','Planned: anticipate the coming day once a full year of data exists']};
 const ZONES=['NW','NE','SW','SE'];const LOADS=[...new Set(C.map(c=>c.load))];const LOADLBL=Object.fromEntries(C.map(c=>[c.load,c.label]));
 const S={screen:'overview',sens:'Balanced',price:0.18,co2:0.27,zone:'ALL',load:'ALL',period:'all',circuit:'ALL',span:'period',day:0,
   al:{sev:'ALL',when:'ALL',sort:'sev',dir:1,tab:'alerts'},wp:{tab:'heat'},sv:{by:'circuit'},rel:{lvl:'circuit'},
@@ -305,7 +316,7 @@ function copy(text,btn){const done=()=>{const o=btn.textContent;btn.textContent=
 
 /* ---------- chrome ---------- */
 function renderNav(){const open=D.det[S.sens].events.filter(e=>e.sev==='High').length;
-  $('#nav').innerHTML=SCREENS.map(([id,name,path])=>`<button type="button" data-s="${id}" ${S.screen===id?'aria-current="page"':''}><svg viewBox="0 0 24 24"><path d="${path}"/></svg><span>${name}</span>${id==='alerts'?`<span class="badge">${open}</span>`:''}</button>`).join('');
+  $('#nav').innerHTML=SCREENS.map(([id,name,path])=>`<button type="button" data-s="${id}" ${S.screen===id?'aria-current="page"':''}><svg viewBox="0 0 24 24"><path d="${path}"/></svg><span>${name}</span>${id==='alerts'?`<span class="badge">${open}</span>`:''}${id==='forecast'?`<span class="soon">Soon</span>`:''}</button>`).join('');
   $$('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.s));}
 function renderFilters(){
   const days=DAYS.map((d,i)=>`<option value="d${i}" ${S.period==='d'+i?'selected':''}>${d.dl}</option>`).join('');
@@ -319,8 +330,8 @@ function renderFilters(){
   $$('#gfilters [data-z]').forEach(b=>b.onclick=()=>{S.zone=b.dataset.z;render();});
   $('#gear').onclick=openSettings;}
 function go(id){S.screen=id;try{history.replaceState(null,'','#'+id);}catch(e){location.hash=id;}stopReplay();render();window.scrollTo({top:0});}
-function render(){renderNav();renderFilters();$('#ttl').textContent=TITLES[S.screen][0];$('#sub').textContent=`${TITLES[S.screen][1]} · ${periodLabel()} · ${scopeLabel()}`;
-  const v=$('#view');const fn=VIEWS[S.screen];v.innerHTML='';fn(v);}
+function render(){renderNav();renderFilters();$('#ttl').textContent=TITLES[S.screen][0];$('#sub').textContent=S.screen==='forecast'?TITLES[S.screen][1]:`${TITLES[S.screen][1]} · ${periodLabel()} · ${scopeLabel()}`;
+  $('#gfilters').hidden=S.screen==='forecast';const v=$('#view');const fn=VIEWS[S.screen];v.innerHTML='';fn(v);}
 
 /* ---------- drawer ---------- */
 function openDrawer(html){const d=$('#drawer');d.innerHTML=html;d.classList.add('on');d.setAttribute('aria-hidden','false');$('#scrim').classList.add('on');$('#xclose')&&$('#xclose').focus();}
@@ -565,6 +576,48 @@ VIEWS.reliab=v=>{const R=D.reliab,lvl=S.rel.lvl;const INJ=R.inject;const lv={cir
     <div class="card"><h2>Rules used</h2><ul class="check"><li><b>Expected value:</b> Blend v1.3 (weighted mix of gradient boosting, ChronosGBM and Chronos-Bolt), day-ahead, issued 00:00 Madrid.</li><li><b>Normal range:</b> Chronos-Bolt 10–90% band. The expected value is always kept inside it.</li><li><b>Occupied hours:</b> weekdays 07:00–20:00 Madrid, not holidays. In zones NW and SE, motion detectors register presence in 85–91% of the hours with any detected presence inside this window; NE has no detector and the SW detector is stuck on.</li><li><b>Alert hour:</b> actual above the range and excess above the sensitivity floor. Consecutive hours form one alert.</li><li><b>High severity:</b> at least 1 kWh, or 6 hours, or 0.5 kWh mostly out of hours.</li><li><b>Impact:</b> excess kWh × assumed price and CO₂ factor (estimates).</li></ul></div></div>
    <div class="card"><h2>Limits to keep in mind</h2><ul class="check"><li>The model learned from about five summer weeks (19 Aug – 21 Sep 2025) and was checked on two single weeks. It has not seen winter or the heating season.</li><li>A few large circuits dominate the error. NW plugs & sockets draw about 535 Wh every hour, day and night, and make up over half of the detected excess, so some of its alerts may reflect an always-on load rather than a new event. Causes are not confirmed.</li><li>Outdoor temperature was tested and did not improve the model, so it is not used.</li><li>Only energy (Wh) is forecast. Power and current are strongly redundant with it (median correlation of ${(R.wi.map(r=>r.corr_W_I).sort((a,b)=>a-b)[Math.floor(R.wi.length/2)]).toFixed(2)} between them) and were left out on purpose.</li></ul></div></div>`;
   $$('[data-lv]',v).forEach(b=>b.onclick=()=>{S.rel.lvl=b.dataset.lv;render();});};
+
+VIEWS.forecast=v=>{
+  /* Dataset v1.2: 16 circuits x 1,341 hours (18 Aug 18:00 UTC - 13 Oct 14:00 UTC). No forecast values are shown on this screen on purpose. */
+  const HAVE_H=1341,HAVE_D=Math.round(HAVE_H/24),NEED_D=365,pct=Math.round(100*HAVE_D/NEED_D);
+  const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const cover={7:14/31,8:1,9:13/31};
+  const strip=MN.map((m,k)=>`<div class="${cover[k]?'on':''}">${cover[k]?`<i style="width:${Math.round(cover[k]*100)}%"></i>`:''}<span>${m}</span></div>`).join('');
+  const w=720,h=190,pl=44,pr=14,pt=20,pb=26;
+  const hrs=[0,6,12,18,24].map(t=>{const x=pl+(w-pl-pr)*t/24;return`<line x1="${x}" y1="${pt}" x2="${x}" y2="${h-pb}" stroke="var(--line)" stroke-dasharray="3 4"/><text x="${x}" y="${h-8}" text-anchor="${t===24?'end':'middle'}" font-size="11" fill="var(--muted)">${String(t).padStart(2,'0')}:00</text>`}).join('');
+  const xs=Array.from({length:25},(_,t)=>pl+(w-pl-pr)*t/24);
+  const mid=t=>pt+(h-pt-pb)*(0.5-0.18*Math.sin((t-6)/24*2*Math.PI));
+  const line=xs.map((x,t)=>`${t?'L':'M'}${x},${mid(t)}`).join(' ');
+  const up=xs.map((x,t)=>`${t?'L':'M'}${x},${mid(t)-22}`).join(' ');
+  const dn=xs.slice().reverse().map((x,k)=>`L${x},${mid(24-k)+22}`).join(' ');
+  v.innerHTML=`<div class="grid">
+   <div class="note warn"><b>Planned, not active in this version.</b> This tab is reserved for the next stage: anticipating the coming day (what the building should normally use, and when it will be occupied). It stays empty of forecasts on purpose, because the data delivered so far cover only about ${HAVE_D} days, from late summer to early autumn. Everything the app shows elsewhere is built on past data.</div>
+   <div class="grid g3">
+    <div class="kpi"><div class="eyebrow">Data available</div><div class="v">${HAVE_D}<small>days</small></div><div class="d">18 Aug – 13 Oct 2025 · ${pct}% of one year</div></div>
+    <div class="kpi"><div class="eyebrow">Seasons seen</div><div class="v" style="font-size:19px">Late summer → early autumn</div><div class="d">no winter, no spring, no heating season</div></div>
+    <div class="kpi"><div class="eyebrow">Status</div><div class="v" style="font-size:19px"><span class="pill data">Waiting for a full year</span></div><div class="d">needs new measurements from the building</div></div></div>
+   <div class="card"><h2>What a full cycle changes</h2><p class="sub">A model can only anticipate seasons it has learned. Months with data today:</p>
+    <div class="mstrip" role="img" aria-label="Months of the year covered by the data: part of August, September, part of October">${strip}</div>
+    <p class="hint">The year is a calendar year; the highlight shows which months of it have measurements.</p>
+    <ul class="check"><li>Heating and cooling, holidays, exam periods and the academic calendar can only be learned and checked once they appear in the data.</li><li>Weather and timetable information would then be tried as extra inputs, and kept only if they improve the forecast on weeks the model has not seen (same rule as for the current models).</li></ul></div>
+   <div class="grid g2">
+    <div class="card"><h2>Input 1 · UPM timetable and calendar</h2><p class="sub">To anticipate how occupied each zone will be.</p>
+     <ul class="check"><li><b>Planned source:</b> class and room schedules published on UPM’s PODWeb. Access, export format and update frequency are still to be confirmed with UPM.</li><li><b>Used for:</b> lectures, exams, closures and holidays, so an empty hall on a holiday is expected and not flagged.</li><li><b>Already in the project:</b> a day-type table (working day, weekend, holiday, vacation) built from the official UPM calendars, and occupancy measured by the motion detectors.</li><li><b>Still missing:</b> a link between the rooms in the timetable and the four zones NE, NW, SE and SW.</li></ul></div>
+    <div class="card"><h2>Input 2 · Online weather forecast</h2><p class="sub">To anticipate heating and cooling use.</p>
+     <ul class="check"><li><b>Planned source:</b> an hourly outdoor-temperature forecast from an online weather service (service to be chosen).</li><li><b>Already tested:</b> in Sprint 4, observed temperature and a forecast made 48 hours ahead were tried on 1 Aug – 13 Oct 2025. They did not improve the model over that short summer window.</li><li><b>Expected later:</b> a larger effect in the heating season. This is an expectation, not a result.</li><li><b>Needs a connection:</b> this page works offline, so a live version would be a separate step.</li></ul></div></div>
+   <div class="card"><h2>How this tab will be switched on</h2><ol class="steps">
+     <li>Receive at least 12 months of measurements from the building.</li>
+     <li>Rebuild the clean dataset with the same rules and keep the same time-based split (train, validation, unseen test).</li>
+     <li>Retrain and re-select the model, with timetable and weather as candidate inputs.</li>
+     <li>Check accuracy and normal-range coverage by season, not only on average.</li>
+     <li>Show the next 24 hours here: expected use, normal range and expected occupancy. Alerts keep working as they do today.</li></ol>
+    <p class="hint">Technical detail and the retraining schedule: Deployment and handover plan.</p></div>
+   <div class="card"><h2>Planned layout</h2><p class="sub">Sketch only. It contains no data and no forecast.</p>
+    <div class="ghost"><svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="Sketch of the planned next-24-hours chart, empty">
+      ${hrs}<path d="${up} ${dn} Z" fill="var(--band)" stroke="var(--line)" stroke-dasharray="4 4"/><path d="${line}" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
+      <text x="${pl}" y="11" font-size="11" fill="var(--muted)">Wh per hour</text><text x="${w-pr}" y="${pt-2}" text-anchor="end" font-size="11" fill="var(--muted)">placeholder: expected use and normal range</text></svg>
+     <div class="grid g2" style="margin-top:8px"><div class="ghost" style="background:var(--surface)"><div class="eyebrow">Below the chart</div>UPM schedule: lectures, exams, closures</div><div class="ghost" style="background:var(--surface)"><div class="eyebrow">Below the chart</div>Outdoor temperature forecast</div></div></div></div>
+  </div>`;};
 
 /* ---------- theme ---------- */
 $('#themebtn').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';render();};

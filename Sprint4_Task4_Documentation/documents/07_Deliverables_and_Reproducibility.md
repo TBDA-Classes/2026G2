@@ -91,7 +91,7 @@ The model forecasts themselves (Blend v1.3, Chronos-Bolt, GBM). They are stored 
 | Fresh shallow clone of the repository, both folders copied in, `python Sprint4_UX_EnergyWatch/source/run_all.py` | Completed in about 13 seconds without errors |
 | `data.json` of the clean rebuild compared with the one used for the dashboard | **Identical** |
 | The eight analysis CSV files compared (rounded to 2 decimals) | **Identical** |
-| Dashboard opened with all network access blocked | Charts and all eight screens work (Plotly is embedded) |
+| Dashboard opened with all network access blocked | Charts and all nine tabs work (Plotly is embedded) |
 | Environment used | Python 3.13, pandas 3.0, numpy 2.5, pyarrow 26, plotly 7.1 (newer versions than the minimums in `requirements.txt`) |
 | Short fingerprint of `Sprint4_UX_EnergyWatch/source/data.json` (SHA-256, first 16 characters) | `4664a3f679443c6c` |
 

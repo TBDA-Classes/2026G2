@@ -1,6 +1,6 @@
 # Sprint 4 — UX: Energy Watch (the application)
 
-Interactive dashboard for the energy waste and anomaly detection product: expected vs actual consumption, alerts, recurring waste patterns, estimated savings (EUR and CO2), historical replay and reliability.
+Interactive dashboard for the energy waste and anomaly detection product: expected vs actual consumption, alerts, recurring waste patterns, estimated savings (EUR and CO2), historical replay and reliability, plus a planned Forecast tab (explains what is needed to anticipate the coming day; it shows no forecast).
 
 Impact figures are **estimates** (assumed price 0.18 EUR/kWh, CO2 0.27 kg/kWh, editable in Settings).
 

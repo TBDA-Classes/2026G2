@@ -142,7 +142,7 @@ Results in the 14-day window: 66 / 73 / 78 alerts (Strict / Balanced / Sensitive
 - **Calendar and weather (PB-21):** calendar features are model inputs (hour, weekday, weekend, holiday); temperature tested, not adopted (§5.6).
 
 ## 8. Dashboard (PB-40 to PB-53)
-Eight screens: Overview, Actual vs expected, Floor & zones, Alerts (list + detail drawer + data issues), Waste patterns (day × hour heatmap + always-on baseline), Savings (monthly extrapolation, main sources, CSV copy), Replay (historical demonstration), Reliability & data. Global filters: period, zone, load type. Settings: sensitivity, price, CO₂ factor. Light and dark themes, phone layout. Technology and justification: `02_Assumptions_and_Decisions.md`, section 1.
+Eight working screens plus one planned tab: Overview, Actual vs expected, Floor & zones, Alerts (list + detail drawer + data issues), Waste patterns (day × hour heatmap + always-on baseline), Savings (monthly extrapolation, main sources, CSV copy), Replay (historical demonstration), Reliability & data, and **Forecast** (planned, marked "Soon": it shows no forecast; it explains the data cycle needed, the two planned inputs, the UPM timetable from PODWeb and an online weather forecast, and the steps to switch it on). Global filters: period, zone, load type. Settings: sensitivity, price, CO₂ factor. Light and dark themes, phone layout. Technology and justification: `02_Assumptions_and_Decisions.md`, section 1.
 
 ## 9. Testing and validation evidence
 | Evidence | Where |
