@@ -130,7 +130,7 @@ for name, (frac, floor) in SENS.items():
 
 # ---------------------------------------------------------------- reliability + context tables
 def rd(n):
-    p = ROOT / "analysis" / n
+    p = REPO / "Sprint4_UX_Documentation" / "analysis" / n
     return pd.read_csv(p) if p.exists() else None
 acc = rd("accuracy_metrics_MAPE_CVRMSE.csv"); band = rd("band_coverage_chronos.csv"); stb = rd("standby_baseline_by_circuit.csv")
 occp = rd("occupancy_profile_by_hour.csv"); wi = rd("W_I_vs_energy.csv"); bcirc = rd("band_coverage_by_circuit_test.csv")

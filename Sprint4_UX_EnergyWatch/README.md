@@ -1,33 +1,24 @@
-# Sprint 4 — UX: Energy Watch (CeDInt Storey 1)
+# Sprint 4 — UX: Energy Watch (the application)
 
 Interactive dashboard for the energy waste and anomaly detection product: expected vs actual consumption, alerts, recurring waste patterns, estimated savings (EUR and CO2), historical replay and reliability.
 
-**Status:** mock-up and documentation complete for the 30 Nov 2026 presentation. Impact figures are **estimates** (assumed price 0.18 EUR/kWh, CO2 0.27 kg/kWh, editable in Settings).
+Impact figures are **estimates** (assumed price 0.18 EUR/kWh, CO2 0.27 kg/kWh, editable in Settings).
 
 ## Open it
 Double-click **`index.html`**. Any modern browser, works offline, nothing to install.
 
 ## Rebuild it (optional)
-From a clone of this repository:
+From a clone of this repository (the folder `Sprint4_UX_Documentation/` must be next to this one):
 ```
 pip install -r Sprint4_UX_EnergyWatch/requirements.txt
 python Sprint4_UX_EnergyWatch/source/run_all.py
 ```
-About 13 seconds, no GPU, no internet. Verified from a clean clone: identical output.
+About 13 seconds, no GPU, no internet.
 
-## Documentation (`docs/`, read in order)
-| File | Content |
-|---|---|
-| `01_Technical_Documentation.md` | Setup, data, model, detection rules, dashboard, limits |
-| `02_Assumptions_and_Decisions.md` | Tool choice, decision register, price/CO2 assumptions, why W and I are not forecast, open points for UPM |
-| `03_Experiment_Log.md` | Experiment log reconstructed from the repository |
-| `04_Detection_Validation.md` | Injected-anomaly test of the detector |
-| `05_Deployment_and_Handover_Plan.md` | Deployment options, data requirements, retraining, monitoring, effort, responsibilities |
-| `06_Backlog_Coverage.md` | Status of every backlog item PB-01 to PB-58 with evidence |
-| `07_Deliverables_and_Reproducibility.md` | Delivery package index, rebuild steps, verification |
+## Content
+- `index.html` — the dashboard (generated, do not edit by hand)
+- `source/template.html` — interface source (edit this for wording, colours, screens, then run `source/build_html.py`)
+- `source/build_data.py` — expected values, alerts, impact (constants at the top); writes `source/data.json`
+- `source/injection_test.py`, `source/build_html.py`, `source/run_all.py`
 
-## Folders
-- `source/` — Python scripts, interface template and `data.json` (generated)
-- `analysis/` — CSV evidence produced by the scripts
-
-`index.html` and `data.json` are generated files: edit `source/template.html` or `source/build_data.py`, then rebuild.
+Documents, CSV evidence and analysis scripts are in **`../Sprint4_UX_Documentation/`**.

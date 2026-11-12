@@ -43,7 +43,7 @@ Python produces every number. The dashboard (`index.html`) only displays them an
 | Open the dashboard | Double-click `index.html`. Any modern browser, works offline. |
 | Rebuild the dashboard | Python 3.10+, `pip install -r requirements.txt` (pandas, numpy, pyarrow, plotly). |
 | Rebuild the model forecasts | Not part of this package: see `TBDA_v1.3_ChronosGBM_29-10/README_v1.3.md`. Needs `scikit-learn`, `torch`, `chronos-forecasting` and the Chronos-Bolt weights from Hugging Face (not in Git). |
-| Pipeline (this package) | `python source/run_all.py` runs seven steps: presence series, occupancy evidence, standby and W/I analysis, accuracy metrics, `build_data.py`, `injection_test.py`, `build_html.py` (about 13 s). |
+| Pipeline (this package) | `python Sprint4_UX_EnergyWatch/source/run_all.py` runs seven steps: presence series, occupancy evidence, standby and W/I analysis, accuracy metrics, `build_data.py`, `injection_test.py`, `build_html.py` (about 13 s). |
 
 Inputs read by `build_data.py` (read-only): the Task 6 forecasts `Task6_rev0_03-11/results/predictions/ML_Blend_v1.3_{validation,test}_predictions.csv`, the Chronos-Bolt forecasts `TBDA_v1.3_ChronosGBM_29-10/results/chronos_{validation,test}_predictions_v1.3.parquet`, and the hourly dataset `TBDA_v1.3_ChronosGBM_29-10/derived/Storey1_hourly_v1.2.parquet`.
 
@@ -109,10 +109,10 @@ From `Task6_rev0_03-11/RESULTS.md`:
 
 Blend v1.3 is better than Baseline B at every horizon (significant by 95 % block-bootstrap CI). Against persistence it is significantly better only at +6 h; at +1 h and day-ahead the difference is a tie. On SE/SW circuits, which barely train, persistence has the lowest MAE at +6 h and day-ahead.
 
-**Additional metrics (PB-29)** computed for the dashboard in `analysis/accuracy_metrics_MAPE_CVRMSE.csv` (own recomputation on the hours available in the dashboard window, circuit-hour pooled): Blend MAE 20.1 / 31.1 / 30.7 Wh, WAPE 16 / 25 / 25 %, CV(RMSE) 71 / 103 / 105 %, MAPE 12 / 17 / 17 % (hours ≥ 10 Wh only, because MAPE explodes near zero). The specification advises against relying on MAPE where values approach zero. These numbers use a different hour mask from Task 6, so they differ slightly from the official MAE; **the official figures are those of Task 6**.
+**Additional metrics (PB-29)** computed for the dashboard in `Sprint4_UX_Documentation/analysis/accuracy_metrics_MAPE_CVRMSE.csv` (own recomputation on the hours available in the dashboard window, circuit-hour pooled): Blend MAE 20.1 / 31.1 / 30.7 Wh, WAPE 16 / 25 / 25 %, CV(RMSE) 71 / 103 / 105 %, MAPE 12 / 17 / 17 % (hours ≥ 10 Wh only, because MAPE explodes near zero). The specification advises against relying on MAPE where values approach zero. These numbers use a different hour mask from Task 6, so they differ slightly from the official MAE; **the official figures are those of Task 6**.
 
 ### 5.5 Prediction interval (PB-30)
-The normal range is the Chronos-Bolt v1.3 10–90 % band at the day-ahead horizon, clipped so that the Blend forecast always lies inside. Observed coverage: **82 %** on test and validation (nominal 80 %); per horizon and per circuit in `analysis/band_coverage_*.csv`. The coverage of some circuits is lower (hand dryers, SW plugs).
+The normal range is the Chronos-Bolt v1.3 10–90 % band at the day-ahead horizon, clipped so that the Blend forecast always lies inside. Observed coverage: **82 %** on test and validation (nominal 80 %); per horizon and per circuit in `Sprint4_UX_Documentation/analysis/band_coverage_*.csv`. The coverage of some circuits is lower (hand dryers, SW plugs).
 
 ### 5.6 Weather
 Outdoor temperature was tested in Sprint 4 Task 2 (Open-Meteo; GBM and ChronosGBM parts only). It made the Blend worse at +1 h (+0.0068 scaled MAE) and +6 h (+0.0080) and gave no clear change day-ahead (−0.0003). **Decision: temperature is not added** (`Sprint4_Task2_Temperature/REPORT.md`).
@@ -137,7 +137,7 @@ NW Plugs & Sockets (night under-prediction) and SE Lighting (afternoon misses on
 Results in the 14-day window: 66 / 73 / 78 alerts (Strict / Balanced / Sensitive), i.e. 4.7 / 5.2 / 5.6 per day. The known events of the test week (NE HVAC left on, 3 Oct) are detected at every sensitivity. The NW emergency-lighting records of 4–5 Oct are labelled "impossible" (energy above what the power allows) in `task6_events_test.csv` and are shown as data issues, not as waste. Detection quality on artificial anomalies: `04_Detection_Validation.md`.
 
 ## 7. Context analyses (PB-19 to PB-21)
-- **Out-of-hours use (PB-19):** about 60 % of the measured energy is used outside occupied hours (`analysis/standby_baseline_by_circuit.csv`).
+- **Out-of-hours use (PB-19):** about 60 % of the measured energy is used outside occupied hours (`Sprint4_UX_Documentation/analysis/standby_baseline_by_circuit.csv`).
 - **Standby baseline (PB-20):** per circuit, the median hourly use outside occupied hours. For NW Plugs & Sockets it is about 535 Wh per hour, with a night/day ratio of 0.99.
 - **Calendar and weather (PB-21):** calendar features are model inputs (hour, weekday, weekend, holiday); temperature tested, not adopted (§5.6).
 

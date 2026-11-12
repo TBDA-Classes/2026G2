@@ -14,7 +14,7 @@ Design
   * Quiet-data check: alerts per day on the unmodified data = what the user sees without any injection.
 Limits: synthetic cases measure sensitivity, not the real false-alarm rate (real anomalies are unknown); the forecast
 is not re-estimated after an injection, which is correct for an unforeseen event.
-Usage: python injection_test.py [data.json]   (writes ../analysis/injection_*.csv and adds reliab.inject to data.json)
+Usage: python injection_test.py [data.json]   (writes Sprint4_UX_Documentation/analysis/injection_*.csv and adds reliab.inject to data.json)
 """
 import json, sys, itertools
 from pathlib import Path
@@ -60,7 +60,7 @@ for sname, (frac, floor) in SENS.items():
                 rows.append(dict(sensitivity=sname, circuit=c["id"], magnitude=m, hours=d, period=part,
                                  detected=int(bool(hit)), high=int(any(h[3] for h in hit)), injected_kwh=m * c["mean"] * d / 1000))
 R = pd.DataFrame(rows)
-out = HERE.parent / "analysis"; out.mkdir(exist_ok=True)
+out = HERE.parent.parent / "Sprint4_UX_Documentation" / "analysis"; out.mkdir(exist_ok=True)
 R.to_csv(out / "injection_test_cases.csv.gz", index=False)
 
 g = lambda cols: R.groupby(cols).agg(cases=("detected", "size"), detected_pct=("detected", "mean"), high_pct=("high", "mean")).reset_index()

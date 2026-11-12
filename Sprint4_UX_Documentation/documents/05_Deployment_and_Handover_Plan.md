@@ -13,11 +13,11 @@
 | Deliverable | Content | Where |
 |---|---|---|
 | Dashboard | Self-contained `index.html` (8 screens), opens offline | `Sprint4_UX_EnergyWatch/index.html` |
-| Source and rebuild scripts | Python scripts that recompute every number, HTML template | `Sprint4_UX_EnergyWatch/source/` |
+| Source and rebuild scripts | Python scripts that recompute every number, HTML template | `Sprint4_UX_EnergyWatch/source/` (app), `Sprint4_UX_Documentation/scripts/` (analysis) |
 | Forecast model | Frozen Blend v1.3 and its components, code, configurations, tuning logs | `TBDA_v1.3_ChronosGBM_29-10/` |
 | Model comparison | Task 6 results, forecasts of 11 models | `Task6_rev0_03-11/` |
 | Data | Frozen source data, clean data, hourly dataset v1.2, data dictionary | repository root, `TBDA_v1.3.../derived/` |
-| Documentation | Technical documentation, decisions, experiment log, detection validation, this plan, backlog coverage | `Sprint4_UX_EnergyWatch/docs/` |
+| Documentation | Technical documentation, decisions, experiment log, detection validation, this plan, backlog coverage | `Sprint4_UX_Documentation/` |
 | User guide, usability test | Prepared by the team | delivered with the final package |
 
 ## 2. What the product is and is not (PB-02, PB-05)
@@ -156,7 +156,7 @@ No financial rates are known to the project. Costs are therefore given as **effo
 
 ## 12. Acceptance checklist
 - [ ] `index.html` opens on UPM computers without installation.
-- [ ] `python source/run_all.py` rebuilds the package from the repository (verified by the team on 12 Nov 2026: identical `data.json`, about 13 seconds).
+- [ ] `python Sprint4_UX_EnergyWatch/source/run_all.py` rebuilds the package from the repository (verified by the team on 12 Nov 2026: identical `data.json`, about 13 seconds).
 - [ ] The UPM Responsible has the data dictionary, the circuit mapping and the open points list (`02_Assumptions_and_Decisions.md`, §7).
 - [ ] Tariff and CO₂ treatment provided, or the *estimated* labels accepted.
 - [ ] Owner and data contact named by UPM.

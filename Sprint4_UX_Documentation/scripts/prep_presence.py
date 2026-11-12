@@ -4,7 +4,7 @@ Used by analysis_occupancy.py. The column is called "Bsens" by the team."""
 import zipfile, pandas as pd
 from pathlib import Path
 import sys
-ROOT = Path(__file__).resolve().parent.parent          # package folder (Sprint4_UX_EnergyWatch)
+ROOT = Path(__file__).resolve().parent.parent          # Sprint4_UX_Documentation
 REPO = ROOT.parent                                      # repository root
 MODEL = REPO / "TBDA_v1.3_ChronosGBM_29-10"
 T6 = REPO / "Task6_rev0_03-11" / "results" / "predictions"

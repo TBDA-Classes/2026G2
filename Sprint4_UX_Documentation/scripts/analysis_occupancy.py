@@ -3,7 +3,7 @@ Output: analysis/occupancy_profile_by_hour.csv.  Run prep_presence.py first."""
 import pandas as pd, numpy as np
 from pathlib import Path
 import sys
-ROOT = Path(__file__).resolve().parent.parent          # package folder (Sprint4_UX_EnergyWatch)
+ROOT = Path(__file__).resolve().parent.parent          # Sprint4_UX_Documentation
 REPO = ROOT.parent                                      # repository root
 MODEL = REPO / "TBDA_v1.3_ChronosGBM_29-10"
 T6 = REPO / "Task6_rev0_03-11" / "results" / "predictions"

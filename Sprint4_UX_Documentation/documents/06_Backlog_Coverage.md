@@ -3,7 +3,7 @@
 **Version:** 12 Nov 2026 · **Source:** `TBDA_Group2_CeDInt_Refined_October_8.pdf`
 **Status legend:** **Covered** = delivered and evidenced · **Partly** = delivered with a stated gap · **Team** = belongs to another part of the project, evidence is in the repository · **Pending** = still to do before 30 Nov 2026
 
-Evidence paths are relative to the repository root. `UX/` stands for `Sprint4_UX_EnergyWatch/`.
+Evidence paths are relative to the repository root. `DOC/` stands for `Sprint4_UX_Documentation/` (documents, CSV evidence, analysis scripts) and `APP/` for `Sprint4_UX_EnergyWatch/` (dashboard and its source).
 
 ---
 
@@ -11,18 +11,18 @@ Evidence paths are relative to the repository root. `UX/` stands for `Sprint4_UX
 
 | PB | Requirement (short) | Status | Evidence / remaining gap |
 |---|---|---|---|
-| PB-01 | Defined historical-data analysis environment | Covered | `UX/docs/01_Technical_Documentation.md` §1 |
+| PB-01 | Defined historical-data analysis environment | Covered | `DOC/documents/01_Technical_Documentation.md` §1 |
 | PB-02 | Decision-support, no automatic control | Covered | same; Overview and rail footer state it |
-| PB-03 | User roles defined | Covered | same §1; `UX/docs/05` §8 |
-| PB-04 | Deployment and handover context | Covered | `UX/docs/05_Deployment_and_Handover_Plan.md` |
-| PB-05 | Explicit exclusions | Covered | `UX/docs/05` §2 |
-| PB-06 | Load categories and circuit mapping documented | Partly | Categories documented (`UX/docs/01` §4.5). **Gap:** formal validation of the circuit-to-load mapping by the data owner. |
+| PB-03 | User roles defined | Covered | same §1; `DOC/documents/05` §8 |
+| PB-04 | Deployment and handover context | Covered | `DOC/documents/05_Deployment_and_Handover_Plan.md` |
+| PB-05 | Explicit exclusions | Covered | `DOC/documents/05` §2 |
+| PB-06 | Load categories and circuit mapping documented | Partly | Categories documented (`DOC/documents/01` §4.5). **Gap:** formal validation of the circuit-to-load mapping by the data owner. |
 | PB-07 | Lighting by zone and time | Covered | Load filter, Alerts, Waste patterns |
 | PB-08 | Emergency lighting distinguishable | Covered | Separate load type "Emergency lighting" |
 | PB-09 | Plug/socket loads by circuit | Covered | Load filter; Savings by circuit |
 | PB-10 | Only monitored HVAC loads | Covered | HVAC exists for NW, NE, SE only; none inferred for SW |
 | PB-11 | Hand dryers and other validated loads | Covered | NW and SW hand dryers kept separate |
-| PB-12 | Included/excluded categories visible | Partly | Documented in `UX/docs/01` §4.5. **Gap:** validation of the data dictionary mapping (see PB-06). |
+| PB-12 | Included/excluded categories visible | Partly | Documented in `DOC/documents/01` §4.5. **Gap:** validation of the data dictionary mapping (see PB-06). |
 
 ## Data foundation and context
 
@@ -31,11 +31,11 @@ Evidence paths are relative to the repository root. `UX/` stands for `Sprint4_UX
 | PB-13 | Consistent analytical dataset, traceable | Team | Hourly dataset v1.2 with META and checksums (`TBDA_v1.3_ChronosGBM_29-10/derived/`, `PROTOCOL_NOTE_v1.2.md`) |
 | PB-14 | Data dictionary (variables, units, zones, circuits) | Partly | `Storey1_data_dictionary_missing_anomalies_EN.xlsx`. **Gap:** units of `W` and `I` are "assumed". |
 | PB-15 | Time representation, 2020–23 vs 2025 | Team | Regime treatment in `DECISIONS_v1.2.md`, `Modelling Problem Specification`; only 2025 minute data are modelled |
-| PB-16 | Europe/Madrid, daylight saving | Partly | UTC storage, Madrid display (`UX/docs/01` §4.3). No DST change in the window, so the DST case is not exercised by the data. |
+| PB-16 | Europe/Madrid, daylight saving | Partly | UTC storage, Madrid display (`DOC/documents/01` §4.3). No DST change in the window, so the DST case is not exercised by the data. |
 | PB-17 | Missing, corrected, flagged observations | Covered | Quality flags D1–D5; Alerts → Data issues shows each with its reason |
-| PB-18 | Data-readiness summary | Covered | Reliability & data screen; `UX/docs/01` §4.4 |
+| PB-18 | Data-readiness summary | Covered | Reliability & data screen; `DOC/documents/01` §4.4 |
 | PB-19 | Night, weekend, holiday consumption | Covered | Waste patterns (out-of-hours shading, always-on baseline); 60 % of energy out of hours |
-| PB-20 | Standby/baseline | Covered | `UX/analysis/standby_baseline_by_circuit.csv`; Waste patterns → Always-on baseline |
+| PB-20 | Standby/baseline | Covered | `DOC/analysis/standby_baseline_by_circuit.csv`; Waste patterns → Always-on baseline |
 | PB-21 | Weather and calendar effects | Team | Calendar features; temperature tested in Sprint 4 Task 2 and not adopted |
 | PB-22 | Structural breaks, training window | Partly | Protocol note and regime decision exist. **Gap:** a dedicated structural-break analysis is not found in the repository. |
 
@@ -49,9 +49,9 @@ Evidence paths are relative to the repository root. `UX/` stands for `Sprint4_UX
 | PB-26 | At least two baselines | Team | B1, B2, B3 (`Task6_rev0_03-11/RESULTS.md`) |
 | PB-27 | Candidate models compared on unseen periods | Team | Task 6: 11 models, same hours, bootstrap CIs |
 | PB-28 | Time-series alternative such as Prophet | Partly | Chronos-Bolt (pretrained time-series model) is the time-series alternative. **Prophet itself was not tested.** |
-| PB-29 | MAE, MAPE, CV(RMSE) on unseen periods | Covered | MAE official in Task 6; MAPE, CV(RMSE), WAPE in `UX/analysis/accuracy_metrics_MAPE_CVRMSE.csv` and the Reliability screen |
+| PB-29 | MAE, MAPE, CV(RMSE) on unseen periods | Covered | MAE official in Task 6; MAPE, CV(RMSE), WAPE in `DOC/analysis/accuracy_metrics_MAPE_CVRMSE.csv` and the Reliability screen |
 | PB-30 | Prediction band, coverage checked | Covered | Chronos-Bolt q10–q90; 82 % observed against 80 % nominal |
-| PB-31 | Experiment log | Covered | `UX/docs/03_Experiment_Log.md` (reconstructed from the repository) |
+| PB-31 | Experiment log | Covered | `DOC/documents/03_Experiment_Log.md` (reconstructed from the repository) |
 | PB-32 | Deep learning vs ML baseline | Team | Chronos-Bolt (transformer, zero-shot) compared with GBM and Blend under the same protocol |
 
 ## Anomaly detection
@@ -59,12 +59,12 @@ Evidence paths are relative to the repository root. `UX/` stands for `Sprint4_UX
 | PB | Requirement | Status | Evidence / remaining gap |
 |---|---|---|---|
 | PB-33 | Alert with zone/circuit and period | Covered | Alerts screen |
-| PB-34 | Out-of-hours alerts, baseline and occupancy rule | Covered | Occupied hours from presence detectors (`UX/docs/02` §3); filter "Mostly out of hours" |
+| PB-34 | Out-of-hours alerts, baseline and occupancy rule | Covered | Occupied hours from presence detectors (`DOC/documents/02` §3); filter "Mostly out of hours" |
 | PB-35 | Data issues shown separately | Covered | Alerts → Data issues |
-| PB-36 | Severity levels and thresholds documented | Covered | `UX/docs/02` (U7). Thresholds are engineering choices, not yet validated by the sponsor. |
+| PB-36 | Severity levels and thresholds documented | Covered | `DOC/documents/02` (U7). Thresholds are engineering choices, not yet validated by the sponsor. |
 | PB-37 | Excess kWh, €, CO₂ | Covered | Alerts table, detail, Overview, Savings. € and CO₂ are labelled *estimated*. |
-| PB-38 | Detection on known events, false-alarm behaviour | Partly | Real known event detected; injected-anomaly test (`UX/docs/04`). **Gap:** real false-alarm rate needs confirmed real events. |
-| PB-39 | Manageable number of alerts, trade-off documented | Covered | Three sensitivities, 4.7 / 5.2 / 5.6 alerts per day; `UX/docs/04` |
+| PB-38 | Detection on known events, false-alarm behaviour | Partly | Real known event detected; injected-anomaly test (`DOC/documents/04`). **Gap:** real false-alarm rate needs confirmed real events. |
+| PB-39 | Manageable number of alerts, trade-off documented | Covered | Three sensitivities, 4.7 / 5.2 / 5.6 alerts per day; `DOC/documents/04` |
 
 ## Dashboard
 
@@ -80,7 +80,7 @@ Evidence paths are relative to the repository root. `UX/` stands for `Sprint4_UX
 | PB-47 | Monthly € and CO₂ and leading sources | Partly | Savings screen. **Gap:** monthly values are 14 days scaled to 30; a real month needs longer forecasts (data exist to 13 Oct). |
 | PB-48 | Consistent normal / warning / high states | Covered | One status vocabulary across screens |
 | PB-49 | Usable without code or datasets | Covered | Self-contained page |
-| PB-50 | Mock-ups with recorded feedback | Partly | Mock-up and mid-term positive feedback; record in `UX/docs/02` §8. **Pending:** feedback of the 30 Nov session. |
+| PB-50 | Mock-ups with recorded feedback | Partly | Mock-up and mid-term positive feedback; record in `DOC/documents/02` §8. **Pending:** feedback of the 30 Nov session. |
 | PB-51 | Task-based usability test | Team | Performed by the team; report to be attached to the final package |
 | PB-52 | Historical demonstration mode | Covered | Replay screen |
 | PB-53 | Export alerts and savings | Partly | "Copy as CSV" on Alerts and Savings. A downloadable file is not possible inside a shared web page. |
@@ -89,10 +89,10 @@ Evidence paths are relative to the repository root. `UX/` stands for `Sprint4_UX
 
 | PB | Requirement | Status | Evidence / remaining gap |
 |---|---|---|---|
-| PB-54 | Technical documentation | Covered | `UX/docs/01` plus the model READMEs listed there |
+| PB-54 | Technical documentation | Covered | `DOC/documents/01` plus the model READMEs listed there |
 | PB-55 | User guide with screenshots | Team | Prepared by the team; screenshots must come from the frozen final version |
-| PB-56 | Deployment and handover plan | Covered | `UX/docs/05` |
-| PB-57 | Reproducible deliverables, code, data dictionary | Covered | `UX/docs/07`; `python source/run_all.py` verified from a clean clone |
+| PB-56 | Deployment and handover plan | Covered | `DOC/documents/05` |
+| PB-57 | Reproducible deliverables, code, data dictionary | Covered | `DOC/documents/07`; `python APP/source/run_all.py` verified from a clean clone |
 | PB-58 | Final presentation and demonstration | Pending | 30 Nov 2026; the offline `index.html` is the backup demonstration |
 
 ## Summary
