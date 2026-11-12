@@ -3,7 +3,7 @@
 **Version:** 12 Nov 2026 · **Source:** `TBDA_Group2_CeDInt_Refined_October_8.pdf`
 **Status legend:** **Covered** = delivered and evidenced · **Partly** = delivered with a stated gap · **Team** = belongs to another part of the project, evidence is in the repository · **Pending** = still to do before 30 Nov 2026
 
-Evidence paths are relative to the repository root. `DOC/` stands for `Sprint4_UX_Documentation/` (documents, CSV evidence, analysis scripts) and `APP/` for `Sprint4_UX_EnergyWatch/` (dashboard and its source).
+Evidence paths are relative to the repository root. `DOC/` stands for `Sprint4_Task4_Documentation/` (documents, CSV evidence, analysis scripts) and `APP/` for `Sprint4_UX_EnergyWatch/` (dashboard and its source).
 
 ---
 

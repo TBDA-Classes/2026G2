@@ -13,11 +13,11 @@
 | Deliverable | Content | Where |
 |---|---|---|
 | Dashboard | Self-contained `index.html` (8 screens), opens offline | `Sprint4_UX_EnergyWatch/index.html` |
-| Source and rebuild scripts | Python scripts that recompute every number, HTML template | `Sprint4_UX_EnergyWatch/source/` (app), `Sprint4_UX_Documentation/scripts/` (analysis) |
+| Source and rebuild scripts | Python scripts that recompute every number, HTML template | `Sprint4_UX_EnergyWatch/source/` (app), `Sprint4_Task4_Documentation/scripts/` (analysis) |
 | Forecast model | Frozen Blend v1.3 and its components, code, configurations, tuning logs | `TBDA_v1.3_ChronosGBM_29-10/` |
 | Model comparison | Task 6 results, forecasts of 11 models | `Task6_rev0_03-11/` |
 | Data | Frozen source data, clean data, hourly dataset v1.2, data dictionary | repository root, `TBDA_v1.3.../derived/` |
-| Documentation | Technical documentation, decisions, experiment log, detection validation, this plan, backlog coverage | `Sprint4_UX_Documentation/` |
+| Documentation | Technical documentation, decisions, experiment log, detection validation, this plan, backlog coverage | `Sprint4_Task4_Documentation/` |
 | User guide, usability test | Prepared by the team | delivered with the final package |
 
 ## 2. What the product is and is not (PB-02, PB-05)

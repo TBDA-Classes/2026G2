@@ -1,7 +1,7 @@
 # Detection Validation — injected-anomaly test
 
 **Backlog item:** PB-38 (detection performance on known events; false-alarm behaviour reported), PB-39 (alerts per day, trade-off between missed events and false alarms)
-**Version:** 12 Nov 2026 · **Script:** `Sprint4_UX_EnergyWatch/source/injection_test.py` · **Outputs:** `Sprint4_UX_Documentation/analysis/injection_*.csv`
+**Version:** 12 Nov 2026 · **Script:** `Sprint4_UX_EnergyWatch/source/injection_test.py` · **Outputs:** `Sprint4_Task4_Documentation/analysis/injection_*.csv`
 
 ## 1. Why this test
 Only one real, confirmed event exists in the test week (NE HVAC left on, 3 Oct 2025), plus a series of NW emergency-lighting readings that are physically impossible (data issues, not waste). One event cannot show how well a detector works. The test therefore **adds artificial surpluses to the real data** and checks whether the detector finds them. This measures **sensitivity** (how much extra use is needed to alert). It does **not** measure the real false-alarm rate, because real anomalies in the data are not known.
@@ -41,7 +41,7 @@ Only one real, confirmed event exists in the test week (NE HVAC left on, 3 Oct 2
 The pooled percentage is held down by circuits that cannot alert for small surpluses (next section). Time of day makes little difference (Balanced, +100 %: 48 % occupied, 49 % out of hours). Out-of-hours events more often reach High severity (23 % against 13 % at +100 %, Balanced).
 
 ### 4.2 Smallest surplus that raises an alert, per circuit (Balanced)
-An hour alerts only if the surplus exceeds **both** the sensitivity threshold and the distance between the forecast and the upper band limit. `Sprint4_UX_Documentation/analysis/injection_minimum_detectable_surplus.csv` gives the median of that requirement per circuit.
+An hour alerts only if the surplus exceeds **both** the sensitivity threshold and the distance between the forecast and the upper band limit. `Sprint4_Task4_Documentation/analysis/injection_minimum_detectable_surplus.csv` gives the median of that requirement per circuit.
 
 | Group | Circuits | Smallest alerting surplus | Binding constraint |
 |---|---|---|---|
@@ -75,4 +75,4 @@ Many of these alerts come from NW Plugs & Sockets (about 35 of 62 kWh of detecte
 ```
 python Sprint4_UX_EnergyWatch/source/run_all.py          # or only: injection_test.py (after build_data.py)
 ```
-`injection_test.py` writes `Sprint4_UX_Documentation/analysis/injection_test_cases.csv.gz` (every case, compressed), the summary tables and the quiet-data table, and adds the summary to `data.json` for the Reliability screen.
+`injection_test.py` writes `Sprint4_Task4_Documentation/analysis/injection_test_cases.csv.gz` (every case, compressed), the summary tables and the quiet-data table, and adds the summary to `data.json` for the Reliability screen.

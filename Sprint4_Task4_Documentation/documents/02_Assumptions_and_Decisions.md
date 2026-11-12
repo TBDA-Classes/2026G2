@@ -44,7 +44,7 @@ The dashboard reads frozen historical data. More code (JavaScript) has to be mai
 | U8 | Occupied hours | Non-holiday weekdays 07:00–20:00 Europe/Madrid | Derived from the `Pres` detector (see section 3). To be confirmed with the building manager. | `OCC_START`, `OCC_END` |
 | U9 | Excess definition | Only consumption **above** the expected value on alert hours | Prevents counting normal variation as waste. It is a candidate for unnecessary use, not a confirmed loss. | `build_data.py` |
 | U10 | Window | 22 Sep – 5 Oct 2025 | The only weeks for which Blend v1.3 forecasts exist (validation + test). | `START`, `END` |
-| U11 | Out-of-hours use and baseline | Median hourly use outside occupied hours, per circuit | PB-20: documented baseline to separate necessary background load from potential waste. | `Sprint4_UX_Documentation/analysis/standby_baseline_by_circuit.csv` |
+| U11 | Out-of-hours use and baseline | Median hourly use outside occupied hours, per circuit | PB-20: documented baseline to separate necessary background load from potential waste. | `Sprint4_Task4_Documentation/analysis/standby_baseline_by_circuit.csv` |
 | U12 | Plug-and-socket baseline | Not treated as waste automatically | NW Plugs & Sockets draws about 535 Wh every hour day and night (night/day ratio 0.99). That may be a legitimate permanent load (e.g. IT equipment). It is flagged as a question for UPM. | Waste patterns → Always-on baseline |
 
 ## 3. Occupancy rule evidence
@@ -57,7 +57,7 @@ The rule uses the presence (motion) detector column `Pres` of the frozen data, w
 | NE | none | rule applied by analogy |
 | SW | stuck near 1 | not usable |
 
-The 07:00–20:00 weekday window captures 85–91 % of the hours with detected presence; weekends show almost no presence. Files: `Sprint4_UX_Documentation/analysis/occupancy_profile_by_hour.csv`.
+The 07:00–20:00 weekday window captures 85–91 % of the hours with detected presence; weekends show almost no presence. Files: `Sprint4_Task4_Documentation/analysis/occupancy_profile_by_hour.csv`.
 
 ## 4. Cost and CO₂ assumptions
 
@@ -82,11 +82,11 @@ The Modelling Specification makes `energy_Wh` the primary target and `W` seconda
 | Units | listed as "assumed" in the data dictionary (W, A) and not confirmed |
 | Coverage | uneven between circuits |
 
-**Decision:** alerts are based on energy only. Power and current add little independent information, and their semantics are unconfirmed. They remain an option for a later version (demand peaks). Evidence: `Sprint4_UX_Documentation/analysis/W_I_vs_energy.csv`.
+**Decision:** alerts are based on energy only. Power and current add little independent information, and their semantics are unconfirmed. They remain an option for a later version (demand peaks). Evidence: `Sprint4_Task4_Documentation/analysis/W_I_vs_energy.csv`.
 
 ## 6. Reliability figures
-- Accuracy of the final model: Task 6 (official) and `Sprint4_UX_Documentation/analysis/accuracy_metrics_MAPE_CVRMSE.csv` (dashboard recomputation; different hour mask, so values differ slightly).
-- Band coverage: `Sprint4_UX_Documentation/analysis/band_coverage_chronos.csv`, `Sprint4_UX_Documentation/analysis/band_coverage_by_circuit_test.csv`.
+- Accuracy of the final model: Task 6 (official) and `Sprint4_Task4_Documentation/analysis/accuracy_metrics_MAPE_CVRMSE.csv` (dashboard recomputation; different hour mask, so values differ slightly).
+- Band coverage: `Sprint4_Task4_Documentation/analysis/band_coverage_chronos.csv`, `Sprint4_Task4_Documentation/analysis/band_coverage_by_circuit_test.csv`.
 - Detection test on injected anomalies: `04_Detection_Validation.md`.
 
 ## 7. Open points for UPM and the sponsor

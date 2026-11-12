@@ -8,7 +8,7 @@ Impact figures are **estimates** (assumed price 0.18 EUR/kWh, CO2 0.27 kg/kWh, e
 Double-click **`index.html`**. Any modern browser, works offline, nothing to install.
 
 ## Rebuild it (optional)
-From a clone of this repository (the folder `Sprint4_UX_Documentation/` must be next to this one):
+From a clone of this repository (the folder `Sprint4_Task4_Documentation/` must be next to this one):
 ```
 pip install -r Sprint4_UX_EnergyWatch/requirements.txt
 python Sprint4_UX_EnergyWatch/source/run_all.py
@@ -21,4 +21,4 @@ About 13 seconds, no GPU, no internet.
 - `source/build_data.py` — expected values, alerts, impact (constants at the top); writes `source/data.json`
 - `source/injection_test.py`, `source/build_html.py`, `source/run_all.py`
 
-Documents, CSV evidence and analysis scripts are in **`../Sprint4_UX_Documentation/`**.
+Documents, CSV evidence and analysis scripts are in **`../Sprint4_Task4_Documentation/`**.

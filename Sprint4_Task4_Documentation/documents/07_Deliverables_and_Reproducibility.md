@@ -12,12 +12,12 @@ This page answers three questions: what is delivered, where it is, and how anyon
 | Backlog §8 item | Location in the repository (`TBDA-Classes/2026G2`) | Status |
 |---|---|---|
 | Working dashboard | `Sprint4_UX_EnergyWatch/index.html` | Delivered |
-| Forecasting and anomaly-detection methodology, model-selection evidence | `TBDA_v1.3_ChronosGBM_29-10/` (model, decisions, tuning logs), `Task6_rev0_03-11/` (comparison), `Sprint4_UX_Documentation/documents/01`, `03`, `04` | Delivered |
+| Forecasting and anomaly-detection methodology, model-selection evidence | `TBDA_v1.3_ChronosGBM_29-10/` (model, decisions, tuning logs), `Task6_rev0_03-11/` (comparison), `Sprint4_Task4_Documentation/documents/01`, `03`, `04` | Delivered |
 | Clean analytical dataset or process to rebuild it | `CLEAN DATA all zones.zip`, `TBDA_v1.3_ChronosGBM_29-10/derived/Storey1_hourly_v1.2.parquet`, `run_task7.py` and the v1.2 pipeline | Delivered by the team |
 | Data dictionary | `Storey1_data_dictionary_missing_anomalies_EN.xlsx` | Delivered; units of `W`, `I` to confirm |
-| Technical documentation | `Sprint4_UX_Documentation/documents/01_Technical_Documentation.md` | Delivered |
+| Technical documentation | `Sprint4_Task4_Documentation/documents/01_Technical_Documentation.md` | Delivered |
 | User guide with screenshots | Prepared by the team | Team |
-| Deployment and handover plan | `Sprint4_UX_Documentation/documents/05_Deployment_and_Handover_Plan.md` | Delivered |
+| Deployment and handover plan | `Sprint4_Task4_Documentation/documents/05_Deployment_and_Handover_Plan.md` | Delivered |
 | Final presentation and demonstration | 30 Nov 2026 | Pending |
 | Backup demonstration material | `Sprint4_UX_EnergyWatch/index.html` works offline on any laptop | Delivered |
 
@@ -38,7 +38,7 @@ Sprint4_UX_EnergyWatch/            THE APPLICATION
     ├── template.html              interface source (CSS and JavaScript)
     └── data.json                  everything the dashboard shows (generated)
 
-Sprint4_UX_Documentation/          DOCUMENTS AND EVIDENCE
+Sprint4_Task4_Documentation/          DOCUMENTS AND EVIDENCE
 ├── README.md                      index of the documents
 ├── documents/
 │   ├── 01_Technical_Documentation.md
@@ -56,7 +56,7 @@ Sprint4_UX_Documentation/          DOCUMENTS AND EVIDENCE
     └── analysis_accuracy.py       MAPE, CV(RMSE), WAPE, band coverage
 ```
 
-**Dependency between the folders.** The application reads the CSV files in `Sprint4_UX_Documentation/analysis/` when it builds `data.json`, and `injection_test.py` writes its CSV files there. `index.html` itself needs nothing: it is self-contained.
+**Dependency between the folders.** The application reads the CSV files in `Sprint4_Task4_Documentation/analysis/` when it builds `data.json`, and `injection_test.py` writes its CSV files there. `index.html` itself needs nothing: it is self-contained.
 
 ## 3. Rebuild from the repository
 
@@ -71,12 +71,12 @@ python Sprint4_UX_EnergyWatch/source/run_all.py
 
 | Step | Script (folder) | Reads | Writes |
 |---|---|---|---|
-| 1 | `prep_presence.py` (Documentation) | `CLEAN DATA all zones.zip` | `Sprint4_UX_Documentation/analysis/presence_hourly.csv` |
+| 1 | `prep_presence.py` (Documentation) | `CLEAN DATA all zones.zip` | `Sprint4_Task4_Documentation/analysis/presence_hourly.csv` |
 | 2 | `analysis_occupancy.py` (Documentation) | step 1, hourly dataset | `analysis/occupancy_profile_by_hour.csv` |
 | 3 | `analysis_standby_wi.py` (Documentation) | hourly dataset | `analysis/standby_*.csv`, `analysis/W_I_vs_energy.csv` |
 | 4 | `analysis_accuracy.py` (Documentation) | Task 6 forecasts, Chronos-Bolt forecasts | `analysis/accuracy_*.csv`, `analysis/band_coverage_*.csv` |
-| 5 | `build_data.py` (App) | Task 6 and Chronos forecasts, hourly dataset, `Sprint4_UX_Documentation/analysis/*.csv` | `Sprint4_UX_EnergyWatch/source/data.json` |
-| 6 | `injection_test.py` (App) | `source/data.json` | `Sprint4_UX_Documentation/analysis/injection_*.csv`, adds results to `data.json` |
+| 5 | `build_data.py` (App) | Task 6 and Chronos forecasts, hourly dataset, `Sprint4_Task4_Documentation/analysis/*.csv` | `Sprint4_UX_EnergyWatch/source/data.json` |
+| 6 | `injection_test.py` (App) | `source/data.json` | `Sprint4_Task4_Documentation/analysis/injection_*.csv`, adds results to `data.json` |
 | 7 | `build_html.py` (App) | `template.html`, `data.json`, Plotly (from the `plotly` package) | `Sprint4_UX_EnergyWatch/index.html` |
 
 All inputs are read-only. The frozen source data and the model folders are never modified.

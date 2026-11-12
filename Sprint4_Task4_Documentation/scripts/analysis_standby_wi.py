@@ -3,7 +3,7 @@ Outputs: analysis/standby_baseline_by_circuit.csv, standby_weekly_median_by_circ
 import pandas as pd, numpy as np
 from pathlib import Path
 import sys
-ROOT = Path(__file__).resolve().parent.parent          # Sprint4_UX_Documentation
+ROOT = Path(__file__).resolve().parent.parent          # Sprint4_Task4_Documentation
 REPO = ROOT.parent                                      # repository root
 MODEL = REPO / "TBDA_v1.3_ChronosGBM_29-10"
 T6 = REPO / "Task6_rev0_03-11" / "results" / "predictions"

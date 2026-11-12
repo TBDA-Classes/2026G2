@@ -12,15 +12,15 @@ import subprocess, sys
 from pathlib import Path
 here = Path(__file__).resolve().parent
 repo = here.parent.parent
-doc_scripts = repo / "Sprint4_UX_Documentation" / "scripts"   # analysis scripts live with the documentation
+doc_scripts = repo / "Sprint4_Task4_Documentation" / "scripts"   # analysis scripts live with the documentation
 need = [doc_scripts / "prep_presence.py", repo / "CLEAN DATA all zones.zip", repo / "TBDA_v1.3_ChronosGBM_29-10" / "derived" / "Storey1_hourly_v1.2.parquet",
         repo / "TBDA_v1.3_ChronosGBM_29-10" / "results" / "chronos_test_predictions_v1.3.parquet",
         repo / "Task6_rev0_03-11" / "results" / "predictions" / "ML_Blend_v1.3_test_predictions.csv"]
 miss = [str(p) for p in need if not p.exists()]
 if miss:
-    sys.exit("Missing input(s). Run this script from a clone of the repository, with both Sprint4_UX_* folders inside it:\n  " + "\n  ".join(miss))
+    sys.exit("Missing input(s). Run this script from a clone of the repository, with Sprint4_UX_EnergyWatch and Sprint4_Task4_Documentation inside it:\n  " + "\n  ".join(miss))
 for step in ["prep_presence", "analysis_occupancy", "analysis_standby_wi", "analysis_accuracy", "build_data", "injection_test", "build_html"]:
     print(f"\n=== {step} ===", flush=True)
     r = subprocess.run([sys.executable, str((doc_scripts if step in ("prep_presence","analysis_occupancy","analysis_standby_wi","analysis_accuracy") else here) / f"{step}.py")], stdout=subprocess.DEVNULL if step.startswith("analysis") else None)
     if r.returncode: sys.exit(f"step {step} failed")
-print("\nDone: Sprint4_UX_EnergyWatch/index.html, source/data.json, Sprint4_UX_Documentation/analysis/*.csv")
+print("\nDone: Sprint4_UX_EnergyWatch/index.html, source/data.json, Sprint4_Task4_Documentation/analysis/*.csv")
