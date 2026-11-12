@@ -1,0 +1,573 @@
+<title>CeDInt Energy Watch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Design plan — "quiet control room": cool paper ground, deep teal for the model, signal amber/red only for what needs a person.
+   Layout: left rail with 8 screens, sticky filter bar (period / zone / load), one task per screen, details in a slide-over. */
+:root{
+  --bg:#EDF1F3; --surface:#FFFFFF; --surface-2:#F5F8F9; --ink:#10242E; --muted:#586B76; --line:#D8E0E5;
+  --brand:#0E5A6B; --brand-2:#1B7F94; --brand-soft:#DCEEF2; --band:rgba(27,127,148,.16);
+  --ok:#1C7F57; --ok-soft:#DDF1E8; --warn:#B87400; --warn-soft:#FBEBC8; --high:#C23B35; --high-soft:#F8DAD7;
+  --ooh:rgba(16,36,46,.055); --shadow:0 1px 2px rgba(16,36,46,.06),0 6px 18px rgba(16,36,46,.05);
+  --font-d:'Bricolage Grotesque','IBM Plex Sans',system-ui,sans-serif; --font-b:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif; --font-m:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --rail:212px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B171D; --surface:#12242C; --surface-2:#0F1E25; --ink:#E5EEF1; --muted:#93A8B2; --line:#243A44;
+  --brand:#63C6D8; --brand-2:#3FA7BC; --brand-soft:#173843; --band:rgba(99,198,216,.17);
+  --ok:#4CC593; --ok-soft:#14352A; --warn:#F0B13E; --warn-soft:#3B2E10; --high:#FF7B72; --high-soft:#43201F;
+  --ooh:rgba(229,238,241,.05); --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B171D; --surface:#12242C; --surface-2:#0F1E25; --ink:#E5EEF1; --muted:#93A8B2; --line:#243A44;
+  --brand:#63C6D8; --brand-2:#3FA7BC; --brand-soft:#173843; --band:rgba(99,198,216,.17);
+  --ok:#4CC593; --ok-soft:#14352A; --warn:#F0B13E; --warn-soft:#3B2E10; --high:#FF7B72; --high-soft:#43201F;
+  --ooh:rgba(229,238,241,.05); --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.25); color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 var(--font-b);padding-block:0 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));-webkit-font-smoothing:antialiased}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--brand-2);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-d);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.app{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:26px}
+.mono{font-family:var(--font-m);font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+
+/* rail */
+.rail{position:sticky;top:0;align-self:start;height:100vh;padding:20px 0;display:flex;flex-direction:column;gap:18px}
+.brand{display:flex;gap:10px;align-items:center;padding:0 6px}
+.brand svg{width:34px;height:34px;flex:none}
+.brand b{font:700 17px/1.1 var(--font-d);display:block}
+.brand span{font-size:11.5px;color:var(--muted);display:block}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{display:flex;align-items:center;gap:11px;padding:9px 10px;border:0;background:none;border-radius:10px;text-align:left;color:var(--muted);font-weight:500}
+.nav button svg{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav button:hover{background:var(--surface);color:var(--ink)}
+.nav button[aria-current="page"]{background:var(--surface);color:var(--brand);box-shadow:var(--shadow)}
+.nav .badge{margin-left:auto;font:500 11px var(--font-m);background:var(--high);color:#fff;border-radius:99px;padding:1px 7px}
+.railfoot{margin-top:auto;font-size:12px;color:var(--muted);display:grid;gap:8px;padding:0 6px}
+.railfoot .model{background:var(--brand-soft);color:var(--brand);border-radius:10px;padding:8px 10px;font-weight:500}
+.railfoot .model small{display:block;color:var(--muted);font-weight:400}
+.themebtn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:5px 9px;font-size:12px;color:var(--muted);justify-self:start}
+
+/* top bar */
+main{min-width:0;padding-top:18px}
+.top{position:sticky;top:0;z-index:30;background:var(--bg);padding:12px 0 12px;display:grid;gap:10px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.top:before{content:"";position:absolute;left:-60px;right:-60px;top:-30px;height:30px;background:var(--bg)}
+.titlerow{display:flex;gap:14px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+.titlerow h1{font-size:26px}
+.titlerow p{margin:2px 0 0;color:var(--muted)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.f{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:12px}
+.f label{font-weight:500;letter-spacing:.04em;text-transform:uppercase;font-size:10.5px}
+select{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:6px 28px 6px 10px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 14px) 52%,calc(100% - 9px) 52%;background-size:5px 5px;background-repeat:no-repeat;min-height:34px}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:2px;gap:2px}
+.seg button{border:0;background:none;padding:5px 11px;border-radius:8px;color:var(--muted);font-weight:500;min-height:28px}
+.seg button[aria-pressed="true"]{background:var(--brand);color:#fff}
+.seg.zone button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.gear{margin-left:auto;display:inline-flex;gap:7px;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:6px 12px;min-height:34px;font-weight:500}
+.gear svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7}
+
+/* generic */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g23{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}.g32{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0;box-shadow:var(--shadow)}
+.card.flat{box-shadow:none}
+.card h2{font-size:17px;margin-bottom:3px}
+.card .sub{color:var(--muted);font-size:12.5px;margin:0 0 12px}
+.eyebrow{font:500 10.5px var(--font-b);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:2px 10px;font-weight:600;font-size:12px;white-space:nowrap}
+.pill:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.High{background:var(--high-soft);color:var(--high)}.pill.Warning{background:var(--warn-soft);color:var(--warn)}.pill.Normal{background:var(--ok-soft);color:var(--ok)}
+.pill.data{background:var(--surface-2);color:var(--muted);border:1px dashed var(--line)}
+.tag{display:inline-block;border-radius:6px;padding:1px 7px;background:var(--surface-2);border:1px solid var(--line);font-size:11.5px;color:var(--muted)}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:6px 12px;font-weight:500;min-height:34px}
+.btn:hover{border-color:var(--brand-2);color:var(--brand)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}.btn.primary:hover{color:#fff;filter:brightness(1.08)}
+.note{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--brand-2);border-radius:10px;padding:10px 12px;color:var(--muted);font-size:12.5px}
+.note.warn{border-left-color:var(--warn)}
+.note b{color:var(--ink)}
+.empty{padding:26px;text-align:center;color:var(--muted)}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 15px;min-width:0}
+.kpi .v{font:600 25px/1.15 var(--font-d);margin-top:3px;font-variant-numeric:tabular-nums}
+.kpi .v small{font:500 12px var(--font-b);color:var(--muted);margin-left:3px}
+.kpi .d{font-size:12px;color:var(--muted);margin-top:2px}
+.kpi.hl{border-color:var(--warn);}
+.status{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.status .light{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font:700 20px var(--font-d)}
+.status.High .light{background:var(--high)}.status.Warning .light{background:var(--warn)}.status.Normal .light{background:var(--ok)}
+.status h2{font-size:19px}
+
+/* tables */
+.tablewrap{overflow-x:auto;margin:0 -4px;padding:0 4px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font:500 10.5px var(--font-b);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap;user-select:none;position:sticky;top:0;background:var(--surface)}
+th.s{cursor:pointer}th.s:hover{color:var(--ink)}
+th[aria-sort]:after{content:attr(data-arrow);margin-left:5px;color:var(--brand)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.r,th.r{text-align:right}
+tbody tr.click{cursor:pointer}tbody tr.click:hover td{background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+.sev-bar{width:4px;border-radius:4px;display:inline-block;height:26px;vertical-align:middle;margin-right:9px}
+.sev-bar.High{background:var(--high)}.sev-bar.Warning{background:var(--warn)}
+.bar{height:8px;border-radius:5px;background:var(--surface-2);overflow:hidden;min-width:60px}.bar i{display:block;height:100%;background:var(--brand-2);border-radius:5px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:3px 11px;font-size:12.5px;color:var(--muted);font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* charts */
+.chart{width:100%;height:380px}.chart.sm{height:300px}.chart.xs{height:230px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;vertical-align:middle;margin-right:6px}
+.lg-line{width:20px;height:0;border-top:2px solid var(--ink)}.lg-dash{width:20px;height:0;border-top:2px dashed var(--brand-2)}
+.lg-band{width:20px;height:11px;background:var(--band);border-radius:3px}.lg-ooh{width:20px;height:11px;background:var(--ooh);border:1px solid var(--line);border-radius:3px}
+.lg-tri{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid var(--high)}
+.lg-x{font-style:normal;color:var(--muted);font-weight:700;width:14px;text-align:center}
+
+/* daily bars */
+.days{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:7px;align-items:end;height:210px}
+.day{display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:0;min-width:0;cursor:default}
+.day .col{display:flex;flex-direction:column-reverse;width:100%}
+.day .col i{display:block;width:100%}
+.day .base{background:var(--brand-soft);border:1px solid color-mix(in srgb,var(--brand-2) 40%,transparent);border-radius:0 0 4px 4px}
+.day .w{background:var(--warn)}.day .h{background:var(--high);border-radius:4px 4px 0 0}
+.day small{display:block;text-align:center;font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.2}
+.day small b{display:block;color:var(--ink);font-weight:500}
+.day .ev{text-align:center;font:500 10.5px var(--font-m);height:16px;color:var(--muted)}
+
+/* floor */
+.plan{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:1.55;background:var(--surface-2);border:2px solid var(--ink);border-radius:8px;padding:10px;position:relative}
+.plan:after{content:"N ↑";position:absolute;right:12px;top:-24px;font:500 12px var(--font-m);color:var(--muted)}
+.zcard{border:1.5px solid var(--line);background:var(--surface);border-radius:8px;padding:12px 14px;text-align:left;display:flex;flex-direction:column;gap:3px;min-width:0;position:relative;overflow:hidden}
+.zcard:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--ok)}
+.zcard.Warning:before{background:var(--warn)}.zcard.High:before{background:var(--high)}
+.zcard[aria-pressed="true"]{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand-soft)}
+.zcard:hover{border-color:var(--brand-2)}
+.zcard .z{font:700 22px var(--font-d)}
+.zcard .m{font-size:12px;color:var(--muted)}
+.zcard .k{display:flex;gap:14px;margin-top:auto;font:500 12px var(--font-m)}
+.zcard.dim{opacity:.45}
+
+/* heatmap */
+.hm{display:grid;grid-template-columns:78px repeat(24,minmax(0,1fr));gap:2px;font-size:10.5px}
+.hm .hh{text-align:center;color:var(--muted);padding-bottom:3px;font-family:var(--font-m)}
+.hm .hh.o{background:var(--ooh);border-radius:4px}
+.hm .rl{color:var(--muted);padding-right:6px;text-align:right;align-self:center;font-size:11.5px}
+.hm .rl.we{color:var(--ink);font-weight:500}
+.hm .c{height:24px;border-radius:3px;background:var(--surface-2);position:relative}
+.hm .c.o{background:var(--ooh)}
+.hm .c.x{outline:1px solid color-mix(in srgb,var(--high) 55%,transparent)}
+.hm .c:hover{outline:2px solid var(--ink);z-index:2}
+.scale{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted)}
+.scale i{display:inline-block;width:120px;height:10px;border-radius:5px;background:linear-gradient(90deg,var(--surface-2),var(--warn),var(--high))}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(5,15,20,.45);z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--bg);z-index:61;transform:translateX(100%);transition:transform .25s ease;overflow-y:auto;padding:20px max(18px,env(safe-area-inset-right,0px)) 30px 20px;border-left:1px solid var(--line);box-shadow:-20px 0 40px rgba(0,0,0,.18)}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+.xbtn{border:1px solid var(--line);background:var(--surface);border-radius:9px;width:34px;height:34px;font-size:16px;line-height:1}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.fact b{display:block;font:600 18px var(--font-d);font-variant-numeric:tabular-nums}
+.fact span{font-size:11.5px;color:var(--muted)}
+ul.check{margin:6px 0 0;padding-left:18px;color:var(--ink)}ul.check li{margin:3px 0}
+.field{display:grid;gap:5px;margin-bottom:14px}.field>label{font-weight:600}
+.field input[type=number]{border:1px solid var(--line);border-radius:9px;padding:6px 10px;background:var(--surface);width:110px;min-height:34px}
+.hint{font-size:12px;color:var(--muted)}
+
+/* replay */
+.rpbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+input[type=range]{accent-color:var(--brand-2);width:100%}
+.feed{display:grid;gap:8px;max-height:392px;overflow:auto}
+.feeditem{display:flex;gap:10px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;animation:pop .35s ease}
+@keyframes pop{from{transform:translateY(-6px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.feeditem{animation:none}.drawer{transition:none}}
+
+/* mobile */
+@media (max-width:1100px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.g23,.g32{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:860px){
+  .app{grid-template-columns:minmax(0,1fr);gap:0}
+  .rail{position:fixed;left:0;right:0;bottom:0;top:auto;height:auto;z-index:50;padding:6px max(10px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px));background:var(--surface);border-top:1px solid var(--line);flex-direction:row}
+  .brand,.railfoot{display:none}
+  .nav{flex-direction:row;overflow-x:auto;width:100%;gap:2px}
+  .nav button{flex-direction:column;gap:2px;font-size:10.5px;padding:6px 9px;flex:none;align-items:center;text-align:center}
+  .nav .badge{display:none}
+  body{padding-bottom:90px}
+  .top{position:static}.top:before{display:none}
+  .g2,.g3{grid-template-columns:minmax(0,1fr)}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .titlerow h1{font-size:22px}
+  .chart{height:320px}
+  .hm{grid-template-columns:54px repeat(24,minmax(0,1fr))}.hm .hh:nth-child(odd){visibility:hidden}
+  .plan{aspect-ratio:auto;grid-template-rows:auto auto;min-height:0}
+}
+</style>
+
+<div class="app">
+  <aside class="rail" aria-label="Main navigation">
+    <div class="brand">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="9" fill="var(--brand)"/><path d="M8 22l5-8 4 5 3-6 6 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><b>Energy Watch</b><span>CeDInt · Storey 1</span></div>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="railfoot">
+      <div class="model">Expected use: Blend v1.3<small>Normal range: Chronos-Bolt band</small></div>
+      <button class="themebtn" id="themebtn" type="button">Switch theme</button>
+      <span>Historical-data decision support. No equipment is controlled.</span>
+    </div>
+  </aside>
+  <main>
+    <header class="top">
+      <div class="titlerow">
+        <div><h1 id="ttl"></h1><p id="sub"></p></div>
+        <div class="filters" id="gfilters"></div>
+      </div>
+    </header>
+    <section id="view" aria-live="polite"></section>
+  </main>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+
+<script type="application/json" id="data">/*__DATA__*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.35.2/plotly.min.js"></script>
+<script>
+(()=>{
+"use strict";
+const D=JSON.parse(document.getElementById('data').textContent);
+const N=D.meta.n,T0=D.meta.t0,C=D.circuits,NC=C.length;
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const dtf=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'});
+const L=[];const DAYS=[];
+for(let i=0;i<N;i++){const o={};dtf.formatToParts(T0+i*3600e3).forEach(p=>o[p.type]=p.value);
+  const day=`${o.year}-${o.month}-${o.day}`,mon=MON[+o.month-1];
+  L.push({iso:`${day} ${o.hour}:${o.minute}`,day,hr:+o.hour,wd:o.weekday,dl:`${o.weekday} ${+o.day} ${mon}`,short:`${o.weekday} ${+o.day} ${mon} ${o.hour}:${o.minute}`,we:o.weekday==='Sat'||o.weekday==='Sun'});
+  if(!DAYS.length||DAYS[DAYS.length-1].day!==day)DAYS.push({day,dl:`${o.weekday} ${+o.day} ${mon}`,s:i,e:i+1,we:o.weekday==='Sat'||o.weekday==='Sun'});else DAYS[DAYS.length-1].e=i+1;}
+const SCREENS=[
+ ['overview','Overview','M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z'],
+ ['expected','Actual vs expected','M3 17l5-6 4 3 5-8 4 5M3 21h18'],
+ ['zones','Floor & zones','M3 4h18v16H3zM12 4v16M3 12h18'],
+ ['alerts','Alerts','M12 3l10 18H2zM12 10v5M12 18v.5'],
+ ['waste','Waste patterns','M4 4h4v4H4zM10 4h4v4h-4zM16 4h4v4h-4zM4 10h4v4H4zM10 10h4v4h-4zM16 10h4v4h-4zM4 16h4v4H4zM10 16h4v4h-4z'],
+ ['savings','Savings','M12 3v18M17 7.5C17 5.5 14.8 4.5 12 4.5S7 5.7 7 7.8s2 3 5 3.8 5 1.600 5 3.800S14.800 19.500 12 19.500 7 18 7 16'],
+ ['replay','Replay','M6 4l14 8-14 8z'],
+ ['reliab','Reliability & data','M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6zM8.500 12l2.500 2.500L16 9.500']];
+const TITLES={overview:['Overview','What happened in the building and what it may have cost'],expected:['Actual vs expected','When consumption left its normal range'],zones:['Floor & zones','Where on Storey 1 attention is needed'],alerts:['Alerts','What to inspect first'],waste:['Waste patterns','Recurring unnecessary use by day and hour'],savings:['Savings','Estimated excess energy, cost and CO₂ with their main sources'],replay:['Replay','Run a past period as if it were live'],reliab:['Reliability & data','How far the expected values and alerts can be trusted']};
+const ZONES=['NW','NE','SW','SE'];const LOADS=[...new Set(C.map(c=>c.load))];const LOADLBL=Object.fromEntries(C.map(c=>[c.load,c.label]));
+const S={screen:'overview',sens:'Balanced',price:0.18,co2:0.27,zone:'ALL',load:'ALL',period:'all',circuit:'ALL',span:'period',day:0,
+  al:{sev:'ALL',when:'ALL',sort:'sev',dir:1,tab:'alerts'},wp:{tab:'heat'},sv:{by:'circuit'},rel:{lvl:'circuit'},
+  rp:{i:0,playing:false,speed:6,start:0},open:null,reviewed:{}};
+try{const h=location.hash.slice(1);if(SCREENS.some(s=>s[0]===h))S.screen=h;}catch(e){}
+
+/* ---------- helpers ---------- */
+const f0=v=>Math.round(v).toLocaleString('en-GB'),f1=v=>v.toLocaleString('en-GB',{minimumFractionDigits:1,maximumFractionDigits:1}),f2=v=>v.toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2});
+const kwh=wh=>f1(wh/1000);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function periodRange(){const p=S.period;if(p==='all')return[0,N];if(p==='w1')return[0,168];if(p==='w2')return[168,N];if(p.startsWith('d')){const d=DAYS[+p.slice(1)];return[d.s,d.e];}return[0,N];}
+function scopeCircuits(){return C.map((c,k)=>k).filter(k=>(S.zone==='ALL'||C[k].zone===S.zone)&&(S.load==='ALL'||C[k].load===S.load));}
+const inScope=k=>(S.zone==='ALL'||C[k].zone===S.zone)&&(S.load==='ALL'||C[k].load===S.load);
+function periodLabel(){const[r0,r1]=periodRange();const a=L[r0],b=L[r1-1];if(S.period==='all')return'22 Sep – 5 Oct 2025';if(S.period==='w1')return'22–28 Sep 2025 (validation week)';if(S.period==='w2')return'29 Sep – 5 Oct 2025 (test week)';return a.dl+' 2025';}
+function scopeLabel(){const z=S.zone==='ALL'?'All zones':'Zone '+S.zone;const l=S.load==='ALL'?'all load types':LOADLBL[S.load];return`${z} · ${l}`;}
+function events(){const[r0,r1]=periodRange();return D.det[S.sens].events.filter(e=>inScope(e.c)&&e.s<r1&&e.e>r0);}
+function alertHours(){const[r0,r1]=periodRange();return D.det[S.sens].hours.filter(h=>inScope(h[0])&&h[1]>=r0&&h[1]<r1);}
+const money=k=>({eur:k*S.price,co2:k*S.co2});
+function totals(){const[r0,r1]=periodRange();let a=0,e=0,n=0,tot=0;
+  for(const k of scopeCircuits()){for(let i=r0;i<r1;i++){tot++;const av=D.actual[k][i];if(av==null)continue;a+=av;e+=D.expected[k][i];n++;}}
+  const ah=alertHours();let ex=0,exH=0,exW=0;for(const h of ah){ex+=h[2];const ev=D.det[S.sens].events[h[3]];if(ev.sev==='High')exH+=h[2];else exW+=h[2];}
+  return{actual:a,expected:e,valid:n,total:tot,excess:ex,exHigh:exH,exWarn:exW};}
+function status(evs){return evs.some(e=>e.sev==='High')?'High':evs.length?'Warning':'Normal';}
+const sevLabel={High:'High',Warning:'Warning',Normal:'Normal'};
+const pill=s=>`<span class="pill ${s}">${sevLabel[s]||s}</span>`;
+function dur(e){return e.n+' h';}
+function whenLbl(e){const a=L[e.s],b=L[e.e-1];const end=String(((b.hr+1)%24)).padStart(2,'0')+':00';return a.day===b.day||b.hr===23?`${a.short.slice(0,-6)} ${a.short.slice(-5)}–${end}`:`${a.short} → ${b.dl} ${end}`;}
+function themeColors(){return{ink:css('--ink'),muted:css('--muted'),line:css('--line'),brand:css('--brand-2'),band:css('--band'),ooh:css('--ooh'),high:css('--high'),warn:css('--warn'),surface:css('--surface'),bg:css('--bg')};}
+function baseLayout(h,extra={}){const c=themeColors();return Object.assign({height:h,margin:{l:52,r:14,t:10,b:38},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{family:'IBM Plex Sans, system-ui, sans-serif',size:12,color:c.muted},
+  xaxis:{gridcolor:c.line,linecolor:c.line,zeroline:false,type:'date',tickformat:'%a %d %b',hoverformat:'%a %d %b %H:%M'},yaxis:{gridcolor:c.line,zeroline:false,title:{text:'Wh per hour',font:{size:11}},rangemode:'tozero'},
+  hovermode:'x unified',hoverlabel:{font:{family:'IBM Plex Sans'}},showlegend:false,dragmode:'pan'},extra);}
+const PCFG={displayModeBar:false,responsive:true,scrollZoom:false};
+function plot(el,data,layout){if(!window.Plotly){el.innerHTML='<div class="empty">The chart library could not be loaded. Check the internet connection and reload.</div>';return;}Plotly.react(el,data,layout,PCFG);}
+function runs(arr,r0,r1){const o=[];let s=null;for(let i=r0;i<r1;i++){if(arr[i]&&s===null)s=i;if((!arr[i]||i===r1-1)&&s!==null){o.push([s,arr[i]&&i===r1-1?i+1:i]);s=null;}}return o;}
+function oohShapes(r0,r1){const c=themeColors();return runs(D.ooh,r0,r1).map(([a,b])=>({type:'rect',xref:'x',yref:'paper',x0:L[a].iso,x1:b<N?L[b].iso:L[N-1].iso,y0:0,y1:1,fillcolor:c.ooh,line:{width:0},layer:'below'}));}
+function series(ks,r0,r1){const x=[],a=[],e=[],lo=[],hi=[],cov=[];for(let i=r0;i<r1;i++){let sa=0,se=0,sl=0,sh=0,n=0;for(const k of ks){const v=D.actual[k][i];if(v==null)continue;sa+=v;se+=D.expected[k][i];sl+=D.lo[k][i];sh+=D.hi[k][i];n++;}
+  x.push(L[i].iso);cov.push(n);if(n===0){a.push(null);e.push(null);lo.push(null);hi.push(null);}else{a.push(sa);e.push(se);lo.push(sl);hi.push(sh);}}return{x,a,e,lo,hi,cov};}
+function copy(text,btn){const done=()=>{const o=btn.textContent;btn.textContent='Copied';setTimeout(()=>btn.textContent=o,1400);};
+  const fb=()=>{const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){btn.textContent='Select and copy manually';}t.remove();};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(done,fb);else fb();}
+
+/* ---------- chrome ---------- */
+function renderNav(){const open=D.det[S.sens].events.filter(e=>e.sev==='High').length;
+  $('#nav').innerHTML=SCREENS.map(([id,name,path])=>`<button type="button" data-s="${id}" ${S.screen===id?'aria-current="page"':''}><svg viewBox="0 0 24 24"><path d="${path}"/></svg><span>${name}</span>${id==='alerts'?`<span class="badge">${open}</span>`:''}</button>`).join('');
+  $$('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.s));}
+function renderFilters(){
+  const days=DAYS.map((d,i)=>`<option value="d${i}" ${S.period==='d'+i?'selected':''}>${d.dl}</option>`).join('');
+  $('#gfilters').innerHTML=`
+   <div class="f"><label for="fp">Period</label><select id="fp"><option value="all" ${S.period==='all'?'selected':''}>All 14 days</option><option value="w1" ${S.period==='w1'?'selected':''}>Week 1 · 22–28 Sep</option><option value="w2" ${S.period==='w2'?'selected':''}>Week 2 · 29 Sep–5 Oct</option><optgroup label="Single day">${days}</optgroup></select></div>
+   <div class="f"><label>Zone</label><div class="seg zone" role="group" aria-label="Zone">${['ALL',...ZONES].map(z=>`<button type="button" data-z="${z}" aria-pressed="${S.zone===z}">${z==='ALL'?'All':z}</button>`).join('')}</div></div>
+   <div class="f"><label for="fl">Load</label><select id="fl"><option value="ALL">All loads</option>${LOADS.map(l=>`<option value="${l}" ${S.load===l?'selected':''}>${LOADLBL[l]}</option>`).join('')}</select></div>
+   <button type="button" class="gear" id="gear"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.1-1.200l2-1.500-2-3.400-2.300.9a7 7 0 00-2-1.200L14 3h-4l-.6 2.600a7 7 0 00-2 1.200l-2.300-.9-2 3.400 2 1.500A7 7 0 005 12c0 .4 0 .8.1 1.200l-2 1.500 2 3.400 2.300-.9a7 7 0 002 1.200L10 21h4l.6-2.600a7 7 0 002-1.200l2.300.9 2-3.400-2-1.500c.1-.4.1-.8.1-1.200z"/></svg>Settings</button>`;
+  $('#fp').onchange=e=>{S.period=e.target.value;render();};
+  $('#fl').onchange=e=>{S.load=e.target.value;render();};
+  $$('#gfilters [data-z]').forEach(b=>b.onclick=()=>{S.zone=b.dataset.z;render();});
+  $('#gear').onclick=openSettings;}
+function go(id){S.screen=id;try{history.replaceState(null,'','#'+id);}catch(e){location.hash=id;}stopReplay();render();window.scrollTo({top:0});}
+function render(){renderNav();renderFilters();$('#ttl').textContent=TITLES[S.screen][0];$('#sub').textContent=`${TITLES[S.screen][1]} · ${periodLabel()} · ${scopeLabel()}`;
+  const v=$('#view');const fn=VIEWS[S.screen];v.innerHTML='';fn(v);}
+
+/* ---------- drawer ---------- */
+function openDrawer(html){const d=$('#drawer');d.innerHTML=html;d.classList.add('on');d.setAttribute('aria-hidden','false');$('#scrim').classList.add('on');$('#xclose')&&$('#xclose').focus();}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#drawer').setAttribute('aria-hidden','true');$('#scrim').classList.remove('on');S.open=null;}
+$('#scrim').onclick=closeDrawer;document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+function openSettings(){
+  const cnt=n=>D.det[n].events.length;
+  openDrawer(`<div class="hd"><div><div class="eyebrow">Settings</div><h2>Alert rules and impact assumptions</h2></div><button type="button" class="xbtn" id="xclose" aria-label="Close">✕</button></div>
+  <div class="card flat"><div class="field"><label>Alert sensitivity</label>
+   <div class="seg" role="group" aria-label="Sensitivity">${['Strict','Balanced','Sensitive'].map(s=>`<button type="button" data-sens="${s}" aria-pressed="${S.sens===s}">${s}</button>`).join('')}</div>
+   <div class="hint" id="sensinfo"></div></div>
+   <div class="field"><label for="pr">Electricity price (€ per kWh)</label>
+    <div class="chips" id="prp">${[['Low',0.12],['Central',0.18],['High',0.25]].map(([n,v])=>`<button type="button" class="chip" data-p="${v}" aria-pressed="${S.price===v}">${n} · ${v.toFixed(2)}</button>`).join('')}</div>
+    <input id="pr" type="number" min="0" max="1" step="0.01" value="${S.price}"><div class="hint">Assumption: no UPM invoice is available yet. 0.25 € is the 2026 Spanish household price including taxes; business prices are normally lower.</div></div>
+   <div class="field"><label for="co">CO₂ factor (kg CO₂ per kWh)</label>
+    <div class="chips" id="cop">${[['Grid supply',0.27],['Renewable contract',0]].map(([n,v])=>`<button type="button" class="chip" data-c="${v}" aria-pressed="${S.co2===v}">${n} · ${v.toFixed(2)}</button>`).join('')}</div>
+    <input id="co" type="number" min="0" max="1" step="0.01" value="${S.co2}"><div class="hint">0.27 kg/kWh is the factor the Spanish Ministry for the Ecological Transition (MITECO) applies to non-renewable supply in its own 2024 buildings inventory. A contract with a renewable guarantee of origin counts as 0.</div></div>
+   <div class="note warn"><b>These are estimates.</b> The modelling specification forbids stating confirmed savings without validated tariff and emission data. Every € and CO₂ figure in this tool is labelled “estimated” and recomputes when you change these values.</div>
+  </div>`);
+  const info=()=>{const s=D.meta.sens[S.sens];$('#sensinfo').innerHTML=`<b>${cnt(S.sens)} alerts</b> over 14 days (${f1(cnt(S.sens)/14)} per day). An hour counts only if actual use is above the normal range and the excess is at least ${s.floor} Wh and ${Math.round(s.share*100)}% of the circuit’s average hourly use. Stricter means fewer false alarms but more missed events.`;};info();
+  $('#xclose').onclick=closeDrawer;
+  $$('#drawer [data-sens]').forEach(b=>b.onclick=()=>{S.sens=b.dataset.sens;$$('#drawer [data-sens]').forEach(x=>x.setAttribute('aria-pressed',x===b));info();render();});
+  const setP=v=>{S.price=v;$('#pr').value=v;$$('#prp .chip').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.p===v));render();};
+  const setC=v=>{S.co2=v;$('#co').value=v;$$('#cop .chip').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.c===v));render();};
+  $$('#prp .chip').forEach(c=>c.onclick=()=>setP(+c.dataset.p));$$('#cop .chip').forEach(c=>c.onclick=()=>setC(+c.dataset.c));
+  $('#pr').onchange=e=>setP(Math.max(0,+e.target.value||0));$('#co').onchange=e=>setC(Math.max(0,+e.target.value||0));}
+
+/* ---------- screens ---------- */
+const VIEWS={};
+const CHECKS={'Plugs & Sockets':['Equipment left on overnight or at weekends (screens, chargers, heaters, lab or office equipment)','Scheduled night jobs such as backups, battery charging or tests','The same hours on previous days: is this new or recurring?'],
+ 'Lighting':['Lights left on after the last person left; timers and presence sensors','Cleaning or maintenance visits at that time','Manual overrides on the lighting panel'],
+ 'Emerg. Lighting':['Battery charging after a test or a power cut','A faulty luminaire or driver'],
+ 'HVAC':['Operation outside the occupied schedule','Set-points and manual overrides on the unit','Doors or windows open during heating or cooling'],
+ 'Hand Dryer':['A stuck sensor keeping the dryer running','Vandalism or a faulty relay'],
+ 'RACK':['New equipment added to the rack','A backup or batch job running at that time']};
+function sevWhy(e){const r=[];if(e.excess>=1)r.push(`excess of ${f1(e.excess)} kWh is at least 1 kWh`);if(e.n>=6)r.push(`it lasted ${e.n} hours (6 or more)`);if(e.ooh>=.5&&e.excess>=.5)r.push(`most of it is outside occupied hours and the excess is at least 0.5 kWh`);return e.sev==='High'?'High because '+r.join(' and ')+'.':'Warning: above the normal range, but below the thresholds for High (1 kWh, 6 hours, or 0.5 kWh mostly out of hours).';}
+
+VIEWS.overview=v=>{
+  const T=totals(),evs=events(),st=status(evs),[r0,r1]=periodRange();const m=money(T.excess/1000);
+  const hi=evs.filter(e=>e.sev==='High').length,wa=evs.length-hi;
+  const dIdx=DAYS.map((d,i)=>i).filter(i=>DAYS[i].e>r0&&DAYS[i].s<r1);
+  const per=dIdx.map(i=>{const d=DAYS[i];let a=0;for(const k of scopeCircuits())for(let h=Math.max(d.s,r0);h<Math.min(d.e,r1);h++){const x=D.actual[k][h];if(x!=null)a+=x;}
+    let eh=0,ew=0,nev=new Set();for(const h of D.det[S.sens].hours){if(inScope(h[0])&&h[1]>=Math.max(d.s,r0)&&h[1]<Math.min(d.e,r1)){const ev=D.det[S.sens].events[h[3]];(ev.sev==='High'?(eh+=h[2]):(ew+=h[2]));nev.add(h[3]);}}
+    return{d,a,eh,ew,n:nev.size};});
+  const mx=Math.max(1,...per.map(p=>p.a));
+  const top=[...evs].sort((a,b)=>(a.sev==='High'?0:1)-(b.sev==='High'?0:1)||b.excess-a.excess).slice(0,3);
+  const zs=ZONES.map(z=>{const ze=evs.filter(e=>C[e.c].zone===z);return{z,st:status(ze),n:ze.length};});
+  v.innerHTML=`<div class="grid">
+   <div class="status ${st}"><div class="light">${st==='Normal'?'✓':st==='High'?'!':'•'}</div><div><div class="eyebrow">Status for this selection</div><h2>${st==='Normal'?'Everything is within the normal range':st==='High'?'High-severity alerts need attention':'Some consumption left the normal range'}</h2>
+     <div style="color:var(--muted)">${hi} high and ${wa} warning alert${evs.length===1?'':'s'}. ${T.valid<T.total?`Based on ${Math.round(100*T.valid/T.total)}% of circuit-hours: the rest are measurement problems, listed separately.`:''}</div></div>
+     <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap">${zs.map(x=>`<span class="pill ${x.st}" title="${x.n} alerts">${x.z}</span>`).join('')}</div></div>
+   <div class="kpis">
+     <div class="kpi"><div class="eyebrow">Energy used</div><div class="v">${f0(T.actual/1000)}<small>kWh</small></div><div class="d">on valid hours</div></div>
+     <div class="kpi"><div class="eyebrow">Expected</div><div class="v">${f0(T.expected/1000)}<small>kWh</small></div><div class="d">${T.actual>=T.expected?'+':''}${f0((T.actual-T.expected)/T.expected*100)}% vs actual</div></div>
+     <div class="kpi hl"><div class="eyebrow">Excess (waste candidates)</div><div class="v">${f1(T.excess/1000)}<small>kWh</small></div><div class="d">${T.actual?f1(100*T.excess/T.actual):'0.0'}% of energy used</div></div>
+     <div class="kpi"><div class="eyebrow">Estimated cost</div><div class="v">${f2(m.eur)}<small>€</small></div><div class="d">at ${S.price.toFixed(2)} €/kWh</div></div>
+     <div class="kpi"><div class="eyebrow">Estimated CO₂</div><div class="v">${f1(m.co2)}<small>kg</small></div><div class="d">at ${S.co2.toFixed(2)} kg/kWh</div></div>
+     <div class="kpi"><div class="eyebrow">Open alerts</div><div class="v">${evs.length}</div><div class="d"><span style="color:var(--high)">${hi} high</span> · <span style="color:var(--warn)">${wa} warning</span></div></div>
+   </div>
+   <div class="grid g23">
+    <div class="card"><h2>Energy per day, with the excess highlighted</h2><p class="sub">Bars show energy used; the coloured top part is consumption above the expected range.</p>
+     <div class="days">${per.map(p=>`<div class="day" title="${p.d.dl}: ${f0(p.a/1000)} kWh used, ${f1((p.eh+p.ew)/1000)} kWh excess"><div class="ev">${p.n||''}</div><div class="col" style="height:${Math.max(2,160*p.a/mx)}px"><i class="base" style="height:${Math.max(0,100*(p.a-p.eh-p.ew)/Math.max(p.a,1))}%"></i><i class="w" style="height:${100*p.ew/Math.max(p.a,1)}%"></i><i class="h" style="height:${100*p.eh/Math.max(p.a,1)}%"></i></div><small><b>${p.d.dl.split(' ')[0]}</b>${p.d.dl.split(' ').slice(1).join(' ')}</small></div>`).join('')}</div>
+     <div class="legend"><span><i style="width:12px;height:12px;background:var(--brand-soft);border:1px solid var(--brand-2);border-radius:3px"></i>Within expected range</span><span><i style="width:12px;height:12px;background:var(--warn);border-radius:3px"></i>Excess · warning</span><span><i style="width:12px;height:12px;background:var(--high);border-radius:3px"></i>Excess · high</span></div></div>
+    <div class="card"><h2>Look at these first</h2><p class="sub">The three alerts with the most impact.</p>
+     ${top.length?top.map(e=>`<div class="feeditem" style="cursor:pointer;margin-bottom:8px" data-open="${e.id}"><span class="sev-bar ${e.sev}" style="height:44px;margin:0"></span><div style="min-width:0"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${pill(e.sev)}<b>${esc(C[e.c].label)}</b><span class="tag">${C[e.c].zone}</span></div><div style="color:var(--muted);font-size:12.5px;margin-top:3px">${whenLbl(e)}</div><div class="num" style="margin-top:2px"><b>${f1(e.excess)} kWh</b> · ${f2(e.excess*S.price)} € · ${f1(e.excess*S.co2)} kg CO₂</div></div></div>`).join(''):'<div class="empty">No alert in this selection.</div>'}
+     <button type="button" class="btn" id="seeall" style="width:100%">See all ${evs.length} alerts</button></div>
+   </div>
+   <div class="note">Costs and CO₂ are <b>estimates</b> from assumed prices (editable in Settings). Excess means use above the normal range and above the expected value; it is a candidate for unnecessary use, not a confirmed loss. Times are Europe/Madrid.</div></div>`;
+  $$('[data-open]',v).forEach(b=>b.onclick=()=>openAlert(b.dataset.open));$('#seeall').onclick=()=>go('alerts');};
+
+VIEWS.expected=v=>{
+  const sc=scopeCircuits();if(S.circuit!=='ALL'&&!sc.includes(+S.circuit))S.circuit='ALL';
+  const ks=S.circuit==='ALL'?sc:[+S.circuit];const[p0,p1]=periodRange();
+  let r0=p0,r1=p1;if(S.span==='day'){const di=Math.min(S.day,DAYS.length-1);r0=Math.max(p0,DAYS[di].s);r1=Math.min(p1,DAYS[di].e);if(r1<=r0){r0=p0;r1=p1;}}
+  const sr=series(ks,r0,r1);const evs=events().filter(e=>ks.includes(e.c)&&e.s<r1&&e.e>r0);
+  v.innerHTML=`<div class="grid"><div class="card"><div style="display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin-bottom:10px">
+   <div class="f"><label for="ac">Circuit</label><select id="ac"><option value="ALL">All circuits in selection (${sc.length})</option>${sc.map(k=>`<option value="${k}" ${S.circuit==k?'selected':''}>${C[k].zone} · ${C[k].label}</option>`).join('')}</select></div>
+   <div class="seg" role="group" aria-label="Range"><button type="button" data-sp="period" aria-pressed="${S.span==='period'}">Whole period</button><button type="button" data-sp="day" aria-pressed="${S.span==='day'}">One day</button></div>
+   ${S.span==='day'?`<div class="f"><label for="ad">Day</label><select id="ad">${DAYS.map((d,i)=>`<option value="${i}" ${S.day===i?'selected':''}>${d.dl}</option>`).join('')}</select></div>`:''}</div>
+   <div id="ch" class="chart"></div>
+   <div class="legend"><span><i class="lg-line"></i>Actual</span><span><i class="lg-dash"></i>Expected (Blend v1.3)</span><span><i class="lg-band"></i>Normal range</span><span><i class="lg-tri"></i>Alert</span><span><i class="lg-ooh"></i>Out of hours</span><span><i class="lg-x">×</i>Data issue</span></div></div>
+   <div class="grid g2"><div class="card"><h2>In this view</h2><div id="ae-stats"></div></div><div class="card"><h2>By load type</h2><p class="sub">Actual against expected, in the selected range.</p><div class="tablewrap" id="ae-load"></div></div></div>
+   ${ks.length>1?'<div class="note">With several circuits the chart adds them up hour by hour. Each hour sums the circuits that have a valid reading, for actual, expected and range alike, so a dip can simply mean a circuit was not reporting that hour (see Alerts → Data issues). Nothing is filled in. The shaded range is the sum of the circuit ranges, so it is wider than a true range for the total.</div>':''}</div>`;
+  const c=themeColors();const data=[];
+  data.push({x:sr.x,y:sr.hi,mode:'lines',line:{width:0},hoverinfo:'skip',showlegend:false});
+  data.push({x:sr.x,y:sr.lo,mode:'lines',line:{width:0},fill:'tonexty',fillcolor:c.band,name:'Normal range (low)',hovertemplate:'%{y:.0f} Wh low',showlegend:false});
+  data.push({x:sr.x,y:sr.e,mode:'lines',name:'Expected',line:{color:c.brand,width:2,dash:'dash'},hovertemplate:'%{y:.0f} Wh'});
+  data.push({x:sr.x,y:sr.a,mode:'lines',name:'Actual',line:{color:c.ink,width:2},connectgaps:false,hovertemplate:'%{y:.0f} Wh'});
+  const mk={High:{x:[],y:[],t:[]},Warning:{x:[],y:[],t:[]}};
+  for(const e of evs){let best=Math.max(e.s,r0),bv=-1;for(let i=Math.max(e.s,r0);i<Math.min(e.e,r1);i++){let tot=0;for(const k of ks){const val=D.actual[k][i];if(val!=null)tot+=Math.max(0,val-D.expected[k][i]);}if(tot>bv){bv=tot;best=i;}}
+    const idx=best-r0;mk[e.sev].x.push(L[best].iso);mk[e.sev].y.push(sr.a[idx]);mk[e.sev].t.push(`${e.id} · ${C[e.c].label} (${C[e.c].zone})<br>${f1(e.excess)} kWh above expected`);}
+  for(const s of['Warning','High'])if(mk[s].x.length)data.push({x:mk[s].x,y:mk[s].y,mode:'markers',name:s+' alert',marker:{symbol:'triangle-up',size:13,color:s==='High'?c.high:c.warn,line:{color:c.surface,width:1.5}},text:mk[s].t,hovertemplate:'%{text}<extra></extra>'});
+  if(ks.length===1){const xs=[],ys=[];D.issues.filter(q=>q.c===ks[0]).forEach(q=>{for(let i=Math.max(q.s,r0);i<Math.min(q.e,r1);i++){xs.push(L[i].iso);ys.push(0);}});if(xs.length)data.push({x:xs,y:ys,mode:'markers',name:'Data issue',marker:{symbol:'x',size:7,color:c.muted},hovertemplate:'Data issue: measurement not usable<extra></extra>'});}
+  plot($('#ch'),data,baseLayout(S.span==='day'?400:380,{shapes:oohShapes(r0,r1),xaxis:{gridcolor:c.line,linecolor:c.line,type:'date',tickformat:S.span==='day'?'%H:%M':'%a %d %b',hoverformat:'%a %d %b %H:%M',range:[L[r0].iso,L[r1-1].iso]}}));
+  // stats
+  let n=0,inb=0,ma=0,sa=0,se=0;for(const k of ks)for(let i=r0;i<r1;i++){const a=D.actual[k][i];if(a==null)continue;n++;sa+=a;se+=D.expected[k][i];ma+=Math.abs(a-D.expected[k][i]);if(a>=D.lo[k][i]&&a<=D.hi[k][i])inb++;}
+  const exs=evs.reduce((s,e)=>s+e.excess,0);
+  $('#ae-stats').innerHTML=`<div class="facts"><div class="fact"><b>${n?f0(100*inb/n)+'%':'–'}</b><span>of hours inside the normal range (target about 80%)</span></div><div class="fact"><b>${n?f1(ma/n):'–'} Wh</b><span>average gap to the expected value per circuit-hour</span></div><div class="fact"><b>${evs.length}</b><span>alerts, ${f1(exs)} kWh excess</span></div><div class="fact"><b>${f2(exs*S.price)} €</b><span>estimated cost of the excess</span></div></div>
+    <div class="hint">${ks.length>1?'':'Circuit '+esc(C[ks[0]].zone+' · '+C[ks[0]].label)+'. '}Hours without a valid reading are not counted.</div>`;
+  const byL={};for(const k of ks)for(let i=r0;i<r1;i++){const a=D.actual[k][i];if(a==null)continue;const o=byL[C[k].load]||(byL[C[k].load]={a:0,e:0});o.a+=a;o.e+=D.expected[k][i];}
+  const rows=Object.entries(byL).sort((a,b)=>b[1].a-a[1].a);
+  $('#ae-load').innerHTML=rows.length?`<table><thead><tr><th>Load type</th><th class="r">Actual kWh</th><th class="r">Expected kWh</th><th class="r">Gap</th></tr></thead><tbody>${rows.map(([l,o])=>`<tr><td>${esc(LOADLBL[l])}</td><td class="r num">${f1(o.a/1000)}</td><td class="r num">${f1(o.e/1000)}</td><td class="r num" style="color:${o.a>o.e*1.1?'var(--high)':'var(--muted)'}">${o.a>=o.e?'+':''}${f0((o.a-o.e)/Math.max(o.e,1)*100)}%</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No valid data in this range.</div>';
+  $('#ac').onchange=e=>{S.circuit=e.target.value;render();};$$('[data-sp]',v).forEach(b=>b.onclick=()=>{S.span=b.dataset.sp;render();});const ad=$('#ad');if(ad)ad.onchange=e=>{S.day=+e.target.value;render();};};
+
+VIEWS.zones=v=>{
+  const[r0,r1]=periodRange();const all=D.det[S.sens].events.filter(e=>e.s<r1&&e.e>r0&&(S.load==='ALL'||C[e.c].load===S.load));
+  const info=ZONES.map(z=>{const ks=C.map((c,k)=>k).filter(k=>C[k].zone===z&&(S.load==='ALL'||C[k].load===S.load));const ze=all.filter(e=>C[e.c].zone===z);let a=0;for(const k of ks)for(let i=r0;i<r1;i++){const x=D.actual[k][i];if(x!=null)a+=x;}
+    const ex=ze.reduce((s,e)=>s+e.excess,0);return{z,ks,st:status(ze),n:ze.length,hi:ze.filter(e=>e.sev==='High').length,a,ex};});
+  v.innerHTML=`<div class="grid g32"><div class="card"><h2>Storey 1</h2><p class="sub">Select a zone to filter every screen. The layout is schematic and not to scale.</p>
+   <div class="plan">${['NW','NE','SW','SE'].map(z=>{const x=info.find(i=>i.z===z);return`<button type="button" class="zcard ${x.st} ${x.ks.length?'':'dim'}" data-z="${z}" aria-pressed="${S.zone===z}"><span class="z">${z}</span><span class="m">${x.ks.length} circuit${x.ks.length===1?'':'s'}${x.ks.length?'':' (none for this load)'}</span><span>${pill(x.st)}</span><span class="k"><span>${x.n} alerts</span><span>${f1(x.ex)} kWh excess</span></span></button>`;}).join('')}</div>
+   <div style="margin-top:14px"><button type="button" class="btn" id="zall">Show all zones</button></div></div>
+   <div class="card"><h2>Zone comparison</h2><p class="sub">${periodLabel()}</p><div class="tablewrap"><table><thead><tr><th>Zone</th><th>Status</th><th class="r">Energy kWh</th><th class="r">Excess kWh</th><th class="r">Excess %</th><th class="r">Est. cost €</th></tr></thead><tbody>${info.map(x=>`<tr class="click" data-z="${x.z}"><td><b>${x.z}</b></td><td>${pill(x.st)}</td><td class="r num">${f0(x.a/1000)}</td><td class="r num">${f1(x.ex)}</td><td class="r num">${x.a?f1(100*x.ex*1000/x.a):'0.0'}%</td><td class="r num">${f2(x.ex*S.price)}</td></tr>`).join('')}</tbody></table></div>
+   ${S.zone!=='ALL'?`<h3 style="margin:16px 0 8px;font-size:15px">Circuits in ${S.zone}</h3><div class="tablewrap"><table><tbody>${C.map((c,k)=>k).filter(k=>C[k].zone===S.zone).map(k=>{const ce=all.filter(e=>e.c===k);return`<tr><td>${esc(C[k].label)}</td><td>${pill(status(ce))}</td><td class="r num">${ce.length} alerts</td><td class="r num">${f1(ce.reduce((s,e)=>s+e.excess,0))} kWh</td></tr>`;}).join('')}</tbody></table></div>`:''}
+   <div class="note" style="margin-top:12px">Status rule: <b>High</b> when the zone has at least one high-severity alert, <b>Warning</b> when it has only warnings, <b>Normal</b> otherwise.</div></div></div>`;
+  $$('[data-z]',v).forEach(b=>b.onclick=()=>{S.zone=b.dataset.z;render();});$('#zall').onclick=()=>{S.zone='ALL';render();};};
+
+function alertRows(){let evs=events();const A=S.al;
+  if(A.sev!=='ALL')evs=evs.filter(e=>e.sev===A.sev);if(A.when==='ooh')evs=evs.filter(e=>e.ooh>=.5);if(A.when==='occ')evs=evs.filter(e=>e.ooh<.5);
+  const key={sev:e=>[(e.sev==='High'?0:1),-e.excess],when:e=>[e.s],zone:e=>[C[e.c].zone+C[e.c].label],dur:e=>[-e.n],kwh:e=>[-e.excess],eur:e=>[-e.excess],co2:e=>[-e.excess]}[A.sort];
+  evs=[...evs].sort((a,b)=>{const x=key(a),y=key(b);for(let i=0;i<x.length;i++){if(x[i]<y[i])return-A.dir;if(x[i]>y[i])return A.dir;}return 0;});return evs;}
+VIEWS.alerts=v=>{const A=S.al;
+  const issues=D.issues.filter(q=>inScope(q.c)&&q.s<periodRange()[1]&&q.e>periodRange()[0]);
+  v.innerHTML=`<div class="grid"><div class="seg" role="group" aria-label="List"><button type="button" data-t="alerts" aria-pressed="${A.tab==='alerts'}">Waste alerts</button><button type="button" data-t="data" aria-pressed="${A.tab==='data'}">Data issues (${issues.length})</button></div><div id="alv"></div></div>`;
+  $$('[data-t]',v).forEach(b=>b.onclick=()=>{A.tab=b.dataset.t;render();});
+  const box=$('#alv');
+  if(A.tab==='data'){const byR={};issues.forEach(q=>{byR[q.reason]=(byR[q.reason]||0)+(q.e-q.s);});
+    const rows=[...issues].sort((a,b)=>a.s-b.s);
+    box.innerHTML=`<div class="grid"><div class="note"><b>These are measurement problems, not energy waste.</b> They are kept out of the alerts so nobody inspects a healthy room because a meter misreported. Hours with these problems are never counted as excess.</div>
+     <div class="kpis" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">${Object.entries(byR).sort((a,b)=>b[1]-a[1]).map(([r,h])=>`<div class="kpi"><div class="eyebrow">${esc(r)}</div><div class="v">${h}<small>circuit-hours</small></div></div>`).join('')}</div>
+     <div class="card"><div class="tablewrap"><table><thead><tr><th>When</th><th>Zone</th><th>Circuit</th><th class="r">Hours</th><th>Reason</th></tr></thead><tbody>${rows.length?rows.slice(0,400).map(q=>`<tr><td>${L[q.s].short}${q.e-q.s>1?' → '+L[q.e-1].short:''}</td><td><span class="tag">${C[q.c].zone}</span></td><td>${esc(C[q.c].label)}</td><td class="r num">${q.e-q.s}</td><td><span class="pill data">${esc(q.reason)}</span></td></tr>`).join(''):'<tr><td colspan="5"><div class="empty">No data issues in this selection.</div></td></tr>'}</tbody></table></div></div></div>`;return;}
+  const rows=alertRows();const arrow=A.dir===1?'▲':'▼';
+  const th=(k,n,r)=>`<th class="s ${r?'r':''}" data-k="${k}" ${A.sort===k?`aria-sort="${A.dir===1?'ascending':'descending'}" data-arrow="${arrow}"`:''}>${n}</th>`;
+  box.innerHTML=`<div class="card"><div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
+    <div class="chips" role="group" aria-label="Severity">${['ALL','High','Warning'].map(s=>`<button type="button" class="chip" data-sv="${s}" aria-pressed="${A.sev===s}">${s==='ALL'?'All severities':s}</button>`).join('')}</div>
+    <div class="chips" role="group" aria-label="Timing">${[['ALL','Any time'],['ooh','Mostly out of hours'],['occ','Mostly occupied hours']].map(([k,n])=>`<button type="button" class="chip" data-wh="${k}" aria-pressed="${A.when===k}">${n}</button>`).join('')}</div>
+    <span style="margin-left:auto;color:var(--muted)">${rows.length} alert${rows.length===1?'':'s'} · ${f1(rows.reduce((s,e)=>s+e.excess,0))} kWh · ${f2(rows.reduce((s,e)=>s+e.excess,0)*S.price)} € (est.)</span>
+    <button type="button" class="btn" id="csv">Copy as CSV</button></div>
+   <div class="tablewrap" style="max-height:620px"><table><thead><tr>${th('sev','Severity')}${th('when','When (Madrid)')}${th('zone','Zone · circuit')}${th('dur','Duration',1)}${th('kwh','Excess kWh',1)}${th('eur','Est. €',1)}${th('co2','Est. CO₂ kg',1)}<th class="r">Out of hours</th></tr></thead>
+   <tbody>${rows.length?rows.map(e=>`<tr class="click" data-open="${e.id}"><td><span class="sev-bar ${e.sev}"></span>${pill(e.sev)}${S.reviewed[S.sens+e.id]?' <span class="tag">reviewed</span>':''}</td><td>${whenLbl(e)}</td><td><span class="tag">${C[e.c].zone}</span> ${esc(C[e.c].label)}</td><td class="r num">${dur(e)}</td><td class="r num"><b>${f1(e.excess)}</b></td><td class="r num">${f2(e.excess*S.price)}</td><td class="r num">${f1(e.excess*S.co2)}</td><td class="r num">${Math.round(e.ooh*100)}%</td></tr>`).join(''):'<tr><td colspan="8"><div class="empty">No alert matches these filters.</div></td></tr>'}</tbody></table></div></div>`;
+  $$('[data-k]',box).forEach(h=>h.onclick=()=>{if(A.sort===h.dataset.k)A.dir*=-1;else{A.sort=h.dataset.k;A.dir=1;}render();});
+  $$('[data-sv]',box).forEach(b=>b.onclick=()=>{A.sev=b.dataset.sv;render();});$$('[data-wh]',box).forEach(b=>b.onclick=()=>{A.when=b.dataset.wh;render();});
+  $$('[data-open]',box).forEach(r=>r.onclick=()=>openAlert(r.dataset.open));
+  $('#csv').onclick=e=>copy(['id,severity,start_madrid,end_madrid,zone,circuit,hours,excess_kwh,est_cost_eur,est_co2_kg,out_of_hours_share'].concat(rows.map(r=>[r.id,r.sev,L[r.s].iso,L[r.e-1].iso,C[r.c].zone,'"'+C[r.c].label+'"',r.n,r.excess,(r.excess*S.price).toFixed(2),(r.excess*S.co2).toFixed(2),r.ooh].join(','))).join('\n'),e.target);};
+
+function openAlert(id){const list=D.det[S.sens].events;const idx=list.findIndex(e=>e.id===id);if(idx<0)return;S.open=id;const e=list[idx],c=C[e.c];
+  const visible=alertRows().map(x=>x.id);const pos=visible.indexOf(id);const prev=visible[pos-1],next=visible[pos+1];
+  openDrawer(`<div class="hd"><div><div class="eyebrow">Alert ${e.id}</div><h2 style="font-size:22px">${esc(c.label)} · zone ${c.zone}</h2><div style="margin-top:6px">${pill(e.sev)} <span class="tag">${whenLbl(e)}</span></div></div><button type="button" class="xbtn" id="xclose" aria-label="Close">✕</button></div>
+   <div class="card flat"><div class="eyebrow">What happened</div><p style="margin:6px 0 0;font-size:15px">${esc(e.why)}</p><p class="hint" style="margin:8px 0 0">${esc(sevWhy(e))}</p></div>
+   <div class="facts"><div class="fact"><b>${f1(e.excess)} kWh</b><span>above expected (${f1(e.actual)} used, ${f1(e.expected)} expected)</span></div><div class="fact"><b>${e.n} h · peak ${f0(e.peak)} Wh</b><span>duration · highest hourly excess</span></div><div class="fact"><b>${f2(e.excess*S.price)} €</b><span>estimated cost (${S.price.toFixed(2)} €/kWh)</span></div><div class="fact"><b>${f1(e.excess*S.co2)} kg CO₂</b><span>estimated (${S.co2.toFixed(2)} kg/kWh)</span></div></div>
+   <div class="card flat" style="margin-bottom:12px"><h2 style="font-size:15px">Context: 24 hours either side</h2><div id="dch" class="chart xs"></div><div class="legend"><span><i class="lg-line"></i>Actual</span><span><i class="lg-dash"></i>Expected</span><span><i class="lg-band"></i>Normal range</span><span><i class="lg-ooh"></i>Out of hours</span></div></div>
+   <div class="card flat"><h2 style="font-size:15px">Possible things to check</h2><p class="hint" style="margin:0">Ideas, not conclusions. The data cannot tell which one applies.</p><ul class="check">${(CHECKS[c.load]||[]).map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>
+   <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button type="button" class="btn" id="prevA" ${prev?'':'disabled'}>← Previous</button><button type="button" class="btn" id="nextA" ${next?'':'disabled'}>Next →</button><button type="button" class="btn primary" id="rev" style="margin-left:auto">${S.reviewed[S.sens+e.id]?'Reviewed ✓':'Mark as reviewed'}</button></div>`);
+  $('#xclose').onclick=closeDrawer;$('#prevA').onclick=()=>prev&&openAlert(prev);$('#nextA').onclick=()=>next&&openAlert(next);$('#rev').onclick=()=>{S.reviewed[S.sens+e.id]=!S.reviewed[S.sens+e.id];openAlert(id);if(S.screen==='alerts')render();};
+  const r0=Math.max(0,e.s-24),r1=Math.min(N,e.e+24),sr=series([e.c],r0,r1),cl=themeColors();
+  const sh=oohShapes(r0,r1).concat([{type:'rect',xref:'x',yref:'paper',x0:L[e.s].iso,x1:L[Math.min(e.e,N-1)].iso,y0:0,y1:1,fillcolor:e.sev==='High'?cl.high:cl.warn,opacity:.16,line:{width:0},layer:'below'}]);
+  plot($('#dch'),[{x:sr.x,y:sr.hi,mode:'lines',line:{width:0},hoverinfo:'skip'},{x:sr.x,y:sr.lo,mode:'lines',line:{width:0},fill:'tonexty',fillcolor:cl.band,hoverinfo:'skip'},{x:sr.x,y:sr.e,mode:'lines',line:{color:cl.brand,width:2,dash:'dash'},name:'Expected',hovertemplate:'%{y:.0f} Wh'},{x:sr.x,y:sr.a,mode:'lines',line:{color:cl.ink,width:2},name:'Actual',hovertemplate:'%{y:.0f} Wh'}],baseLayout(230,{shapes:sh,margin:{l:48,r:10,t:6,b:34},xaxis:{gridcolor:cl.line,type:'date',tickformat:'%a %H:%M',hoverformat:'%a %d %b %H:%M'}}));}
+
+VIEWS.waste=v=>{const W=S.wp;const[r0,r1]=periodRange();
+  v.innerHTML=`<div class="grid"><div class="seg" role="group" aria-label="Waste views"><button type="button" data-w="heat" aria-pressed="${W.tab==='heat'}">Excess by day and hour</button><button type="button" data-w="base" aria-pressed="${W.tab==='base'}">Always-on baseline</button></div><div id="wv"></div></div>`;
+  $$('[data-w]',v).forEach(b=>b.onclick=()=>{W.tab=b.dataset.w;render();});const box=$('#wv');
+  if(W.tab==='base'){const rows=D.reliab.standby.filter(r=>S.zone==='ALL'||r.series.startsWith(S.zone+'|')).filter(r=>S.load==='ALL'||r.series.endsWith('|'+S.load));const mx=Math.max(1,...rows.map(r=>r.standby_median_Wh));
+    const totS=rows.reduce((s,r)=>s+r.standby_median_Wh,0);
+    box.innerHTML=`<div class="grid"><div class="note"><b>What this shows.</b> Standby is the typical (median) hourly use outside occupied hours (nights, weekends, holidays), measured on all valid hours from 19 Aug to 13 Oct 2025. It is the level the building falls back to when nobody is there. A high value is not automatically waste: servers, refrigeration and emergency systems must stay on. It is the right place to start asking “does this need to be on?”.</div>
+     <div class="grid g3"><div class="kpi"><div class="eyebrow">Standby of this selection</div><div class="v">${f0(totS)}<small>Wh per hour</small></div><div class="d">sum of circuit medians</div></div><div class="kpi"><div class="eyebrow">Per year, if constant</div><div class="v">${f0(totS*8760/1000)}<small>kWh</small></div><div class="d">${f0(totS*8760/1000*S.price)} € · ${f0(totS*8760/1000*S.co2)} kg CO₂ (est.)</div></div><div class="kpi"><div class="eyebrow">Energy used out of hours</div><div class="v">60<small>%</small></div><div class="d">of all measured energy, in 67% of the hours</div></div></div>
+     <div class="card"><h2>Standby by circuit</h2><p class="sub">Median use outside occupied hours, and how it compares with use during the day.</p><div class="tablewrap"><table><thead><tr><th>Circuit</th><th>Standby (median Wh/h)</th><th class="r">Night / day ratio</th><th class="r">Energy out of hours</th></tr></thead><tbody>${rows.map(r=>`<tr><td><span class="tag">${r.series.slice(0,2)}</span> ${esc(LOADLBL[r.series.slice(3)]||r.series.slice(3))}</td><td style="min-width:200px"><div style="display:flex;gap:10px;align-items:center"><div class="bar" style="flex:1"><i style="width:${100*r.standby_median_Wh/mx}%"></i></div><b class="num" style="min-width:48px;text-align:right">${f0(r.standby_median_Wh)}</b></div></td><td class="r num" style="color:${r.ratio_outofhours_to_occupied>.9?'var(--warn)':'var(--muted)'}">${f2(r.ratio_outofhours_to_occupied)}</td><td class="r num">${f0(r.share_energy_outofhours_pct)}%</td></tr>`).join('')}</tbody></table></div>
+     <p class="hint">A night/day ratio close to 1 means the circuit uses as much at night as during the day (for example plugs and the IT rack). Lighting normally sits near 0.</p></div></div>`;return;}
+  // heatmap
+  const dIdx=DAYS.map((d,i)=>i).filter(i=>DAYS[i].e>r0&&DAYS[i].s<r1);const M={};let mx=0;const hoursAgg={};
+  for(const h of alertHours()){const d=DAYS.findIndex(x=>h[1]>=x.s&&h[1]<x.e);const k=d+'_'+L[h[1]].hr;M[k]=(M[k]||0)+h[2];mx=Math.max(mx,M[k]);hoursAgg[L[h[1]].hr]=(hoursAgg[L[h[1]].hr]||0)+h[2];}
+  const hrs=[...Array(24).keys()];const occH=D.meta.occ;
+  const topH=Object.entries(hoursAgg).sort((a,b)=>b[1]-a[1]).slice(0,5);const totEx=Object.values(hoursAgg).reduce((s,x)=>s+x,0);const oohEx=Object.entries(hoursAgg).reduce((s,[h,x])=>s+(+h<occH[0]||+h>=occH[1]?x:0),0);
+  box.innerHTML=`<div class="grid g23"><div class="card"><h2>Where excess use repeats</h2><p class="sub">Each cell is the excess in kWh for one hour on one day (Madrid time). Shaded columns are outside occupied hours (before ${String(occH[0]).padStart(2,'0')}:00, from ${occH[1]}:00, and all weekends).</p>
+   <div class="hm"><div></div>${hrs.map(h=>`<div class="hh ${h<occH[0]||h>=occH[1]?'o':''}">${h}</div>`).join('')}${dIdx.map(i=>{const d=DAYS[i];return`<div class="rl ${d.we?'we':''}">${d.dl}</div>`+hrs.map(h=>{const val=M[i+'_'+h]||0;const have=d.s<=r1&&true;const ooh=d.we||h<occH[0]||h>=occH[1];const pc=val?Math.round(20+80*Math.sqrt(val/mx)):0;return`<div class="c ${ooh?'o':''} ${val?'x':''}" ${val?`style="background:color-mix(in srgb,var(--high) ${pc}%,var(--surface))"`:''} title="${d.dl} ${String(h).padStart(2,'0')}:00 — ${val?f2(val/1000)+' kWh excess':'no excess'}"></div>`;}).join('');}).join('')}</div>
+   <div class="scale" style="margin-top:12px"><span>None</span><i></i><span>${f2(mx/1000)} kWh</span><span style="margin-left:14px" class="tag">Shaded = out of hours</span></div></div>
+   <div class="card"><h2>Reading the pattern</h2>${totEx?`<div class="facts" style="grid-template-columns:1fr 1fr"><div class="fact"><b>${Math.round(100*oohEx/totEx)}%</b><span>of excess happens out of hours</span></div><div class="fact"><b>${f1(totEx/1000)} kWh</b><span>total excess in this view</span></div></div><div class="eyebrow" style="margin-top:8px">Hours with the most excess</div>${topH.map(([h,x])=>`<div style="display:flex;gap:10px;align-items:center;margin:6px 0"><span class="mono" style="width:46px">${String(h).padStart(2,'0')}:00</span><div class="bar" style="flex:1"><i style="width:${100*x/topH[0][1]}%;background:var(--high)"></i></div><span class="num" style="min-width:56px;text-align:right">${f1(x/1000)} kWh</span></div>`).join('')}<p class="hint">Repeated cells in the same hour on several days point to a schedule problem (something that is left on at the same time every day), not a one-off.</p>`:'<div class="empty">No excess in this selection.</div>'}</div></div></div>`;};
+
+VIEWS.savings=v=>{const evs=events(),T=totals(),ah=alertHours();const by=S.sv.by;const keyf={circuit:e=>C[e.c].zone+' · '+C[e.c].label,load:e=>C[e.c].label,zone:e=>'Zone '+C[e.c].zone}[by];
+  const g={};for(const e of evs){const[r0,r1]=periodRange();let x=0;for(const h of ah)if(h[3]===D.det[S.sens].events.indexOf(e))x+=h[2];const k=keyf(e);g[k]=(g[k]||0)+x/1000;}
+  const rows=Object.entries(g).sort((a,b)=>b[1]-a[1]);const tot=rows.reduce((s,r)=>s+r[1],0);const f=30/((periodRange()[1]-periodRange()[0])/24);const wk=[0,1].map(w=>{let x=0;for(const h of D.det[S.sens].hours)if(inScope(h[0])&&h[1]>=w*168&&h[1]<(w+1)*168)x+=h[2];return x/1000;});
+  v.innerHTML=`<div class="grid"><div class="note warn"><b>Estimated, not confirmed.</b> Savings are the excess energy above the normal range multiplied by the assumed price and CO₂ factor (${S.price.toFixed(2)} €/kWh, ${S.co2.toFixed(2)} kg/kWh). Only 14 days of forecasts exist, so the “per month” figures are those 14 days scaled to 30 days. Change the assumptions in Settings.</div>
+   <div class="grid g3"><div class="kpi"><div class="eyebrow">Excess energy · ${periodLabel()}</div><div class="v">${f1(tot)}<small>kWh</small></div><div class="d">${f2(tot*S.price)} € · ${f1(tot*S.co2)} kg CO₂</div></div>
+   <div class="kpi hl"><div class="eyebrow">Per month (scaled to 30 days)</div><div class="v">${f0(tot*f)}<small>kWh</small></div><div class="d">${f0(tot*f*S.price)} € · ${f0(tot*f*S.co2)} kg CO₂ per month</div></div>
+   <div class="kpi"><div class="eyebrow">Per year if it repeats</div><div class="v">${f0(tot*f*12)}<small>kWh</small></div><div class="d">${f0(tot*f*12*S.price)} € · ${f0(tot*f*12*S.co2/1000*10)/10} t CO₂</div></div></div>
+   <div class="grid g23"><div class="card"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px"><h2 style="margin:0">Main sources of excess</h2><div class="seg" style="margin-left:auto" role="group" aria-label="Group by">${[['circuit','Circuit'],['load','Load type'],['zone','Zone']].map(([k,n])=>`<button type="button" data-by="${k}" aria-pressed="${by===k}">${n}</button>`).join('')}</div></div>
+    <div class="tablewrap"><table><thead><tr><th>${by==='circuit'?'Circuit':by==='load'?'Load type':'Zone'}</th><th>Share</th><th class="r">kWh</th><th class="r">Est. €</th><th class="r">Est. CO₂ kg</th></tr></thead><tbody>${rows.length?rows.map(([k,x])=>`<tr><td>${esc(k)}</td><td style="min-width:120px"><div class="bar"><i style="width:${100*x/rows[0][1]}%"></i></div></td><td class="r num"><b>${f1(x)}</b></td><td class="r num">${f2(x*S.price)}</td><td class="r num">${f1(x*S.co2)}</td></tr>`).join(''):'<tr><td colspan="5"><div class="empty">No excess in this selection.</div></td></tr>'}</tbody></table></div>
+    <div style="margin-top:12px"><button type="button" class="btn" id="csv2">Copy as CSV</button></div></div>
+   <div class="card"><h2>Week by week</h2><p class="sub">Excess energy in each week of the data.</p>${wk.map((x,i)=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between"><span>Week ${i+1} <span class="hint">${i?'29 Sep–5 Oct':'22–28 Sep'}</span></span><b class="num">${f1(x)} kWh · ${f2(x*S.price)} €</b></div><div class="bar" style="margin-top:5px;height:12px"><i style="width:${100*x/Math.max(...wk,.01)}%;background:var(--warn)"></i></div></div>`).join('')}<div class="hint">A real monthly report needs at least one full month of forecasts. Run the frozen model on more weeks to extend it.</div></div></div></div>`;
+  $$('[data-by]',v).forEach(b=>b.onclick=()=>{S.sv.by=b.dataset.by;render();});
+  $('#csv2').onclick=e=>copy(['source,excess_kwh,est_cost_eur,est_co2_kg'].concat(rows.map(([k,x])=>`"${k}",${x.toFixed(3)},${(x*S.price).toFixed(2)},${(x*S.co2).toFixed(2)}`)).join('\n'),e.target);};
+
+let RT=null;function stopReplay(){S.rp.playing=false;if(RT){cancelAnimationFrame(RT);RT=null;}}
+VIEWS.replay=v=>{const R=S.rp;const ks=scopeCircuits();const[p0,p1]=periodRange();if(R.i<p0||R.i>p1-1)R.i=p0;
+  v.innerHTML=`<div class="grid"><div class="note">Pick a period and press play: the building is replayed hour by hour as if it were live. Alerts appear when the actual use first leaves the normal range. This uses stored data only, nothing is connected to the building.</div>
+   <div class="card"><div class="rpbar"><button type="button" class="btn primary" id="rpplay">${R.playing?'Pause':'Play'}</button><button type="button" class="btn" id="rprst">Restart</button>
+    <div class="seg" role="group" aria-label="Speed">${[[3,'Slow'],[8,'Normal'],[24,'Fast']].map(([s,n])=>`<button type="button" data-sp="${s}" aria-pressed="${R.speed===s}">${n}</button>`).join('')}</div><span class="mono" id="rpclock" style="margin-left:auto;font-size:16px"></span></div>
+    <input id="rpsl" type="range" min="${p0}" max="${p1-1}" value="${R.i}" step="1" aria-label="Replay position" style="margin:12px 0 4px"><div id="rpch" class="chart sm"></div>
+    <div class="legend"><span><i class="lg-line"></i>Actual so far</span><span><i class="lg-dash"></i>Expected</span><span><i class="lg-band"></i>Normal range</span><span><i class="lg-tri"></i>Alert raised</span></div></div>
+   <div class="grid g2"><div class="card"><h2>So far</h2><div class="facts" id="rpk"></div></div><div class="card"><h2>Alert feed</h2><div class="feed" id="rpfeed"></div></div></div></div>`;
+  const sr=series(ks,p0,p1),c=themeColors();let lastN=-1;
+  function draw(){const i=R.i,n=i-p0+1;const a=sr.a.map((x,j)=>j<n?x:null);const evsAll=D.det[S.sens].events.filter(e=>ks.includes(e.c)&&e.s<=i&&e.e>p0&&e.s>=p0-0);
+    const mk=evsAll.map(e=>({x:L[e.s].iso,y:sr.a[e.s-p0]??sr.e[e.s-p0],sev:e.sev}));
+    const data=[{x:sr.x,y:sr.hi,mode:'lines',line:{width:0},hoverinfo:'skip'},{x:sr.x,y:sr.lo,mode:'lines',line:{width:0},fill:'tonexty',fillcolor:c.band,hoverinfo:'skip'},{x:sr.x,y:sr.e,mode:'lines',line:{color:c.brand,width:2,dash:'dash'},hovertemplate:'%{y:.0f} Wh',name:'Expected'},{x:sr.x,y:a,mode:'lines',line:{color:c.ink,width:2},hovertemplate:'%{y:.0f} Wh',name:'Actual'},{x:mk.map(m=>m.x),y:mk.map(m=>m.y),mode:'markers',marker:{symbol:'triangle-up',size:12,color:mk.map(m=>m.sev==='High'?c.high:c.warn),line:{color:c.surface,width:1.5}},hoverinfo:'skip'}];
+    plot($('#rpch'),data,baseLayout(300,{shapes:oohShapes(p0,p1).concat([{type:'line',xref:'x',yref:'paper',x0:L[i].iso,x1:L[i].iso,y0:0,y1:1,line:{color:c.brand,width:1.5}}]),xaxis:{gridcolor:c.line,type:'date',tickformat:'%a %d',hoverformat:'%a %d %b %H:%M',range:[L[p0].iso,L[p1-1].iso]}}));
+    $('#rpclock').textContent=L[i].short+' (Madrid)';$('#rpsl').value=i;
+    let used=0,exc=0;for(const k of ks)for(let h=p0;h<=i;h++){const x=D.actual[k][h];if(x!=null)used+=x;}for(const h of D.det[S.sens].hours)if(ks.includes(h[0])&&h[1]>=p0&&h[1]<=i)exc+=h[2];
+    $('#rpk').innerHTML=`<div class="fact"><b>${f0(used/1000)} kWh</b><span>used so far</span></div><div class="fact"><b>${f1(exc/1000)} kWh</b><span>excess so far</span></div><div class="fact"><b>${f2(exc/1000*S.price)} €</b><span>estimated cost</span></div><div class="fact"><b>${evsAll.length}</b><span>alerts raised</span></div>`;
+    if(evsAll.length!==lastN){lastN=evsAll.length;$('#rpfeed').innerHTML=evsAll.length?[...evsAll].reverse().map(e=>`<div class="feeditem" style="cursor:pointer" data-open="${e.id}"><span class="sev-bar ${e.sev}" style="height:40px;margin:0"></span><div>${pill(e.sev)} <b>${esc(C[e.c].label)}</b> <span class="tag">${C[e.c].zone}</span><div class="hint">${L[e.s].short} · ${f1(e.excess)} kWh so far in total · ${e.n} h</div></div></div>`).join(''):'<div class="empty">Nothing raised yet.</div>';$$('#rpfeed [data-open]').forEach(b=>b.onclick=()=>openAlert(b.dataset.open));}}
+  let last=0,acc=0;function tick(ts){if(!R.playing)return;if(!last)last=ts;acc+=(ts-last)/1000*R.speed;last=ts;if(acc>=1){const st=Math.floor(acc);acc-=st;R.i=Math.min(p1-1,R.i+st);draw();if(R.i>=p1-1){R.playing=false;$('#rpplay').textContent='Play';return;}}RT=requestAnimationFrame(tick);}
+  $('#rpplay').onclick=()=>{if(R.playing){stopReplay();$('#rpplay').textContent='Play';return;}if(R.i>=p1-1)R.i=p0;R.playing=true;$('#rpplay').textContent='Pause';last=0;acc=0;RT=requestAnimationFrame(tick);};
+  $('#rprst').onclick=()=>{stopReplay();R.i=p0;lastN=-1;$('#rpplay').textContent='Play';draw();};
+  $$('[data-sp]',v).forEach(b=>b.onclick=()=>{R.speed=+b.dataset.sp;$$('[data-sp]',v).forEach(x=>x.setAttribute('aria-pressed',x===b));});
+  $('#rpsl').oninput=e=>{R.i=+e.target.value;lastN=-1;draw();};draw();};
+
+VIEWS.reliab=v=>{const R=D.reliab,lvl=S.rel.lvl;const lv={circuit:'circuit-hour (pooled 16 circuits)',building:'building total (hours with all 16 circuits)'}[lvl];
+  const rows=R.accuracy.filter(r=>r.level===lv&&r.split==='test');const models=[...new Set(rows.map(r=>r.model))];const H=['+1h','+6h','day-ahead'];
+  const getr=(m,h)=>rows.find(r=>r.model===m&&r.horizon===h);
+  const best=h=>Math.min(...models.map(m=>getr(m,h).MAE_Wh));
+  const bandAll=R.band.filter(b=>b.horizon==='all'),bd=R.band.filter(b=>b.split==='test'&&b.horizon!=='all');
+  const sensRows=Object.keys(D.meta.sens).map(s=>({s,n:D.det[s].events.length,h:D.det[s].events.filter(e=>e.sev==='High').length,kwh:D.det[s].events.reduce((a,e)=>a+e.excess,0)}));
+  const totH=C.length*N;let valid=0;for(let k=0;k<NC;k++)for(let i=0;i<N;i++)if(D.actual[k][i]!=null)valid++;
+  const byR={};D.issues.forEach(q=>byR[q.reason]=(byR[q.reason]||0)+(q.e-q.s));
+  const nwEm=D.issues.some(q=>C[q.c].id==='NW|Emerg. Lighting'&&q.reason.startsWith('Energy higher'));
+  const cov=R.band_circuit;
+  v.innerHTML=`<div class="grid"><div class="grid g3">
+   <div class="kpi"><div class="eyebrow">Normal range holds</div><div class="v">${bandAll.find(b=>b.split==='test').coverage_pct.toFixed(0)}<small>% of hours</small></div><div class="d">test week, target 80% · validation ${bandAll.find(b=>b.split==='validation').coverage_pct.toFixed(0)}%</div></div>
+   <div class="kpi"><div class="eyebrow">Known event found</div><div class="v">${D.meta.known_event_detected[S.sens]?'Yes':'No'}</div><div class="d">NE HVAC left on, 3 Oct 11:00–14:00</div></div>
+   <div class="kpi"><div class="eyebrow">Alerts per day</div><div class="v">${f1(D.det[S.sens].events.length/14)}</div><div class="d">${S.sens} sensitivity · adjustable in Settings</div></div></div>
+   <div class="card"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h2 style="margin:0">How accurate are the expected values?</h2><div class="seg" style="margin-left:auto" role="group" aria-label="Level"><button type="button" data-lv="circuit" aria-pressed="${lvl==='circuit'}">Each circuit</button><button type="button" data-lv="building" aria-pressed="${lvl==='building'}">Whole building</button></div></div>
+    <p class="sub">Unseen test week, 29 Sep – 5 Oct 2025. Lower is better. Error is shown as MAE in Wh per hour and as a share of average use (WAPE).</p>
+    <div class="tablewrap"><table><thead><tr><th>Model</th>${H.map(h=>`<th class="r">${h} MAE</th><th class="r">WAPE</th><th class="r">CV(RMSE)</th><th class="r">MAPE</th>`).join('')}</tr></thead><tbody>${models.map(m=>`<tr ${m.startsWith('Blend')?'style="background:var(--brand-soft)"':''}><td><b>${esc(m)}</b>${m.startsWith('Blend')?' <span class="tag">final model</span>':''}</td>${H.map(h=>{const r=getr(m,h);return`<td class="r num" ${r.MAE_Wh===best(h)?'style="font-weight:700;color:var(--brand)"':''}>${f1(r.MAE_Wh)}</td><td class="r num">${f0(r.WAPE_pct)}%</td><td class="r num">${f0(r.CV_RMSE_pct)}%</td><td class="r num">${f0(r.MAPE_pct)}%</td>`;}).join('')}</tr>`).join('')}</tbody></table></div>
+    <p class="hint" style="margin-top:8px">${lvl==='circuit'?'Each circuit and hour counts separately, so a few large circuits dominate the error. MAPE only counts hours with at least 10 Wh actual use (it explodes near zero). Number of scored circuit-hours: '+f0(rows[0].n)+'.':'Hours where all 16 circuits have a valid reading ('+f0(rows[0].n)+' hours only). The sample is small; read it as indicative. MAPE counts hours of at least 100 Wh.'}</p>
+    <div class="note" style="margin-top:8px">Against the simple baselines (B1 same hour last week, B2 weekday×hour median, B3 persistence) the final model beats B1 and B2 at every horizon and persistence clearly at +6 h. At +1 h persistence is a strong rival because consumption changes slowly, and the margin is modest there and day-ahead.</div></div>
+   <div class="grid g2"><div class="card"><h2>Normal range</h2><p class="sub">Share of actual values that fell inside the Chronos-Bolt 10–90% band. A well-calibrated band holds about 80%.</p><div class="tablewrap"><table><thead><tr><th>Horizon</th><th class="r">Inside</th><th class="r">Above</th><th class="r">Below</th><th class="r">Mean width Wh</th></tr></thead><tbody>${bd.map(b=>`<tr><td>${b.horizon}</td><td class="r num"><b>${b.coverage_pct.toFixed(0)}%</b></td><td class="r num">${b.above_pct.toFixed(0)}%</td><td class="r num">${b.below_pct.toFixed(0)}%</td><td class="r num">${f0(b.mean_width_Wh)}</td></tr>`).join('')}</tbody></table></div><p class="hint">Alerts use the day-ahead band (${bd.find(b=>b.horizon==='day-ahead').coverage_pct.toFixed(0)}% inside). Circuits with a lower share: NW hand dryer ${cov.find(c=>c.series_id==='NW|Hand Dryer').coverage_pct.toFixed(0)}%, SW plugs ${cov.find(c=>c.series_id==='SW|Plugs & Sockets').coverage_pct.toFixed(0)}%.</p></div>
+    <div class="card"><h2>Alert load and detection test</h2><p class="sub">The trade-off between missing events and false alarms.</p><div class="tablewrap"><table><thead><tr><th>Sensitivity</th><th class="r">Alerts</th><th class="r">per day</th><th class="r">High</th><th class="r">Excess kWh</th></tr></thead><tbody>${sensRows.map(r=>`<tr ${r.s===S.sens?'style="background:var(--brand-soft)"':''}><td>${r.s}</td><td class="r num">${r.n}</td><td class="r num">${f1(r.n/14)}</td><td class="r num">${r.h}</td><td class="r num">${f1(r.kwh)}</td></tr>`).join('')}</tbody></table></div>
+     <ul class="check"><li>The only clearly known event, NE HVAC left on on 3 Oct, is found at every sensitivity.</li><li>${nwEm?'The impossible NW emergency-lighting readings of 5–6 Oct are shown as data issues, not as waste.':'Impossible readings are shown as data issues.'}</li><li>Few known events exist, so false-alarm rates cannot be measured yet; they need feedback from the building team.</li></ul></div></div>
+   <div class="grid g2"><div class="card"><h2>Data readiness</h2><p class="sub">What the alerts are built on.</p><div class="facts"><div class="fact"><b>${Math.round(100*valid/totH)}%</b><span>of circuit-hours have a valid reading</span></div><div class="fact"><b>16</b><span>circuits in 4 zones (only NW has a rack circuit)</span></div></div>
+     <div class="eyebrow">Hours excluded, by reason</div>${Object.entries(byR).sort((a,b)=>b[1]-a[1]).map(([r,h])=>`<div style="display:flex;justify-content:space-between;margin:5px 0"><span>${esc(r)}</span><b class="num">${h} h</b></div>`).join('')}<p class="hint">Excluded hours are listed under Alerts → Data issues and are never treated as zero.</p></div>
+    <div class="card"><h2>Rules used</h2><ul class="check"><li><b>Expected value:</b> Blend v1.3 (weighted mix of gradient boosting, ChronosGBM and Chronos-Bolt), day-ahead, issued 00:00 Madrid.</li><li><b>Normal range:</b> Chronos-Bolt 10–90% band. The expected value is always kept inside it.</li><li><b>Occupied hours:</b> weekdays 07:00–20:00 Madrid, not holidays. In zones NW and SE, motion detectors register presence in 85–91% of the hours with any detected presence inside this window; NE has no detector and the SW detector is stuck on.</li><li><b>Alert hour:</b> actual above the range and excess above the sensitivity floor. Consecutive hours form one alert.</li><li><b>High severity:</b> at least 1 kWh, or 6 hours, or 0.5 kWh mostly out of hours.</li><li><b>Impact:</b> excess kWh × assumed price and CO₂ factor (estimates).</li></ul></div></div>
+   <div class="card"><h2>Limits to keep in mind</h2><ul class="check"><li>The model learned from about five summer weeks (19 Aug – 21 Sep 2025) and was checked on two single weeks. It has not seen winter or the heating season.</li><li>A few large circuits dominate the error. NW plugs & sockets draw about 535 Wh every hour, day and night, and make up over half of the detected excess, so some of its alerts may reflect an always-on load rather than a new event. Causes are not confirmed.</li><li>Outdoor temperature was tested and did not improve the model, so it is not used.</li><li>Only energy (Wh) is forecast. Power and current are strongly redundant with it (median correlation of ${(R.wi.map(r=>r.corr_W_I).sort((a,b)=>a-b)[Math.floor(R.wi.length/2)]).toFixed(2)} between them) and were left out on purpose.</li></ul></div></div>`;
+  $$('[data-lv]',v).forEach(b=>b.onclick=()=>{S.rel.lvl=b.dataset.lv;render();});};
+
+/* ---------- theme ---------- */
+$('#themebtn').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';render();};
+matchMedia('(prefers-color-scheme: dark)').addEventListener&&matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>render());
+window.addEventListener('resize',()=>{if(window.Plotly)$$('.js-plotly-plot').forEach(p=>Plotly.Plots.resize(p));});
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(SCREENS.some(s=>s[0]===h)&&h!==S.screen){S.screen=h;stopReplay();render();}});
+window.__S=S;window.__go=go;
+render();
+})();
+</script>

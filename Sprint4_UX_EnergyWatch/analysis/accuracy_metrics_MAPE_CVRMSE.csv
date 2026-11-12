@@ -1,0 +1,181 @@
+level,split,horizon,model,n,mean_actual_Wh,MAE_Wh,RMSE_Wh,WAPE_pct,MAPE_pct,MAPE_n,CV_RMSE_pct,NMBE_pct
+circuit-hour (pooled 16 circuits),validation,+1h,Blend v1.3,1919,129.7,20.48,100.99,15.79,9.31,1221,77.86,-5.22
+circuit-hour (pooled 16 circuits),validation,+1h,Chronos-Bolt v1.3,1919,129.7,20.04,98.87,15.45,9.98,1221,76.24,-3.15
+circuit-hour (pooled 16 circuits),validation,+1h,B3 persistence,1919,129.7,23.48,111.48,18.1,11.99,1221,85.96,0.65
+circuit-hour (pooled 16 circuits),validation,+1h,B2 weekday×hour median,1919,129.7,48.95,173.84,37.74,42.52,1221,134.04,-20.95
+circuit-hour (pooled 16 circuits),validation,+1h,B1 same hour last week,1919,129.7,55.69,176.81,42.94,68.01,1221,136.33,-14.75
+circuit-hour (pooled 16 circuits),validation,+6h,Blend v1.3,1918,129.66,31.73,134.71,24.47,13.78,1220,103.9,-10.63
+circuit-hour (pooled 16 circuits),validation,+6h,Chronos-Bolt v1.3,1918,129.66,32.02,135.84,24.69,13.86,1220,104.77,-6.94
+circuit-hour (pooled 16 circuits),validation,+6h,B3 persistence,1918,129.66,50.75,201.44,39.14,20.68,1220,155.36,3.47
+circuit-hour (pooled 16 circuits),validation,+6h,B2 weekday×hour median,1918,129.66,49.08,173.91,37.85,42.91,1220,134.13,-20.88
+circuit-hour (pooled 16 circuits),validation,+6h,B1 same hour last week,1918,129.66,55.69,176.85,42.95,68.04,1220,136.4,-14.78
+circuit-hour (pooled 16 circuits),validation,day-ahead,Blend v1.3,1918,129.66,29.31,129.77,22.6,13.34,1220,100.09,-12.06
+circuit-hour (pooled 16 circuits),validation,day-ahead,Chronos-Bolt v1.3,1918,129.66,28.03,128.51,21.61,12.81,1220,99.11,-9.84
+circuit-hour (pooled 16 circuits),validation,day-ahead,B3 persistence,1918,129.66,38.7,161.5,29.85,16.21,1220,124.55,5.2
+circuit-hour (pooled 16 circuits),validation,day-ahead,B2 weekday×hour median,1918,129.66,48.99,173.88,37.78,42.64,1220,134.11,-20.95
+circuit-hour (pooled 16 circuits),validation,day-ahead,B1 same hour last week,1918,129.66,55.69,176.85,42.95,68.04,1220,136.4,-14.78
+circuit-hour (pooled 16 circuits),test,+1h,Blend v1.3,2174,123.86,20.05,87.85,16.19,11.5,1349,70.92,-4.5
+circuit-hour (pooled 16 circuits),test,+1h,Chronos-Bolt v1.3,2174,123.86,19.56,82.3,15.79,11.82,1349,66.45,-1.23
+circuit-hour (pooled 16 circuits),test,+1h,B3 persistence,2174,123.86,21.63,92.54,17.47,14.42,1349,74.71,0.36
+circuit-hour (pooled 16 circuits),test,+1h,B2 weekday×hour median,2174,123.86,39.39,155.43,31.8,29.86,1349,125.48,-11.49
+circuit-hour (pooled 16 circuits),test,+1h,B1 same hour last week,2174,123.86,53.61,192.52,43.28,20.34,1349,155.43,7.16
+circuit-hour (pooled 16 circuits),test,+6h,Blend v1.3,2174,123.86,31.13,127.13,25.13,16.91,1349,102.64,-6.56
+circuit-hour (pooled 16 circuits),test,+6h,Chronos-Bolt v1.3,2174,123.86,33.01,130.74,26.65,18.61,1349,105.56,-4.55
+circuit-hour (pooled 16 circuits),test,+6h,B3 persistence,2174,123.86,51.63,195.16,41.68,36.23,1349,157.56,1.47
+circuit-hour (pooled 16 circuits),test,+6h,B2 weekday×hour median,2174,123.86,39.39,155.43,31.8,29.86,1349,125.48,-11.49
+circuit-hour (pooled 16 circuits),test,+6h,B1 same hour last week,2174,123.86,53.61,192.52,43.28,20.34,1349,155.43,7.16
+circuit-hour (pooled 16 circuits),test,day-ahead,Blend v1.3,2174,123.86,30.72,130.53,24.8,16.99,1349,105.38,-2.37
+circuit-hour (pooled 16 circuits),test,day-ahead,Chronos-Bolt v1.3,2174,123.86,32.62,139.44,26.34,18.57,1349,112.58,0.15
+circuit-hour (pooled 16 circuits),test,day-ahead,B3 persistence,2174,123.86,36.98,157.23,29.86,15.8,1349,126.94,-12.23
+circuit-hour (pooled 16 circuits),test,day-ahead,B2 weekday×hour median,2174,123.86,39.39,155.43,31.8,29.86,1349,125.48,-11.49
+circuit-hour (pooled 16 circuits),test,day-ahead,B1 same hour last week,2174,123.86,53.61,192.52,43.28,20.34,1349,155.43,7.16
+zone total NE (2 circuits),validation,+1h,Blend v1.3,140,189.06,5.55,7.43,2.94,2.93,140,3.93,1.97
+zone total NE (2 circuits),validation,+1h,Chronos-Bolt v1.3,140,189.06,4.16,6.57,2.2,2.16,140,3.47,0.1
+zone total NE (2 circuits),validation,+1h,B3 persistence,140,189.06,6.59,10.24,3.49,3.44,140,5.42,0.05
+zone total NE (2 circuits),validation,+1h,B2 weekday×hour median,140,189.06,6.67,8.71,3.53,3.54,140,4.61,2.74
+zone total NE (2 circuits),validation,+1h,B1 same hour last week,140,189.06,7.94,10.37,4.2,4.22,140,5.48,3.29
+zone total NW (6 circuits),validation,+1h,Blend v1.3,140,1101.19,192.98,348.51,17.52,14.53,140,31.65,-9.06
+zone total NW (6 circuits),validation,+1h,Chronos-Bolt v1.3,140,1101.19,182.8,336.22,16.6,14.66,140,30.53,-4.46
+zone total NW (6 circuits),validation,+1h,B3 persistence,140,1101.19,216.69,365.46,19.68,18.51,140,33.19,-0.63
+zone total NW (6 circuits),validation,+1h,B2 weekday×hour median,140,1101.19,352.41,551.34,32.0,25.84,140,50.07,-17.9
+zone total NW (6 circuits),validation,+1h,B1 same hour last week,140,1101.19,366.39,533.34,33.27,29.57,140,48.43,-8.04
+zone total SE (4 circuits),validation,+1h,Blend v1.3,12,628.91,47.39,75.49,7.53,7.26,12,12.0,-0.32
+zone total SE (4 circuits),validation,+1h,Chronos-Bolt v1.3,12,628.91,60.03,111.48,9.55,9.6,12,17.73,-7.97
+zone total SE (4 circuits),validation,+1h,B3 persistence,12,628.91,37.19,44.39,5.91,7.76,12,7.06,-3.7
+zone total SE (4 circuits),validation,+1h,B2 weekday×hour median,12,628.91,382.18,419.48,60.77,59.68,12,66.7,-54.31
+zone total SE (4 circuits),validation,+1h,B1 same hour last week,12,628.91,284.6,324.63,45.25,43.12,12,51.62,-42.39
+zone total SW (4 circuits),validation,+1h,Blend v1.3,89,276.54,7.66,10.57,2.77,2.7,89,3.82,-0.09
+zone total SW (4 circuits),validation,+1h,Chronos-Bolt v1.3,89,276.54,7.0,8.71,2.53,2.51,89,3.15,-0.02
+zone total SW (4 circuits),validation,+1h,B3 persistence,89,276.54,13.46,51.88,4.87,4.58,89,18.76,1.97
+zone total SW (4 circuits),validation,+1h,B2 weekday×hour median,89,276.54,21.58,35.07,7.8,7.34,89,12.68,-1.47
+zone total SW (4 circuits),validation,+1h,B1 same hour last week,89,276.54,13.5,18.79,4.88,4.75,89,6.79,-1.18
+zone total NE (2 circuits),validation,+6h,Blend v1.3,140,189.06,4.29,6.53,2.27,2.25,140,3.46,0.78
+zone total NE (2 circuits),validation,+6h,Chronos-Bolt v1.3,140,189.06,4.09,6.44,2.17,2.13,140,3.41,-0.24
+zone total NE (2 circuits),validation,+6h,B3 persistence,140,189.06,6.07,9.21,3.21,3.17,140,4.87,0.17
+zone total NE (2 circuits),validation,+6h,B2 weekday×hour median,140,189.06,6.66,8.7,3.52,3.53,140,4.6,2.74
+zone total NE (2 circuits),validation,+6h,B1 same hour last week,140,189.06,7.94,10.37,4.2,4.22,140,5.48,3.29
+zone total NW (6 circuits),validation,+6h,Blend v1.3,140,1101.19,277.76,455.94,25.22,21.31,140,41.4,-11.74
+zone total NW (6 circuits),validation,+6h,Chronos-Bolt v1.3,140,1101.19,278.63,457.96,25.3,23.07,140,41.59,-6.83
+zone total NW (6 circuits),validation,+6h,B3 persistence,140,1101.19,456.26,647.59,41.43,42.29,140,58.81,0.71
+zone total NW (6 circuits),validation,+6h,B2 weekday×hour median,140,1101.19,354.14,551.6,32.16,26.05,140,50.09,-17.73
+zone total NW (6 circuits),validation,+6h,B1 same hour last week,140,1101.19,366.39,533.34,33.27,29.57,140,48.43,-8.04
+zone total SE (4 circuits),validation,+6h,Blend v1.3,11,621.37,101.17,169.12,16.28,16.62,11,27.22,-13.95
+zone total SE (4 circuits),validation,+6h,Chronos-Bolt v1.3,11,621.37,112.11,177.79,18.04,19.0,11,28.61,-15.15
+zone total SE (4 circuits),validation,+6h,B3 persistence,11,621.37,173.89,356.43,27.99,48.72,11,57.36,9.49
+zone total SE (4 circuits),validation,+6h,B2 weekday×hour median,11,621.37,379.21,419.9,61.03,59.8,11,67.58,-53.9
+zone total SE (4 circuits),validation,+6h,B1 same hour last week,11,621.37,272.72,315.1,43.89,41.74,11,50.71,-40.72
+zone total SW (4 circuits),validation,+6h,Blend v1.3,89,276.54,15.94,22.75,5.76,5.66,89,8.23,0.62
+zone total SW (4 circuits),validation,+6h,Chronos-Bolt v1.3,89,276.54,18.37,28.93,6.64,6.56,89,10.46,1.45
+zone total SW (4 circuits),validation,+6h,B3 persistence,89,276.54,43.37,115.19,15.68,14.51,89,41.65,13.63
+zone total SW (4 circuits),validation,+6h,B2 weekday×hour median,89,276.54,21.61,35.08,7.82,7.35,89,12.68,-1.46
+zone total SW (4 circuits),validation,+6h,B1 same hour last week,89,276.54,13.5,18.79,4.88,4.75,89,6.79,-1.18
+zone total NE (2 circuits),validation,day-ahead,Blend v1.3,140,189.06,4.7,6.8,2.49,2.47,140,3.6,1.17
+zone total NE (2 circuits),validation,day-ahead,Chronos-Bolt v1.3,140,189.06,4.55,6.68,2.41,2.38,140,3.53,0.65
+zone total NE (2 circuits),validation,day-ahead,B3 persistence,140,189.06,6.14,8.19,3.25,3.24,140,4.33,1.3
+zone total NE (2 circuits),validation,day-ahead,B2 weekday×hour median,140,189.06,6.67,8.71,3.53,3.54,140,4.61,2.74
+zone total NE (2 circuits),validation,day-ahead,B1 same hour last week,140,189.06,7.94,10.37,4.2,4.22,140,5.48,3.29
+zone total NW (6 circuits),validation,day-ahead,Blend v1.3,140,1101.19,251.87,444.93,22.87,18.33,140,40.4,-13.7
+zone total NW (6 circuits),validation,day-ahead,Chronos-Bolt v1.3,140,1101.19,245.35,441.31,22.28,18.33,140,40.08,-11.73
+zone total NW (6 circuits),validation,day-ahead,B3 persistence,140,1101.19,413.45,568.11,37.55,40.02,140,51.59,11.87
+zone total NW (6 circuits),validation,day-ahead,B2 weekday×hour median,140,1101.19,352.95,551.37,32.05,25.9,140,50.07,-17.84
+zone total NW (6 circuits),validation,day-ahead,B1 same hour last week,140,1101.19,366.39,533.34,33.27,29.57,140,48.43,-8.04
+zone total SE (4 circuits),validation,day-ahead,Blend v1.3,11,621.37,180.8,218.15,29.1,26.84,11,35.11,-27.91
+zone total SE (4 circuits),validation,day-ahead,Chronos-Bolt v1.3,11,621.37,166.14,211.03,26.74,24.83,11,33.96,-25.4
+zone total SE (4 circuits),validation,day-ahead,B3 persistence,11,621.37,64.01,140.97,10.3,9.91,11,22.69,-5.22
+zone total SE (4 circuits),validation,day-ahead,B2 weekday×hour median,11,621.37,379.21,419.9,61.03,59.8,11,67.58,-53.9
+zone total SE (4 circuits),validation,day-ahead,B1 same hour last week,11,621.37,272.72,315.1,43.89,41.74,11,50.71,-40.72
+zone total SW (4 circuits),validation,day-ahead,Blend v1.3,89,276.54,15.02,19.86,5.43,5.36,89,7.18,1.04
+zone total SW (4 circuits),validation,day-ahead,Chronos-Bolt v1.3,89,276.54,17.0,22.9,6.15,6.13,89,8.28,1.89
+zone total SW (4 circuits),validation,day-ahead,B3 persistence,89,276.54,13.95,19.55,5.05,5.04,89,7.07,-0.11
+zone total SW (4 circuits),validation,day-ahead,B2 weekday×hour median,89,276.54,21.6,35.08,7.81,7.35,89,12.68,-1.47
+zone total SW (4 circuits),validation,day-ahead,B1 same hour last week,89,276.54,13.5,18.79,4.88,4.75,89,6.79,-1.18
+zone total NE (2 circuits),test,+1h,Blend v1.3,167,202.16,11.86,73.87,5.87,2.66,167,36.54,-4.04
+zone total NE (2 circuits),test,+1h,Chronos-Bolt v1.3,167,202.16,11.42,72.05,5.65,2.63,167,35.64,-4.19
+zone total NE (2 circuits),test,+1h,B3 persistence,167,202.16,12.91,65.29,6.38,4.29,167,32.29,0.0
+zone total NE (2 circuits),test,+1h,B2 weekday×hour median,167,202.16,13.86,77.98,6.85,3.41,167,38.57,-4.01
+zone total NE (2 circuits),test,+1h,B1 same hour last week,167,202.16,15.69,78.8,7.76,4.31,167,38.98,-6.48
+zone total NW (6 circuits),test,+1h,Blend v1.3,149,1146.63,195.58,314.65,17.06,14.84,149,27.44,-7.27
+zone total NW (6 circuits),test,+1h,Chronos-Bolt v1.3,149,1146.63,183.76,288.38,16.03,15.28,149,25.15,-1.31
+zone total NW (6 circuits),test,+1h,B3 persistence,149,1146.63,195.02,318.09,17.01,17.0,149,27.74,0.43
+zone total NW (6 circuits),test,+1h,B2 weekday×hour median,149,1146.63,332.59,567.38,29.01,22.31,149,49.48,-20.72
+zone total NW (6 circuits),test,+1h,B1 same hour last week,149,1146.63,412.31,637.13,35.96,35.35,149,55.57,-2.47
+zone total SE (4 circuits),test,+1h,Blend v1.3,49,241.8,21.96,29.79,9.08,10.09,49,12.32,5.63
+zone total SE (4 circuits),test,+1h,Chronos-Bolt v1.3,49,241.8,26.55,30.95,10.98,11.83,49,12.8,-0.11
+zone total SE (4 circuits),test,+1h,B3 persistence,49,241.8,35.22,40.97,14.57,15.69,49,16.94,0.99
+zone total SE (4 circuits),test,+1h,B2 weekday×hour median,49,241.8,196.39,242.81,81.22,83.27,49,100.42,29.32
+zone total SE (4 circuits),test,+1h,B1 same hour last week,49,241.8,329.05,380.99,136.08,140.42,49,157.57,115.11
+zone total SW (4 circuits),test,+1h,Blend v1.3,76,241.75,13.99,18.55,5.79,5.93,76,7.67,2.33
+zone total SW (4 circuits),test,+1h,Chronos-Bolt v1.3,76,241.75,11.4,16.96,4.71,4.65,76,7.02,-1.04
+zone total SW (4 circuits),test,+1h,B3 persistence,76,241.75,12.13,16.25,5.02,5.12,76,6.72,0.31
+zone total SW (4 circuits),test,+1h,B2 weekday×hour median,76,241.75,39.97,53.36,16.53,17.13,76,22.07,11.36
+zone total SW (4 circuits),test,+1h,B1 same hour last week,76,241.75,48.71,65.22,20.15,21.5,76,26.98,15.9
+zone total NE (2 circuits),test,+6h,Blend v1.3,167,202.16,13.64,78.0,6.75,3.28,167,38.58,-4.36
+zone total NE (2 circuits),test,+6h,Chronos-Bolt v1.3,167,202.16,14.2,78.37,7.03,3.56,167,38.77,-4.55
+zone total NE (2 circuits),test,+6h,B3 persistence,167,202.16,23.57,110.33,11.66,8.41,167,54.58,-0.05
+zone total NE (2 circuits),test,+6h,B2 weekday×hour median,167,202.16,13.86,77.98,6.85,3.41,167,38.57,-4.01
+zone total NE (2 circuits),test,+6h,B1 same hour last week,167,202.16,15.69,78.8,7.76,4.31,167,38.98,-6.48
+zone total NW (6 circuits),test,+6h,Blend v1.3,149,1146.63,291.5,465.55,25.42,22.05,149,40.6,-11.47
+zone total NW (6 circuits),test,+6h,Chronos-Bolt v1.3,149,1146.63,304.25,469.85,26.53,24.52,149,40.98,-7.17
+zone total NW (6 circuits),test,+6h,B3 persistence,149,1146.63,495.38,670.86,43.2,42.45,149,58.51,0.62
+zone total NW (6 circuits),test,+6h,B2 weekday×hour median,149,1146.63,332.59,567.38,29.01,22.31,149,49.48,-20.72
+zone total NW (6 circuits),test,+6h,B1 same hour last week,149,1146.63,412.31,637.13,35.96,35.35,149,55.57,-2.47
+zone total SE (4 circuits),test,+6h,Blend v1.3,49,241.8,29.76,38.83,12.31,13.69,49,16.06,10.36
+zone total SE (4 circuits),test,+6h,Chronos-Bolt v1.3,49,241.8,24.54,33.72,10.15,10.83,49,13.95,2.26
+zone total SE (4 circuits),test,+6h,B3 persistence,49,241.8,37.23,45.77,15.4,16.58,49,18.93,4.22
+zone total SE (4 circuits),test,+6h,B2 weekday×hour median,49,241.8,196.39,242.81,81.22,83.27,49,100.42,29.32
+zone total SE (4 circuits),test,+6h,B1 same hour last week,49,241.8,329.05,380.99,136.08,140.42,49,157.57,115.11
+zone total SW (4 circuits),test,+6h,Blend v1.3,76,241.75,21.73,27.39,8.99,9.0,76,11.33,4.65
+zone total SW (4 circuits),test,+6h,Chronos-Bolt v1.3,76,241.75,17.17,25.44,7.1,6.7,76,10.52,0.33
+zone total SW (4 circuits),test,+6h,B3 persistence,76,241.75,19.86,35.37,8.21,7.89,76,14.63,4.53
+zone total SW (4 circuits),test,+6h,B2 weekday×hour median,76,241.75,39.97,53.36,16.53,17.13,76,22.07,11.36
+zone total SW (4 circuits),test,+6h,B1 same hour last week,76,241.75,48.71,65.22,20.15,21.5,76,26.98,15.9
+zone total NE (2 circuits),test,day-ahead,Blend v1.3,167,202.16,12.85,77.78,6.36,2.88,167,38.47,-4.69
+zone total NE (2 circuits),test,day-ahead,Chronos-Bolt v1.3,167,202.16,12.88,77.84,6.37,2.88,167,38.5,-4.98
+zone total NE (2 circuits),test,day-ahead,B3 persistence,167,202.16,14.25,78.77,7.05,3.54,167,38.97,-5.66
+zone total NE (2 circuits),test,day-ahead,B2 weekday×hour median,167,202.16,13.86,77.98,6.85,3.41,167,38.57,-4.01
+zone total NE (2 circuits),test,day-ahead,B1 same hour last week,167,202.16,15.69,78.8,7.76,4.31,167,38.98,-6.48
+zone total NW (6 circuits),test,day-ahead,Blend v1.3,149,1146.63,295.25,476.96,25.75,23.81,149,41.6,-6.07
+zone total NW (6 circuits),test,day-ahead,Chronos-Bolt v1.3,149,1146.63,318.68,510.85,27.79,26.82,149,44.55,-1.4
+zone total NW (6 circuits),test,day-ahead,B3 persistence,149,1146.63,382.69,571.53,33.37,28.66,149,49.84,-18.89
+zone total NW (6 circuits),test,day-ahead,B2 weekday×hour median,149,1146.63,332.59,567.38,29.01,22.31,149,49.48,-20.72
+zone total NW (6 circuits),test,day-ahead,B1 same hour last week,149,1146.63,412.31,637.13,35.96,35.35,149,55.57,-2.47
+zone total SE (4 circuits),test,day-ahead,Blend v1.3,49,241.8,34.8,71.63,14.39,15.5,49,29.62,11.7
+zone total SE (4 circuits),test,day-ahead,Chronos-Bolt v1.3,49,241.8,31.63,70.12,13.08,13.81,49,29.0,7.86
+zone total SE (4 circuits),test,day-ahead,B3 persistence,49,241.8,34.15,72.87,14.12,14.8,49,30.13,4.11
+zone total SE (4 circuits),test,day-ahead,B2 weekday×hour median,49,241.8,196.39,242.81,81.22,83.27,49,100.42,29.32
+zone total SE (4 circuits),test,day-ahead,B1 same hour last week,49,241.8,329.05,380.99,136.08,140.42,49,157.57,115.11
+zone total SW (4 circuits),test,day-ahead,Blend v1.3,76,241.75,18.14,24.96,7.5,7.29,76,10.32,0.68
+zone total SW (4 circuits),test,day-ahead,Chronos-Bolt v1.3,76,241.75,19.45,26.97,8.04,7.91,76,11.16,-2.5
+zone total SW (4 circuits),test,day-ahead,B3 persistence,76,241.75,13.2,18.95,5.46,5.29,76,7.84,0.06
+zone total SW (4 circuits),test,day-ahead,B2 weekday×hour median,76,241.75,39.97,53.36,16.53,17.13,76,22.07,11.36
+zone total SW (4 circuits),test,day-ahead,B1 same hour last week,76,241.75,48.71,65.22,20.15,21.5,76,26.98,15.9
+building total (hours with all 16 circuits),validation,+1h,Blend v1.3,12,1993.51,131.59,165.6,6.6,6.51,12,8.31,0.1
+building total (hours with all 16 circuits),validation,+1h,Chronos-Bolt v1.3,12,1993.51,133.01,179.16,6.67,6.55,12,8.99,-1.41
+building total (hours with all 16 circuits),validation,+1h,B3 persistence,12,1993.51,152.19,247.09,7.63,7.46,12,12.39,-0.08
+building total (hours with all 16 circuits),validation,+1h,B2 weekday×hour median,12,1993.51,412.62,489.39,20.7,19.61,12,24.55,-17.6
+building total (hours with all 16 circuits),validation,+1h,B1 same hour last week,12,1993.51,339.49,427.65,17.03,16.1,12,21.45,-9.03
+building total (hours with all 16 circuits),validation,+6h,Blend v1.3,11,1958.55,246.26,355.59,12.57,11.58,11,18.16,-0.58
+building total (hours with all 16 circuits),validation,+6h,Chronos-Bolt v1.3,11,1958.55,269.92,366.13,13.78,12.89,11,18.69,1.39
+building total (hours with all 16 circuits),validation,+6h,B3 persistence,11,1958.55,805.16,1022.6,41.11,42.83,11,52.21,32.45
+building total (hours with all 16 circuits),validation,+6h,B2 weekday×hour median,11,1958.55,373.39,443.27,19.06,18.17,11,22.63,-15.63
+building total (hours with all 16 circuits),validation,+6h,B1 same hour last week,11,1958.55,290.12,358.73,14.81,14.18,11,18.32,-5.93
+building total (hours with all 16 circuits),validation,day-ahead,Blend v1.3,11,1958.55,150.91,184.2,7.71,7.57,11,9.4,-6.14
+building total (hours with all 16 circuits),validation,day-ahead,Chronos-Bolt v1.3,11,1958.55,134.44,167.4,6.86,7.04,11,8.55,-4.25
+building total (hours with all 16 circuits),validation,day-ahead,B3 persistence,11,1958.55,466.64,597.85,23.83,24.34,11,30.53,23.83
+building total (hours with all 16 circuits),validation,day-ahead,B2 weekday×hour median,11,1958.55,373.39,443.27,19.06,18.17,11,22.63,-15.63
+building total (hours with all 16 circuits),validation,day-ahead,B1 same hour last week,11,1958.55,290.12,358.73,14.81,14.18,11,18.32,-5.93
+building total (hours with all 16 circuits),test,+1h,Blend v1.3,26,1646.93,86.59,103.27,5.26,5.45,26,6.27,1.38
+building total (hours with all 16 circuits),test,+1h,Chronos-Bolt v1.3,26,1646.93,98.55,126.79,5.98,6.27,26,7.7,2.23
+building total (hours with all 16 circuits),test,+1h,B3 persistence,26,1646.93,106.49,123.01,6.47,6.52,26,7.47,-1.18
+building total (hours with all 16 circuits),test,+1h,B2 weekday×hour median,26,1646.93,316.82,451.63,19.24,17.82,26,27.42,-0.32
+building total (hours with all 16 circuits),test,+1h,B1 same hour last week,26,1646.93,588.73,758.38,35.75,37.31,26,46.05,30.26
+building total (hours with all 16 circuits),test,+6h,Blend v1.3,26,1646.93,170.86,233.46,10.37,9.88,26,14.18,-0.08
+building total (hours with all 16 circuits),test,+6h,Chronos-Bolt v1.3,26,1646.93,170.49,227.78,10.35,9.96,26,13.83,-0.62
+building total (hours with all 16 circuits),test,+6h,B3 persistence,26,1646.93,350.24,444.07,21.27,21.15,26,26.96,4.61
+building total (hours with all 16 circuits),test,+6h,B2 weekday×hour median,26,1646.93,316.82,451.63,19.24,17.82,26,27.42,-0.32
+building total (hours with all 16 circuits),test,+6h,B1 same hour last week,26,1646.93,588.73,758.38,35.75,37.31,26,46.05,30.26
+building total (hours with all 16 circuits),test,day-ahead,Blend v1.3,26,1646.93,190.87,254.28,11.59,11.96,26,15.44,6.49
+building total (hours with all 16 circuits),test,day-ahead,Chronos-Bolt v1.3,26,1646.93,207.4,277.37,12.59,13.18,26,16.84,8.32
+building total (hours with all 16 circuits),test,day-ahead,B3 persistence,26,1646.93,255.61,346.17,15.52,14.55,26,21.02,-8.92
+building total (hours with all 16 circuits),test,day-ahead,B2 weekday×hour median,26,1646.93,316.82,451.63,19.24,17.82,26,27.42,-0.32
+building total (hours with all 16 circuits),test,day-ahead,B1 same hour last week,26,1646.93,588.73,758.38,35.75,37.31,26,46.05,30.26
