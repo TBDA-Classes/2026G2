@@ -6,7 +6,7 @@ Inputs (all read-only, produced by the team):
   * Hourly dataset v1.2 : TBDA_v1.3_ChronosGBM_29-10/derived/Storey1_hourly_v1.2.parquet  (quality flags)
 Output: data.json   (everything the dashboard shows; no model is run at display time)
 
-Method (documented decisions, see 02_Assumptions_and_Decisions.md):
+Method (documented decisions, see docs/02_Assumptions_and_Decisions.md):
   expected = Blend v1.3 day-ahead forecast (issued 00:00 Europe/Madrid)
   normal range = Chronos-Bolt v1.3 q10-q90 band (observed coverage ~80-82 %)
   alert hour = actual above the upper limit AND excess >= max(floor Wh, share x circuit mean load)
@@ -17,10 +17,12 @@ import json, argparse
 from pathlib import Path
 import numpy as np, pandas as pd
 
+ROOT = Path(__file__).resolve().parent.parent      # package folder; the repository root is one level up
+REPO = ROOT.parent
 ap = argparse.ArgumentParser()
-ap.add_argument("--model-dir", default="TBDA_v1.3_ChronosGBM_29-10")
-ap.add_argument("--task6-dir", default="Task6_rev0_03-11/results/predictions")
-ap.add_argument("--out", default="data.json")
+ap.add_argument("--model-dir", default=str(REPO / "TBDA_v1.3_ChronosGBM_29-10"))
+ap.add_argument("--task6-dir", default=str(REPO / "Task6_rev0_03-11" / "results" / "predictions"))
+ap.add_argument("--out", default=str(Path(__file__).resolve().parent / "data.json"))
 args = ap.parse_args()
 MD, T6 = Path(args.model_dir), Path(args.task6_dir)
 
@@ -127,9 +129,8 @@ for name, (frac, floor) in SENS.items():
     det[name] = dict(events=ev2, hours=hrs)
 
 # ---------------------------------------------------------------- reliability + context tables
-out_dir = Path(__file__).parent
 def rd(n):
-    p = out_dir / "analysis" / n
+    p = ROOT / "analysis" / n
     return pd.read_csv(p) if p.exists() else None
 acc = rd("accuracy_metrics_MAPE_CVRMSE.csv"); band = rd("band_coverage_chronos.csv"); stb = rd("standby_baseline_by_circuit.csv")
 occp = rd("occupancy_profile_by_hour.csv"); wi = rd("W_I_vs_energy.csv"); bcirc = rd("band_coverage_by_circuit_test.csv")

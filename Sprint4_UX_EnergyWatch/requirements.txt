@@ -1,0 +1,5 @@
+pandas>=2.0
+numpy>=1.24
+pyarrow>=14
+plotly>=5
+openpyxl>=3.1

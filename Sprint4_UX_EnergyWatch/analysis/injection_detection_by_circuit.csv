@@ -1,0 +1,49 @@
+sensitivity,circuit,cases,detected_pct,high_pct
+Balanced,NE|HVAC,3348,0.1,0.1
+Balanced,NE|Plugs & Sockets,3376,100.0,40.2
+Balanced,NW|Emerg. Lighting,3136,25.0,6.4
+Balanced,NW|HVAC,3256,61.5,14.2
+Balanced,NW|Hand Dryer,3408,0.0,0.0
+Balanced,NW|Lighting,3000,44.8,7.2
+Balanced,NW|Plugs & Sockets,2732,63.2,51.4
+Balanced,NW|RACK,3408,100.0,40.4
+Balanced,SE|Emerg. Lighting,2480,0.0,0.0
+Balanced,SE|HVAC,2472,72.6,12.9
+Balanced,SE|Lighting,2164,63.1,18.2
+Balanced,SE|Plugs & Sockets,1824,81.0,26.5
+Balanced,SW|Emerg. Lighting,2296,25.0,5.4
+Balanced,SW|Hand Dryer,2344,0.0,0.0
+Balanced,SW|Lighting,2212,0.5,0.0
+Balanced,SW|Plugs & Sockets,2064,90.7,42.7
+Sensitive,NE|HVAC,3348,24.4,6.4
+Sensitive,NE|Plugs & Sockets,3336,100.0,39.8
+Sensitive,NW|Emerg. Lighting,3136,49.8,12.1
+Sensitive,NW|HVAC,3256,78.0,17.1
+Sensitive,NW|Hand Dryer,3408,0.0,0.0
+Sensitive,NW|Lighting,3000,44.9,7.3
+Sensitive,NW|Plugs & Sockets,2732,63.2,51.4
+Sensitive,NW|RACK,3256,100.0,39.1
+Sensitive,SE|Emerg. Lighting,2480,0.0,0.0
+Sensitive,SE|HVAC,2472,96.1,17.8
+Sensitive,SE|Lighting,2164,63.1,18.2
+Sensitive,SE|Plugs & Sockets,1824,81.1,26.5
+Sensitive,SW|Emerg. Lighting,2296,49.7,10.1
+Sensitive,SW|Hand Dryer,2344,0.0,0.0
+Sensitive,SW|Lighting,2212,23.6,5.1
+Sensitive,SW|Plugs & Sockets,2060,90.7,42.8
+Strict,NE|HVAC,3348,0.0,0.0
+Strict,NE|Plugs & Sockets,3376,99.1,38.2
+Strict,NW|Emerg. Lighting,3136,0.0,0.0
+Strict,NW|HVAC,3256,42.5,10.2
+Strict,NW|Hand Dryer,3408,0.0,0.0
+Strict,NW|Lighting,3032,41.6,6.8
+Strict,NW|Plugs & Sockets,2732,63.1,51.4
+Strict,NW|RACK,3408,99.6,38.9
+Strict,SE|Emerg. Lighting,2480,0.0,0.0
+Strict,SE|HVAC,2472,49.2,10.1
+Strict,SE|Lighting,2168,53.3,16.8
+Strict,SE|Plugs & Sockets,1828,80.6,26.4
+Strict,SW|Emerg. Lighting,2296,0.0,0.0
+Strict,SW|Hand Dryer,2352,0.0,0.0
+Strict,SW|Lighting,2212,0.0,0.0
+Strict,SW|Plugs & Sockets,2220,90.7,42.5

@@ -1,0 +1,49 @@
+sensitivity,circuit,mean_load_Wh,threshold_Wh,median_min_surplus_Wh,median_min_surplus_pct_of_mean,binding
+Strict,NW|Emerg. Lighting,11.1,40.0,40.0,362.0,sensitivity floor
+Strict,NW|HVAC,52.2,40.0,40.0,77.0,sensitivity floor
+Strict,NW|Hand Dryer,0.8,40.0,40.0,4984.0,sensitivity floor
+Strict,NW|Lighting,71.8,40.0,77.9,108.0,forecast band
+Strict,NW|Plugs & Sockets,791.8,158.4,525.0,66.0,forecast band
+Strict,NW|RACK,186.9,40.0,40.0,21.0,sensitivity floor
+Strict,NE|HVAC,7.6,40.0,40.0,527.0,sensitivity floor
+Strict,NE|Plugs & Sockets,188.0,40.0,40.0,21.0,sensitivity floor
+Strict,SW|Emerg. Lighting,11.7,40.0,40.0,341.0,sensitivity floor
+Strict,SW|Hand Dryer,0.8,40.0,40.0,5089.0,sensitivity floor
+Strict,SW|Lighting,7.8,40.0,40.0,510.0,sensitivity floor
+Strict,SW|Plugs & Sockets,262.7,52.5,55.6,21.0,forecast band
+Strict,SE|Emerg. Lighting,2.0,40.0,40.0,1960.0,sensitivity floor
+Strict,SE|HVAC,42.0,40.0,40.0,95.0,sensitivity floor
+Strict,SE|Lighting,146.5,40.0,79.5,54.0,forecast band
+Strict,SE|Plugs & Sockets,182.8,40.0,65.6,36.0,forecast band
+Balanced,NW|Emerg. Lighting,11.1,20.0,20.0,181.0,sensitivity floor
+Balanced,NW|HVAC,52.2,20.0,20.0,38.0,sensitivity floor
+Balanced,NW|Hand Dryer,0.8,20.0,20.0,2492.0,sensitivity floor
+Balanced,NW|Lighting,71.8,20.0,77.9,108.0,forecast band
+Balanced,NW|Plugs & Sockets,791.8,79.2,525.0,66.0,forecast band
+Balanced,NW|RACK,186.9,20.0,20.0,11.0,sensitivity floor
+Balanced,NE|HVAC,7.6,20.0,20.0,263.0,sensitivity floor
+Balanced,NE|Plugs & Sockets,188.0,20.0,20.0,11.0,sensitivity floor
+Balanced,SW|Emerg. Lighting,11.7,20.0,20.0,170.0,sensitivity floor
+Balanced,SW|Hand Dryer,0.8,20.0,20.0,2545.0,sensitivity floor
+Balanced,SW|Lighting,7.8,20.0,20.0,255.0,sensitivity floor
+Balanced,SW|Plugs & Sockets,262.7,26.3,55.6,21.0,forecast band
+Balanced,SE|Emerg. Lighting,2.0,20.0,20.0,980.0,sensitivity floor
+Balanced,SE|HVAC,42.0,20.0,20.0,48.0,sensitivity floor
+Balanced,SE|Lighting,146.5,20.0,79.5,54.0,forecast band
+Balanced,SE|Plugs & Sockets,182.8,20.0,65.6,36.0,forecast band
+Sensitive,NW|Emerg. Lighting,11.1,10.0,10.0,90.0,sensitivity floor
+Sensitive,NW|HVAC,52.2,10.0,10.0,19.0,sensitivity floor
+Sensitive,NW|Hand Dryer,0.8,10.0,10.0,1246.0,sensitivity floor
+Sensitive,NW|Lighting,71.8,10.0,77.9,108.0,forecast band
+Sensitive,NW|Plugs & Sockets,791.8,39.6,525.0,66.0,forecast band
+Sensitive,NW|RACK,186.9,10.0,10.0,5.0,sensitivity floor
+Sensitive,NE|HVAC,7.6,10.0,10.0,132.0,sensitivity floor
+Sensitive,NE|Plugs & Sockets,188.0,10.0,10.0,5.0,sensitivity floor
+Sensitive,SW|Emerg. Lighting,11.7,10.0,10.0,85.0,sensitivity floor
+Sensitive,SW|Hand Dryer,0.8,10.0,10.0,1272.0,sensitivity floor
+Sensitive,SW|Lighting,7.8,10.0,10.0,127.0,sensitivity floor
+Sensitive,SW|Plugs & Sockets,262.7,13.1,55.6,21.0,forecast band
+Sensitive,SE|Emerg. Lighting,2.0,10.0,10.0,490.0,sensitivity floor
+Sensitive,SE|HVAC,42.0,10.0,10.0,24.0,sensitivity floor
+Sensitive,SE|Lighting,146.5,10.0,79.5,54.0,forecast band
+Sensitive,SE|Plugs & Sockets,182.8,10.0,65.6,36.0,forecast band
