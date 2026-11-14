@@ -1,0 +1,161 @@
+sensitivity,level,min_dev_Wh,kind,circuit,cases,detected_pct,critical_pct
+80% · 25 Wh,0.8,25.0,Drop,NE|HVAC,1664,0.0,0.0
+80% · 25 Wh,0.8,25.0,Drop,NE|Plugs & Sockets,1678,100.0,26.3
+80% · 25 Wh,0.8,25.0,Drop,NW|Emerg. Lighting,1568,0.0,0.0
+80% · 25 Wh,0.8,25.0,Drop,NW|HVAC,1578,58.6,13.0
+80% · 25 Wh,0.8,25.0,Drop,NW|Hand Dryer,1704,0.0,0.0
+80% · 25 Wh,0.8,25.0,Drop,NW|Lighting,1200,29.9,2.6
+80% · 25 Wh,0.8,25.0,Drop,NW|Plugs & Sockets,880,95.0,37.4
+80% · 25 Wh,0.8,25.0,Drop,NW|RACK,1704,100.0,26.5
+80% · 25 Wh,0.8,25.0,Drop,SE|Emerg. Lighting,1240,0.0,0.0
+80% · 25 Wh,0.8,25.0,Drop,SE|HVAC,1232,50.0,11.6
+80% · 25 Wh,0.8,25.0,Drop,SE|Lighting,984,14.1,5.6
+80% · 25 Wh,0.8,25.0,Drop,SE|Plugs & Sockets,830,78.8,16.9
+80% · 25 Wh,0.8,25.0,Drop,SW|Emerg. Lighting,1148,0.0,0.0
+80% · 25 Wh,0.8,25.0,Drop,SW|Hand Dryer,1176,0.0,0.0
+80% · 25 Wh,0.8,25.0,Drop,SW|Lighting,1086,0.0,0.0
+80% · 25 Wh,0.8,25.0,Drop,SW|Plugs & Sockets,824,94.1,19.7
+80% · 25 Wh,0.8,25.0,Spike,NE|HVAC,3328,0.0,0.0
+80% · 25 Wh,0.8,25.0,Spike,NE|Plugs & Sockets,3356,100.0,34.9
+80% · 25 Wh,0.8,25.0,Spike,NW|Emerg. Lighting,3136,0.5,0.0
+80% · 25 Wh,0.8,25.0,Spike,NW|HVAC,3156,55.3,9.9
+80% · 25 Wh,0.8,25.0,Spike,NW|Hand Dryer,3408,0.0,0.0
+80% · 25 Wh,0.8,25.0,Spike,NW|Lighting,2400,36.7,4.4
+80% · 25 Wh,0.8,25.0,Spike,NW|Plugs & Sockets,1760,65.7,44.3
+80% · 25 Wh,0.8,25.0,Spike,NW|RACK,3408,100.0,35.1
+80% · 25 Wh,0.8,25.0,Spike,SE|Emerg. Lighting,2480,0.0,0.0
+80% · 25 Wh,0.8,25.0,Spike,SE|HVAC,2464,51.1,11.6
+80% · 25 Wh,0.8,25.0,Spike,SE|Lighting,1968,64.6,10.9
+80% · 25 Wh,0.8,25.0,Spike,SE|Plugs & Sockets,1660,74.2,19.9
+80% · 25 Wh,0.8,25.0,Spike,SW|Emerg. Lighting,2296,2.6,0.0
+80% · 25 Wh,0.8,25.0,Spike,SW|Hand Dryer,2352,0.0,0.0
+80% · 25 Wh,0.8,25.0,Spike,SW|Lighting,2172,0.0,0.0
+80% · 25 Wh,0.8,25.0,Spike,SW|Plugs & Sockets,1648,92.6,26.0
+90% · 10 Wh,0.9,10.0,Drop,NE|HVAC,1664,0.0,0.0
+90% · 10 Wh,0.9,10.0,Drop,NE|Plugs & Sockets,1432,100.0,23.7
+90% · 10 Wh,0.9,10.0,Drop,NW|Emerg. Lighting,1568,49.4,12.2
+90% · 10 Wh,0.9,10.0,Drop,NW|HVAC,1578,97.3,23.6
+90% · 10 Wh,0.9,10.0,Drop,NW|Hand Dryer,1704,0.0,0.0
+90% · 10 Wh,0.9,10.0,Drop,NW|Lighting,1404,8.2,0.6
+90% · 10 Wh,0.9,10.0,Drop,NW|Plugs & Sockets,1384,59.0,33.7
+90% · 10 Wh,0.9,10.0,Drop,NW|RACK,1570,100.0,25.1
+90% · 10 Wh,0.9,10.0,Drop,SE|Emerg. Lighting,1240,0.0,0.0
+90% · 10 Wh,0.9,10.0,Drop,SE|HVAC,1232,100.0,23.2
+90% · 10 Wh,0.9,10.0,Drop,SE|Lighting,1076,5.8,2.9
+90% · 10 Wh,0.9,10.0,Drop,SE|Plugs & Sockets,966,68.6,10.8
+90% · 10 Wh,0.9,10.0,Drop,SW|Emerg. Lighting,1148,50.0,10.7
+90% · 10 Wh,0.9,10.0,Drop,SW|Hand Dryer,1170,0.0,0.0
+90% · 10 Wh,0.9,10.0,Drop,SW|Lighting,1086,0.0,0.0
+90% · 10 Wh,0.9,10.0,Drop,SW|Plugs & Sockets,1012,95.0,22.1
+90% · 10 Wh,0.9,10.0,Spike,NE|HVAC,3328,24.2,6.0
+90% · 10 Wh,0.9,10.0,Spike,NE|Plugs & Sockets,2864,100.0,32.3
+90% · 10 Wh,0.9,10.0,Spike,NW|Emerg. Lighting,3136,49.9,12.4
+90% · 10 Wh,0.9,10.0,Spike,NW|HVAC,3156,78.6,16.2
+90% · 10 Wh,0.9,10.0,Spike,NW|Hand Dryer,3408,0.0,0.0
+90% · 10 Wh,0.9,10.0,Spike,NW|Lighting,2808,24.8,2.5
+90% · 10 Wh,0.9,10.0,Spike,NW|Plugs & Sockets,2768,47.0,37.4
+90% · 10 Wh,0.9,10.0,Spike,NW|RACK,3140,100.0,33.7
+90% · 10 Wh,0.9,10.0,Spike,SE|Emerg. Lighting,2480,0.0,0.0
+90% · 10 Wh,0.9,10.0,Spike,SE|HVAC,2464,95.8,17.8
+90% · 10 Wh,0.9,10.0,Spike,SE|Lighting,2152,17.1,4.3
+90% · 10 Wh,0.9,10.0,Spike,SE|Plugs & Sockets,1932,62.7,19.5
+90% · 10 Wh,0.9,10.0,Spike,SW|Emerg. Lighting,2296,49.7,10.1
+90% · 10 Wh,0.9,10.0,Spike,SW|Hand Dryer,2340,0.0,0.0
+90% · 10 Wh,0.9,10.0,Spike,SW|Lighting,2172,24.0,5.2
+90% · 10 Wh,0.9,10.0,Spike,SW|Plugs & Sockets,2024,87.4,25.8
+90% · 25 Wh,0.9,25.0,Drop,NE|HVAC,1664,0.0,0.0
+90% · 25 Wh,0.9,25.0,Drop,NE|Plugs & Sockets,1678,100.0,26.3
+90% · 25 Wh,0.9,25.0,Drop,NW|Emerg. Lighting,1568,0.0,0.0
+90% · 25 Wh,0.9,25.0,Drop,NW|HVAC,1578,58.6,13.0
+90% · 25 Wh,0.9,25.0,Drop,NW|Hand Dryer,1704,0.0,0.0
+90% · 25 Wh,0.9,25.0,Drop,NW|Lighting,1404,8.2,0.6
+90% · 25 Wh,0.9,25.0,Drop,NW|Plugs & Sockets,1384,59.0,33.7
+90% · 25 Wh,0.9,25.0,Drop,NW|RACK,1704,100.0,26.5
+90% · 25 Wh,0.9,25.0,Drop,SE|Emerg. Lighting,1240,0.0,0.0
+90% · 25 Wh,0.9,25.0,Drop,SE|HVAC,1232,50.0,11.6
+90% · 25 Wh,0.9,25.0,Drop,SE|Lighting,1076,5.8,2.9
+90% · 25 Wh,0.9,25.0,Drop,SE|Plugs & Sockets,966,68.6,10.8
+90% · 25 Wh,0.9,25.0,Drop,SW|Emerg. Lighting,1148,0.0,0.0
+90% · 25 Wh,0.9,25.0,Drop,SW|Hand Dryer,1176,0.0,0.0
+90% · 25 Wh,0.9,25.0,Drop,SW|Lighting,1086,0.0,0.0
+90% · 25 Wh,0.9,25.0,Drop,SW|Plugs & Sockets,1012,95.0,22.1
+90% · 25 Wh,0.9,25.0,Spike,NE|HVAC,3328,0.0,0.0
+90% · 25 Wh,0.9,25.0,Spike,NE|Plugs & Sockets,3356,100.0,34.9
+90% · 25 Wh,0.9,25.0,Spike,NW|Emerg. Lighting,3136,0.5,0.0
+90% · 25 Wh,0.9,25.0,Spike,NW|HVAC,3156,55.3,9.9
+90% · 25 Wh,0.9,25.0,Spike,NW|Hand Dryer,3408,0.0,0.0
+90% · 25 Wh,0.9,25.0,Spike,NW|Lighting,2808,24.8,2.5
+90% · 25 Wh,0.9,25.0,Spike,NW|Plugs & Sockets,2768,47.0,37.4
+90% · 25 Wh,0.9,25.0,Spike,NW|RACK,3408,100.0,35.1
+90% · 25 Wh,0.9,25.0,Spike,SE|Emerg. Lighting,2480,0.0,0.0
+90% · 25 Wh,0.9,25.0,Spike,SE|HVAC,2464,51.1,11.6
+90% · 25 Wh,0.9,25.0,Spike,SE|Lighting,2152,17.1,4.3
+90% · 25 Wh,0.9,25.0,Spike,SE|Plugs & Sockets,1932,62.7,19.5
+90% · 25 Wh,0.9,25.0,Spike,SW|Emerg. Lighting,2296,2.6,0.0
+90% · 25 Wh,0.9,25.0,Spike,SW|Hand Dryer,2352,0.0,0.0
+90% · 25 Wh,0.9,25.0,Spike,SW|Lighting,2172,0.0,0.0
+90% · 25 Wh,0.9,25.0,Spike,SW|Plugs & Sockets,2024,87.4,25.8
+90% · 50 Wh,0.9,50.0,Drop,NE|HVAC,1664,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,NE|Plugs & Sockets,1704,100.0,26.5
+90% · 50 Wh,0.9,50.0,Drop,NW|Emerg. Lighting,1568,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,NW|HVAC,1578,13.3,0.9
+90% · 50 Wh,0.9,50.0,Drop,NW|Hand Dryer,1704,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,NW|Lighting,1404,8.2,0.6
+90% · 50 Wh,0.9,50.0,Drop,NW|Plugs & Sockets,1384,59.0,33.7
+90% · 50 Wh,0.9,50.0,Drop,NW|RACK,1704,100.0,26.5
+90% · 50 Wh,0.9,50.0,Drop,SE|Emerg. Lighting,1240,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,SE|HVAC,1232,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,SE|Lighting,1076,5.8,2.9
+90% · 50 Wh,0.9,50.0,Drop,SE|Plugs & Sockets,966,68.6,10.8
+90% · 50 Wh,0.9,50.0,Drop,SW|Emerg. Lighting,1148,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,SW|Hand Dryer,1176,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,SW|Lighting,1086,0.0,0.0
+90% · 50 Wh,0.9,50.0,Drop,SW|Plugs & Sockets,1060,95.2,22.8
+90% · 50 Wh,0.9,50.0,Spike,NE|HVAC,3328,0.0,0.0
+90% · 50 Wh,0.9,50.0,Spike,NE|Plugs & Sockets,3408,84.4,28.4
+90% · 50 Wh,0.9,50.0,Spike,NW|Emerg. Lighting,3136,0.0,0.0
+90% · 50 Wh,0.9,50.0,Spike,NW|HVAC,3156,39.4,6.5
+90% · 50 Wh,0.9,50.0,Spike,NW|Hand Dryer,3408,0.0,0.0
+90% · 50 Wh,0.9,50.0,Spike,NW|Lighting,2808,24.8,2.5
+90% · 50 Wh,0.9,50.0,Spike,NW|Plugs & Sockets,2768,47.0,37.4
+90% · 50 Wh,0.9,50.0,Spike,NW|RACK,3408,82.5,28.4
+90% · 50 Wh,0.9,50.0,Spike,SE|Emerg. Lighting,2480,0.0,0.0
+90% · 50 Wh,0.9,50.0,Spike,SE|HVAC,2464,25.0,5.8
+90% · 50 Wh,0.9,50.0,Spike,SE|Lighting,2152,17.1,4.3
+90% · 50 Wh,0.9,50.0,Spike,SE|Plugs & Sockets,1932,62.7,19.5
+90% · 50 Wh,0.9,50.0,Spike,SW|Emerg. Lighting,2296,0.0,0.0
+90% · 50 Wh,0.9,50.0,Spike,SW|Hand Dryer,2352,0.0,0.0
+90% · 50 Wh,0.9,50.0,Spike,SW|Lighting,2172,0.0,0.0
+90% · 50 Wh,0.9,50.0,Spike,SW|Plugs & Sockets,2120,87.2,26.5
+95% · 25 Wh,0.95,25.0,Drop,NE|HVAC,1664,0.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,NE|Plugs & Sockets,1678,100.0,26.3
+95% · 25 Wh,0.95,25.0,Drop,NW|Emerg. Lighting,1568,0.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,NW|HVAC,1578,58.3,13.0
+95% · 25 Wh,0.95,25.0,Drop,NW|Hand Dryer,1704,0.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,NW|Lighting,1496,4.3,0.2
+95% · 25 Wh,0.95,25.0,Drop,NW|Plugs & Sockets,1510,4.2,2.8
+95% · 25 Wh,0.95,25.0,Drop,NW|RACK,1704,100.0,26.5
+95% · 25 Wh,0.95,25.0,Drop,SE|Emerg. Lighting,1240,0.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,SE|HVAC,1232,50.0,11.6
+95% · 25 Wh,0.95,25.0,Drop,SE|Lighting,1128,2.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,SE|Plugs & Sockets,1050,41.3,7.2
+95% · 25 Wh,0.95,25.0,Drop,SW|Emerg. Lighting,1148,0.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,SW|Hand Dryer,1176,0.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,SW|Lighting,1098,0.0,0.0
+95% · 25 Wh,0.95,25.0,Drop,SW|Plugs & Sockets,1104,95.0,22.4
+95% · 25 Wh,0.95,25.0,Spike,NE|HVAC,3328,0.0,0.0
+95% · 25 Wh,0.95,25.0,Spike,NE|Plugs & Sockets,3356,100.0,34.9
+95% · 25 Wh,0.95,25.0,Spike,NW|Emerg. Lighting,3136,0.5,0.0
+95% · 25 Wh,0.95,25.0,Spike,NW|HVAC,3156,55.3,9.9
+95% · 25 Wh,0.95,25.0,Spike,NW|Hand Dryer,3408,0.0,0.0
+95% · 25 Wh,0.95,25.0,Spike,NW|Lighting,2992,15.3,1.0
+95% · 25 Wh,0.95,25.0,Spike,NW|Plugs & Sockets,3020,31.5,29.3
+95% · 25 Wh,0.95,25.0,Spike,NW|RACK,3408,100.0,35.1
+95% · 25 Wh,0.95,25.0,Spike,SE|Emerg. Lighting,2480,0.0,0.0
+95% · 25 Wh,0.95,25.0,Spike,SE|HVAC,2464,51.1,11.6
+95% · 25 Wh,0.95,25.0,Spike,SE|Lighting,2256,2.1,1.0
+95% · 25 Wh,0.95,25.0,Spike,SE|Plugs & Sockets,2100,55.6,18.2
+95% · 25 Wh,0.95,25.0,Spike,SW|Emerg. Lighting,2296,2.6,0.0
+95% · 25 Wh,0.95,25.0,Spike,SW|Hand Dryer,2352,0.0,0.0
+95% · 25 Wh,0.95,25.0,Spike,SW|Lighting,2196,0.0,0.0
+95% · 25 Wh,0.95,25.0,Spike,SW|Plugs & Sockets,2208,81.3,23.9

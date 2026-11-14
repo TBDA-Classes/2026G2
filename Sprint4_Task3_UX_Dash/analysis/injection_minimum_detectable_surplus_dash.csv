@@ -1,0 +1,81 @@
+sensitivity,level,min_dev_Wh,circuit,mean_load_Wh,median_min_surplus_Wh,median_min_surplus_pct_of_mean,binding,switch_off_detectable_pct,threshold_Wh
+80% · 25 Wh,0.8,25.0,NE|HVAC,7.6,24.9,328.0,minimum deviation,0.0,25.0
+80% · 25 Wh,0.8,25.0,NE|Plugs & Sockets,188.0,26.7,14.0,minimum deviation,100.0,25.0
+80% · 25 Wh,0.8,25.0,NW|Emerg. Lighting,11.1,24.8,224.0,minimum deviation,0.0,25.0
+80% · 25 Wh,0.8,25.0,NW|HVAC,52.2,26.6,51.0,minimum deviation,100.0,25.0
+80% · 25 Wh,0.8,25.0,NW|Hand Dryer,0.8,25.1,3123.0,minimum deviation,0.0,25.0
+80% · 25 Wh,0.8,25.0,NW|Lighting,71.8,90.2,126.0,forecast interval,44.5,25.0
+80% · 25 Wh,0.8,25.0,NW|Plugs & Sockets,791.8,429.9,54.0,forecast interval,100.0,25.0
+80% · 25 Wh,0.8,25.0,NW|RACK,186.9,25.0,13.0,minimum deviation,100.0,25.0
+80% · 25 Wh,0.8,25.0,SE|Emerg. Lighting,2.0,25.1,1230.0,minimum deviation,0.0,25.0
+80% · 25 Wh,0.8,25.0,SE|HVAC,42.0,25.0,60.0,minimum deviation,100.0,25.0
+80% · 25 Wh,0.8,25.0,SE|Lighting,146.5,49.5,34.0,forecast interval,15.1,25.0
+80% · 25 Wh,0.8,25.0,SE|Plugs & Sockets,182.8,80.1,44.0,forecast interval,78.2,25.0
+80% · 25 Wh,0.8,25.0,SW|Emerg. Lighting,11.7,25.1,214.0,minimum deviation,0.0,25.0
+80% · 25 Wh,0.8,25.0,SW|Hand Dryer,0.8,24.8,3149.0,minimum deviation,0.0,25.0
+80% · 25 Wh,0.8,25.0,SW|Lighting,7.8,25.6,327.0,minimum deviation,0.0,25.0
+80% · 25 Wh,0.8,25.0,SW|Plugs & Sockets,262.7,50.1,19.0,forecast interval,100.0,25.0
+90% · 25 Wh,0.9,25.0,NE|HVAC,7.6,24.9,328.0,minimum deviation,0.0,25.0
+90% · 25 Wh,0.9,25.0,NE|Plugs & Sockets,188.0,26.7,14.0,minimum deviation,100.0,25.0
+90% · 25 Wh,0.9,25.0,NW|Emerg. Lighting,11.1,24.8,224.0,minimum deviation,0.0,25.0
+90% · 25 Wh,0.9,25.0,NW|HVAC,52.2,26.6,51.0,minimum deviation,100.0,25.0
+90% · 25 Wh,0.9,25.0,NW|Hand Dryer,0.8,25.1,3123.0,minimum deviation,0.0,25.0
+90% · 25 Wh,0.9,25.0,NW|Lighting,71.8,120.5,168.0,forecast interval,17.2,25.0
+90% · 25 Wh,0.9,25.0,NW|Plugs & Sockets,791.8,675.9,85.0,forecast interval,100.0,25.0
+90% · 25 Wh,0.9,25.0,NW|RACK,186.9,25.0,13.0,minimum deviation,100.0,25.0
+90% · 25 Wh,0.9,25.0,SE|Emerg. Lighting,2.0,25.1,1230.0,minimum deviation,0.0,25.0
+90% · 25 Wh,0.9,25.0,SE|HVAC,42.0,25.0,60.0,minimum deviation,100.0,25.0
+90% · 25 Wh,0.9,25.0,SE|Lighting,146.5,257.6,176.0,forecast interval,8.3,25.0
+90% · 25 Wh,0.9,25.0,SE|Plugs & Sockets,182.8,109.2,60.0,forecast interval,71.8,25.0
+90% · 25 Wh,0.9,25.0,SW|Emerg. Lighting,11.7,25.1,214.0,minimum deviation,0.0,25.0
+90% · 25 Wh,0.9,25.0,SW|Hand Dryer,0.8,24.8,3149.0,minimum deviation,0.0,25.0
+90% · 25 Wh,0.9,25.0,SW|Lighting,7.8,25.6,327.0,minimum deviation,0.0,25.0
+90% · 25 Wh,0.9,25.0,SW|Plugs & Sockets,262.7,62.1,24.0,forecast interval,100.0,25.0
+95% · 25 Wh,0.95,25.0,NE|HVAC,7.6,24.9,328.0,minimum deviation,0.0,25.0
+95% · 25 Wh,0.95,25.0,NE|Plugs & Sockets,188.0,26.7,14.0,minimum deviation,100.0,25.0
+95% · 25 Wh,0.95,25.0,NW|Emerg. Lighting,11.1,24.8,224.0,minimum deviation,0.0,25.0
+95% · 25 Wh,0.95,25.0,NW|HVAC,52.2,26.6,51.0,minimum deviation,100.0,25.0
+95% · 25 Wh,0.95,25.0,NW|Hand Dryer,0.8,25.1,3123.0,minimum deviation,0.0,25.0
+95% · 25 Wh,0.95,25.0,NW|Lighting,71.8,145.9,203.0,forecast interval,8.2,25.0
+95% · 25 Wh,0.95,25.0,NW|Plugs & Sockets,791.8,1040.5,131.0,forecast interval,5.9,25.0
+95% · 25 Wh,0.95,25.0,NW|RACK,186.9,25.0,13.0,minimum deviation,100.0,25.0
+95% · 25 Wh,0.95,25.0,SE|Emerg. Lighting,2.0,25.1,1230.0,minimum deviation,0.0,25.0
+95% · 25 Wh,0.95,25.0,SE|HVAC,42.0,25.0,60.0,minimum deviation,100.0,25.0
+95% · 25 Wh,0.95,25.0,SE|Lighting,146.5,441.4,301.0,forecast interval,1.1,25.0
+95% · 25 Wh,0.95,25.0,SE|Plugs & Sockets,182.8,137.6,75.0,forecast interval,68.2,25.0
+95% · 25 Wh,0.95,25.0,SW|Emerg. Lighting,11.7,25.1,214.0,minimum deviation,0.0,25.0
+95% · 25 Wh,0.95,25.0,SW|Hand Dryer,0.8,24.8,3149.0,minimum deviation,0.0,25.0
+95% · 25 Wh,0.95,25.0,SW|Lighting,7.8,25.7,327.0,minimum deviation,0.0,25.0
+95% · 25 Wh,0.95,25.0,SW|Plugs & Sockets,262.7,84.8,32.0,forecast interval,100.0,25.0
+90% · 10 Wh,0.9,10.0,NE|HVAC,7.6,10.0,132.0,minimum deviation,0.0,10.0
+90% · 10 Wh,0.9,10.0,NE|Plugs & Sockets,188.0,11.7,6.0,minimum deviation,100.0,10.0
+90% · 10 Wh,0.9,10.0,NW|Emerg. Lighting,11.1,9.8,88.0,minimum deviation,97.5,10.0
+90% · 10 Wh,0.9,10.0,NW|HVAC,52.2,12.1,23.0,minimum deviation,100.0,10.0
+90% · 10 Wh,0.9,10.0,NW|Hand Dryer,0.8,10.1,1254.0,minimum deviation,0.0,10.0
+90% · 10 Wh,0.9,10.0,NW|Lighting,71.8,120.5,168.0,forecast interval,17.2,10.0
+90% · 10 Wh,0.9,10.0,NW|Plugs & Sockets,791.8,675.9,85.0,forecast interval,100.0,10.0
+90% · 10 Wh,0.9,10.0,NW|RACK,186.9,10.0,5.0,minimum deviation,100.0,10.0
+90% · 10 Wh,0.9,10.0,SE|Emerg. Lighting,2.0,10.1,495.0,minimum deviation,0.0,10.0
+90% · 10 Wh,0.9,10.0,SE|HVAC,42.0,10.0,24.0,minimum deviation,100.0,10.0
+90% · 10 Wh,0.9,10.0,SE|Lighting,146.5,257.6,176.0,forecast interval,8.3,10.0
+90% · 10 Wh,0.9,10.0,SE|Plugs & Sockets,182.8,109.2,60.0,forecast interval,71.8,10.0
+90% · 10 Wh,0.9,10.0,SW|Emerg. Lighting,11.7,10.1,86.0,minimum deviation,100.0,10.0
+90% · 10 Wh,0.9,10.0,SW|Hand Dryer,0.8,9.8,1242.0,minimum deviation,0.0,10.0
+90% · 10 Wh,0.9,10.0,SW|Lighting,7.8,10.7,136.0,minimum deviation,0.0,10.0
+90% · 10 Wh,0.9,10.0,SW|Plugs & Sockets,262.7,62.1,24.0,forecast interval,100.0,10.0
+90% · 50 Wh,0.9,50.0,NE|HVAC,7.6,49.9,657.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,NE|Plugs & Sockets,188.0,51.7,27.0,minimum deviation,100.0,50.0
+90% · 50 Wh,0.9,50.0,NW|Emerg. Lighting,11.1,49.8,450.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,NW|HVAC,52.2,51.4,99.0,minimum deviation,16.5,50.0
+90% · 50 Wh,0.9,50.0,NW|Hand Dryer,0.8,50.1,6238.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,NW|Lighting,71.8,120.5,168.0,forecast interval,17.2,50.0
+90% · 50 Wh,0.9,50.0,NW|Plugs & Sockets,791.8,675.9,85.0,forecast interval,100.0,50.0
+90% · 50 Wh,0.9,50.0,NW|RACK,186.9,50.0,27.0,minimum deviation,100.0,50.0
+90% · 50 Wh,0.9,50.0,SE|Emerg. Lighting,2.0,50.1,2455.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,SE|HVAC,42.0,50.0,119.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,SE|Lighting,146.5,257.6,176.0,forecast interval,8.3,50.0
+90% · 50 Wh,0.9,50.0,SE|Plugs & Sockets,182.8,109.2,60.0,forecast interval,71.8,50.0
+90% · 50 Wh,0.9,50.0,SW|Emerg. Lighting,11.7,50.1,427.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,SW|Hand Dryer,0.8,49.8,6330.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,SW|Lighting,7.8,50.6,644.0,minimum deviation,0.0,50.0
+90% · 50 Wh,0.9,50.0,SW|Plugs & Sockets,262.7,64.5,25.0,forecast interval,100.0,50.0

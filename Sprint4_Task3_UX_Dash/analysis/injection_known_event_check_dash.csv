@@ -1,0 +1,4 @@
+sensitivity,level,event,detected,anomaly
+80% · 25 Wh,0.8,"NE|HVAC left on, 3 Oct 2025 11:00–14:00",True,"S-107 (Critical, +1.63 kWh)"
+90% · 25 Wh,0.9,"NE|HVAC left on, 3 Oct 2025 11:00–14:00",True,"S-063 (Critical, +1.63 kWh)"
+95% · 25 Wh,0.95,"NE|HVAC left on, 3 Oct 2025 11:00–14:00",True,"S-042 (Critical, +1.63 kWh)"
