@@ -85,7 +85,7 @@ The Modelling Specification makes `energy_Wh` the primary target and `W` seconda
 **Decision:** alerts are based on energy only. Power and current add little independent information, and their semantics are unconfirmed. They remain an option for a later version (demand peaks). Evidence: `Sprint4_Task4_Documentation/analysis/W_I_vs_energy.csv`.
 
 ## 6. Reliability figures
-- Accuracy of the final model: Task 6 (official) and `Sprint4_Task4_Documentation/analysis/accuracy_metrics_MAPE_CVRMSE.csv` (dashboard recomputation; different hour mask, so values differ slightly).
+- Accuracy of the final model: Task 6 (official) and `Sprint4_Task4_Documentation/analysis/accuracy_metrics_MAPE_CVRMSE.csv` (dashboard recomputation; different hour mask, so values differ slightly). Per circuit and load type: `analysis/accuracy_by_load_type.csv` (see `01_Technical_Documentation.md` §5.4a).
 - Band coverage: `Sprint4_Task4_Documentation/analysis/band_coverage_chronos.csv`, `Sprint4_Task4_Documentation/analysis/band_coverage_by_circuit_test.csv`.
 - Detection test on injected anomalies: `04_Detection_Validation.md`.
 

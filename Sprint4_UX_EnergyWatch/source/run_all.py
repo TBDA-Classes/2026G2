@@ -1,12 +1,13 @@
 """Rebuild the dashboard and its evidence from the repository inputs.   Usage (from anywhere):  python Sprint4_UX_EnergyWatch/source/run_all.py
-Steps (about 1-2 minutes, no GPU, no internet):
+Steps (about 15 seconds, no GPU, no internet):
   1 prep_presence.py        presence detector hourly series
   2 analysis_occupancy.py   occupancy rule evidence
   3 analysis_standby_wi.py  standby baseline, W and I redundancy
   4 analysis_accuracy.py    MAPE, CV(RMSE), WAPE, band coverage
-  5 build_data.py           expected values, alerts, impact -> source/data.json (app)
-  6 injection_test.py       injected-anomaly detection test (adds results to data.json)
-  7 build_html.py           index.html
+  5 analysis_accuracy_by_load.py  accuracy by circuit and load type, skill scores, daily totals
+  6 build_data.py           expected values, alerts, impact -> source/data.json (app)
+  7 injection_test.py       injected-anomaly detection test (adds results to data.json)
+  8 build_html.py           index.html
 Inputs (read-only, in the repository): CLEAN DATA all zones.zip, TBDA_v1.3_ChronosGBM_29-10/{derived,results}, Task6_rev0_03-11/results/predictions."""
 import subprocess, sys
 from pathlib import Path
@@ -19,8 +20,8 @@ need = [doc_scripts / "prep_presence.py", repo / "CLEAN DATA all zones.zip", rep
 miss = [str(p) for p in need if not p.exists()]
 if miss:
     sys.exit("Missing input(s). Run this script from a clone of the repository, with Sprint4_UX_EnergyWatch and Sprint4_Task4_Documentation inside it:\n  " + "\n  ".join(miss))
-for step in ["prep_presence", "analysis_occupancy", "analysis_standby_wi", "analysis_accuracy", "build_data", "injection_test", "build_html"]:
+for step in ["prep_presence", "analysis_occupancy", "analysis_standby_wi", "analysis_accuracy", "analysis_accuracy_by_load", "build_data", "injection_test", "build_html"]:
     print(f"\n=== {step} ===", flush=True)
-    r = subprocess.run([sys.executable, str((doc_scripts if step in ("prep_presence","analysis_occupancy","analysis_standby_wi","analysis_accuracy") else here) / f"{step}.py")], stdout=subprocess.DEVNULL if step.startswith("analysis") else None)
+    r = subprocess.run([sys.executable, str((doc_scripts if step in ("prep_presence","analysis_occupancy","analysis_standby_wi","analysis_accuracy","analysis_accuracy_by_load") else here) / f"{step}.py")], stdout=subprocess.DEVNULL if step.startswith("analysis") else None)
     if r.returncode: sys.exit(f"step {step} failed")
 print("\nDone: Sprint4_UX_EnergyWatch/index.html, source/data.json, Sprint4_Task4_Documentation/analysis/*.csv")

@@ -31,7 +31,7 @@ Sprint4_UX_EnergyWatch/            THE APPLICATION
 ├── index.html                     the dashboard (generated file, do not edit by hand)
 ├── requirements.txt               Python packages for the rebuild
 └── source/
-    ├── run_all.py                 runs the seven steps below (both folders)
+    ├── run_all.py                 runs the eight steps below (both folders)
     ├── build_data.py              expected values, alerts, impact  → data.json
     ├── injection_test.py          injected-anomaly test (adds results to data.json)
     ├── build_html.py              data.json + template.html + Plotly → index.html
@@ -53,7 +53,8 @@ Sprint4_Task4_Documentation/          DOCUMENTS AND EVIDENCE
     ├── prep_presence.py           presence detector series
     ├── analysis_occupancy.py      occupancy rule evidence
     ├── analysis_standby_wi.py     standby baseline, W and I redundancy
-    └── analysis_accuracy.py       MAPE, CV(RMSE), WAPE, band coverage
+    ├── analysis_accuracy.py       MAPE, CV(RMSE), WAPE, band coverage
+    └── analysis_accuracy_by_load.py   accuracy by circuit and load type, skill scores, daily totals
 ```
 
 **Dependency between the folders.** The application reads the CSV files in `Sprint4_Task4_Documentation/analysis/` when it builds `data.json`, and `injection_test.py` writes its CSV files there. `index.html` itself needs nothing: it is self-contained.
@@ -75,9 +76,10 @@ python Sprint4_UX_EnergyWatch/source/run_all.py
 | 2 | `analysis_occupancy.py` (Documentation) | step 1, hourly dataset | `analysis/occupancy_profile_by_hour.csv` |
 | 3 | `analysis_standby_wi.py` (Documentation) | hourly dataset | `analysis/standby_*.csv`, `analysis/W_I_vs_energy.csv` |
 | 4 | `analysis_accuracy.py` (Documentation) | Task 6 forecasts, Chronos-Bolt forecasts | `analysis/accuracy_*.csv`, `analysis/band_coverage_*.csv` |
-| 5 | `build_data.py` (App) | Task 6 and Chronos forecasts, hourly dataset, `Sprint4_Task4_Documentation/analysis/*.csv` | `Sprint4_UX_EnergyWatch/source/data.json` |
-| 6 | `injection_test.py` (App) | `source/data.json` | `Sprint4_Task4_Documentation/analysis/injection_*.csv`, adds results to `data.json` |
-| 7 | `build_html.py` (App) | `template.html`, `data.json`, Plotly (from the `plotly` package) | `Sprint4_UX_EnergyWatch/index.html` |
+| 5 | `analysis_accuracy_by_load.py` (Documentation) | Task 6 forecasts (Blend, persistence), hourly dataset | `analysis/accuracy_by_load_type.csv`, `analysis/accuracy_daily_totals.csv` |
+| 6 | `build_data.py` (App) | Task 6 and Chronos forecasts, hourly dataset, `Sprint4_Task4_Documentation/analysis/*.csv` | `Sprint4_UX_EnergyWatch/source/data.json` |
+| 7 | `injection_test.py` (App) | `source/data.json` | `Sprint4_Task4_Documentation/analysis/injection_*.csv`, adds results to `data.json` |
+| 8 | `build_html.py` (App) | `template.html`, `data.json`, Plotly (from the `plotly` package) | `Sprint4_UX_EnergyWatch/index.html` |
 
 All inputs are read-only. The frozen source data and the model folders are never modified.
 

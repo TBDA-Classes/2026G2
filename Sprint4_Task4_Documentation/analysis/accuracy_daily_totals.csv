@@ -1,0 +1,27 @@
+split,circuit,load_type,complete_days,mean_daily_kWh,MAE_daily_kWh,WAPE_daily_pct,CV_RMSE_daily_pct,NMBE_daily_pct,MAE_daily_B4_yesterday_kWh,MAE_daily_B3_persistence_kWh
+validation,NE|HVAC,HVAC,4,0.062,0.005,7.9,9.8,6.8,0.004,0.019
+validation,NE|Plugs & Sockets,Plugs & Sockets,4,4.464,0.062,1.4,1.6,1.4,0.04,0.141
+validation,NW|Emerg. Lighting,Emergency lighting,4,0.264,0.006,2.2,2.5,-2.2,0.004,0.005
+validation,NW|HVAC,HVAC,4,0.809,0.043,5.3,6.1,5.3,0.001,0.026
+validation,NW|Hand Dryer,Hand dryer,4,0.029,0.022,75.5,78.8,-75.5,0.017,0.013
+validation,NW|Lighting,Lighting,4,1.236,0.488,39.5,41.6,26.0,0.451,0.618
+validation,NW|Plugs & Sockets,Plugs & Sockets,4,19.983,5.954,29.8,31.4,-29.8,2.842,6.773
+validation,NW|RACK,Rack,4,4.483,0.006,0.1,0.2,-0.1,0.012,0.105
+validation,SE|Emerg. Lighting,Emergency lighting,1,0.048,0.003,5.8,5.8,5.8,0.001,0.024
+validation,SE|HVAC,HVAC,1,0.997,0.002,0.2,0.2,0.2,0.005,0.011
+validation,SE|Lighting,Lighting,1,11.389,1.606,14.1,14.1,-14.1,0.031,0.416
+validation,SE|Plugs & Sockets,Plugs & Sockets,1,4.283,2.206,51.5,51.5,-51.5,0.007,0.647
+validation,SW|Emerg. Lighting,Emergency lighting,1,0.28,0.002,0.7,0.7,0.7,0.001,0.006
+validation,SW|Hand Dryer,Hand dryer,1,0.016,0.001,7.8,7.8,-7.8,0.0,0.016
+validation,SW|Plugs & Sockets,Plugs & Sockets,1,6.014,0.073,1.2,1.2,1.2,0.014,0.296
+test,NE|HVAC,HVAC,6,0.339,0.278,81.9,197.5,-81.2,0.551,0.281
+test,NE|Plugs & Sockets,Plugs & Sockets,6,4.554,0.03,0.7,0.7,0.3,0.027,0.085
+test,NW|Emerg. Lighting,Emergency lighting,5,0.264,0.006,2.4,3.3,-2.4,0.004,0.012
+test,NW|HVAC,HVAC,6,1.839,0.662,36.0,43.3,-13.6,0.42,1.042
+test,NW|Hand Dryer,Hand dryer,6,0.017,0.012,71.1,92.6,-70.0,0.013,0.02
+test,NW|Lighting,Lighting,6,1.969,0.583,29.6,46.3,-6.1,0.765,0.619
+test,NW|Plugs & Sockets,Plugs & Sockets,6,18.497,3.904,21.1,29.7,-3.7,4.686,7.227
+test,NW|RACK,Rack,6,4.49,0.007,0.2,0.2,-0.1,0.008,0.072
+test,SE|Plugs & Sockets,Plugs & Sockets,1,4.548,0.384,8.4,8.4,8.4,0.008,0.419
+test,SW|Hand Dryer,Hand dryer,1,0.016,0.002,9.7,9.7,-9.7,0.001,0.008
+test,SW|Lighting,Lighting,1,0.024,0.007,29.3,29.3,-29.3,0.01,0.024

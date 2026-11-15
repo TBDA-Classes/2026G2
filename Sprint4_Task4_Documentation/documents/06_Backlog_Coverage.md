@@ -48,8 +48,8 @@ Evidence paths are relative to the repository root. `DOC/` stands for `Sprint4_T
 | PB-25 | Normal consumption by load type / circuit | Covered | Actual vs expected by circuit and load |
 | PB-26 | At least two baselines | Team | B1, B2, B3 (`Task6_rev0_03-11/RESULTS.md`) |
 | PB-27 | Candidate models compared on unseen periods | Team | Task 6: 11 models, same hours, bootstrap CIs |
-| PB-28 | Time-series alternative such as Prophet | Partly | Chronos-Bolt (pretrained time-series model) is the time-series alternative. **Prophet itself was not tested.** |
-| PB-29 | MAE, MAPE, CV(RMSE) on unseen periods | Covered | MAE official in Task 6; MAPE, CV(RMSE), WAPE in `DOC/analysis/accuracy_metrics_MAPE_CVRMSE.csv` and the Reliability screen |
+| PB-28 | Time-series alternative such as Prophet | Team | `Sprint4_Prophet_PB28/` (13 Nov 2026): Prophet tested under the v1.3 protocol on the validation week, 112 configurations. It scores 0.47 scaled MAE at every horizon against 0.27 / 0.35 / 0.35 for Blend v1.3, and loses to persistence at +1 h and day-ahead. Chronos-Bolt is the pretrained time-series alternative inside the final blend. |
+| PB-29 | MAE, MAPE, CV(RMSE) on unseen periods | Covered | MAE official in Task 6; MAPE, CV(RMSE), WAPE in `DOC/analysis/accuracy_metrics_MAPE_CVRMSE.csv` and the Reliability screen; per circuit and load type, with NMBE, skill scores and daily totals, in `DOC/analysis/accuracy_by_load_type.csv`, `accuracy_daily_totals.csv` and `01_Technical_Documentation.md` §5.4a |
 | PB-30 | Prediction band, coverage checked | Covered | Chronos-Bolt q10–q90; 82 % observed against 80 % nominal |
 | PB-31 | Experiment log | Covered | `DOC/documents/03_Experiment_Log.md` (reconstructed from the repository) |
 | PB-32 | Deep learning vs ML baseline | Team | Chronos-Bolt (transformer, zero-shot) compared with GBM and Blend under the same protocol |
@@ -96,4 +96,4 @@ Evidence paths are relative to the repository root. `DOC/` stands for `Sprint4_T
 | PB-58 | Final presentation and demonstration | Pending | 30 Nov 2026; the offline `index.html` is the backup demonstration |
 
 ## Summary
-Of 58 items: **36 covered**, **11 partly covered** with a stated gap (PB-06, PB-12, PB-14, PB-16, PB-22, PB-28, PB-38, PB-43, PB-47, PB-50, PB-53), **10 belong to other parts of the team** with evidence in the repository (PB-13, PB-15, PB-21, PB-23, PB-24, PB-26, PB-27, PB-32, PB-51, PB-55) and **1 pending** (PB-58). Most remaining gaps are confirmations that only UPM or the sponsor can give (circuit mapping, units of W and I, tariff, occupied hours, real events).
+Of 58 items: **36 covered**, **10 partly covered** with a stated gap (PB-06, PB-12, PB-14, PB-16, PB-22, PB-38, PB-43, PB-47, PB-50, PB-53), **11 belong to other parts of the team** with evidence in the repository (PB-13, PB-15, PB-21, PB-23, PB-24, PB-26, PB-27, PB-28, PB-32, PB-51, PB-55) and **1 pending** (PB-58). Most remaining gaps are confirmations that only UPM or the sponsor can give (circuit mapping, units of W and I, tariff, occupied hours, real events).
