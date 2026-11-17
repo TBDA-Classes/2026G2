@@ -1,5 +1,8 @@
 # Deliverables Index and Reproducibility
 
+> **Status note (17 Nov 2026).** The validated main dashboard is now the **Dash app** (`Sprint4_Task3_UX_Dash/`). Energy Watch is the earlier prototype. See `Final_Evidence/documents/11_Deliverables_Index_Dash.md` for the current deliverables index and `Final_Evidence/documents/10_Evidence_Map.md` for the official numbers.
+
+
 **Backlog items:** PB-57 (reproducible analysis, code, documentation, data dictionary), backlog §8 (delivery and handover package)
 **Version:** 12 Nov 2026
 

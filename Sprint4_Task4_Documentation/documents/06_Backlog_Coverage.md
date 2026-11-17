@@ -1,5 +1,8 @@
 # Backlog Coverage and Traceability — Product Backlog (Refined, 8 Oct 2026)
 
+> **Status note (17 Nov 2026).** The validated main dashboard is now the **Dash app** (`Sprint4_Task3_UX_Dash/`). Energy Watch is the earlier prototype. See `Final_Evidence/documents/11_Deliverables_Index_Dash.md` for the current deliverables index and `Final_Evidence/documents/10_Evidence_Map.md` for the official numbers.
+
+
 **Version:** 12 Nov 2026 · **Source:** `TBDA_Group2_CeDInt_Refined_October_8.pdf`
 **Status legend:** **Covered** = delivered and evidenced · **Partly** = delivered with a stated gap · **Team** = belongs to another part of the project, evidence is in the repository · **Pending** = still to do before 30 Nov 2026
 
