@@ -11,6 +11,7 @@ Evidence prepared for the final presentation (30 Nov) and the Moodle hand-over (
 | `documents/09b_ASHRAE14_Traffic_Light.html` | Colour-coded table (green / yellow / red) by building, zone and circuit |
 | `documents/10_Evidence_Map.md` | Every claim of the presentation → proving file; numbers to retire |
 | `documents/11_Deliverables_Index_Dash.md` | Deliverables index and demo plan with Dash as main dashboard |
+| `documents/12_Data_Cleaning_Justification.md` | Data cleaning: every decision with reason, evidence, rejected alternative and weakness; results in numbers; open points; likely questions (Émile) |
 | `documents/12a_Cleaning_Checks.md` | Data cleaning checks: impact of the 5 sensors flagged by the cleaning on test results and model selection; counter-direct share vs error and coverage (Émile) |
 | `scripts/ashrae14_by_level.py` | Computes `analysis/ashrae14_by_level_{test,validation}.csv` |
 | `scripts/ashrae14_traffic_light.py` | Computes `analysis/ashrae14_traffic_light_test.csv` |
