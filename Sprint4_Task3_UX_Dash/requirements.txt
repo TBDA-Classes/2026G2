@@ -8,4 +8,4 @@ numpy>=1.26
 scikit-learn==1.9.1
 joblib>=1.4
 holidays>=0.50   # only for update_data.py (public holidays of Madrid)
-pyarrow>=15   # optional: without it the team's minipq.py reader is used
+pyarrow>=15   # reads/writes the hourly dataset (update_data.py needs it; reading falls back to the team's minipq.py)

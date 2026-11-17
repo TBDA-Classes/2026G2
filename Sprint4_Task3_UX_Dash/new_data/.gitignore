@@ -1,0 +1,4 @@
+# New data exports are local files: do not commit them
+*
+!PUT_NEW_DATA_HERE.txt
+!.gitignore

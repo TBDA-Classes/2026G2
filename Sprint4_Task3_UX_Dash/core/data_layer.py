@@ -2,7 +2,7 @@
 
 Only the final model (Blend v1.3) is read. Two sources of forecasts:
   - "stored":     the frozen forecasts saved in Task 6 (Task6_rev0_03-11/results/predictions)
-  - "recomputed": forecasts produced by this app from the frozen model (model_engine.py, "Model" page)
+  - "recomputed": forecasts produced by this app from the frozen model (engines/model_engine.py, "The model" page)
 """
 from __future__ import annotations
 
@@ -153,6 +153,141 @@ def update_data(source: str, timeout_s: int = 3600) -> dict:
     info = json.loads(proc.stdout.strip().splitlines()[-1])
     live = run_live(timeout_s)
     return {"ok": live["ok"], "data": info, "live": live, "error": live.get("error")}
+
+
+# ----------------------------------------------------------------------------------------------------------
+# New data inbox (Live forecast page): the user drops the newest export in INBOX_DIR
+# ----------------------------------------------------------------------------------------------------------
+INBOX_EXT = (".zip", ".csv", ".xz", ".gz")
+REQUIRED_COLS = {"zone", "sensor", "Timestamp", "energy_Wh", "energy_source"}
+
+
+def ensure_inbox():
+    S.INBOX_DIR.mkdir(parents=True, exist_ok=True)
+    readme = S.INBOX_DIR / "PUT_NEW_DATA_HERE.txt"
+    if not readme.exists():
+        readme.write_text(
+            "Put the newest export of the cleaned Storey 1 data in this folder, then open the dashboard,\n"
+            "go to Live forecast > Update the forecast and press 'Update data & compute forecast'.\n\n"
+            "Accepted files:\n"
+            "  - the zip (or folder) of the cleaned data with NE/ NW/ SE/ SW/ and\n"
+            "    clean_Storey1_<zone>_CLEAN_DATA.csv in each (like 'CLEAN DATA all zones.zip')\n"
+            "  - one CSV for all zones with the columns zone, sensor, Timestamp, energy_Wh, energy_source\n"
+            "The export must contain the whole history (from 19 Aug 2025) up to the newest day, not only new days.\n")
+    return S.INBOX_DIR
+
+
+def check_data_file(path) -> tuple[bool, str]:
+    """Quick format check of a file or folder in the inbox (does not read the whole file)."""
+    import zipfile
+    from pathlib import Path
+    p = Path(path)
+    try:
+        if p.is_dir():
+            n = len(list(p.rglob("clean_Storey1_*_CLEAN_DATA.csv")))
+            return (n > 0, f"folder with {n} zone file(s)" if n else "no clean_Storey1_<zone>_CLEAN_DATA.csv inside")
+        if p.suffix.lower() == ".zip":
+            with zipfile.ZipFile(p) as z:
+                names = [Path(n).name for n in z.namelist()]
+            zones = sorted({n.split("_")[2] for n in names
+                            if n.startswith("clean_Storey1_") and n.endswith("_CLEAN_DATA.csv")})
+            if not zones:
+                return False, "zip without clean_Storey1_<zone>_CLEAN_DATA.csv files"
+            miss = [z for z in S.ZONES if z not in zones]
+            return True, "zones " + ", ".join(zones) + (f" (missing {', '.join(miss)})" if miss else "")
+        head = pd.read_csv(p, nrows=5, compression="infer")
+        miss = REQUIRED_COLS - set(head.columns)
+        return (not miss, "all-zones CSV" if not miss else "columns missing: " + ", ".join(sorted(miss)))
+    except Exception as e:  # noqa: BLE001
+        return False, f"cannot be read ({type(e).__name__})"
+
+
+def inbox_files() -> list[dict]:
+    """Files and folders in the inbox, newest first, with their format check."""
+    import datetime as _dt
+    d = ensure_inbox()
+    out = []
+    for p in d.iterdir():
+        if p.name.startswith(".") or p.name == "PUT_NEW_DATA_HERE.txt":
+            continue
+        if p.is_file() and not p.name.lower().endswith(INBOX_EXT):
+            continue
+        ok, msg = check_data_file(p)
+        size = p.stat().st_size if p.is_file() else sum(f.stat().st_size for f in p.rglob("*") if f.is_file())
+        out.append({"name": p.name, "path": str(p), "ok": ok, "check": msg, "mb": size / 1e6,
+                    "modified": _dt.datetime.fromtimestamp(p.stat().st_mtime)})
+    return sorted(out, key=lambda r: r["modified"], reverse=True)
+
+
+def save_upload(filename: str, contents: str) -> str:
+    """Save a file uploaded in the browser (dcc.Upload, base64) into the inbox; returns its path."""
+    import base64
+    from pathlib import Path
+    name = Path(filename).name
+    if not name.lower().endswith(INBOX_EXT):
+        raise ValueError("only .zip or .csv files are accepted")
+    data = base64.b64decode(contents.split(",", 1)[1])
+    dest = ensure_inbox() / name
+    dest.write_bytes(data)
+    return str(dest)
+
+
+def open_inbox() -> bool:
+    """Open the inbox folder in Finder / Explorer (the app runs on the user's own computer)."""
+    d = str(ensure_inbox())
+    try:
+        if sys.platform == "darwin":
+            subprocess.Popen(["open", d])
+        elif sys.platform.startswith("win"):
+            subprocess.Popen(["explorer", d])
+        else:
+            subprocess.Popen(["xdg-open", d])
+        return True
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def dataset_info() -> dict:
+    """Which hourly dataset the app uses now, and its last measured hour."""
+    p = S.current_derived()
+    meta = p.with_name(p.stem + "_META.json")
+    info = {"updated": p.parent == S.LIVE_DATA_DIR, "file": p.name, "last": None, "source": None}
+    if meta.exists():
+        m = json.loads(meta.read_text())
+        info["source"] = m.get("source") or m.get("source_file")
+        if m.get("last_measured_hour_utc"):
+            info["last"] = pd.Timestamp(m["last_measured_hour_utc"]).tz_convert(S.TZ_LOCAL)
+    if info["last"] is None:
+        info["last"] = _last_measured(str(p), p.stat().st_mtime)
+    return info
+
+
+@lru_cache(maxsize=4)
+def _last_measured(path: str, stamp: float):
+    """Last hour with a valid energy reading in an hourly dataset (Madrid time)."""
+    try:
+        try:
+            import pyarrow  # noqa: F401
+            h = pd.read_parquet(path, columns=["hour_utc", "energy_Wh"])
+        except ImportError:
+            sys.path.insert(0, str(S.TASK6))
+            import minipq
+            h = minipq.read_parquet(path)[["hour_utc", "energy_Wh"]]
+        t = pd.to_datetime(h.loc[h["energy_Wh"].notna(), "hour_utc"], utc=True).max()
+        return t.tz_convert(S.TZ_LOCAL)
+    except Exception:  # noqa: BLE001
+        return live_meta()["last_measured_hour_local"] if has_live() else None
+
+
+def reset_dataset() -> dict:
+    """Go back to the frozen dataset v1.2: the updated one is renamed (kept as a backup), then the forecast is redone."""
+    p = S.LIVE_DATA_DIR / "Storey1_hourly_v1.2.parquet"
+    if p.exists():
+        stamp = pd.Timestamp.now().strftime("%Y%m%d-%H%M%S")
+        for f in (p, p.with_name(p.stem + "_META.json")):
+            if f.exists():
+                f.rename(f.with_name(f.name + f".backup-{stamp}"))
+    return run_live()
 
 
 def check_repository() -> list[str]:

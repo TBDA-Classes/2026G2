@@ -77,9 +77,11 @@ INFO = {
     "Weekly rhythm": "Heatmap of weekdays × hours (Madrid time). 'Average use': mean energy per hour; darker = more. "
                      "'Extra in spikes': total energy above the forecast in that weekday and hour — repeated dark cells "
                      "point to a schedule problem.",
-    "Base load vs average use": "For each circuit: black diamond = base load (10th percentile of hourly use, the level "
-                                "it never goes below); blue dot = average use. Diamond close to the dot = almost "
-                                "constant load. Log scale so large and small circuits fit; data 19 Aug – 13 Oct 2025.",
+    "Base load vs average use": "One bar per circuit; its length is the circuit's average energy per hour. The dark "
+                                "part is the base load (the 10th percentile of hourly use: the level the circuit never "
+                                "goes below, i.e. what is always on); the light part is what varies with use. The label "
+                                "gives the average and the share that is always on: a high share means the circuit "
+                                "barely switches off, so it is a candidate for savings. Data 19 Aug – 13 Oct 2025.",
     "What if the base load were lower?": "Move the slider to see the yearly energy, € and CO₂ saved if the base load of "
                                          "the selection were cut by that share, priced at the average of standard and "
                                          "off-peak prices.",
@@ -115,6 +117,12 @@ INFO = {
                                        "interval was calibrated there); the test week is the honest check.",
     "Prediction interval check": "The 90% interval (Chronos-Bolt 10–90% band calibrated per circuit on the validation week) by horizon on the test week: share of measured hours inside, target "
                                  "and mean width. Experimental until validated by Pole 1.",
+    # ---------------------------------------------------------------- Live forecast update
+    "Update the forecast with new data": "How to bring the dashboard up to date: export the newest cleaned data, "
+                                         "put the file in the new-data folder (or drag it into the box), check it "
+                                         "and press 'Update data & compute forecast'. The dashboard rebuilds the "
+                                         "hourly dataset with the team's v1.2 cleaning rules and runs the frozen "
+                                         "Blend v1.3 from the new last measurement. Nothing is retrained.",
     # ---------------------------------------------------------------- Detection test
     "Detection rate by size and duration": "Share of injected anomalies the dashboard found, all 16 circuits and all "
                                            "start hours pooled. Rows = size of the injected change (% of the circuit's "

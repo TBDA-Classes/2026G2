@@ -284,3 +284,15 @@ h5, h6 { font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
 .kpi-fill .kpi-card .card-body { display: flex; flex-direction: column; justify-content: center; }
 .section-card { margin-bottom: 1.25rem !important; }
 .g-3 { --bs-gutter-y: 1.25rem; }
+
+/* ---- Live forecast: step-by-step update guide ---- */
+.dataset-line{background:#f1f5f9;border-radius:10px;padding:.55rem .8rem;font-size:.85rem;margin-bottom:1rem;color:#334155}
+.step-row{display:flex;gap:.9rem;padding:.75rem 0;border-top:1px solid #eef1f5}
+.step-row:first-of-type{border-top:none}
+.step-num{flex:0 0 30px;height:30px;border-radius:50%;background:#1d4ed8;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.step-body{flex:1;min-width:0}
+.step-title{font-weight:650;margin-bottom:.35rem;color:#0f172a}
+.upload-box{border:2px dashed #94a3b8;border-radius:12px;padding:1rem;text-align:center;color:#475569;cursor:pointer;background:#f8fafc}
+.upload-box:hover{border-color:#1d4ed8;color:#1d4ed8}
+.file-list .form-check{padding:.35rem .5rem .35rem 2rem;border-radius:8px}
+.file-list .form-check:hover{background:#f1f5f9}

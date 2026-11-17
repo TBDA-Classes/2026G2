@@ -595,16 +595,95 @@ def _download(_, rows, hz, split):
 # ==========================================================================================================
 # Page — Live forecast: latest measured data + forecast ahead (computed on this computer by live_engine.py)
 # ==========================================================================================================
+def _step(n: int, title: str, *body):
+    return html.Div([html.Div(str(n), className="step-num"),
+                     html.Div([html.Div(title, className="step-title"), *body], className="step-body")],
+                    className="step-row")
+
+
+def _dataset_line():
+    info = D.dataset_info()
+    last = f"{info['last']:%a %d %b %Y, %H:%M}" if info["last"] is not None else "unknown"
+    src = "an updated dataset" + (f" built from {info['source']}" if info["source"] else "") if info["updated"] \
+        else "the frozen project dataset v1.2"
+    return html.Div([html.I(className="bi bi-database me-2"), "Data in use: ", html.B(src),
+                     " · last measurement ", html.B(last), " (Madrid)."], className="dataset-line")
+
+
 def live_setup_box(extra=None):
-    return section("Compute the live forecast", "Runs the frozen Blend v1.3 on the latest data", html.Div([
-        html.P(["The live forecast needs Chronos-Bolt, one of the three parts of the final model, so it is computed "
-                "on this computer (the first run downloads the Chronos-Bolt weights, about 250 MB, and takes a few "
-                "minutes; later runs take less than a minute). Requirements: Python 3.11 or newer and"],
-               className="small mb-1"),
-        html.Pre("pip install -r Sprint4_Task3_UX_Dash/requirements-live.txt", className="code-box"),
-        dbc.Button([html.I(className="bi bi-arrow-repeat me-1"), "Compute / update live forecast"], id="l-run",
-                   color="primary", className="mt-2"),
-        dcc.Loading(html.Div(id="l-run-out", children=extra, className="mt-3"), type="dot"),
+    """Step-by-step guide to update the live forecast with new data (for the dashboard's users)."""
+    inbox = D.ensure_inbox()
+    return section("Update the forecast with new data",
+                   "Five steps, about 5 minutes. The model is never retrained: only the data grow.", html.Div([
+        _dataset_line(),
+        _step(1, "Get the newest data export", html.Div([
+            html.P(["Export the cleaned Storey 1 data with the team's cleaning step (the same export used for the "
+                    "project). Two formats are accepted:"], className="mb-1"),
+            html.Ul([
+                html.Li(["a ", html.B("zip"), " (or a folder) with one sub-folder per zone, ", html.Code("NE/ NW/ SE/ SW/"),
+                         ", each holding ", html.Code("clean_Storey1_<zone>_CLEAN_DATA.csv"), " — like ",
+                         html.Code("CLEAN DATA all zones.zip"), ";"]),
+                html.Li(["or ", html.B("one CSV"), " for all zones with the columns ", html.Code("zone"), ", ",
+                         html.Code("sensor"), ", ", html.Code("Timestamp"), " (UTC), ", html.Code("energy_Wh"), ", ",
+                         html.Code("energy_source"), " (", html.Code("W"), " and ", html.Code("I"), " optional)."]),
+            ], className="mb-1"),
+            html.P([html.B("Important: "), "the export must contain the whole history (from 19 Aug 2025) up to the "
+                    "newest day, not only the new days. The model needs the past weeks to forecast."],
+                   className="mb-0"),
+        ], className="small")),
+        _step(2, "Put the file in the new-data folder", html.Div([
+            html.P("Copy the file into this folder on this computer:", className="mb-1"),
+            html.Pre(str(inbox), className="code-box mb-2"),
+            html.Div([dbc.Button([html.I(className="bi bi-folder2-open me-1"), "Open the folder"], id="l-open",
+                                 color="secondary", outline=True, size="sm"),
+                      html.Span(id="l-open-out", className="small text-secondary ms-2")], className="mb-2"),
+            html.P("Or drag the file here (it is copied into the same folder):", className="mb-1"),
+            dcc.Upload(id="l-upload", children=html.Div([html.I(className="bi bi-cloud-arrow-up me-2"),
+                                                         "Drop the zip or CSV here, or ", html.A("choose it")]),
+                       className="upload-box", multiple=False, max_size=400 * 1024 * 1024),
+        ], className="small")),
+        _step(3, "Check that the dashboard sees the file", html.Div([
+            html.P(["Press ", html.B("Refresh"), " and choose the file. A green tick means the format is right."],
+                   className="mb-1"),
+            dbc.Button([html.I(className="bi bi-arrow-clockwise me-1"), "Refresh"], id="l-refresh", size="sm",
+                       color="secondary", outline=True, className="mb-2"),
+            html.Div(id="l-files-msg"),
+            dbc.RadioItems(id="l-file", options=[], value=None, className="file-list"),
+        ], className="small")),
+        _step(4, "Update the data and compute the forecast", html.Div([
+            html.P(["Press the button and wait. The dashboard rebuilds the hourly dataset with the team's cleaning "
+                    "rules (v1.2), then runs the frozen Blend v1.3 from the new last measurement. It takes 1–5 "
+                    "minutes; the first time it also downloads the Chronos-Bolt weights (about 250 MB)."],
+                   className="mb-2"),
+            dbc.Button([html.I(className="bi bi-lightning-charge-fill me-1"), "Update data & compute forecast"],
+                       id="l-update", color="primary"),
+            dcc.Loading(html.Div(id="l-update-out", className="mt-3"), type="dot"),
+        ], className="small")),
+        _step(5, "Read the new forecast", html.Div([
+            html.P(["Reload the page. The ", html.I("now"), " line moves to the new last measurement; the charts, the "
+                    "zone tiles, the table of upcoming hours, the Anomalies and the Energy & costs pages (period "
+                    "\"Latest data\" in Settings) all use the new data."], className="mb-0"),
+        ], className="small")),
+        html.Hr(),
+        html.Div([
+            html.Div([html.B("No new data? "), "Recompute the forecast with the data already in the dashboard."],
+                     className="small mb-2"),
+            dbc.Button([html.I(className="bi bi-arrow-repeat me-1"), "Compute forecast with current data"],
+                       id="l-run", color="secondary", outline=True, size="sm"),
+            dbc.Button([html.I(className="bi bi-arrow-counterclockwise me-1"), "Go back to the project dataset"],
+                       id="l-reset", color="secondary", outline=True, size="sm", className="ms-2")
+            if D.dataset_info()["updated"] else html.Span(id="l-reset", style={"display": "none"}),
+            dcc.Loading(html.Div(id="l-run-out", children=extra, className="mt-3"), type="dot"),
+        ]),
+        html.Details([html.Summary("Something went wrong?", className="small fw-semibold"), html.Ul([
+            html.Li("Red cross on the file: it is not one of the two formats above (wrong zip, or a CSV without the "
+                    "required columns)."),
+            html.Li("\"Packages missing\": the live forecast needs the packages of requirements-live.txt. Start the "
+                    "dashboard with Start_dashboard.command / .bat, which installs them, or run: pip install -r "
+                    "requirements-live.txt (Python 3.11+)."),
+            html.Li("No internet the first time: the Chronos-Bolt weights cannot be downloaded; connect once and retry."),
+            html.Li("The last measurement did not move: the export does not contain newer days than the data in use."),
+        ], className="small mt-2 mb-0")], className="mt-3"),
     ]))
 
 
@@ -614,7 +693,8 @@ def page_live():
                           html.P("The latest measured data and the model's forecast for the next hours.",
                                  className="lead-text")], className="page-head"),
                 dbc.Alert([html.I(className="bi bi-hourglass-split me-2"),
-                           "No live forecast on this computer yet. Click the button below to compute it."],
+                           "No live forecast on this computer yet. Follow the steps below: with new data (steps 1–5), "
+                           "or press \"Compute forecast with current data\" to start from the data already here."],
                           color="warning"),
                 live_setup_box()]
     m = D.live_meta()
@@ -1112,18 +1192,12 @@ def page_model():
                  ", ".join(s for s, v in has.items() if v) or "none yet (the app shows the stored Task 6 forecasts)."],
                 className="small text-secondary")), type="dot"),
         ])),
-        section("Add new measurements", "The model stays frozen; the data can grow. Point to the newest export of "
-                "the cleaned data and the app rebuilds the hourly dataset with the team's v1.2 rules, then forecasts "
-                "from the new last measurement.", html.Div([
-                    html.P(["Accepted: the zip or folder of the cleaned data (", html.Code("NE/ NW/ SE/ SW/"),
-                            " with ", html.Code("clean_Storey1_<zone>_CLEAN_DATA.csv"), ", like ",
-                            html.Code("CLEAN DATA all zones.zip"), "), or one CSV for all zones. Paths are relative to "
-                            "the repository folder."], className="small"),
-                    dbc.InputGroup([dbc.Input(id="u-path", placeholder="CLEAN DATA all zones.zip", type="text"),
-                                    dbc.Button([html.I(className="bi bi-cloud-arrow-up me-1"), "Update data & forecast"],
-                                               id="u-run", color="primary")], className="mb-2"),
-                    dcc.Loading(html.Div(id="u-out", children=html.Div(
-                        f"Dataset in use: {S.current_derived().relative_to(S.REPO)}", className="hint")), type="dot")])),
+        section("Add new measurements", "The model stays frozen; the data can grow.", html.Div([
+            html.P(["New data are added on the ", html.A("Live forecast", href="/live"), " page, section ",
+                    html.B("Update the forecast with new data"), ": put the newest export in the new-data folder, "
+                    "check it and press one button. The dashboard rebuilds the hourly dataset with the team's v1.2 "
+                    "rules and forecasts from the new last measurement."], className="small mb-1"),
+            _dataset_line()])),
         section("Data and evaluation", "", html.Ul([
             html.Li("Data: hourly energy of 16 circuits, CeDInt Storey 1, dataset v1.2 (gap rule + energy/power check)."),
             html.Li("Training 19 Aug – 21 Sep 2025 · validation 22 – 28 Sep · test 29 Sep – 5 Oct (UTC)."),
@@ -1601,8 +1675,9 @@ def page_costs():
                                labelCheckedClassName="active"),
                 dcc.Graph(id="w-heat", config={"displayModeBar": False})),
         dbc.Row([
-            dbc.Col(section("Base load vs average use", "Base load = the 10th percentile of hourly use: the floor the "
-                            "circuit never goes below (19 Aug – 13 Oct 2025)",
+            dbc.Col(section("Base load vs average use", "How much of each circuit's energy is always on. Dark = base "
+                            "load (the level it never goes below), light = the part that changes with use; together "
+                            "they make the average (19 Aug – 13 Oct 2025)",
                             dcc.Graph(id="w-base", config={"displayModeBar": False})), lg=7),
             dbc.Col(section("What if the base load were lower?", "Move the slider: estimated yearly savings if the base "
                             "load of this selection were cut, priced at the off-peak/standard average",
@@ -1690,22 +1765,25 @@ def _costs(cfg, zones, loads, rhythm, cut):
     fh.update_yaxes(autorange="reversed", showgrid=False)
     fh.update_xaxes(dtick=1, title_text="Hour of day", showgrid=False)
     fh.update_layout(margin=dict(l=50, r=16, t=8, b=40))
-    # base load dumbbell
+    # base load: one bar per circuit = average use, split into "always on" (base load) and "varies with use"
     b = in_scope(AN.base_load(), zones, loads).sort_values("mean_wh")
-    fb = fig_base(max(280, 26 * len(b) + 60), hovermode="closest")
-    for _, r in b.iterrows():
-        fb.add_shape(type="line", x0=r["base_wh"], x1=r["mean_wh"], y0=r["circuit"], y1=r["circuit"],
-                     line=dict(color="#cbd5e1", width=3), layer="below")
-    fb.add_trace(go.Scatter(x=b["mean_wh"], y=b["circuit"], mode="markers", name="Average use",
-                            marker=dict(size=11, color=C["forecast"]),
-                            hovertemplate="%{y}<br>average %{x:,.0f} Wh/h<extra></extra>"))
-    fb.add_trace(go.Scatter(x=b["base_wh"], y=b["circuit"], mode="markers", name="Base load",
-                            marker=dict(size=11, color="#0f172a", symbol="diamond"),
-                            customdata=np.c_[b["base_share"] * 100, b["night_weekend_share"] * 100],
-                            hovertemplate="%{y}<br>base %{x:,.0f} Wh/h = %{customdata[0]:.0f}% of the average<br>"
-                                          "%{customdata[1]:.0f}% of its energy at night/weekends<extra></extra>"))
-    fb.update_xaxes(type="log", title_text="Wh per hour (log scale)", showgrid=True, gridcolor="#eef1f5")
-    fb.update_layout(margin=dict(l=150, r=16, t=30, b=40))
+    b = b.assign(var_wh=(b["mean_wh"] - b["base_wh"]).clip(lower=0),
+                 label=[f"{m:,.0f} Wh/h · {sh * 100:.0f}% always on" for m, sh in zip(b["mean_wh"], b["base_share"])])
+    fb = fig_base(max(300, 30 * len(b) + 90), hovermode="closest", barmode="stack", bargap=0.3)
+    cd = np.c_[b["base_wh"], b["mean_wh"], b["base_share"] * 100, b["night_weekend_share"] * 100]
+    hov = ("%{y}<br>average use %{customdata[1]:,.0f} Wh/h<br>always on (base load) %{customdata[0]:,.0f} Wh/h = "
+           "%{customdata[2]:.0f}%<br>%{customdata[3]:.0f}% of its energy at night/weekends<extra></extra>")
+    fb.add_trace(go.Bar(y=b["circuit"], x=b["base_wh"], orientation="h", name="Always on (base load)",
+                        marker=dict(color="#1e3a8a", line=dict(color="white", width=1)), customdata=cd,
+                        hovertemplate=hov))
+    fb.add_trace(go.Bar(y=b["circuit"], x=b["var_wh"], orientation="h", name="Varies with use",
+                        marker=dict(color="#93c5fd", line=dict(color="white", width=1), cornerradius=4),
+                        text=b["label"], textposition="outside", cliponaxis=False,
+                        textfont=dict(size=11, color="#334155"), customdata=cd, hovertemplate=hov))
+    fb.update_xaxes(title_text="Average energy per hour (Wh) · bar length = average use", showgrid=True,
+                    gridcolor="#eef1f5", range=[0, float(b["mean_wh"].max()) * 1.45 if len(b) else 1])
+    fb.update_yaxes(showgrid=False)
+    fb.update_layout(margin=dict(l=150, r=16, t=30, b=44))
     # what-if
     base_total = b["base_wh"].sum()
     avg_off = (cfg["p2"] + cfg["p3"]) / 2
@@ -1884,13 +1962,48 @@ def _p_band(split):
                       hover=True, size="sm", className="mb-1"), html.Div(note, className="hint")]
 
 
-@app.callback(Output("u-out", "children"), Input("u-run", "n_clicks"), State("u-path", "value"),
+@app.callback(Output("l-file", "options"), Output("l-file", "value"), Output("l-files-msg", "children"),
+              Input("l-upload", "contents"), Input("l-refresh", "n_clicks"), State("l-upload", "filename"),
+              State("l-file", "value"))
+def _inbox(contents, _, filename, current):
+    msg = []
+    if ctx.triggered_id == "l-upload" and contents:
+        try:
+            D.save_upload(filename, contents)
+            msg.append(dbc.Alert([html.I(className="bi bi-check-circle-fill me-2"), f"{filename} copied into the "
+                                  "new-data folder."], color="success", className="small py-2"))
+        except Exception as e:  # noqa: BLE001
+            msg.append(dbc.Alert(f"{filename}: {e}", color="danger", className="small py-2"))
+    files = D.inbox_files()
+    if not files:
+        msg.append(html.Div("No file in the new-data folder yet.", className="small text-secondary"))
+        return [], None, msg
+    opts = [{"label": html.Span([html.I(className="bi " + ("bi-check-circle-fill text-success" if f["ok"]
+                                                            else "bi-x-circle-fill text-danger") + " me-2"),
+                                 html.B(f["name"]), html.Span(f" · {f['mb']:,.1f} MB · {f['modified']:%d %b %Y %H:%M}"
+                                                              f" · {f['check']}", className="text-secondary")]),
+             "value": f["path"], "disabled": not f["ok"]} for f in files]
+    valid = [f["path"] for f in files if f["ok"]]
+    if ctx.triggered_id == "l-upload" and contents and valid:
+        value = next((f["path"] for f in files if f["name"] == filename and f["ok"]), valid[0])
+    else:
+        value = current if current in valid else (valid[0] if valid else None)
+    return opts, value, msg
+
+
+@app.callback(Output("l-open-out", "children"), Input("l-open", "n_clicks"), prevent_initial_call=True)
+def _open_inbox(_):
+    return "Folder opened." if D.open_inbox() else "Open it by hand: the path is written above."
+
+
+@app.callback(Output("l-update-out", "children"), Input("l-update", "n_clicks"), State("l-file", "value"),
               prevent_initial_call=True)
 def _update_data(_, path):
     if not path:
-        return dbc.Alert("Write the path of the new export first.", color="warning", className="small")
+        return dbc.Alert("Choose a file with a green tick in step 3 first (put it in the folder, then press Refresh).",
+                         color="warning", className="small")
     try:
-        r = D.update_data(path.strip().strip('"'))
+        r = D.update_data(path)
     except Exception as e:  # noqa: BLE001
         r = {"ok": False, "error": f"{type(e).__name__}: {e}"}
     if not r["ok"]:
@@ -1898,8 +2011,22 @@ def _update_data(_, path):
                          color="danger")
     last = pd.Timestamp(r["data"]["last_measured_hour_utc"]).tz_convert(S.TZ_LOCAL)
     return dbc.Alert([html.I(className="bi bi-check-circle-fill me-2"),
-                      f"Dataset rebuilt ({r['data']['rows']:,} hourly rows, last measurement {last:%a %d %b %Y %H:%M}) "
-                      f"and live forecast refreshed. ", html.A("Reload the app", href="/live"), " to see it."],
+                      f"Done: dataset rebuilt ({r['data']['rows']:,} hourly rows, last measurement "
+                      f"{last:%a %d %b %Y %H:%M}) and forecast computed. ", html.A("Reload the page", href="/live"),
+                      " to see it."], color="success")
+
+
+@app.callback(Output("l-run-out", "children", allow_duplicate=True), Input("l-reset", "n_clicks"),
+              prevent_initial_call=True)
+def _reset(n):
+    if not n:
+        return no_update
+    r = D.reset_dataset()
+    if not r["ok"]:
+        return dbc.Alert([html.B("Back to the project dataset, but the forecast could not be computed. "),
+                          html.Pre(r["error"], className="small mt-2 mb-0")], color="danger")
+    return dbc.Alert([html.I(className="bi bi-check-circle-fill me-2"), "Back to the project dataset v1.2 (the "
+                      "updated one is kept as a backup in data_live). ", html.A("Reload the page", href="/live"), "."],
                      color="success")
 
 

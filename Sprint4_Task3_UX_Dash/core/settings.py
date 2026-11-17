@@ -49,6 +49,10 @@ CACHE_DIR = OUT_DIR / "cache"
 # --- New measurements (scalability): update_data.py writes the rebuilt hourly dataset here ------------------
 LIVE_DATA_DIR = OUT_DIR / "data_live"
 
+# --- Folder where the user puts the newest data export (Live forecast page, "Update the forecast") ----------
+#     repository: Sprint4_Task3_UX_Dash/new_data/      minimal package: <folder>/new_data/
+INBOX_DIR = (REPO / "new_data") if OUT_DIR != APP_DIR else (APP_DIR / "new_data")
+
 # --- Detection test (engines/injection_test.py) ---------------------------------------------------------
 VAL_DIR = OUT_DIR / "analysis"          # same folder and file names as the Energy Watch test, + suffix _dash
 

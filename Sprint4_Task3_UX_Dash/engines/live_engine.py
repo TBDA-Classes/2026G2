@@ -14,7 +14,7 @@ Nothing is fitted or tuned. Steps per horizon (same as Task6 .../run_task6_v13_p
   2. the frozen GBM v1.3 and ChronosGBM v1.3 (.joblib) predict from the same inputs
   3. blend with the frozen weights (models/blend_frozen_config_v1.3.json)
 
-Usage (from anywhere; the dashboard calls it with the "Update live forecast" button):
+Usage (from anywhere; the dashboard calls it from the Live forecast page):
     python live_engine.py OUTPUT.csv            live forecast (downloads Chronos-Bolt tiny + base on first use)
     python live_engine.py --check               self-test without torch: rebuilds the TEST week with the frozen
                                                 Chronos cache and compares it with the stored Task 6 forecasts

@@ -54,8 +54,8 @@ Then open **http://127.0.0.1:8050** in a browser. Stop the app with `Ctrl+C`.
 - **Python 3.11 or newer** is needed for scikit-learn 1.9.1. This is the version the frozen GBM files were saved
   with, and only the **Run model** and **live forecast** buttons need it. The other pages work without it.
 - **For the live forecast** also install Chronos-Bolt:
-  `pip install -r Sprint4_Task3_UX_Dash/requirements-live.txt`. Then press **Compute / update live forecast** on the
-  Live forecast page. The first run downloads the Chronos-Bolt weights (tiny + base, about 250 MB).
+  `pip install -r Sprint4_Task3_UX_Dash/requirements-live.txt`. Then press **Compute forecast with current data** on
+  the Live forecast page. The first run downloads the Chronos-Bolt weights (tiny + base, about 250 MB).
 - The folder `Sprint4_Task3_UX_Dash` must be **inside** `2026G2`. If it is not, every page shows which files are
   missing, and so does the terminal at start-up. If the app folder is moved out of the repository, set
   `TBDA_REPO=/path/to/2026G2`.
@@ -84,13 +84,13 @@ Design choices that follow from these needs:
 
 | Page | Content |
 |---|---|
-| **Overview** | Purpose, headline error per horizon, the three users and the pages they need, how to read a forecast |
-| **Live forecast** | The latest measured data (up to Mon 13 Oct 2025, 16:00 Madrid) and the forecast ahead: next hour (+1 h), the next six hours (+6 h), the rest of today (day-ahead). Same controls as the replay. Shows 4 indicators (last measured hour, upcoming energy, highest upcoming hour, error since 6 Oct), a chart with a "now" line and a table of the upcoming hours |
+| **Overview** | Forecast-health gauge (share of hours inside the interval), 4 KPIs (energy, cost, extra energy in spikes, drops), energy per day by tariff period, the 3 biggest anomalies, official error per horizon, the three users and how to read a forecast |
+| **Live forecast** | The latest measured data (up to Mon 13 Oct 2025, 16:00 Madrid) and the forecast ahead: next hour (+1 h), the next six hours (+6 h), the rest of today (day-ahead). Same controls as the replay. Shows 4 indicators (last measured hour, upcoming energy, highest upcoming hour, error since 6 Oct), a chart with a "now" line, zone tiles, a table of the upcoming hours and the step-by-step **Update the forecast with new data** section (section 3d) |
 | **Anomalies** | Hours where the measured energy left the forecast interval: ▲ spikes (extra energy and cost) and ▼ drops (possible faults or outages), graded Critical / Moderate / Minor. A deviation map (every circuit × every hour, coloured by how far it is from the forecast), a sortable list with CSV, and a side panel per anomaly: the story, kWh and € by tariff period, how often it happened on that circuit, a chart of the day before and after, where to start looking, Previous/Next and Acknowledge. A "Data quality" tab shows why hours were excluded and how many hours each circuit has |
-| **Energy & costs** | Energy, estimated cost by tariff period (peak / standard / off-peak), extra cost of the spikes and the projected monthly bill; a treemap of where the energy goes (click to zoom into a zone); cost per day by tariff period; the weekly rhythm (weekday × hour); base load vs average use per circuit; and a what-if slider: savings per year if the base load were cut |
+| **Energy & costs** | Energy, estimated cost by tariff period (peak / standard / off-peak), extra cost of the spikes and the projected monthly bill; a treemap of where the energy goes (a click on a zone or circuit focuses the whole page and updates the filters); cost per day by tariff period; the weekly rhythm (weekday × hour); base load vs average use per circuit (stacked bars: always on / varies with use); and a what-if slider with yearly savings by circuit |
 | **Settings** (top bar) | Period (evaluation weeks or latest data), forecast-interval level (80 / 90 / 95 %), minimum deviation to flag, the three tariff prices and the CO₂ factor. Every page updates at once |
 | **Forecast replay** | Also has an "Hour-by-hour playback": play/pause, 1× / 3× / 8× speed, a time slider, the forecast interval, spikes and drops flagged as time passes and running totals. Controls: zone, horizon (+1 h / +6 h / day-ahead), optional consumption type, period (test / validation week), day, interval switch. Outputs: 4 indicators (forecast energy, peak hour, error, bias), measured-vs-forecast chart, energy by circuit, daily profile, hourly table with CSV download |
-| **Performance** | Official Task 6 scores of Blend v1.3, with 95% bootstrap CIs: MAE, RMSE, scaled MAE and WAPE per horizon; MAE by zone; heatmap by circuit × horizon; MAE by hour of day; prediction-interval check |
+| **Performance** | Official Task 6 scores of Blend v1.3, with 95% bootstrap CIs: MAE, RMSE, scaled MAE and WAPE per horizon; MAE by zone; heatmap by circuit × horizon; MAE by hour of day; interval coverage at 80/90/95%; prediction-interval check; **Detection test** (injection results, section 3e) |
 | **Known limitations** | 7 limitations ranked by impact, with evidence charts (NW Plugs & Sockets night drift, measured hours per circuit) |
 | **The model** | How Blend v1.3 works, its weights per horizon, the data split, and the **Run model** button |
 
@@ -98,7 +98,7 @@ Design choices that follow from these needs:
 
 - **Stored forecasts.** By default the app reads the frozen forecasts of Blend v1.3 saved in Task 6:
   `Task6_rev0_03-11/results/predictions/ML_Blend_v1.3_{test,validation}_predictions.csv`.
-- **Running the model.** On **The model** page, the **Run model** button starts `model_engine.py` in a separate
+- **Running the model.** On **The model** page, the **Run model** button starts `engines/model_engine.py` in a separate
   process. It does the following:
   - loads dataset v1.2 and the two frozen gradient-boosting parts (`task8_v1.3_*.joblib`, `hybrid_v1.3_*.joblib`);
   - takes the frozen Chronos-Bolt forecasts from their caches (`chronos_cache_v1.3*.parquet`), so torch is not
@@ -112,7 +112,7 @@ Design choices that follow from these needs:
 - **Model choice.** The model is Blend v1.3 because Sprint 4 Task 2 found that outdoor temperature does not
   improve it.
 
-## 3b. Live forecast (`live_engine.py`)
+## 3b. Live forecast (`engines/live_engine.py`)
 
 - **Data.** The repository's dataset v1.2 runs to **13 Oct 2025, 14:00 UTC** (16:00 Madrid). The week after the test
   week (6–13 Oct, split `outside`) was never used to build, choose or score any model, so it is new data.
@@ -126,14 +126,14 @@ Design choices that follow from these needs:
   from `TBDA_v1.3_ChronosGBM_29-10/weights/` if present, otherwise from the official Hugging Face release, and
   their SHA-256 is compared with the one recorded when the model was frozen. The two GBM parts and the weights are
   the frozen ones.
-- **Self-test:** `python live_engine.py --check`.
+- **Self-test:** `python Sprint4_Task3_UX_Dash/engines/live_engine.py --check`.
   - It rebuilds the test week with the live task builder and the frozen Chronos cache.
   - The live task builder equals `forecast_tasks` for every horizon.
   - The Blend forecasts equal the stored Task 6 forecasts: 8,064 rows, max difference 2e-13 Wh.
 - **Missing forecasts.** Some SE/SW circuit-hours have no forecast. The +6 h Chronos part reads only the last 24 h,
   and those circuits had longer measurement gaps on 7–8 Oct. This is reported on the page.
 
-## 3c. Anomalies and costs (`anomalies.py`)
+## 3c. Anomalies and costs (`core/anomalies.py`)
 
 Built on the app's own forecast interval (section 4).
 
@@ -151,35 +151,39 @@ Built on the app's own forecast interval (section 4).
   weekdays 10–14 h and 18–22 h, standard 8–10, 14–18 and 22–24 h, off-peak at night, weekends and holidays). The
   prices and the CO₂ factor are assumptions, editable in Settings.
 - **Base load:** the 10th percentile of each circuit's hourly use, 19 Aug – 13 Oct 2025.
-- **Default result (evaluation weeks):** 80 anomalies (54 spikes, 26 drops; 19 critical), and the 90 % interval holds
-  90.3 % of the measured hours.
+- **Default result (evaluation weeks):** 67 anomalies (51 spikes, 16 drops; 14 critical), and the 90 % interval holds
+  90.9 % of the measured hours.
 - **Data quality:** hours without a valid measurement (team dataset v1.2 rules) are excluded everywhere and listed
   with their reason.
 
 ## 3d. Adding new days (scalability)
 
-The model stays frozen; the data can grow.
+The model stays frozen; only the data grow. Everything is done from the **Live forecast** page, section
+**"Update the forecast with new data"**, which guides the user in five steps:
 
-1. Export the newest cleaned data in the format the team already uses: the zip or folder with `NE/ NW/ SE/ SW/` and
-   `clean_Storey1_<zone>_CLEAN_DATA.csv`, or one CSV for all zones.
-2. On **The model** page, write its path in **Add new measurements** and press **Update data & forecast**. Or from
-   the terminal:
-   ```bash
-   python Sprint4_Task3_UX_Dash/engines/update_data.py "CLEAN DATA all zones.zip"
-   ```
-   followed by "Compute / update live forecast".
-3. `update_data.py` runs the team's own pipeline (`task7_pipeline.py`, dataset v1.2 rules) and writes
-   `Sprint4_Task3_UX_Dash/data_live/Storey1_hourly_v1.2.parquet`. The frozen dataset of the repository is never
-   touched.
-4. The live forecast, the "Latest data" period, the anomalies and the data-quality checks then use the newest data,
-   starting from the new last measurement and showing the latest 8 days.
+1. **Get the newest export** of the cleaned data: the zip (or folder) with `NE/ NW/ SE/ SW/` and
+   `clean_Storey1_<zone>_CLEAN_DATA.csv` (like `CLEAN DATA all zones.zip`), or one CSV for all zones with the columns
+   `zone, sensor, Timestamp, energy_Wh, energy_source` (`W`, `I` optional). It must contain the **whole history**
+   (from 19 Aug 2025) up to the newest day, not only the new days.
+2. **Put the file in the new-data folder** `Sprint4_Task3_UX_Dash/new_data/` (the page shows the full path and has
+   an "Open the folder" button), or drag it into the upload box on the page.
+3. **Check** that the dashboard sees it: a green tick means the format is right.
+4. Press **"Update data & compute forecast"**. `engines/update_data.py` rebuilds the hourly dataset with the team's
+   own v1.2 pipeline (`task7_pipeline.py`) into `data_live/` (the frozen dataset is never touched), then
+   `engines/live_engine.py` runs the frozen Blend v1.3 from the new last measurement (1–5 minutes; the first time it
+   also downloads the Chronos-Bolt weights, about 250 MB).
+5. **Reload the page**: Live forecast, Anomalies and Energy & costs (period "Latest data") use the new data.
 
-**Check:** rebuilt from `CLEAN DATA all zones.zip`, the dataset is identical to the frozen one (21,456 rows, same
-values, validity flags and splits). The pipeline needs the `holidays` package (in `requirements.txt`).
+"Compute forecast with current data" recomputes the forecast without new data; "Go back to the project dataset"
+returns to dataset v1.2 (the updated one is kept as a backup). Rebuilt from `CLEAN DATA all zones.zip`, the dataset
+is identical to the frozen one (21,456 hourly rows, same energy values).
+
+By hand: `python Sprint4_Task3_UX_Dash/engines/update_data.py "CLEAN DATA all zones.zip"`, then
+`python Sprint4_Task3_UX_Dash/engines/live_engine.py`.
 
 ## 3e. Detection test (injected anomalies)
 
-How well does the dashboard find a fault? `injection_test.py` adds artificial anomalies to the real data of the two
+How well does the dashboard find a fault? `engines/injection_test.py` adds artificial anomalies to the real data of the two
 evaluation weeks and checks whether the anomaly detector of section 3c flags them. It tests about 321,000 cases in about
 6 seconds: 16 circuits × every valid start hour × spikes of +25/50/100/200% and drops of −50/−100% of the circuit's
 mean use × 1, 3 and 6 hours × 5 detector settings. The results are shown on the **Performance** page
@@ -226,7 +230,7 @@ intervals are labelled **experimental**.
   | +6 h | 91.4% | 159 Wh | 87.9%, 161 Wh |
   | day-ahead | 90.7% | 171 Wh | 89.6%, 168 Wh |
 
-- **After Pole 1 validates the intervals,** set `INTERVALS_VALIDATED = True` in `settings.py`. The switch then
+- **After Pole 1 validates the intervals,** set `INTERVALS_VALIDATED = True` in `core/settings.py`. The switch then
   starts on, and the label changes to "validated".
 
 ## 5. Sources of the numbers
@@ -247,18 +251,19 @@ separate process, which can also be run by hand). It works in the repository clo
 | File | Content |
 |---|---|
 | `app.py` | Layout, pages and callbacks (start the dashboard with this file) |
-| `core/data_layer.py` | Reads forecasts and scores, prediction intervals, aggregation, runs the model |
-| `engines/model_engine.py` | Runs the frozen Blend v1.3 on the evaluation weeks (called by the app, or by hand: `python model_engine.py test out.csv`) |
-| `core/anomalies.py` | Forecast interval, spikes and drops, data quality, tariff costs, base load |
-| `engines/update_data.py` | Rebuilds the hourly dataset from a newer export (scalability) |
+| `core/settings.py` | Paths, labels, colours, interval settings |
+| `core/data_layer.py` | Reads forecasts and scores, forecast interval, new-data folder, runs the engines |
+| `core/anomalies.py` | Spikes and drops, data quality, tariff costs, base load |
+| `core/info_texts.py` | Texts of the (i) info pop-ups |
+| `engines/model_engine.py` | Re-runs the frozen Blend v1.3 on the evaluation weeks |
 | `engines/live_engine.py` | Live forecast on the latest data (Chronos-Bolt + frozen GBMs + blend); `--check` self-test |
+| `engines/update_data.py` | Rebuilds the hourly dataset from a newer export (scalability) |
 | `engines/injection_test.py` | Detection test: injects spikes and drops and measures how many the dashboard finds |
-| `analysis/` | Results of the detection test (`injection_*_dash.csv`: Energy Watch names + `_dash`), shown on the Performance page |
+| `analysis/injection_*_dash.csv` | Results of the detection test (Energy Watch file names + `_dash`), shown on the Performance page |
 | `documents/04_Detection_Validation_Dash.md` | Method, results and limits of the detection test |
 | `documents/Injection_Tests_Explained.md` | The two injection tests explained and compared with Energy Watch |
-| `Start_dashboard.command` / `Start_dashboard.bat` | One-click launcher for macOS-Linux / Windows (venv, packages, app, browser) |
-| `core/info_texts.py` | Texts of the (i) info pop-ups |
-| `requirements-live.txt` | Extra packages for the live forecast (torch, chronos-forecasting) |
-| `core/settings.py` | Paths, labels, colours, interval settings |
+| `new_data/` | Where the user puts a new data export (its contents are not committed) |
 | `assets/style.css` | Styles |
-| `requirements.txt` | Python packages |
+| `Start_dashboard.command` / `Start_dashboard.bat` | One-click launcher for macOS-Linux / Windows (venv, packages, app, browser) |
+| `requirements.txt`, `requirements-live.txt` | Python packages (dashboard / plus Chronos-Bolt for the live forecast) |
+| `.gitignore` | Keeps local outputs (`cache/`, `data_live/`, files in `new_data/`) out of git |

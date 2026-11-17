@@ -6,8 +6,8 @@ models/blend_frozen_config_v1.3.json). Nothing is fitted or tuned here: the two 
 Same steps as Task6_rev0_03-11/generation/run_task6_v13_predictions.py, restricted to the final model.
 
 The dashboard calls this script in a separate process (its imports use the model folder's own config.py):
-    python model_engine.py test       cache/ML_Blend_v1.3_test_recomputed.csv
-    python model_engine.py validation cache/ML_Blend_v1.3_validation_recomputed.csv
+    python Sprint4_Task3_UX_Dash/engines/model_engine.py test       OUT.csv
+    python Sprint4_Task3_UX_Dash/engines/model_engine.py validation OUT.csv
 """
 from __future__ import annotations
 

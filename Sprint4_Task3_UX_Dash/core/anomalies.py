@@ -66,11 +66,17 @@ def _read_parquet(path):
         return minipq.read_parquet(str(path))
 
 
-@lru_cache(maxsize=1)
-def derived() -> pd.DataFrame:
-    h = _read_parquet(S.current_derived())
+@lru_cache(maxsize=2)
+def _derived(path: str, stamp: float) -> pd.DataFrame:
+    h = _read_parquet(path)
     h["hour_utc"] = pd.to_datetime(h["hour_utc"], utc=True)
     return h
+
+
+def derived() -> pd.DataFrame:
+    """Hourly dataset in use (reloaded automatically after an update with new data)."""
+    p = S.current_derived()
+    return _derived(str(p), p.stat().st_mtime)
 
 
 def _quality(frame: pd.DataFrame) -> pd.Series:
