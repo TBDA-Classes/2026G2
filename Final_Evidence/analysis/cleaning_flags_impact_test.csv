@@ -1,0 +1,10 @@
+circuit_set,horizon,n_circuit_hours,Blend_MAE_Wh,Blend_scaled_MAE,best_model_MAE,best_vs_second,Blend_minus_B2_MAE_Wh,CI_B2,significant_vs_B2_MAE,significant_vs_B2_scaledMAE,Blend_minus_B3_MAE_Wh,CI_B3,significant_vs_B3_MAE,significant_vs_B3_scaledMAE
+all 16,+1h,1911,22.1546,0.4101,ML_Chronos_v1.3,not significant (tie),-21.5774,"[-26.9, -16.7]",True,True,-1.8002,"[-4.7, 2.6]",False,False
+all 16,+6h,1911,34.7257,0.5224,ML_ChronosGBM_v1.3,not significant (tie),-9.0063,"[-12.4, -4.9]",True,True,-23.1083,"[-31.8, -15.7]",True,True
+all 16,day-ahead,1911,34.1553,0.4975,ML_Blend_v1.3,not significant (tie),-9.5767,"[-14.9, -4.2]",True,True,-7.3456,"[-16.8, 0.1]",False,True
+without SW Lighting,+1h,1825,23.1536,0.436,ML_Chronos_v1.3,not significant (tie),-21.9344,"[-26.8, -17.4]",True,True,-1.894,"[-4.9, 2.7]",False,False
+without SW Lighting,+6h,1825,36.308,0.5554,ML_ChronosGBM_v1.3,not significant (tie),-8.7799,"[-12.4, -4.6]",True,False,-24.182,"[-32.9, -16.7]",True,True
+without SW Lighting,day-ahead,1825,35.72,0.5291,ML_Blend_v1.3,not significant (tie),-9.368,"[-15.0, -3.7]",True,True,-7.6633,"[-17.5, 0.1]",False,True
+without 5 flagged,+1h,1356,29.8585,0.1312,ML_Chronos_v1.3,not significant (tie),-29.3847,"[-36.0, -23.1]",True,True,-2.6099,"[-6.7, 3.6]",False,False
+without 5 flagged,+6h,1356,47.3371,0.2128,ML_ChronosGBM_v1.3,not significant (tie),-11.9061,"[-16.8, -6.3]",True,True,-31.3937,"[-43.1, -21.2]",True,True
+without 5 flagged,day-ahead,1356,46.6655,0.2147,ML_Blend_v1.3,not significant (tie),-12.5777,"[-20.3, -4.8]",True,True,-10.2897,"[-23.6, 0.2]",False,True
