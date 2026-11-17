@@ -1,0 +1,64 @@
+level,name,horizon,n,mean_Wh,expected_CV_limit_pct,expected_basis,CV_RMSE_pct,NMBE_ashrae_pct,status
+circuit,NE|HVAC,+1h,167,12.53,50,teacher target,589.2,69.8,red
+circuit,NE|Plugs & Sockets,+1h,167,189.63,30,teacher target,1.7,-0.3,green
+circuit,NW|Emerg. Lighting,+1h,149,11.17,15,teacher target,8.0,3.8,green
+circuit,NW|HVAC,+1h,167,70.73,50,teacher target,51.9,-1.9,yellow
+circuit,NW|Hand Dryer,+1h,167,0.63,30,ASHRAE 14 hourly,141.0,20.9,red
+circuit,NW|Lighting,+1h,167,83.7,30,ASHRAE 14 hourly,74.5,11.7,red
+circuit,NW|Plugs & Sockets,+1h,167,763.35,30,teacher target,39.0,8.4,yellow
+circuit,NW|RACK,+1h,167,187.08,15,teacher target,1.5,0.7,green
+circuit,SE|Emerg. Lighting,+1h,62,2.05,15,teacher target,26.2,-6.7,red
+circuit,SE|HVAC,+1h,62,41.8,50,teacher target,3.8,1.0,green
+circuit,SE|Lighting,+1h,101,31.38,30,ASHRAE 14 hourly,70.0,-17.0,red
+circuit,SE|Plugs & Sockets,+1h,63,190.17,30,teacher target,17.3,-5.4,green
+circuit,SW|Emerg. Lighting,+1h,56,11.64,15,teacher target,6.0,-1.6,green
+circuit,SW|Hand Dryer,+1h,73,0.69,30,ASHRAE 14 hourly,88.1,17.4,red
+circuit,SW|Lighting,+1h,86,1.17,30,ASHRAE 14 hourly,114.4,38.9,red
+circuit,SW|Plugs & Sockets,+1h,90,238.7,30,teacher target,8.4,-1.8,green
+zone total,NE,+1h,167,202.16,30,ASHRAE 14 hourly,36.5,4.0,yellow
+zone total,NW,+1h,149,1146.63,30,ASHRAE 14 hourly,27.4,7.3,green
+zone total,SE,+1h,24,251.51,30,ASHRAE 14 hourly,10.4,-5.2,green
+zone total,SW,+1h,42,245.75,30,ASHRAE 14 hourly,5.1,-2.4,green
+building total (all 16 circuits),building,+1h,12,1680.12,30,ASHRAE 14 hourly,6.7,-3.7,green
+circuit,NE|HVAC,+6h,167,12.53,50,teacher target,621.3,71.9,red
+circuit,NE|Plugs & Sockets,+6h,167,189.63,30,teacher target,2.0,-0.1,green
+circuit,NW|Emerg. Lighting,+6h,149,11.17,15,teacher target,10.9,4.9,green
+circuit,NW|HVAC,+6h,167,70.73,50,teacher target,88.4,21.9,red
+circuit,NW|Hand Dryer,+6h,167,0.63,30,ASHRAE 14 hourly,171.7,34.9,red
+circuit,NW|Lighting,+6h,167,83.7,30,ASHRAE 14 hourly,103.9,24.7,red
+circuit,NW|Plugs & Sockets,+6h,167,763.35,30,teacher target,57.1,10.8,red
+circuit,NW|RACK,+6h,167,187.08,15,teacher target,1.7,0.2,green
+circuit,SE|Emerg. Lighting,+6h,62,2.05,15,teacher target,29.5,0.8,red
+circuit,SE|HVAC,+6h,62,41.8,50,teacher target,4.0,1.1,green
+circuit,SE|Lighting,+6h,101,31.38,30,ASHRAE 14 hourly,156.7,-47.5,red
+circuit,SE|Plugs & Sockets,+6h,63,190.17,30,teacher target,20.0,-11.0,yellow
+circuit,SW|Emerg. Lighting,+6h,56,11.64,15,teacher target,6.2,-0.8,green
+circuit,SW|Hand Dryer,+6h,73,0.69,30,ASHRAE 14 hourly,98.2,8.0,red
+circuit,SW|Lighting,+6h,86,1.17,30,ASHRAE 14 hourly,127.2,23.6,red
+circuit,SW|Plugs & Sockets,+6h,90,238.7,30,teacher target,13.7,-3.3,green
+zone total,NE,+6h,167,202.16,30,ASHRAE 14 hourly,38.6,4.4,yellow
+zone total,NW,+6h,149,1146.63,30,ASHRAE 14 hourly,40.6,11.5,yellow
+zone total,SE,+6h,24,251.51,30,ASHRAE 14 hourly,14.6,-10.0,green
+zone total,SW,+6h,42,245.75,30,ASHRAE 14 hourly,9.5,-4.0,green
+building total (all 16 circuits),building,+6h,12,1680.12,30,ASHRAE 14 hourly,17.6,-0.2,green
+circuit,NE|HVAC,day-ahead,167,12.53,50,teacher target,620.2,78.8,red
+circuit,NE|Plugs & Sockets,day-ahead,167,189.63,30,teacher target,2.0,-0.2,green
+circuit,NW|Emerg. Lighting,day-ahead,149,11.17,15,teacher target,8.5,2.7,green
+circuit,NW|HVAC,day-ahead,167,70.73,50,teacher target,82.8,12.6,red
+circuit,NW|Hand Dryer,day-ahead,167,0.63,30,ASHRAE 14 hourly,174.4,65.7,red
+circuit,NW|Lighting,day-ahead,167,83.7,30,ASHRAE 14 hourly,100.4,13.6,red
+circuit,NW|Plugs & Sockets,day-ahead,167,763.35,30,teacher target,57.8,4.8,red
+circuit,NW|RACK,day-ahead,167,187.08,15,teacher target,1.7,0.1,green
+circuit,SE|Emerg. Lighting,day-ahead,62,2.05,15,teacher target,29.6,-2.4,red
+circuit,SE|HVAC,day-ahead,62,41.8,50,teacher target,3.7,0.5,green
+circuit,SE|Lighting,day-ahead,101,31.38,30,ASHRAE 14 hourly,386.6,-124.5,red
+circuit,SE|Plugs & Sockets,day-ahead,63,190.17,30,teacher target,17.4,-7.7,green
+circuit,SW|Emerg. Lighting,day-ahead,56,11.64,15,teacher target,6.6,-1.4,green
+circuit,SW|Hand Dryer,day-ahead,73,0.69,30,ASHRAE 14 hourly,98.6,17.1,red
+circuit,SW|Lighting,day-ahead,86,1.17,30,ASHRAE 14 hourly,112.9,13.4,red
+circuit,SW|Plugs & Sockets,day-ahead,90,238.7,30,teacher target,12.5,0.5,green
+zone total,NE,day-ahead,167,202.16,30,ASHRAE 14 hourly,38.5,4.7,yellow
+zone total,NW,day-ahead,149,1146.63,30,ASHRAE 14 hourly,41.6,6.1,yellow
+zone total,SE,day-ahead,24,251.51,30,ASHRAE 14 hourly,37.9,-15.2,red
+zone total,SW,day-ahead,42,245.75,30,ASHRAE 14 hourly,7.8,-2.5,green
+building total (all 16 circuits),building,day-ahead,12,1680.12,30,ASHRAE 14 hourly,19.5,-9.4,green

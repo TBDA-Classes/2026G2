@@ -84,3 +84,7 @@ Reading: against the hourly reference (30 % / 10 %), **the building total passes
 2. Show 2.2 as "8 of 16 circuits pass; here is why the others do not".
 3. State that ASHRAE 14 is a calibration standard used here as a **reference**, not a certification, and that the monthly criterion cannot be tested with 8 weeks.
 4. Close with the teacher's targets: 7 of 11 met, 4 missed and why.
+
+## 6. Traffic-light view
+
+A colour-coded table (green: meets the expected value, yellow: within 1.5 times the limit and |NMBE| ≤ 15 %, red: beyond) for the building, the four zones and the 16 circuits at the three horizons is in `Final_Evidence/documents/09b_ASHRAE14_Traffic_Light.html`; the data and status per row are in `Final_Evidence/analysis/ashrae14_traffic_light_test.csv` (script: `Final_Evidence/scripts/ashrae14_traffic_light.py`). At day-ahead: building green, zones SW green, NE and NW yellow, SE red; circuits 7 green, 0 yellow, 9 red. SE Emerg. Lighting is red because its teacher target (15 %) is stricter than ASHRAE (30 %); it passes ASHRAE.
