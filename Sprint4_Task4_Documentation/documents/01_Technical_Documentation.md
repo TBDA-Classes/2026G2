@@ -43,7 +43,7 @@ Python produces every number. The dashboard (`index.html`) only displays them an
 | Open the dashboard | Double-click `index.html`. Any modern browser, works offline. |
 | Rebuild the dashboard | Python 3.10+, `pip install -r requirements.txt` (pandas, numpy, pyarrow, plotly). |
 | Rebuild the model forecasts | Not part of this package: see `TBDA_v1.3_ChronosGBM_29-10/README_v1.3.md`. Needs `scikit-learn`, `torch`, `chronos-forecasting` and the Chronos-Bolt weights from Hugging Face (not in Git). |
-| Pipeline (this package) | `python Sprint4_UX_EnergyWatch/source/run_all.py` runs seven steps: presence series, occupancy evidence, standby and W/I analysis, accuracy metrics, `build_data.py`, `injection_test.py`, `build_html.py` (about 13 s). |
+| Pipeline (this package) | `python Sprint4_UX_EnergyWatch/source/run_all.py` runs eight steps: presence series, occupancy evidence, standby and W/I analysis, accuracy metrics, accuracy by load type, `build_data.py`, `injection_test.py`, `build_html.py` (about 13 s). |
 
 Inputs read by `build_data.py` (read-only): the Task 6 forecasts `Task6_rev0_03-11/results/predictions/ML_Blend_v1.3_{validation,test}_predictions.csv`, the Chronos-Bolt forecasts `TBDA_v1.3_ChronosGBM_29-10/results/chronos_{validation,test}_predictions_v1.3.parquet`, and the hourly dataset `TBDA_v1.3_ChronosGBM_29-10/derived/Storey1_hourly_v1.2.parquet`.
 
@@ -110,6 +110,41 @@ From `Task6_rev0_03-11/RESULTS.md`:
 Blend v1.3 is better than Baseline B at every horizon (significant by 95 % block-bootstrap CI). Against persistence it is significantly better only at +6 h; at +1 h and day-ahead the difference is a tie. On SE/SW circuits, which barely train, persistence has the lowest MAE at +6 h and day-ahead.
 
 **Additional metrics (PB-29)** computed for the dashboard in `Sprint4_Task4_Documentation/analysis/accuracy_metrics_MAPE_CVRMSE.csv` (own recomputation on the hours available in the dashboard window, circuit-hour pooled): Blend MAE 20.1 / 31.1 / 30.7 Wh, WAPE 16 / 25 / 25 %, CV(RMSE) 71 / 103 / 105 %, MAPE 12 / 17 / 17 % (hours ≥ 10 Wh only, because MAPE explodes near zero). The specification advises against relying on MAPE where values approach zero. These numbers use a different hour mask from Task 6, so they differ slightly from the official MAE; **the official figures are those of Task 6**.
+
+### 5.4a Accuracy by circuit and load type (PB-29)
+Hourly accuracy is also reported per circuit, with the ASHRAE Guideline 14 hourly values (CV(RMSE) ≤ 30 %, |NMBE| ≤ 10 %) as a **common reference, not as a pass/fail test**: the guideline was written for whole-building baseline models, not for day-ahead forecasts of individual sub-meters. A high CV(RMSE) is expected where the mean is close to zero or the load is intermittent (lighting, HVAC, hand dryers). Targets by load type are indicative guidance from the instructor (15 Nov 2026): constant loads ≤ 15 %, plugs ≤ 30 %, HVAC 30–50 % with |NMBE| ≤ 10 %; for lighting hourly CV(RMSE) is not meaningful and MAE and daily energy are used instead. MAE is always given in absolute units.
+
+**Definitions.** Skill = 1 − RMSE of the Blend / RMSE of the naive forecast, in %; positive means better than the naive forecast. *Persistence* is B3. *Yesterday* is B4, a fourth naive benchmark added here: the energy of the same circuit 24 hours earlier, always known when the day-ahead forecast is issued (00:00 Madrid, hours 1–24). NMBE = 100 × Σ(forecast − actual) / Σ actual, so a positive value means the forecast is above actual use.
+
+Unseen test week, day-ahead horizon (`analysis/accuracy_by_load_type.csv`, which also holds +1 h, +6 h and the validation week):
+
+| Circuit | Mean Wh | MAE Wh | CV(RMSE) % | NMBE % | Skill vs persistence % | Skill vs yesterday % | Indicative target |
+|---|---:|---:|---:|---:|---:|---:|---|
+| NE HVAC | 12 | 10.3 | 621.4 | -78.7 | 0.1 | 29.3 | ≤ 50 % · not met |
+| NE Plugs & Sockets | 190 | 3.0 | 2.0 | 0.2 | 28.5 | 39.3 | ≤ 30 % · met |
+| NW Emerg. Lighting | 11 | 0.6 | 8.5 | -2.8 | 5.5 | 25.6 | ≤ 15 % · met |
+| NW HVAC | 71 | 28.7 | 82.8 | -12.6 | 35.8 | -11.5 | ≤ 50 % · not met |
+| NW Hand Dryer | 0.6 | 0.7 | 173.3 | -65.9 | 13.1 | 19.9 | CV not meaningful hourly |
+| NW Lighting | 83 | 49.0 | 100.7 | -13.4 | 8.8 | 12.8 | CV not meaningful hourly |
+| NW Plugs & Sockets | 768 | 252.1 | 57.5 | -5.1 | 18.3 | 15.6 | ≤ 30 % · not met |
+| NW RACK | 187 | 2.4 | 1.7 | -0.1 | 27.3 | 44.6 | ≤ 15 % · met |
+| SE Emerg. Lighting | 2.1 | 0.4 | 27.9 | 1.6 | 30.1 | 30.9 | ≤ 15 % · not met |
+| SE HVAC | 42 | 1.5 | 4.9 | 0.1 | 24.7 | 35.9 | ≤ 50 % · met |
+| SE Lighting | 35 | 60.8 | 455.6 | 116.1 | 2.4 | 16.9 | CV not meaningful hourly |
+| SE Plugs & Sockets | 193 | 25.8 | 17.5 | 5.5 | 10.2 | 24.3 | ≤ 30 % · met |
+| SW Emerg. Lighting | 12 | 0.8 | 9.4 | 0.2 | 32.3 | 23.6 | ≤ 15 % · met |
+| SW Hand Dryer | 0.7 | 0.6 | 112.1 | -18.2 | 15.6 | 35.7 | CV not meaningful hourly |
+| SW Lighting | 1.4 | 1.1 | 108.1 | -9.2 | 29.8 | 29.3 | CV not meaningful hourly |
+| SW Plugs & Sockets | 244 | 25.6 | 17.3 | -1.9 | -8.3 | 19.3 | ≤ 30 % · met |
+
+**What it shows**
+- Against **yesterday** the Blend is better on 15 of 16 circuits (pooled skill +16 % in RMSE). The exception is **NW HVAC (−11.5 %)**.
+- Against **persistence** at day-ahead the Blend is level on NE HVAC (+0.1 %) and worse on SW Plugs & Sockets (−8.3 %); the gain is small on SE Lighting (+2.4 %) and NW Lighting (+8.8 %). This is consistent with the tie with persistence reported in section 5.4. In MAE terms SE Lighting is 22 % worse than persistence (`accuracy_by_circuit_blend.csv`, common hour mask).
+- **Bias** is the part that can be corrected. |NMBE| exceeds 10 % on NE HVAC (−78.7 %), NW Hand Dryer (−65.9 %), SE Lighting (+116.1 %), SW Hand Dryer (−18.2 %), NW Lighting (−13.4 %) and NW HVAC (−12.6 %). Their means are small (NE HVAC 12 Wh, SE Lighting 35 Wh) and many of their hours are flagged, which inflates percentage errors; the causes have not been established. A recalibration or a check of a level shift is a next step.
+- Indicative targets: **met** on CV(RMSE) by rack, NE/SE/SW plugs, NW and SW emergency lighting and SE HVAC (7 of the 11 circuits that have a numeric target; SW Plugs & Sockets meets the number but does not beat persistence, which the guidance also asks for); **not met** by NW Plugs & Sockets (57.5 %, the largest load, about 770 Wh per hour), NW HVAC (82.8 %), NE HVAC (CV 621 %, NMBE −79 %) and SE emergency lighting (27.9 %, mean only 2 Wh).
+- These tables use every hour that has a forecast and an actual value. The Task 6 tables and section 5.4 use a stricter common hour mask, so MAE values differ slightly; **the official figures remain those of Task 6**. The error columns use all Blend hours of the circuit; the skill columns use only the hours where the naive forecast exists. The result for SE Lighting depends on the hour mask (MAE 61 Wh on all 129 hours, 37 Wh on the 116 hours of the common mask), so its bias should be checked before it is quoted. Skill scores come from one test week and have no confidence interval; differences of a few points are a tie. Hand dryers are treated like lighting (hourly CV(RMSE) not meaningful) by our choice.
+
+**Daily totals** (`analysis/accuracy_daily_totals.csv`): the 24 hourly day-ahead forecasts of a Madrid calendar day are summed, for days where all 24 hours are valid. In the test week this gives 6 complete days for the NE and NW circuits but only 1 for SE and SW plugs, SW hand dryer and SW lighting, and none for the others. Daily WAPE: rack 0.2 %, NE plugs 0.7 %, NW emergency lighting 2.4 %, NW plugs 21.1 %, NW lighting 29.6 %, NW HVAC 36.0 %, NE HVAC 81.9 %. Daily error is much lower than hourly for stable loads, as expected. These are indicative (6 days). No floor-level daily total can be computed because no day has all 16 circuits complete; the hourly zone and building totals are in `accuracy_metrics_MAPE_CVRMSE.csv` (building total on only 26 hours). No hierarchical reconciliation of the levels was attempted.
 
 ### 5.5 Prediction interval (PB-30)
 The normal range is the Chronos-Bolt v1.3 10–90 % band at the day-ahead horizon, clipped so that the Blend forecast always lies inside. Observed coverage: **82 %** on test and validation (nominal 80 %); per horizon and per circuit in `Sprint4_Task4_Documentation/analysis/band_coverage_*.csv`. The coverage of some circuits is lower (hand dryers, SW plugs).

@@ -1,5 +1,8 @@
 # Deployment and Handover Plan — Energy Waste & Anomaly Detection (CeDInt Storey 1)
 
+> **Status note (17 Nov 2026).** The validated main dashboard is now the **Dash app** (`Sprint4_Task3_UX_Dash/`). Energy Watch is the earlier prototype. See `Final_Evidence/documents/11_Deliverables_Index_Dash.md` for the current deliverables index and `Final_Evidence/documents/10_Evidence_Map.md` for the official numbers.
+
+
 **Backlog items:** PB-04 (deployment and handover context), PB-56 (deployment and handover plan), PB-05 (explicit exclusions)
 **Audience:** Sponsor / Technical Owner and the UPM Responsible who will operate or extend the tool
 **Version:** 12 Nov 2026 · Handover date: 14 Dec 2026 (Moodle delivery)

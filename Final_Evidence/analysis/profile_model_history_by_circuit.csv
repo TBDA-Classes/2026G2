@@ -1,0 +1,17 @@
+circuit,2025 train weeks (19 Aug-21 Sep),2022 same season (18 Aug-13 Oct),"all 2020-23, every season",2025 train + 2020-22 same season
+NE|HVAC,10.4,10.3,10.3,10.2
+NE|Plugs & Sockets,4.2,4.0,3.9,4.0
+NW|Emerg. Lighting,1.3,3.0,2.7,2.0
+NW|HVAC,48.4,37.3,47.4,37.1
+NW|Hand Dryer,0.8,0.7,0.7,0.7
+NW|Lighting,48.2,62.9,69.8,57.4
+NW|Plugs & Sockets,268.2,275.6,269.1,271.8
+NW|RACK,3.5,69.5,24.3,22.8
+SE|Emerg. Lighting,0.6,0.4,0.6,0.4
+SE|HVAC,4.7,9.2,17.3,6.7
+SE|Lighting,40.3,39.7,34.8,34.8
+SE|Plugs & Sockets,395.3,115.9,60.6,66.0
+SW|Emerg. Lighting,1.0,1.0,1.0,0.9
+SW|Hand Dryer,0.8,0.9,0.6,0.6
+SW|Lighting,19.4,22.4,4.0,2.8
+SW|Plugs & Sockets,37.3,36.1,49.8,43.9
