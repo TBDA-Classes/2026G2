@@ -1,0 +1,76 @@
+check_id,level,pb,claim,what,status,expected,obtained,detail,seconds
+L1-01,L1 exists,,EM all,Every repository path cited in the Evidence Map exists,PASS,0 missing,0 missing of 47,,
+L1-02,L1 exists,PB-01..PB-58,,Every repository path cited in the Backlog Coverage exists,PASS,0 missing,0 missing of 24,,
+L1-03,L1 exists,PB-57,,Every repository path cited in the Deliverables Index exists,FAIL,0 missing,1 missing of 27,Sprint4_Task3_UX_Dash/cache/ML_Blend_v1.3_test_recomputed.csv,
+L1-04,L1 exists,PB-01;PB-02;PB-03;PB-54,,Technical documentation,PASS,found,found,,
+L1-05,L1 exists,PB-04;PB-05;PB-56,,Deployment and handover plan,PASS,found,found,,
+L1-06,L1 exists,PB-13,EM3,Frozen hourly dataset and its metadata,PASS,found,found,,
+L1-07,L1 exists,PB-14,,Data dictionary,PASS,found,found,,
+L1-08,L1 exists,PB-15;PB-17,EM3,Decision register D1-D12,PASS,found,found,,
+L1-09,L1 exists,PB-20,,Standby baseline evidence,PASS,found,found,,
+L1-10,L1 exists,PB-21,EM18,Temperature experiment,PASS,found,found,,
+L1-11,L1 exists,PB-23,,Model variables and leakage asserts,PASS,found,found,,
+L1-12,L1 exists,PB-26;PB-27,EM6,Baseline and model predictions (11 models),PASS,11 files,11 files,,
+L1-13,L1 exists,PB-28,EM17,Prophet check,PASS,found,found,,
+L1-14,L1 exists,PB-31,,Experiment log,PASS,found,found,,
+L1-15,L1 exists,PB-38;PB-39,EM19,Detection validation of the Dash app,PASS,found,found,,
+L1-16,L1 exists,PB-43,,Building plan of storey 1,PASS,found,found,,
+L1-17,L1 exists,PB-51,,Task-based usability test report,FAIL,found,not found,missing: *sabilit*,
+L1-18,L1 exists,PB-55,,User guide with screenshots,FAIL,found,not found,missing: *ser*uide*,
+L1-19,L1 exists,PB-49;PB-52,,Main dashboard (Dash) and launchers,PASS,found,found,,
+L1-20,L1 exists,PB-58,,Backup dashboard (Energy Watch) opens offline,PASS,found,found,,
+L1-21,L1 exists,PB-57,,Cleaning notebook and clean data,PASS,found,found,,
+L2-01,L2 matches,PB-13,EM3,Frozen dataset checksum equals the one recorded in META,PASS,abd78317869c9466ff065c2a3d648ed949f6487e05a9e10a84137f8fa030a575,abd78317869c9466...,,
+L2-02,L2 matches,PB-13,EM3,Dataset has 21456 rows = 16 circuits x 1341 h,PASS,21456 rows; 16 circuits,21456 rows; 16 circuits,,
+L2-03,L2 matches,,EM4,Split dates in META = train 19 Aug-21 Sep / val 22-28 Sep / test 29 Sep-5 Oct 2025 (UTC),PASS,2025-08-19/2025-09-22/2025-09-29/2025-10-06,2025-08-19/2025-09-22/2025-09-29/2025-10-06,,
+L2-04,L2 matches,,EM8,Blend test MAE +1h,PASS,22.2,22.1546,,
+L2-05,L2 matches,,EM8,Blend test MAE +6h,PASS,34.7,34.7257,,
+L2-06,L2 matches,,EM8,Blend test MAE day-ahead,PASS,34.2,34.1553,,
+L2-07,L2 matches,,EM1,Official mask = 1911 circuit-hours per horizon,PASS,1911,1911,,
+L2-08,L2 matches,,EM8,Gain vs Baseline B = -49 / -21 / -22 %,PASS,-49/-21/-22,-49.3/-20.6/-21.9,,
+L2-09,L2 matches,,EM9,Blend significantly better than Baseline B at every horizon,PASS,True/True/True,True/True/True,,
+L2-10,L2 matches,,EM9,Blend vs persistence significant only at +6h,PASS,False/True/False,False/True/False,,
+L2-11,L2 matches,,EM10,Blend beats Baseline B on 16 / 14 / 14 circuits,PASS,16/14/14,16/14/14,,
+L2-12,L2 matches,,EM11,Conclusions hold without the NE HVAC event (Blend still better than Baseline B),PASS,True/True/True,True/True/True,,
+L2-13,L2 matches,,EM8,Blend validation MAE day-ahead (where the model was chosen),PASS,28.8,28.8471,,
+L2-14,L2 matches,PB-27,EM7,Rule D10 applied to the tuning results chooses Blend at every horizon,PASS,ML_Blend/ML_Blend/ML_Blend,ML_Blend/ML_Blend/ML_Blend,,
+L2-15,L2 matches,,EM7,Frozen Blend weights = 0.30/0.20/0.50; 0.10/0.35/0.55; 0.15/0.10/0.75,PASS,0.3/0.2/0.5;0.1/0.35/0.55;0.15/0.1/0.75,0.3/0.2/0.5;0.1/0.35/0.55;0.15/0.1/0.75,,
+L2-16,L2 matches,PB-30,EM13,Raw Chronos q10-q90 coverage on test = 82 %,PASS,82,82.1,,
+L2-17,L2 matches,,EM15,ASHRAE building CV(RMSE) +1h,PASS,6.7,6.7,,
+L2-18,L2 matches,,EM15,ASHRAE building CV(RMSE) +6h,PASS,17.6,17.6,,
+L2-19,L2 matches,,EM15,ASHRAE building CV(RMSE) day-ahead,PASS,19.5,19.5,,
+L2-20,L2 matches,,EM15,ASHRAE building total rests on 12 hours,PASS,12,12,,
+L2-21,L2 matches,,EM15,8 of 16 circuits pass both ASHRAE hourly criteria day-ahead,PASS,8,8,,
+L2-22,L2 matches,,EM16,NW Plugs share of day-ahead validation error = 52.4 %,PASS,52.4,52.41393621948652,,
+L2-23,L2 matches,,EM16,SE Lighting share of day-ahead validation error = 23.5 %,PASS,23.5,23.494155651219174,,
+L2-24,L2 matches,PB-28,EM17,Prophet best validation scaled MAE day-ahead = 0.47,PASS,0.472,0.4722,,
+L2-25,L2 matches,PB-28,EM17,Blend validation scaled MAE day-ahead = 0.351 (same in Prophet file and frozen config),PASS,0.351347,0.3513,,
+L2-26,L2 matches,PB-21,EM18,Temperature: Blend day-ahead change = -0.0003 (no clear change),PASS,-0.0003,-0.0003,,
+L2-27,L2 matches,PB-21,EM18,Evidence Map says the temperature gain is 0.0007-0.0018; check against the Task 2 table,FAIL,-0.0018,-0.0003,,
+L2-28,L2 matches,PB-38,EM19,Spike +100 % for 6 h found in 45.4 % of cases (90 % band; 25 Wh),PASS,45.4,45.4,,
+L2-29,L2 matches,PB-38,EM19,Circuit switched off for 6 h found in 46.1 % of cases,PASS,46.1,46.1,,
+L2-30,L2 matches,PB-38,EM20,Known NE HVAC event detected at every setting,PASS,True,True,,
+L2-31,L2 matches,PB-39,EM21,Dash alerts on unmodified data = 4.8 per day (default),PASS,4.8,4.79,,
+L2-32,L2 matches,PB-39,,Backlog PB-39 quotes 4.7 / 5.2 / 5.6 alerts per day: check against the Dash file,FAIL,4.7/5.2/5.6,8.5/4.79/3.21/6.14/4.5,,
+L2-33,L2 matches,PB-01..PB-58,EM23,Backlog summary counts (36 covered; 10 partly; 11 team; 1 pending) match the table,PASS,36/10/11/1,36/10/11/1,,
+L3-01,L3 reproduces,PB-23,,Model unit tests (incl. leakage asserts) pass,PASS,all pass,script finished without error,,159
+L3-02,L3 reproduces,PB-27,EM1;EM8-EM12,Task 6 comparison re-run gives the same results (6 runs),PASS,same,18 of 18 files the same,"metrics_with_CI.csv: same (189 rows, largest difference 0) | metrics_with_CI.csv: same (189 rows, largest difference 0) | metrics_with_CI.csv: same (132 rows, largest difference 0) | metrics_with_CI.csv: same (132 rows, largest difference 0) | metrics_with_CI.csv: same (189 rows, largest difference 0) | metrics_with_CI.csv: same (132 rows, largest difference 0) | pairwise_differences.csv: same (756 rows, largest difference 0) | pairwise_differences.csv: same (756 rows, largest difference 0) | pairwise_differences.csv: same (660 rows, largest difference 0) | pairwise_differences.csv: same (660 rows, largest difference 0) | pairwise_differences.csv: same (756 rows, largest difference 0) | pairwise_differences.csv: same (660 rows, largest difference 0) | circuit_wins.csv: same (216 rows, largest difference 0) | circuit_wins.csv: same (216 rows, largest difference 0) | circuit_wins.csv: same (330 rows, largest difference 0) | circuit_wins.csv: same (330 rows, largest difference 0) | circuit_wins.csv: same (216 rows, largest difference 0) | circuit_wins.csv: same (330 rows, largest difference 0)",232
+L3-03,L3 reproduces,PB-24,EM8,Frozen models regenerate the stored Blend forecasts (test and validation),FAIL,same,0 of 2 files the same,blend_test.csv: largest difference 6.71e-05 is above the tolerance 1e-06 | blend_validation.csv: largest difference 6.1e-05 is above the tolerance 1e-06,24
+L3-04,L3 reproduces,PB-24,,Live engine self-test passes,FAIL,pass,script failed,see results/logs/L3-04.txt,8
+L3-05,L3 reproduces,PB-30,EM14,Dash 90 % band coverage on test = 89.9 / 91.4 / 90.7 %,PASS,89.9/91.4/90.7,89.9/91.4/90.7,,2
+L3-06,L3 reproduces,PB-38;PB-39,EM19-EM21,Detection test re-run gives the same CSV files,PASS,same,7 of 7 files the same,"injection_detection_by_circuit_dash.csv: same (160 rows, largest difference 0) | injection_detection_by_circuit_magnitude_dash.csv: same (480 rows, largest difference 0) | injection_detection_by_magnitude_duration_dash.csv: same (90 rows, largest difference 0) | injection_detection_by_period_dash.csv: same (60 rows, largest difference 0) | injection_known_event_check_dash.csv: same (3 rows, largest difference 0) | injection_minimum_detectable_surplus_dash.csv: same (80 rows, largest difference 0) | injection_quiet_data_alerts_dash.csv: same (5 rows, largest difference 0)",18
+L3-07,L3 reproduces,PB-13;PB-57,EM3,Hourly dataset rebuilt from CLEAN DATA all zones.zip equals the frozen one,PASS,same energy values,1 of 1 files the same,"Storey1_hourly_v1.2.parquet: same (21456 rows, largest difference 0)",12
+L3-08,L3 reproduces,,EM15,ASHRAE 14 by level re-run,PASS,same,2 of 2 files the same,"ashrae14_by_level_test.csv: same (84 rows, largest difference 0) | ashrae14_by_level_validation.csv: same (84 rows, largest difference 0)",4
+L3-09,L3 reproduces,,EM15,ASHRAE traffic light re-run,PASS,same,1 of 1 files the same,"ashrae14_traffic_light_test.csv: same (63 rows, largest difference 0)",6
+L3-10,L3 reproduces,PB-15;PB-22,EM5,Regime comparison (2025-only scope) re-run,PASS,same,5 of 5 files the same,"regime_comparison_by_circuit.csv: same (17 rows, largest difference 0) | yearly_mean_by_circuit.csv: same (17 rows, largest difference 0) | same_season_by_circuit.csv: same (17 rows, largest difference 0) | profile_model_history_test.csv: same (7 rows, largest difference 0) | profile_model_history_by_circuit.csv: same (16 rows, largest difference 0)",4
+L3-11,L3 reproduces,PB-17,,Cleaning checks re-run,PASS,same,3 of 3 files the same,"cleaning_flags_impact_test.csv: same (9 rows, largest difference 0) | cleaning_flags_impact_selection.csv: same (18 rows, largest difference 0) | cleaning_energy_source_vs_error.csv: same (16 rows, largest difference 0)",183
+L3-12,L3 reproduces,PB-29;PB-57,,Energy Watch and documentation rebuild (data.json fingerprint 4664a3f679443c6c),PASS,same,17 of 17 files the same,"data.json: identical | accuracy_by_circuit_blend.csv: same (96 rows, largest difference 0) | accuracy_by_load_type.csv: same (102 rows, largest difference 0) | accuracy_daily_totals.csv: same (26 rows, largest difference 0) | accuracy_metrics_MAPE_CVRMSE.csv: same (180 rows, largest difference 0) | band_coverage_by_circuit_test.csv: same (16 rows, largest difference 0) | band_coverage_chronos.csv: same (8 rows, largest difference 0) | injection_detection_by_circuit.csv: same (48 rows, largest difference 0) | injection_detection_by_magnitude_duration.csv: same (36 rows, largest difference 0) | injection_detection_by_period.csv: same (24 rows, largest difference 0) | injection_minimum_detectable_surplus.csv: same (48 rows, largest difference 0) | injection_quiet_data_alerts.csv: same (3 rows, largest difference 0) | occupancy_profile_by_hour.csv: same (24 rows, largest difference 0) | presence_hourly.csv: same (5056 rows, largest difference 0) | standby_baseline_by_circuit.csv: same (16 rows, largest difference 0) | standby_weekly_median_by_circuit.csv: same (16 rows, largest difference 0) | W_I_vs_energy.csv: same (16 rows, largest difference 0)",25
+L3-13,L3 reproduces,PB-28,EM17,Prophet tests pass,PASS,all pass,script finished without error,,23
+L3-14,L3 reproduces,PB-28,EM17,Prophet validation re-run (112 configurations),FAIL,same,1 of 2 files the same,"per_circuit_validation.csv: largest difference 0.0714 is above the tolerance 0.005 | comparison_validation.csv: same (15 rows, largest difference 0.0029)",1763
+L3-15,L3 reproduces,PB-21,EM18,Temperature experiment re-run,PASS,same,2 of 2 files the same,"experiment_table.csv: same (9 rows, largest difference 0) | comparison_by_horizon.csv: same (3 rows, largest difference 0)",34
+L3-16,L3 reproduces,,EM16,Error diagnosis re-run (performance and temporal),PASS,same,10 of 10 files the same,"metrics_by_circuit_validation.csv: same (48 rows, largest difference 4.5e-13) | metrics_by_zone_validation.csv: same (12 rows, largest difference 3.6e-12) | metrics_overall_validation.csv: same (3 rows, largest difference 7.3e-12) | worst_cases_validation.csv: same (10 rows, largest difference 7.1e-15) | errors_by_circuit_and_hour.csv: same (1152 rows, largest difference 1.1e-13) | errors_by_local_hour.csv: same (72 rows, largest difference 7.1e-15) | night_vs_other_hours_validation.csv: same (12 rows, largest difference 0) | nw_plugs_nightly_summary_validation.csv: same (24 rows, largest difference 4.5e-13) | se_lighting_afternoon_details_validation.csv: same (42 rows, largest difference 2.8e-14) | weekday_vs_weekend_validation.csv: same (12 rows, largest difference 3.6e-15)",6
+L3-17,L3 reproduces,,,Linear model error by hour re-run (script asserts Mert's scores),PASS,same,3 of 3 files the same,"summary.csv: same (3 rows, largest difference 0) | by_hour.csv: same (144 rows, largest difference 0) | by_block.csv: same (24 rows, largest difference 0)",2
+L3-18,L3 reproduces,PB-32,EM8,Chronos-Bolt re-run on the test week with the official weights equals the frozen cache,PASS,same,2 of 2 files the same,"chronos_test_predictions_v1.3.parquet: same (8064 rows, largest difference 0.0015) | chronos_cache_v1.3_test.parquet: same (55296 rows, largest difference 0.0015)",453
+M-01,manual,,,No tuning on test: test forecasts were generated after the model choice of 29 Oct,MANUAL,test files committed after model_choice_v1.3,,The zip has no git history: check on GitHub (commit dates of Task6 predictions vs model_choice_v1.3.json),
+M-02,manual,PB-06;PB-12;PB-14,EM2,Column meaning (Er/Ea) and units of W and I confirmed by the sponsor,MANUAL,confirmation,,Open point: cannot be audited from the repository,
+M-03,manual,PB-50;PB-51;PB-55,,Usability test and user guide delivered by the team,MANUAL,files in repo,,Linked to L1-17 and L1-18,

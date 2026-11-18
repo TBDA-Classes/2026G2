@@ -1,0 +1,19 @@
+# Reproducibility audit — Python 3.11 or newer
+pandas>=2.2
+numpy>=1.26
+scipy>=1.11
+pyarrow>=15
+openpyxl>=3.1
+matplotlib>=3.8
+pytest>=8
+scikit-learn==1.9.1      # the frozen GBM files were saved with this version
+joblib>=1.4
+holidays>=0.50           # used by the Dash data rebuild (update_data.py)
+dash>=2.17               # the Dash app code is imported for the band check
+dash-bootstrap-components>=1.6
+plotly>=5.20
+prophet==1.5.0           # Prophet check (PB-28)
+torch>=2.4               # Chronos-Bolt re-run (L3-18)
+chronos-forecasting>=2.0
+transformers>=4.48
+huggingface_hub>=0.24
