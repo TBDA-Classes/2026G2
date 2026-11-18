@@ -1,0 +1,9 @@
+split,horizon,n,coverage_pct,above_pct,below_pct,mean_width_Wh,scope
+validation,+1h,2413,79.2,9.8,11.0,63.1,all 16 circuits
+validation,+6h,2413,86.4,7.6,6.0,112.1,all 16 circuits
+validation,day-ahead,2413,79.5,8.5,12.0,93.0,all 16 circuits
+validation,all,7239,81.7,8.6,9.7,89.4,all 16 circuits
+test,+1h,2316,78.7,10.9,10.4,64.3,all 16 circuits
+test,+6h,2316,87.1,7.1,5.8,111.8,all 16 circuits
+test,day-ahead,2316,80.6,9.8,9.7,109.0,all 16 circuits
+test,all,6948,82.1,9.2,8.6,95.1,all 16 circuits

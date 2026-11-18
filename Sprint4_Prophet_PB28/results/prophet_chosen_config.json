@@ -1,0 +1,802 @@
+{
+  "model": "ML_Prophet",
+  "purpose": "Backlog PB-28: Prophet tested under the v1.3 protocol. Not a candidate: the model choice (model_choice_v1.3.json) is unchanged. Test week not used.",
+  "rule": "Fitted per training circuit on its own training hours before the horizon's fit cut-off, no refit; chosen on validation by mean scaled MAE over the 15 training circuits (D6), ties by D10.",
+  "dataset": {
+    "file": "Storey1_hourly_v1.2.parquet",
+    "version": "1.2"
+  },
+  "training_series": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "n_configurations": 112,
+  "grid": [
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.001,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.003,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.01,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.03,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.1,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.3,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.01,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 1.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "additive",
+      "daily": "weekday_weekend"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "single"
+    },
+    {
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 10.0,
+      "seasonality_mode": "multiplicative",
+      "daily": "weekday_weekend"
+    }
+  ],
+  "daily_fourier_order": 6,
+  "horizons": {
+    "+1h": {
+      "config_index": 102,
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single",
+      "validation_score": 0.472833,
+      "validation_scaled_RMSE": 0.81599,
+      "n_tied": 4,
+      "best_score": 0.471262,
+      "prophet_fit_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "scale_cutoff_utc": "2025-09-22 00:00:00+00:00",
+      "training_hours": {
+        "NE|HVAC": 703,
+        "NE|Plugs & Sockets": 706,
+        "NW|Emerg. Lighting": 695,
+        "NW|HVAC": 705,
+        "NW|Hand Dryer": 706,
+        "NW|Lighting": 705,
+        "NW|Plugs & Sockets": 706,
+        "NW|RACK": 706,
+        "SE|Emerg. Lighting": 632,
+        "SE|HVAC": 634,
+        "SE|Lighting": 655,
+        "SW|Emerg. Lighting": 637,
+        "SW|Hand Dryer": 632,
+        "SW|Lighting": 601,
+        "SW|Plugs & Sockets": 647
+      }
+    },
+    "+6h": {
+      "config_index": 102,
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single",
+      "validation_score": 0.471636,
+      "validation_scaled_RMSE": 0.813121,
+      "n_tied": 4,
+      "best_score": 0.469979,
+      "prophet_fit_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "scale_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "training_hours": {
+        "NE|HVAC": 703,
+        "NE|Plugs & Sockets": 706,
+        "NW|Emerg. Lighting": 695,
+        "NW|HVAC": 705,
+        "NW|Hand Dryer": 706,
+        "NW|Lighting": 705,
+        "NW|Plugs & Sockets": 706,
+        "NW|RACK": 706,
+        "SE|Emerg. Lighting": 632,
+        "SE|HVAC": 634,
+        "SE|Lighting": 655,
+        "SW|Emerg. Lighting": 637,
+        "SW|Hand Dryer": 632,
+        "SW|Lighting": 601,
+        "SW|Plugs & Sockets": 647
+      }
+    },
+    "day-ahead": {
+      "config_index": 102,
+      "changepoint_prior_scale": 0.5,
+      "seasonality_prior_scale": 0.1,
+      "seasonality_mode": "multiplicative",
+      "daily": "single",
+      "validation_score": 0.472241,
+      "validation_scaled_RMSE": 0.81458,
+      "n_tied": 4,
+      "best_score": 0.470631,
+      "prophet_fit_cutoff_utc": "2025-09-21 19:00:00+00:00",
+      "scale_cutoff_utc": "2025-09-21 22:00:00+00:00",
+      "training_hours": {
+        "NE|HVAC": 703,
+        "NE|Plugs & Sockets": 706,
+        "NW|Emerg. Lighting": 695,
+        "NW|HVAC": 705,
+        "NW|Hand Dryer": 706,
+        "NW|Lighting": 705,
+        "NW|Plugs & Sockets": 706,
+        "NW|RACK": 706,
+        "SE|Emerg. Lighting": 632,
+        "SE|HVAC": 634,
+        "SE|Lighting": 655,
+        "SW|Emerg. Lighting": 637,
+        "SW|Hand Dryer": 632,
+        "SW|Lighting": 601,
+        "SW|Plugs & Sockets": 647
+      }
+    }
+  },
+  "versions": {
+    "python": "3.12.3",
+    "prophet": "1.5.0",
+    "cmdstanpy": "1.3.2",
+    "pandas": "2.2.3",
+    "numpy": "2.1.1"
+  },
+  "created_utc": "2026-11-13T11:12:21+00:00"
+}

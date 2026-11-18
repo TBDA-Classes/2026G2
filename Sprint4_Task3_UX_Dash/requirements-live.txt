@@ -1,0 +1,7 @@
+# Live forecast (page "Live forecast") — Python 3.11 or newer
+# Everything in requirements.txt, plus Chronos-Bolt (one of the three parts of Blend v1.3).
+-r requirements.txt
+torch>=2.4
+chronos-forecasting>=2.0     # the team froze the model with chronos 2.3.2, torch 2.15, transformers 5.21
+transformers>=4.48
+huggingface_hub>=0.24

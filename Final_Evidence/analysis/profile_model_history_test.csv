@@ -1,0 +1,8 @@
+training data,MAE_Wh_16_circuits,test_circuit_hours
+2025 train weeks (19 Aug-21 Sep),57.2,2688
+2020 same season (18 Aug-13 Oct),49.4,2688
+2021 same season (18 Aug-13 Oct),55.3,2688
+2022 same season (18 Aug-13 Oct),46.4,2688
+"2020-22 same season, pooled",38.6,2688
+"all 2020-23, every season",40.4,2688
+2025 train + 2020-22 same season,38.2,2688

@@ -1,0 +1,16 @@
+horizon,model,mean_scaled_MAE,mean_scaled_RMSE
++1h,ML_Blend_v1.3 (final model),0.2712,0.6078
++1h,ML_Prophet (best of 112),0.4728,0.8160
++1h,B1_last_week,0.5521,0.8864
++1h,B2_weekday_hour_median,0.5222,0.9567
++1h,B3_persistence,0.3586,0.7979
++6h,ML_Blend_v1.3 (final model),0.3488,0.7059
++6h,ML_Prophet (best of 112),0.4716,0.8131
++6h,B1_last_week,0.5507,0.8838
++6h,B2_weekday_hour_median,0.5211,0.9535
++6h,B3_persistence,0.5723,1.1565
+day-ahead,ML_Blend_v1.3 (final model),0.3513,0.7027
+day-ahead,ML_Prophet (best of 112),0.4722,0.8146
+day-ahead,B1_last_week,0.5514,0.8851
+day-ahead,B2_weekday_hour_median,0.5217,0.9549
+day-ahead,B3_persistence,0.3708,0.7358

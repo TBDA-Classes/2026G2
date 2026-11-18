@@ -1,0 +1,19 @@
+circuit_set,n_circuits,horizon,model,mean_scaled_MAE,mean_scaled_RMSE,tied,d10_pick
+15 training circuits (official),15,+1h,ML_Chronos,0.2832,0.6142,False,False
+15 training circuits (official),15,+1h,ML_ChronosGBM,0.2665,0.6197,True,False
+15 training circuits (official),15,+1h,ML_Blend,0.2712,0.6078,True,True
+15 training circuits (official),15,+6h,ML_Chronos,0.3563,0.7138,False,False
+15 training circuits (official),15,+6h,ML_ChronosGBM,0.3471,0.7212,True,False
+15 training circuits (official),15,+6h,ML_Blend,0.3498,0.7085,True,True
+15 training circuits (official),15,day-ahead,ML_Chronos,0.3481,0.7072,True,False
+15 training circuits (official),15,day-ahead,ML_ChronosGBM,0.3768,0.7292,False,False
+15 training circuits (official),15,day-ahead,ML_Blend,0.3519,0.704,True,True
+training circuits without 5 flagged,10,+1h,ML_Chronos,0.1646,0.3657,False,False
+training circuits without 5 flagged,10,+1h,ML_ChronosGBM,0.1617,0.3661,True,False
+training circuits without 5 flagged,10,+1h,ML_Blend,0.1573,0.3552,True,True
+training circuits without 5 flagged,10,+6h,ML_Chronos,0.2575,0.4837,False,False
+training circuits without 5 flagged,10,+6h,ML_ChronosGBM,0.2512,0.4929,True,False
+training circuits without 5 flagged,10,+6h,ML_Blend,0.2536,0.4791,True,True
+training circuits without 5 flagged,10,day-ahead,ML_Chronos,0.2408,0.4753,True,True
+training circuits without 5 flagged,10,day-ahead,ML_ChronosGBM,0.2934,0.5204,False,False
+training circuits without 5 flagged,10,day-ahead,ML_Blend,0.2488,0.4734,False,False

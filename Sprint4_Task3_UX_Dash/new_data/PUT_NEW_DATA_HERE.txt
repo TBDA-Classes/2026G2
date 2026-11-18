@@ -1,0 +1,8 @@
+Put the newest export of the cleaned Storey 1 data in this folder, then open the dashboard,
+go to Live forecast > Update the forecast and press 'Update data & compute forecast'.
+
+Accepted files:
+  - the zip (or folder) of the cleaned data with NE/ NW/ SE/ SW/ and
+    clean_Storey1_<zone>_CLEAN_DATA.csv in each (like 'CLEAN DATA all zones.zip')
+  - one CSV for all zones with the columns zone, sensor, Timestamp, energy_Wh, energy_source
+The export must contain the whole history (from 19 Aug 2025) up to the newest day, not only new days.
