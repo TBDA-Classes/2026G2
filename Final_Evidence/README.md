@@ -15,9 +15,11 @@ Evidence prepared for the final presentation (30 Nov) and the Moodle hand-over (
 | `documents/12a_Cleaning_Checks.md` | Data cleaning checks: impact of the 5 sensors flagged by the cleaning on test results and model selection; counter-direct share vs error and coverage |
 | `documents/13_Prophet_Justification.md` | Prophet (backlog PB-28): why it was tested, how (same protocol, 112 configurations, validation only) and why it was not kept |
 | `documents/14_Evaluation_Protocol_Justification.md` | Evaluation protocol: split, data after 5 Oct, horizons, metrics, baselines, rule D10, same-hours comparison and bootstrap; each with reason, evidence, alternative and weakness |
+| `documents/15_Random_Forest_Justification.md` | Random Forest (Model 3): every build decision with reason, evidence, alternative and weakness; test result; why it is not the final model (not a D10 candidate, and would not have passed D10); corrections to the model package |
 | `scripts/ashrae14_by_level.py` | Computes `analysis/ashrae14_by_level_{test,validation}.csv` |
 | `scripts/ashrae14_traffic_light.py` | Computes `analysis/ashrae14_traffic_light_test.csv` |
 | `scripts/regime_comparison.py` | Computes the regime comparison and the exploratory profile test |
 | `scripts/cleaning_checks.py` | Computes `analysis/cleaning_flags_impact_{test,selection}.csv` and `analysis/cleaning_energy_source_vs_error.csv` |
+| `scripts/rf_checks.py` | Computes `analysis/rf_d10_style_check.csv` and `analysis/rf_seed_noise.csv` |
 
-Run from the repository root: `python Final_Evidence/scripts/ashrae14_by_level.py` (needs pandas, numpy) and `python Final_Evidence/scripts/regime_comparison.py` (needs `CLEAN DATA all zones.zip` in the root). `python Final_Evidence/scripts/cleaning_checks.py` needs pandas, numpy, scipy, pyarrow and `CLEAN DATA all zones.zip` in the root.
+Run from the repository root: `python Final_Evidence/scripts/ashrae14_by_level.py` (needs pandas, numpy) and `python Final_Evidence/scripts/regime_comparison.py` (needs `CLEAN DATA all zones.zip` in the root). `python Final_Evidence/scripts/cleaning_checks.py` needs pandas, numpy, scipy, pyarrow and `CLEAN DATA all zones.zip` in the root. `python Final_Evidence/scripts/rf_checks.py` needs pandas.
