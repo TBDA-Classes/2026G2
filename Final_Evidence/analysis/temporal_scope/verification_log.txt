@@ -1,0 +1,19 @@
+Temporal scope verification
+No input file is modified. No model is trained, tuned or selected.
+Python 3.12.14; pandas 2.2.3; numpy 2.3.5
+Model archive SHA256: 22fc6579d10d4554b634415f8b3dff41801dfd18b948f895a916a684c60b62b6
+PASS hourly dataset SHA256: abd78317869c9466ff065c2a3d648ed949f6487e05a9e10a84137f8fa030a575
+META SHA256: 0ef50b5d7b6549c7725be8d62bcd5337d0c171b857d1ed14b041a2dbff7c56b8
+config.py SHA256: 27afaf7483b36560e6815b666a952771dc5e4243d4842581065fefb7aea1aeb9
+PASS config.py split literals agree with META
+PASS unique circuit-hour keys, complete 16-circuit hourly grid, chronological disjoint splits and exact META membership
+Valid counts refer to dataset energy_Wh, not fitted-model rows or Task 6 common-model scoring masks.
+UTC split boundaries are 02:00 Madrid during this window; seven UTC days are not seven full Madrid calendar days.
+Clean archive SHA256: 9774124dd193bc9ff96f28d334816353f6c0ef89578ba9daadee7fe5a2a6fcad
+Last historical timestamp: 2023-02-28 23:00:00+00:00; first recent timestamp: 2025-08-18 18:43:00+00:00; elapsed gap days: 901.821528
+Existing Blend test predictions SHA256: f0bf8c7c8f6be43f7940b2761d64ecfde96301a3528f3317ea64913a2a6684ef
+Profile audit: 2688 target pairs; 2316 nonmissing actuals; 2316 pairs common to all four profiles.
+Profile audit uses cleaned-data hourly sums with all energy readings nonmissing, NOT v1.2 D1/D2 validity for profile training.
+Profile audit is retrospective on the previously inspected test week; it cannot validate a new model choice or annual/winter performance.
+Monthly means condition on observed eligible hours; missingness, season, sampling and operational changes are not disentangled.
+The script does not establish that the chosen dates are optimal, that old data are unusable, or that 34 training days are a statistical minimum.

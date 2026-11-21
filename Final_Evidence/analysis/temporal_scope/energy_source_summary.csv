@@ -1,0 +1,155 @@
+circuit,regime,energy_source,rows,row_share,energy_sum_Wh
+NE|HVAC,historical,counter,24949,0.9974812090196705,82873.02
+NE|HVAC,historical,period_start,1,3.998080921157844e-05,
+NE|HVAC,historical,power,30,0.0011994242763473534,144.76999999999998
+NE|HVAC,historical,spread,29,0.0011594434671357747,282.51
+NE|HVAC,historical,unknown,3,0.00011994242763473533,
+NE|HVAC,recent,counter,61679,0.9995462427277294,5250.0
+NE|HVAC,recent,period_start,1,1.6205616866806033e-05,
+NE|HVAC,recent,spread,27,0.00043755165540376294,3.99
+NE|Plugs & Sockets,historical,counter,24925,0.9965216695985927,4540039.859999999
+NE|Plugs & Sockets,historical,period_start,1,3.998080921157844e-05,
+NE|Plugs & Sockets,historical,power,54,0.002158963697425236,13691.63
+NE|Plugs & Sockets,historical,spread,29,0.0011594434671357747,21110.429999999997
+NE|Plugs & Sockets,historical,unknown,3,0.00011994242763473533,
+NE|Plugs & Sockets,recent,counter,49986,0.7833077381138935,190528.0
+NE|Plugs & Sockets,recent,period_start,1,1.567054251418184e-05,
+NE|Plugs & Sockets,recent,power,2,3.134108502836368e-05,6.38
+NE|Plugs & Sockets,recent,spread,13825,0.21664525025856396,64853.990000000005
+NW|Emerg. Lighting,historical,counter,13079,0.5563401250584883,176880.65999999997
+NW|Emerg. Lighting,historical,period_start,1,4.253690076141052e-05,
+NW|Emerg. Lighting,historical,power,10408,0.4427240631247607,113806.77
+NW|Emerg. Lighting,historical,spread,13,0.0005529797098983368,833.6899999999999
+NW|Emerg. Lighting,historical,unknown,8,0.0003402952060912842,
+NW|Emerg. Lighting,recent,counter,9597,0.1519065482691486,13463.0
+NW|Emerg. Lighting,recent,period_start,1,1.5828545198410813e-05,
+NW|Emerg. Lighting,recent,power,481,0.007613530240435601,126.02000000000001
+NW|Emerg. Lighting,recent,spread,53098,0.8404640929452174,12998.23
+NW|HVAC,historical,counter,23398,0.9952784040154834,2525111.0200000005
+NW|HVAC,historical,period_start,1,4.253690076141052e-05,
+NW|HVAC,historical,power,80,0.003402952060912842,14424.510000000002
+NW|HVAC,historical,spread,24,0.0010208856182738525,18415.239999999998
+NW|HVAC,historical,unknown,6,0.0002552214045684631,
+NW|HVAC,recent,counter,57932,0.9185203976470961,125786.0
+NW|HVAC,recent,period_start,1,1.5855147373594837e-05,
+NW|HVAC,recent,spread,5138,0.08146374720553028,12279.269999999999
+NW|Hand Dryer,historical,counter,11725,0.46877498800575723,8226.61
+NW|Hand Dryer,historical,period_start,1,3.998080921157844e-05,
+NW|Hand Dryer,historical,power,13253,0.5298656644810491,52492.729999999996
+NW|Hand Dryer,historical,spread,26,0.0010395010395010396,781.9200000000001
+NW|Hand Dryer,historical,unknown,7,0.0002798656644810491,
+NW|Hand Dryer,recent,counter,928,0.014688657444046979,4.0
+NW|Hand Dryer,recent,period_start,1,1.582829465953338e-05,
+NW|Hand Dryer,recent,power,11998,0.18990787932508152,759.2
+NW|Hand Dryer,recent,spread,50250,0.7953718066415525,326.05999999999995
+NW|Hand Dryer,recent,unknown,1,1.582829465953338e-05,
+NW|Lighting,historical,counter,24790,0.9911242603550295,5056616.859999999
+NW|Lighting,historical,period_start,1,3.998080921157844e-05,
+NW|Lighting,historical,power,192,0.007676315368623061,13517.42
+NW|Lighting,historical,spread,26,0.0010395010395010396,15546.99
+NW|Lighting,historical,unknown,3,0.00011994242763473533,
+NW|Lighting,recent,counter,50404,0.795731177872851,59665.0
+NW|Lighting,recent,period_start,1,1.57870640796931e-05,
+NW|Lighting,recent,power,149,0.002352272547874272,7.48
+NW|Lighting,recent,spread,12785,0.20183761425887628,17571.0
+NW|Lighting,recent,unknown,4,6.31482563187724e-05,
+NW|Plugs & Sockets,historical,counter,24919,0.9962817847433232,30091024.119999997
+NW|Plugs & Sockets,historical,period_start,1,3.998080921157844e-05,
+NW|Plugs & Sockets,historical,power,40,0.0015992323684631377,71885.05
+NW|Plugs & Sockets,historical,spread,49,0.0019590596513673437,107370.26000000001
+NW|Plugs & Sockets,historical,unknown,3,0.00011994242763473533,
+NW|Plugs & Sockets,recent,counter,38417,0.6014779790515258,488003.0
+NW|Plugs & Sockets,recent,period_start,1,1.5656557749213257e-05,
+NW|Plugs & Sockets,recent,power,5686,0.08902318736202658,86907.81999999999
+NW|Plugs & Sockets,recent,spread,19750,0.30921701554696185,307483.0
+NW|Plugs & Sockets,recent,unknown,17,0.00026616148173662536,
+NW|RACK,historical,counter,24964,0.9981208268361921,3999566.6100000003
+NW|RACK,historical,period_start,1,3.998240774059414e-05,
+NW|RACK,historical,power,19,0.0007596657470712886,6985.17
+NW|RACK,historical,spread,24,0.0009595777857742593,14345.49
+NW|RACK,historical,unknown,3,0.00011994722322178242,
+NW|RACK,recent,counter,61895,0.9996446856275336,249316.0
+NW|RACK,recent,period_start,1,1.6150653293925738e-05,
+NW|RACK,recent,spread,21,0.00033916371917244053,134.0
+SE|Emerg. Lighting,historical,counter,20937,0.8563540431101476,37771.509999999995
+SE|Emerg. Lighting,historical,period_start,1,4.090146836271422e-05,
+SE|Emerg. Lighting,historical,power,156,0.006380629064583418,103.75
+SE|Emerg. Lighting,historical,spread,3349,0.13697901754672992,6911.959999999999
+SE|Emerg. Lighting,historical,unknown,6,0.00024540881017628535,
+SE|Emerg. Lighting,recent,counter,13422,0.339616912527517,794.0
+SE|Emerg. Lighting,recent,period_start,1,2.5303003466511476e-05,
+SE|Emerg. Lighting,recent,power,6,0.00015181802079906884,0.77
+SE|Emerg. Lighting,recent,spread,26092,0.6602059664482174,2057.62
+SE|HVAC,historical,counter,20918,0.8555769152112561,1353333.42
+SE|HVAC,historical,period_start,1,4.090146836271422e-05,
+SE|HVAC,historical,power,157,0.0064215305329461325,3429.74
+SE|HVAC,historical,spread,3367,0.1377152439772588,308752.48
+SE|HVAC,historical,unknown,6,0.00024540881017628535,
+SE|HVAC,recent,counter,13415,0.3395428889620087,17060.0
+SE|HVAC,recent,period_start,1,2.531068870383963e-05,
+SE|HVAC,recent,power,4,0.00010124275481535852,34.96
+SE|HVAC,recent,spread,26089,0.6603305575944721,46774.17
+SE|Lighting,historical,counter,19992,0.8164998978966714,893039.7
+SE|Lighting,historical,period_start,1,4.0841331427404534e-05,
+SE|Lighting,historical,power,1854,0.075719828466408,89483.19000000002
+SE|Lighting,historical,spread,2608,0.10651419236267103,484428.94
+SE|Lighting,historical,unknown,30,0.001225239942822136,
+SE|Lighting,recent,counter,8021,0.16687471393500602,23227.0
+SE|Lighting,recent,period_start,1,2.080472683393667e-05,
+SE|Lighting,recent,power,292,0.0060749802355095075,87.9
+SE|Lighting,recent,spread,39720,0.8263637498439645,148154.46
+SE|Lighting,recent,unknown,32,0.0006657512586859735,
+SE|Plugs & Sockets,historical,counter,19687,0.8037478566179472,5199319.42
+SE|Plugs & Sockets,historical,period_start,1,4.082632481424022e-05,
+SE|Plugs & Sockets,historical,power,209,0.008532701886176207,71165.47
+SE|Plugs & Sockets,historical,spread,4579,0.18694374132440597,1914960.6800000002
+SE|Plugs & Sockets,historical,unknown,18,0.000734873846656324,
+SE|Plugs & Sockets,recent,counter,6865,0.11708623277391186,153921.0
+SE|Plugs & Sockets,recent,period_start,1,1.7055532814845137e-05,
+SE|Plugs & Sockets,recent,power,6850,0.11683039978168917,27117.91
+SE|Plugs & Sockets,recent,spread,44847,0.7648894801473598,387289.03
+SE|Plugs & Sockets,recent,unknown,69,0.0011768317642243144,
+SW|Emerg. Lighting,historical,counter,17212,0.7079631457716354,198600.91
+SW|Emerg. Lighting,historical,period_start,1,4.113195129976966e-05,
+SW|Emerg. Lighting,historical,power,1280,0.05264889766370517,13397.46
+SW|Emerg. Lighting,historical,spread,5814,0.23914116485686082,69645.6
+SW|Emerg. Lighting,historical,unknown,5,0.0002056597564988483,
+SW|Emerg. Lighting,recent,counter,4887,0.11898906771201091,1357.0
+SW|Emerg. Lighting,recent,period_start,1,2.4348080153879866e-05,
+SW|Emerg. Lighting,recent,power,16,0.00038956928246207785,9.41
+SW|Emerg. Lighting,recent,spread,36167,0.8805970149253731,14181.91
+SW|Hand Dryer,historical,counter,18103,0.7456852164600238,101865.84
+SW|Hand Dryer,historical,period_start,1,4.119125097829221e-05,
+SW|Hand Dryer,historical,power,826,0.03402397330806937,359464.73000000004
+SW|Hand Dryer,historical,spread,5338,0.21987889772212382,198551.24000000002
+SW|Hand Dryer,historical,unknown,9,0.00037072125880462987,
+SW|Hand Dryer,recent,counter,11341,0.27250883052598696,395.0
+SW|Hand Dryer,recent,period_start,1,2.4028642141432588e-05,
+SW|Hand Dryer,recent,power,9,0.00021625777927289328,1.81
+SW|Hand Dryer,recent,spread,30265,0.7272268544104573,3887.01
+SW|Hand Dryer,recent,unknown,1,2.4028642141432588e-05,
+SW|Lighting,historical,counter,9943,0.4067997708861795,939460.6399999999
+SW|Lighting,historical,period_start,1,4.091318222731364e-05,
+SW|Lighting,historical,power,10398,0.4254152687996072,1371811.89
+SW|Lighting,historical,spread,4090,0.16733491530971278,1723603.42
+SW|Lighting,historical,unknown,10,0.00040913182227313643,
+SW|Lighting,recent,counter,1471,0.029151225699054716,1564.0
+SW|Lighting,recent,period_start,1,1.9817284635659223e-05,
+SW|Lighting,recent,power,4925,0.09760012683062166,2227.49
+SW|Lighting,recent,spread,44055,0.873050474623967,85141.84
+SW|Lighting,recent,unknown,9,0.000178355561720933,
+SW|Plugs & Sockets,historical,counter,17585,0.7222655768677866,5152592.890000001
+SW|Plugs & Sockets,historical,period_start,1,4.1072822113607424e-05,
+SW|Plugs & Sockets,historical,power,667,0.027395572349776152,234881.33000000002
+SW|Plugs & Sockets,historical,spread,6088,0.250051341027642,2506401.92
+SW|Plugs & Sockets,historical,unknown,6,0.00024643693268164453,
+SW|Plugs & Sockets,recent,counter,5177,0.11474101819632528,30193.0
+SW|Plugs & Sockets,recent,period_start,1,2.2163611782176023e-05,
+SW|Plugs & Sockets,recent,power,58,0.0012854894833662094,412.15
+SW|Plugs & Sockets,recent,spread,39882,0.8839291650967441,332000.41
+SW|Plugs & Sockets,recent,unknown,1,2.2163611782176023e-05,
+SW|RACK,historical,counter,10902,0.8361711919005983,3033851.7800000003
+SW|RACK,historical,period_start,1,7.669888019634913e-05,
+SW|RACK,historical,power,22,0.0016873753643196808,9009.710000000001
+SW|RACK,historical,spread,2111,0.161911336094493,971198.5800000001
+SW|RACK,historical,unknown,2,0.00015339776039269826,
