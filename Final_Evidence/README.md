@@ -21,5 +21,9 @@ Evidence prepared for the final presentation (30 Nov) and the Moodle hand-over (
 | `scripts/regime_comparison.py` | Computes the regime comparison and the exploratory profile test |
 | `scripts/cleaning_checks.py` | Computes `analysis/cleaning_flags_impact_{test,selection}.csv` and `analysis/cleaning_energy_source_vs_error.csv` |
 | `scripts/rf_checks.py` | Computes `analysis/rf_d10_style_check.csv` and `analysis/rf_seed_noise.csv` |
+| `documents/16_Temporal_Scope_Justification.md` | Detailed temporal scope rationale: verified training, validation and test boundaries; historical-data comparability; evidence supporting the retained model; limitations concerning winter and annual performance. |
+| `documents/16a_Temporal_Scope_Reproduction.md` | File index, required inputs, reproduction commands and verification boundaries for the temporal scope contribution. |
+| `scripts/verify_temporal_scope.py` | Read-only verification of temporal coverage, split membership and input integrity; exploratory historical-profile comparison. |
+| `analysis/temporal_scope/` | Generated coverage, split, energy-source, monthly and historical-profile evidence tables, together with the verification log. |
 
 Run from the repository root: `python Final_Evidence/scripts/ashrae14_by_level.py` (needs pandas, numpy) and `python Final_Evidence/scripts/regime_comparison.py` (needs `CLEAN DATA all zones.zip` in the root). `python Final_Evidence/scripts/cleaning_checks.py` needs pandas, numpy, scipy, pyarrow and `CLEAN DATA all zones.zip` in the root. `python Final_Evidence/scripts/rf_checks.py` needs pandas.
