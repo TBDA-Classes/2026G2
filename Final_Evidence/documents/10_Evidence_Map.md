@@ -21,6 +21,7 @@ Rule used in the presentation: **a number is shown only if it has a row in this 
 | Pooled MAE 20.1 / 31.1 / 30.7 Wh, building CV(RMSE) 6.3 / 14.2 / 15.4 % (n = 2,174 and 26 h) | `Sprint4_Task4_Documentation/analysis/accuracy_metrics_MAPE_CVRMSE.csv`, mid-term deck slides on ASHRAE | Official mask: MAE 22.2 / 34.7 / 34.2 Wh; building 6.7 / 17.6 / 19.5 % (n = 12 h) |
 | "82 % of values inside the interval" | mid-term deck | Say which band: raw Chronos-Bolt q10–q90 (80 % nominal) → 82 %; **Dash band at 90 % → 89.9 / 91.4 / 90.7 %** (+1 h / +6 h / day-ahead) |
 | "About 43,500 spike cases, 66 / 73 / 78 alerts in 14 days" | Energy Watch test | Dash test: 321,366 cases, default setting 4.8 anomalies per day; mention Energy Watch only as the earlier tool |
+| Temperature "gain 0.0007–0.0018" | claim 18 below; doc 17, alternatives table | Those are differences from retraining ChronosGBM (audit L2-27). Temperature effect on the Blend: +0.0068 / +0.0080 / −0.0003 scaled MAE (`Sprint4_Task2_Temperature/outputs/experiment_table.csv`) |
 
 ## 2. Claim → file
 
@@ -49,6 +50,9 @@ Rule used in the presentation: **a number is shown only if it has a row in this 
 | 21 | Alerts on unmodified data: 4.8 anomalies per day (default) | `analysis/injection_quiet_data_alerts_dash.csv`; Dash README §4 |
 | 22 | Dash vs Energy Watch like-for-like comparison | `Sprint4_Task3_UX_Dash/documents/Injection_Tests_Explained.md` |
 | 23 | Backlog coverage: 36 covered, 10 partly, 11 team, 1 pending | `Sprint4_Task4_Documentation/documents/06_Backlog_Coverage.md` |
+| 26 | GBM v1.3 in the Blend: test MAE of the Blend minus the Blend without GBM = +0.01 / −0.12 / −0.29 Wh (official 1,911-hour mask), all ties; validation scaled RMSE 0.001–0.003 | `Final_Evidence/scripts/gbm_contribution_check.py` → `analysis/gbm_contribution_test.csv`; `TBDA_v1.3_ChronosGBM_29-10/results/blend_tuning_log_v1.3.csv`; doc 18 |
+| 27 | GBM v1.3 validation scores reproduce from the stored forecasts within 0.0013 (0.282 / 0.399 / 0.398) | `analysis/gbm_validation_recompute.csv` |
+| 28 | Why GBM, ChronosGBM and Chronos-Bolt v1.3 were not chosen alone, and what each adds to the Blend | `documents/18_GBM_Justification.pdf`, `19_ChronosGBM_Justification.pdf`, `20_Chronos_Bolt_Justification.pdf`; `models/model_choice_v1.3.json` |
 
 ## 3. Claims that cannot be backed by a file (say them as limits)
 
