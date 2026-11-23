@@ -32,9 +32,9 @@ Format of each block: **Decision · Why · Evidence · Alternative rejected · W
 
 - **Decision.** The hours from 6 Oct to the end of the data (13 Oct 2025) are not used for training, selection or scoring.
 - **Why.** Written in `task6.pdf` §4: "Data after 5 October remain outside the first evaluation protocol and may be used later for additional analysis or Sprint 3 work." Validation and test were sized as two full weeks; the tail is less than a full week.
-- **Evidence.** `task6.pdf` §4; `config.py` comment on `SPLITS` ("everything after 5 Oct is outside"). This answers the open point "why 6–13 Oct was left untouched" in `10_Evidence_Map.md` §3.
+- **Evidence.** `task6.pdf` §4; `config.py` comment on `SPLITS` ("everything after 5 Oct is outside"). This answers the open point "why 6–13 Oct was left out" in `10_Evidence_Map.md` §3.
 - **Alternative rejected.** Add the tail to the test week (an unequal second week, decided after the split) or to training (would shift every split).
-- **Weakness.** The reserve was never used. It is the only data no model or person has looked at, so it could serve as a second, independent check of the frozen Blend v1.3. Not done.
+- **Weakness.** The reserve was not used for training, selection or official scoring. It is not untouched: the Dash live forecast page shows its measurements and forecasts it with the frozen Blend v1.3. It could still serve as a second, later check of the frozen Blend v1.3 (it was not used to choose it). Not done.
 
 ### E3 — The test week is used once, at the end
 
@@ -102,7 +102,7 @@ Format of each block: **Decision · Why · Evidence · Alternative rejected · W
 |---|---|
 | Why not a random split? | Forecasting: a random split would train on the future. |
 | Why only one test week? | 8 weeks of data, 5 needed for training. We say it is small and report CIs. |
-| Why were 6–13 Oct not used? | Task 6 left them outside the first protocol as a reserve; they were never used. |
+| Why were 6–13 Oct not used? | Task 6 left them outside the first protocol as a reserve; they were not used for training, selection or official scoring (the Dash live page does forecast them). |
 | Is +1 h useful? | It shows persistence is hard to beat one hour ahead. The product uses day-ahead. |
 | Why scaled MAE and not MAE? | In Wh one circuit decides the choice; scaling weights all circuits equally. MAE in Wh is reported. |
 | Could a baseline have won? | Baselines were never candidates (D10a). Under the other option, persistence would have won day-ahead on v1.2. |

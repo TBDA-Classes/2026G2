@@ -10,13 +10,14 @@ This index replaces the delivery table of `Sprint4_Task4_Documentation/documents
 | Deliverable | Where | Status |
 |---|---|---|
 | Final model Blend v1.3 (Chronos-Bolt + ChronosGBM + GBM) and parameters | `TBDA_v1.3_ChronosGBM_29-10/` (`README_v1.3.md`, `TBDA_G2_Model_parameters_and_results_v1.3.pdf`) | frozen |
-| Model comparison (11 models, same hours, CIs) | `Task6_rev0_03-11/` (`RESULTS.md`, `results/`) | final |
-| **Main dashboard (Dash)** | `Sprint4_Task3_UX_Dash/` (`README.md`, `Start_dashboard.bat`, `Start_dashboard.command`) | validated; usability test and user guide: Edoardo |
+| Model comparison (9 models scored on the same hours, with CIs) | `Task6_rev0_03-11/` (`RESULTS.md`, `results/`) | final |
+| **Main dashboard (Dash)** | `Sprint4_Task3_UX_Dash/` (`README.md`, `Start_dashboard.bat`, `Start_dashboard.command`) | validated; user guide `dash_guide.pdf` (22 pages, 22 Nov); usability test done and used to improve the Dash, no written report |
 | Detection validation of the dashboard | `Sprint4_Task3_UX_Dash/documents/04_Detection_Validation_Dash.md`, `analysis/injection_*_dash.csv` | final |
 | Diagnosis of errors | `Sprint4_Task1_Diagnosis/` | final |
 | Temperature test | `Sprint4_Task2_Temperature/` | final (not used by Chronos, decision D12) |
 | Prophet check | `Sprint4_Prophet_PB28/` | final |
-| Technical documentation, assumptions, backlog coverage | `Sprint4_Task4_Documentation/documents/01–07` | written around Energy Watch; see status notes |
+| Backlog coverage for the Dash | `Sprint4_Task4_Documentation/documents/06_Backlog_Coverage.md` (Energy Watch version archived in `06a`) | updated 23 Nov |
+| Technical documentation, assumptions | `Sprint4_Task4_Documentation/documents/01–07` | written around Energy Watch; see status notes |
 | Scope decision (2025-only) | `Final_Evidence/documents/08_Scope_Decision_2025_Only.md` | new |
 | ASHRAE 14 assessment by level | `Final_Evidence/documents/09_ASHRAE14_Assessment.md` | new |
 | Evidence map (claim → file) | `Final_Evidence/documents/10_Evidence_Map.md` | new |

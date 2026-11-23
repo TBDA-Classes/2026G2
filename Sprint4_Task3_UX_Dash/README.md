@@ -115,7 +115,7 @@ Design choices that follow from these needs:
 ## 3b. Live forecast (`engines/live_engine.py`)
 
 - **Data.** The repository's dataset v1.2 runs to **13 Oct 2025, 14:00 UTC** (16:00 Madrid). The week after the test
-  week (6–13 Oct, split `outside`) was never used to build, choose or score any model, so it is new data.
+  week (6–13 Oct, split `outside`) was not used to build, choose or score any model, so it is new data for the model. The Live forecast page does show and forecast it.
 - **How the forecasts are made.** The frozen Blend v1.3 makes them exactly as it would have in real time, issued one
   hour after the last measurement:
   - **+1 h:** every hour up to the next hour;

@@ -71,7 +71,7 @@ Format of each block: **Decision · Why · Evidence · Alternative rejected · W
 
 - **Decision.** The Sprint 3 version (21 Oct) used per-circuit +1 h models with dummies on 8 circuits. The 2 Nov rework switched to Model 3's design B and all 16 circuits.
 - **Why.** The data owner asked for all 16 circuits, and design B scored best on validation (L2).
-- **Weakness, stated openly.** The 21 Oct version had already been scored on the test week (+1 h MAE 32.4 Wh, mainly the NE|HVAC spike of 3 Oct). The rework was chosen on validation, but its authors knew that test result. The rework was then run on the test week again on 2 Nov, on all 16 circuits. **[Mert: one line on why the rework was needed, for example "required by the data owner on …".]**
+- **Weakness, stated openly.** The 21 Oct version had already been scored on the test week (+1 h MAE 32.4 Wh, mainly the NE|HVAC spike of 3 Oct). The rework was chosen on validation, but its authors knew that test result. The rework was then run on the test week again on 2 Nov, on all 16 circuits. The rework was needed because the 21 Oct version only forecast the 8 NE/NW circuits, while the Task 6 comparison scores every model on the same 16 circuits; without it, Model 1 could not be compared like-for-like with the other models.
 
 ### L9 — Robustness: the 5 circuits flagged by the cleaning
 

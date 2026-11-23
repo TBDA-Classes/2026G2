@@ -4,6 +4,8 @@
 
 Test week 29 Sep – 5 Oct 2025. Every model is scored on the same hours: 1,911 per horizon on the 16 circuits and 1,318 on the 8 NE/NW circuits. MAE is in Wh, and lower is better. A model counts as better only when the 95% CI of the MAE difference excludes 0.
 
+> **Baseline names.** This file calls the baselines A, B and C. The other documents call them B1, B2 and B3: A = B1 (same hour last week), B = B2 (weekday × hour median), C = B3 (persistence).
+
 ![Test MAE with 95% CI, 16 circuits](figures/task6_test_mae_16circuits.png)
 
 ## 1. Test, all 16 circuits

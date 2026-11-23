@@ -40,7 +40,7 @@ Building total, CV(RMSE) % / NMBE %. **Bold** means the model fails at least one
 
 ## 4. What it shows
 
-1. **Building: Blend v1.3 is the only model that passes both limits at all three horizons, on the test week and also on the validation week.** On the test week, Chronos-Bolt and linear regression miss NMBE, and the baselines miss CV(RMSE).
+1. **Building: ASHRAE 14 is a reference check, not a ranking.** On the test week, Blend v1.3, ChronosGBM, GBM and random forest pass both limits at all three horizons; Chronos-Bolt misses NMBE at day-ahead, linear regression at +6 h and day-ahead, persistence misses CV(RMSE) at +6 h, and baselines B1 and B2 fail. On the validation week Blend v1.3 passes at all three horizons, but it was also the week used to choose it, so that is not independent evidence.
 2. **Circuits: the models are close.** Between 5 and 8 of 16 circuits pass. Blend v1.3 and Chronos-Bolt are the best (8 of 16 at day-ahead). Small, spiky circuits (hand dryers, low-use lighting) fail for every model: their mean is a few Wh, so CV(RMSE) becomes very large.
 
 ## 5. Limits
@@ -53,5 +53,5 @@ Building total, CV(RMSE) % / NMBE %. **Bold** means the model fails at least one
 
 | # | Claim | File(s) |
 |---|---|---|
-| 24 | ASHRAE 14, all nine models: only Blend v1.3 passes both hourly limits for the building at +1 h, +6 h and day-ahead (test and validation; 12 building hours on test) | `Final_Evidence/documents/09c_ASHRAE14_All_Models.md`; `analysis/ashrae14_all_models_test.csv`, `ashrae14_all_models_validation.csv` |
+| 24 | ASHRAE 14, all nine models, building total: Blend v1.3 passes both hourly limits at +1 h, +6 h and day-ahead; so do ChronosGBM, GBM and random forest on the test week (12 building hours: indicative). It is a reference check, not a ranking. | `Final_Evidence/documents/09c_ASHRAE14_All_Models.md`; `analysis/ashrae14_all_models_test.csv`, `ashrae14_all_models_validation.csv` |
 | 25 | ASHRAE 14 by circuit, all nine models: 5 to 8 of 16 circuits pass; Blend v1.3 and Chronos-Bolt 8 of 16 at day-ahead | `analysis/ashrae14_all_models_test.csv`; `analysis/ashrae14_all_models_by_circuit_test.csv` |
