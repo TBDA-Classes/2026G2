@@ -1,0 +1,5 @@
+sensor,energy_verdict,reason
+Emerg. Lighting,below_resolution,"median 1.7 W, near the counter step"
+HVAC,ok,bias 0.999
+Lighting,ok,bias 0.932
+Plugs & Sockets,ok,bias 0.999

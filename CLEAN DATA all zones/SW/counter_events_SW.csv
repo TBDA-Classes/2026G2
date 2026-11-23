@@ -1,0 +1,1414 @@
+sensor,timestamp,event,column,excel_row
+Emerg. Lighting,2020-10-28 08:00:00,reset,Ea,4844
+Emerg. Lighting,2020-12-18 08:00:00,reset,Ea,6068
+Emerg. Lighting,2020-12-18 09:00:00,jump,Ea,6069
+Emerg. Lighting,2020-12-19 04:00:00,jump,Ea,6088
+Emerg. Lighting,2020-12-19 05:00:00,jump,Ea,6089
+Emerg. Lighting,2020-12-19 15:00:00,jump,Ea,6099
+Emerg. Lighting,2020-12-26 09:00:00,reset,Ea,6210
+Emerg. Lighting,2021-01-05 20:00:00,reset,Ea,6461
+Emerg. Lighting,2021-01-07 16:00:00,reset,Ea,6505
+Emerg. Lighting,2021-04-09 05:00:00,reset,Ea,8701
+Emerg. Lighting,2021-04-12 05:00:00,jump,Ea,8772
+Emerg. Lighting,2021-04-12 12:00:00,jump,Ea,8779
+Emerg. Lighting,2021-06-05 10:00:00,reset,Ea,10069
+Emerg. Lighting,2021-06-05 14:00:00,jump,Ea,10073
+Emerg. Lighting,2021-06-06 01:00:00,reset,Ea,10084
+Emerg. Lighting,2021-06-06 16:00:00,jump,Ea,10099
+Emerg. Lighting,2021-06-07 12:00:00,jump,Ea,10119
+Emerg. Lighting,2021-06-08 21:00:00,reset,Ea,10151
+Emerg. Lighting,2021-06-11 14:00:00,jump,Ea,10215
+Emerg. Lighting,2021-06-11 15:00:00,jump,Ea,10216
+Emerg. Lighting,2021-06-16 07:00:00,reset,Ea,10324
+Emerg. Lighting,2021-06-17 15:00:00,jump,Ea,10355
+Emerg. Lighting,2021-06-20 13:00:00,reset,Ea,10425
+Emerg. Lighting,2021-06-20 20:00:00,jump,Ea,10432
+Emerg. Lighting,2021-06-21 14:00:00,jump,Ea,10450
+Emerg. Lighting,2021-06-22 05:00:00,reset,Ea,10465
+Emerg. Lighting,2021-06-23 14:00:00,jump,Ea,10494
+Emerg. Lighting,2021-06-26 21:00:00,reset,Ea,10568
+Emerg. Lighting,2021-06-27 11:00:00,jump,Ea,10582
+Emerg. Lighting,2021-06-28 14:00:00,jump,Ea,10606
+Emerg. Lighting,2021-06-29 03:00:00,reset,Ea,10619
+Emerg. Lighting,2021-06-30 13:00:00,jump,Ea,10653
+Emerg. Lighting,2021-06-30 14:00:00,jump,Ea,10654
+Emerg. Lighting,2021-07-01 07:00:00,reset,Ea,10671
+Emerg. Lighting,2021-07-07 10:00:00,jump,Ea,10677
+Emerg. Lighting,2021-08-08 13:00:00,reset,Ea,11250
+Emerg. Lighting,2021-08-09 09:00:00,reset,Ea,11270
+Emerg. Lighting,2021-08-09 10:00:00,jump,Ea,11271
+Emerg. Lighting,2021-08-12 13:00:00,reset,Ea,11342
+Emerg. Lighting,2021-08-21 16:00:00,reset,Ea,11561
+Emerg. Lighting,2021-08-25 02:00:00,jump,Ea,11643
+Emerg. Lighting,2021-08-26 18:00:00,reset,Ea,11683
+Emerg. Lighting,2021-08-30 13:00:00,jump,Ea,11774
+Emerg. Lighting,2021-08-30 14:00:00,reset,Ea,11775
+Emerg. Lighting,2021-08-31 23:00:00,jump,Ea,11808
+Emerg. Lighting,2021-09-02 01:00:00,reset,Ea,11834
+Emerg. Lighting,2021-09-04 06:00:00,jump,Ea,11887
+Emerg. Lighting,2021-09-05 18:00:00,reset,Ea,11923
+Emerg. Lighting,2021-09-25 08:00:00,jump,Ea,12380
+Emerg. Lighting,2021-09-25 21:00:00,reset,Ea,12393
+Emerg. Lighting,2021-09-30 11:00:00,reset,Ea,12497
+Emerg. Lighting,2021-10-14 14:00:00,reset,Ea,12836
+Emerg. Lighting,2021-10-14 15:00:00,jump,Ea,12837
+Emerg. Lighting,2021-10-16 06:00:00,jump,Ea,12876
+Emerg. Lighting,2021-10-16 15:00:00,reset,Ea,12885
+Emerg. Lighting,2021-10-17 18:00:00,reset,Ea,12912
+Emerg. Lighting,2021-10-18 22:00:00,jump,Ea,12940
+Emerg. Lighting,2021-10-22 20:00:00,jump,Ea,13033
+Emerg. Lighting,2021-10-25 02:00:00,reset,Ea,13087
+Emerg. Lighting,2021-10-31 05:00:00,jump,Ea,13233
+Emerg. Lighting,2021-10-31 17:00:00,reset,Ea,13245
+Emerg. Lighting,2021-11-04 17:00:00,jump,Ea,13336
+Emerg. Lighting,2021-11-04 20:00:00,reset,Ea,13339
+Emerg. Lighting,2021-11-08 10:00:00,jump,Ea,13425
+Emerg. Lighting,2021-11-10 20:00:00,reset,Ea,13479
+Emerg. Lighting,2021-11-13 18:00:00,jump,Ea,13544
+Emerg. Lighting,2021-11-27 15:00:00,reset,Ea,13874
+Emerg. Lighting,2021-11-28 16:00:00,jump,Ea,13899
+Emerg. Lighting,2021-11-29 16:00:00,jump,Ea,13923
+Emerg. Lighting,2021-12-17 15:00:00,reset,Ea,14342
+Emerg. Lighting,2021-12-17 18:00:00,jump,Ea,14345
+Emerg. Lighting,2021-12-18 00:00:00,reset,Ea,14351
+Emerg. Lighting,2021-12-19 19:00:00,jump,Ea,14394
+Emerg. Lighting,2021-12-20 04:00:00,jump,Ea,14403
+Emerg. Lighting,2021-12-20 22:00:00,jump,Ea,14419
+Emerg. Lighting,2022-01-16 11:00:00,reset,Ea,15027
+Emerg. Lighting,2022-01-18 02:00:00,jump,Ea,15062
+Emerg. Lighting,2022-02-02 08:00:00,reset,Ea,15420
+Emerg. Lighting,2022-02-03 16:00:00,jump,Ea,15450
+Emerg. Lighting,2022-02-08 09:00:00,reset,Ea,15561
+Emerg. Lighting,2022-02-08 11:00:00,jump,Ea,15563
+Emerg. Lighting,2022-02-10 15:00:00,reset,Ea,15614
+Emerg. Lighting,2022-02-11 10:00:00,reset,Ea,15633
+Emerg. Lighting,2022-02-15 19:00:00,reset,Ea,15737
+Emerg. Lighting,2022-02-17 18:00:00,jump,Ea,15784
+Emerg. Lighting,2022-02-18 11:00:00,reset,Ea,15801
+Emerg. Lighting,2022-02-19 03:00:00,jump,Ea,15817
+Emerg. Lighting,2022-02-19 05:00:00,reset,Ea,15819
+Emerg. Lighting,2022-02-21 00:00:00,jump,Ea,15862
+Emerg. Lighting,2022-02-23 06:00:00,reset,Ea,15916
+Emerg. Lighting,2022-02-27 02:00:00,jump,Ea,16008
+Emerg. Lighting,2022-02-28 13:00:00,reset,Ea,16043
+Emerg. Lighting,2022-03-03 10:00:00,jump,Ea,16112
+Emerg. Lighting,2022-03-04 16:00:00,reset,Ea,16142
+Emerg. Lighting,2022-03-04 17:00:00,jump,Ea,16143
+Emerg. Lighting,2022-03-06 19:00:00,jump,Ea,16193
+Emerg. Lighting,2022-03-07 08:00:00,reset,Ea,16206
+Emerg. Lighting,2022-03-07 13:00:00,jump,Ea,16211
+Emerg. Lighting,2022-03-10 09:00:00,jump,Ea,16279
+Emerg. Lighting,2022-03-10 11:00:00,jump,Ea,16281
+Emerg. Lighting,2022-03-11 13:00:00,reset,Ea,16307
+Emerg. Lighting,2022-03-13 06:00:00,jump,Ea,16348
+Emerg. Lighting,2022-03-13 11:00:00,reset,Ea,16353
+Emerg. Lighting,2022-03-16 06:00:00,jump,Ea,16420
+Emerg. Lighting,2022-03-16 21:00:00,reset,Ea,16435
+Emerg. Lighting,2022-03-17 15:00:00,jump,Ea,16453
+Emerg. Lighting,2022-03-20 11:00:00,jump,Ea,16521
+Emerg. Lighting,2022-03-20 17:00:00,reset,Ea,16527
+Emerg. Lighting,2022-03-25 14:00:00,jump,Ea,16644
+Emerg. Lighting,2022-03-25 15:00:00,reset,Ea,16645
+Emerg. Lighting,2022-03-28 14:00:00,jump,Ea,16716
+Emerg. Lighting,2022-03-31 17:00:00,jump,Ea,16790
+Emerg. Lighting,2022-04-01 05:00:00,reset,Ea,16802
+Emerg. Lighting,2022-04-02 22:00:00,jump,Ea,16843
+Emerg. Lighting,2022-04-03 07:00:00,reset,Ea,16852
+Emerg. Lighting,2022-04-03 08:00:00,jump,Ea,16853
+Emerg. Lighting,2022-04-04 13:00:00,jump,Ea,16882
+Emerg. Lighting,2022-05-18 04:00:00,reset,Ea,17923
+Emerg. Lighting,2022-05-23 12:00:00,reset,Ea,18051
+Emerg. Lighting,2022-05-31 12:00:00,reset,Ea,18239
+Emerg. Lighting,2022-06-01 15:00:00,reset,Ea,18263
+Emerg. Lighting,2022-06-02 19:00:00,jump,Ea,18291
+Emerg. Lighting,2022-06-03 16:00:00,reset,Ea,18312
+Emerg. Lighting,2022-06-25 02:00:00,jump,Ea,18770
+Emerg. Lighting,2022-06-27 00:00:00,reset,Ea,18816
+Emerg. Lighting,2022-06-27 02:00:00,jump,Ea,18818
+Emerg. Lighting,2022-06-28 08:00:00,jump,Ea,18848
+Emerg. Lighting,2022-06-28 22:00:00,reset,Ea,18862
+Emerg. Lighting,2022-07-01 14:00:00,jump,Ea,18926
+Emerg. Lighting,2022-07-01 15:00:00,reset,Ea,18927
+Emerg. Lighting,2022-09-12 16:00:00,reset,Ea,20329
+Emerg. Lighting,2022-09-22 15:00:00,jump,Ea,20562
+Emerg. Lighting,2022-09-22 16:00:00,reset,Ea,20563
+Emerg. Lighting,2022-09-23 19:00:00,jump,Ea,20590
+Emerg. Lighting,2022-09-24 01:00:00,reset,Ea,20596
+Emerg. Lighting,2022-10-07 16:00:00,jump,Ea,20923
+Emerg. Lighting,2022-10-07 18:00:00,reset,Ea,20925
+Emerg. Lighting,2022-10-07 21:00:00,jump,Ea,20928
+Emerg. Lighting,2022-10-14 07:00:00,jump,Ea,21081
+Emerg. Lighting,2022-10-15 03:00:00,jump,Ea,21101
+Emerg. Lighting,2022-11-29 12:00:00,reset,Ea,22179
+Emerg. Lighting,2022-11-29 15:00:00,jump,Ea,22182
+Emerg. Lighting,2022-12-02 08:00:00,reset,Ea,22247
+Emerg. Lighting,2022-12-03 15:00:00,jump,Ea,22278
+Emerg. Lighting,2022-12-06 03:00:00,reset,Ea,22338
+Emerg. Lighting,2022-12-07 13:00:00,jump,Ea,22372
+Emerg. Lighting,2022-12-07 15:00:00,reset,Ea,22374
+Emerg. Lighting,2022-12-09 02:00:00,jump,Ea,22409
+Emerg. Lighting,2022-12-09 03:00:00,jump,Ea,22410
+Emerg. Lighting,2022-12-09 15:00:00,reset,Ea,22422
+Emerg. Lighting,2022-12-09 16:00:00,reset,Ea,22423
+Emerg. Lighting,2022-12-17 01:00:00,jump,Ea,22599
+Emerg. Lighting,2022-12-17 07:00:00,jump,Ea,22605
+Emerg. Lighting,2022-12-18 07:00:00,reset,Ea,22629
+Emerg. Lighting,2022-12-20 05:00:00,jump,Ea,22675
+Emerg. Lighting,2022-12-21 16:00:00,reset,Ea,22708
+Emerg. Lighting,2022-12-31 22:00:00,jump,Ea,22954
+Emerg. Lighting,2023-01-01 23:00:00,reset,Ea,22979
+Emerg. Lighting,2023-01-10 10:00:00,reset,Ea,23156
+Emerg. Lighting,2023-01-12 14:00:00,jump,Ea,23208
+Emerg. Lighting,2023-01-16 10:00:00,reset,Ea,23300
+Emerg. Lighting,2023-01-17 11:00:00,jump,Ea,23325
+Emerg. Lighting,2023-01-18 22:00:00,reset,Ea,23360
+Emerg. Lighting,2023-02-02 07:00:00,jump,Ea,23705
+Emerg. Lighting,2023-02-04 03:00:00,reset,Ea,23747
+Emerg. Lighting,2023-02-05 09:00:00,jump,Ea,23777
+Emerg. Lighting,2023-02-05 18:00:00,reset,Ea,23786
+Emerg. Lighting,2023-02-08 15:00:00,jump,Ea,23854
+Emerg. Lighting,2023-02-08 16:00:00,reset,Ea,23855
+Emerg. Lighting,2023-02-09 08:00:00,reset,Ea,23871
+Emerg. Lighting,2023-02-10 14:00:00,jump,Ea,23875
+Emerg. Lighting,2025-08-18 18:44:00,jump,Ea,24315
+Emerg. Lighting,2025-10-06 06:16:00,reset,Ea,62568
+Emerg. Lighting,2025-10-06 06:17:00,jump,Ea,62569
+Emerg. Lighting,2025-10-06 09:33:00,reset,Ea,62593
+Emerg. Lighting,2025-10-08 15:47:00,jump,Ea,62614
+Emerg. Lighting,2025-10-08 16:13:00,jump,Ea,62624
+Emerg. Lighting,2025-10-13 09:42:00,reset,Ea,65371
+Emerg. Lighting,2025-10-13 09:55:00,jump,Ea,65373
+Emerg. Lighting,2025-10-13 14:32:00,reset,Ea,65383
+Emerg. Lighting,2020-10-12 11:00:00,reset,Er,4466
+Emerg. Lighting,2020-12-21 21:00:00,reset,Er,6102
+Emerg. Lighting,2020-12-26 09:00:00,jump,Er,6210
+Emerg. Lighting,2020-12-26 16:00:00,reset,Er,6217
+Emerg. Lighting,2021-01-05 16:00:00,jump,Er,6457
+Emerg. Lighting,2021-01-05 21:00:00,reset,Er,6462
+Emerg. Lighting,2021-01-07 03:00:00,jump,Er,6492
+Emerg. Lighting,2021-01-07 16:00:00,reset,Er,6505
+Emerg. Lighting,2021-03-05 16:00:00,jump,Er,7872
+Emerg. Lighting,2021-03-06 02:00:00,reset,Er,7882
+Emerg. Lighting,2021-03-06 03:00:00,jump,Er,7883
+Emerg. Lighting,2021-03-26 14:00:00,jump,Er,8374
+Emerg. Lighting,2021-03-27 10:00:00,reset,Er,8394
+Emerg. Lighting,2021-03-27 17:00:00,jump,Er,8401
+Emerg. Lighting,2021-03-29 09:00:00,jump,Er,8441
+Emerg. Lighting,2021-03-29 12:00:00,reset,Er,8444
+Emerg. Lighting,2021-04-15 18:00:00,jump,Er,8856
+Emerg. Lighting,2021-04-16 13:00:00,reset,Er,8875
+Emerg. Lighting,2021-04-16 17:00:00,jump,Er,8879
+Emerg. Lighting,2021-04-30 10:00:00,jump,Er,9208
+Emerg. Lighting,2021-04-30 21:00:00,reset,Er,9219
+Emerg. Lighting,2021-06-05 14:00:00,reset,Er,10073
+Emerg. Lighting,2021-06-05 20:00:00,jump,Er,10079
+Emerg. Lighting,2021-06-07 12:00:00,jump,Er,10119
+Emerg. Lighting,2021-06-08 21:00:00,reset,Er,10151
+Emerg. Lighting,2021-06-10 02:00:00,reset,Er,10179
+Emerg. Lighting,2021-06-11 15:00:00,jump,Er,10216
+Emerg. Lighting,2021-06-12 15:00:00,jump,Er,10240
+Emerg. Lighting,2021-06-13 16:00:00,reset,Er,10265
+Emerg. Lighting,2021-06-15 00:00:00,jump,Er,10295
+Emerg. Lighting,2021-06-15 01:00:00,reset,Er,10296
+Emerg. Lighting,2021-06-15 02:00:00,jump,Er,10297
+Emerg. Lighting,2021-06-16 07:00:00,reset,Er,10324
+Emerg. Lighting,2021-06-17 15:00:00,jump,Er,10355
+Emerg. Lighting,2021-06-20 13:00:00,reset,Er,10425
+Emerg. Lighting,2021-06-20 20:00:00,jump,Er,10432
+Emerg. Lighting,2021-06-21 14:00:00,jump,Er,10450
+Emerg. Lighting,2021-06-22 06:00:00,jump,Er,10466
+Emerg. Lighting,2021-06-23 13:00:00,reset,Er,10493
+Emerg. Lighting,2021-06-23 14:00:00,jump,Er,10494
+Emerg. Lighting,2021-06-26 21:00:00,reset,Er,10568
+Emerg. Lighting,2021-06-27 11:00:00,reset,Er,10582
+Emerg. Lighting,2021-06-28 14:00:00,jump,Er,10606
+Emerg. Lighting,2021-06-29 06:00:00,jump,Er,10622
+Emerg. Lighting,2021-06-29 15:00:00,reset,Er,10631
+Emerg. Lighting,2021-06-30 14:00:00,jump,Er,10654
+Emerg. Lighting,2021-07-01 07:00:00,reset,Er,10671
+Emerg. Lighting,2021-07-07 10:00:00,jump,Er,10677
+Emerg. Lighting,2021-07-22 22:00:00,jump,Er,10851
+Emerg. Lighting,2021-07-22 23:00:00,reset,Er,10852
+Emerg. Lighting,2021-07-29 15:00:00,jump,Er,11012
+Emerg. Lighting,2021-07-29 20:00:00,reset,Er,11017
+Emerg. Lighting,2021-07-30 00:00:00,jump,Er,11021
+Emerg. Lighting,2021-08-01 11:00:00,jump,Er,11080
+Emerg. Lighting,2021-08-01 13:00:00,reset,Er,11082
+Emerg. Lighting,2021-08-08 13:00:00,reset,Er,11250
+Emerg. Lighting,2021-08-08 14:00:00,reset,Er,11251
+Emerg. Lighting,2021-08-10 21:00:00,jump,Er,11306
+Emerg. Lighting,2021-08-11 15:00:00,reset,Er,11324
+Emerg. Lighting,2021-08-12 13:00:00,jump,Er,11342
+Emerg. Lighting,2021-08-13 08:00:00,reset,Er,11361
+Emerg. Lighting,2021-08-20 22:00:00,jump,Er,11543
+Emerg. Lighting,2021-08-21 08:00:00,reset,Er,11553
+Emerg. Lighting,2021-08-31 23:00:00,jump,Er,11808
+Emerg. Lighting,2021-09-02 01:00:00,reset,Er,11834
+Emerg. Lighting,2021-09-04 06:00:00,jump,Er,11887
+Emerg. Lighting,2021-09-06 17:00:00,reset,Er,11946
+Emerg. Lighting,2021-09-25 08:00:00,jump,Er,12380
+Emerg. Lighting,2021-09-25 21:00:00,reset,Er,12393
+Emerg. Lighting,2021-09-30 07:00:00,reset,Er,12493
+Emerg. Lighting,2021-10-03 11:00:00,jump,Er,12569
+Emerg. Lighting,2021-10-04 13:00:00,reset,Er,12595
+Emerg. Lighting,2021-10-05 14:00:00,jump,Er,12620
+Emerg. Lighting,2021-10-05 16:00:00,reset,Er,12622
+Emerg. Lighting,2021-10-08 09:00:00,jump,Er,12687
+Emerg. Lighting,2021-10-08 14:00:00,reset,Er,12692
+Emerg. Lighting,2021-10-15 13:00:00,jump,Er,12859
+Emerg. Lighting,2021-10-16 17:00:00,reset,Er,12887
+Emerg. Lighting,2021-10-22 20:00:00,jump,Er,13033
+Emerg. Lighting,2021-10-25 14:00:00,reset,Er,13099
+Emerg. Lighting,2021-10-31 05:00:00,jump,Er,13233
+Emerg. Lighting,2021-10-31 17:00:00,reset,Er,13245
+Emerg. Lighting,2021-11-04 08:00:00,jump,Er,13327
+Emerg. Lighting,2021-11-18 06:00:00,jump,Er,13651
+Emerg. Lighting,2021-11-27 15:00:00,reset,Er,13874
+Emerg. Lighting,2021-11-29 16:00:00,jump,Er,13923
+Emerg. Lighting,2021-12-01 15:00:00,jump,Er,13970
+Emerg. Lighting,2021-12-01 16:00:00,reset,Er,13971
+Emerg. Lighting,2021-12-17 15:00:00,reset,Er,14342
+Emerg. Lighting,2021-12-17 23:00:00,reset,Er,14350
+Emerg. Lighting,2021-12-19 19:00:00,jump,Er,14394
+Emerg. Lighting,2021-12-20 22:00:00,jump,Er,14419
+Emerg. Lighting,2021-12-23 08:00:00,jump,Er,14467
+Emerg. Lighting,2021-12-23 09:00:00,reset,Er,14468
+Emerg. Lighting,2021-12-31 14:00:00,jump,Er,14654
+Emerg. Lighting,2021-12-31 15:00:00,reset,Er,14655
+Emerg. Lighting,2022-01-11 06:00:00,jump,Er,14904
+Emerg. Lighting,2022-01-11 07:00:00,reset,Er,14905
+Emerg. Lighting,2022-01-11 17:00:00,jump,Er,14915
+Emerg. Lighting,2022-01-14 00:00:00,jump,Er,14969
+Emerg. Lighting,2022-01-14 04:00:00,reset,Er,14973
+Emerg. Lighting,2022-01-14 05:00:00,jump,Er,14974
+Emerg. Lighting,2022-01-16 12:00:00,reset,Er,15028
+Emerg. Lighting,2022-01-18 02:00:00,jump,Er,15062
+Emerg. Lighting,2022-01-28 19:00:00,jump,Er,15311
+Emerg. Lighting,2022-01-31 08:00:00,reset,Er,15372
+Emerg. Lighting,2022-01-31 09:00:00,jump,Er,15373
+Emerg. Lighting,2022-02-02 08:00:00,reset,Er,15420
+Emerg. Lighting,2022-02-03 16:00:00,jump,Er,15450
+Emerg. Lighting,2022-02-08 08:00:00,reset,Er,15560
+Emerg. Lighting,2022-02-08 11:00:00,jump,Er,15563
+Emerg. Lighting,2022-02-10 16:00:00,reset,Er,15615
+Emerg. Lighting,2022-02-13 10:00:00,jump,Er,15681
+Emerg. Lighting,2022-02-13 18:00:00,reset,Er,15689
+Emerg. Lighting,2022-02-17 18:00:00,jump,Er,15784
+Emerg. Lighting,2022-02-17 22:00:00,reset,Er,15788
+Emerg. Lighting,2022-02-21 00:00:00,jump,Er,15862
+Emerg. Lighting,2022-02-21 14:00:00,reset,Er,15876
+Emerg. Lighting,2022-02-27 02:00:00,jump,Er,16008
+Emerg. Lighting,2022-02-28 13:00:00,reset,Er,16043
+Emerg. Lighting,2022-03-03 10:00:00,jump,Er,16112
+Emerg. Lighting,2022-03-04 17:00:00,reset,Er,16143
+Emerg. Lighting,2022-03-06 13:00:00,jump,Er,16187
+Emerg. Lighting,2022-03-07 13:00:00,reset,Er,16211
+Emerg. Lighting,2022-03-10 09:00:00,jump,Er,16279
+Emerg. Lighting,2022-03-10 11:00:00,reset,Er,16281
+Emerg. Lighting,2022-03-11 13:00:00,reset,Er,16307
+Emerg. Lighting,2022-03-13 06:00:00,jump,Er,16348
+Emerg. Lighting,2022-03-13 11:00:00,reset,Er,16353
+Emerg. Lighting,2022-03-15 10:00:00,jump,Er,16400
+Emerg. Lighting,2022-03-20 11:00:00,jump,Er,16521
+Emerg. Lighting,2022-03-20 17:00:00,reset,Er,16527
+Emerg. Lighting,2022-03-21 06:00:00,jump,Er,16540
+Emerg. Lighting,2022-03-24 08:00:00,jump,Er,16614
+Emerg. Lighting,2022-04-04 13:00:00,reset,Er,16882
+Emerg. Lighting,2022-04-05 16:00:00,jump,Er,16909
+Emerg. Lighting,2022-04-18 12:00:00,jump,Er,17217
+Emerg. Lighting,2022-04-18 16:00:00,reset,Er,17221
+Emerg. Lighting,2022-04-23 12:00:00,jump,Er,17337
+Emerg. Lighting,2022-04-25 18:00:00,reset,Er,17391
+Emerg. Lighting,2022-04-27 15:00:00,jump,Er,17436
+Emerg. Lighting,2022-04-28 11:00:00,reset,Er,17456
+Emerg. Lighting,2022-04-30 19:00:00,jump,Er,17512
+Emerg. Lighting,2022-05-01 02:00:00,reset,Er,17519
+Emerg. Lighting,2022-05-01 03:00:00,jump,Er,17520
+Emerg. Lighting,2022-05-02 21:00:00,jump,Er,17562
+Emerg. Lighting,2022-05-03 11:00:00,reset,Er,17576
+Emerg. Lighting,2022-05-03 17:00:00,jump,Er,17582
+Emerg. Lighting,2022-05-06 15:00:00,jump,Er,17651
+Emerg. Lighting,2022-05-06 16:00:00,reset,Er,17652
+Emerg. Lighting,2022-05-16 16:00:00,jump,Er,17890
+Emerg. Lighting,2022-05-16 17:00:00,reset,Er,17891
+Emerg. Lighting,2022-05-18 04:00:00,reset,Er,17923
+Emerg. Lighting,2022-05-18 10:00:00,jump,Er,17929
+Emerg. Lighting,2022-05-18 22:00:00,reset,Er,17941
+Emerg. Lighting,2022-05-19 12:00:00,reset,Er,17955
+Emerg. Lighting,2022-06-08 13:00:00,jump,Er,18424
+Emerg. Lighting,2022-06-08 14:00:00,reset,Er,18425
+Emerg. Lighting,2022-06-25 02:00:00,jump,Er,18770
+Emerg. Lighting,2022-06-26 19:00:00,jump,Er,18811
+Emerg. Lighting,2022-09-12 16:00:00,reset,Er,20329
+Emerg. Lighting,2022-09-22 15:00:00,jump,Er,20562
+Emerg. Lighting,2022-09-22 16:00:00,reset,Er,20563
+Emerg. Lighting,2022-09-23 19:00:00,jump,Er,20590
+Emerg. Lighting,2022-09-24 01:00:00,reset,Er,20596
+Emerg. Lighting,2022-10-07 16:00:00,jump,Er,20923
+Emerg. Lighting,2022-10-07 18:00:00,reset,Er,20925
+Emerg. Lighting,2022-10-10 00:00:00,jump,Er,20979
+Emerg. Lighting,2022-11-21 18:00:00,reset,Er,21995
+Emerg. Lighting,2022-11-29 12:00:00,jump,Er,22179
+Emerg. Lighting,2022-12-01 12:00:00,reset,Er,22227
+Emerg. Lighting,2022-12-07 08:00:00,jump,Er,22367
+Emerg. Lighting,2022-12-07 15:00:00,reset,Er,22374
+Emerg. Lighting,2022-12-09 02:00:00,jump,Er,22409
+Emerg. Lighting,2022-12-09 16:00:00,reset,Er,22423
+Emerg. Lighting,2022-12-17 01:00:00,jump,Er,22599
+Emerg. Lighting,2022-12-18 07:00:00,reset,Er,22629
+Emerg. Lighting,2022-12-20 05:00:00,jump,Er,22675
+Emerg. Lighting,2022-12-21 16:00:00,reset,Er,22708
+Emerg. Lighting,2022-12-25 01:00:00,jump,Er,22789
+Emerg. Lighting,2023-01-04 14:00:00,reset,Er,23016
+Emerg. Lighting,2023-02-02 07:00:00,jump,Er,23705
+Emerg. Lighting,2023-02-04 03:00:00,reset,Er,23747
+Emerg. Lighting,2023-02-05 09:00:00,jump,Er,23777
+Emerg. Lighting,2023-02-09 06:00:00,reset,Er,23869
+Emerg. Lighting,2023-02-10 14:00:00,jump,Er,23875
+Emerg. Lighting,2025-08-18 18:44:00,jump,Er,24315
+Emerg. Lighting,2025-10-06 06:16:00,reset,Er,62568
+Emerg. Lighting,2025-10-06 06:17:00,jump,Er,62569
+Emerg. Lighting,2025-10-06 09:33:00,reset,Er,62593
+Emerg. Lighting,2025-10-08 15:47:00,jump,Er,62614
+Emerg. Lighting,2025-10-08 16:13:00,jump,Er,62624
+Emerg. Lighting,2025-10-13 09:42:00,reset,Er,65371
+Emerg. Lighting,2025-10-13 09:43:00,jump,Er,65372
+Emerg. Lighting,2025-10-13 09:55:00,jump,Er,65373
+Emerg. Lighting,2025-10-13 14:32:00,reset,Er,65383
+Hand Dryer,2020-10-12 11:00:00,reset,Ea,4476
+Hand Dryer,2020-12-21 20:00:00,reset,Ea,6093
+Hand Dryer,2021-03-29 13:00:00,jump,Ea,8438
+Hand Dryer,2021-04-09 06:00:00,reset,Ea,8694
+Hand Dryer,2021-04-12 09:00:00,jump,Ea,8768
+Hand Dryer,2021-04-19 01:00:00,reset,Ea,8927
+Hand Dryer,2021-04-20 06:00:00,jump,Ea,8948
+Hand Dryer,2021-06-06 09:00:00,reset,Ea,10068
+Hand Dryer,2021-06-06 12:00:00,jump,Ea,10071
+Hand Dryer,2021-06-07 11:00:00,jump,Ea,10094
+Hand Dryer,2021-07-30 15:00:00,reset,Ea,11006
+Hand Dryer,2021-08-01 00:00:00,jump,Ea,11038
+Hand Dryer,2021-08-08 13:00:00,reset,Ea,11219
+Hand Dryer,2021-08-08 14:00:00,reset,Ea,11220
+Hand Dryer,2021-08-12 08:00:00,reset,Ea,11306
+Hand Dryer,2021-09-30 07:00:00,reset,Ea,12451
+Hand Dryer,2021-10-22 16:00:00,reset,Ea,12987
+Hand Dryer,2021-10-25 16:00:00,jump,Ea,13059
+Hand Dryer,2021-11-03 17:00:00,reset,Ea,13270
+Hand Dryer,2021-11-08 19:00:00,jump,Ea,13388
+Hand Dryer,2021-11-12 06:00:00,jump,Ea,13461
+Hand Dryer,2021-11-12 07:00:00,reset,Ea,13462
+Hand Dryer,2021-11-14 14:00:00,reset,Ea,13512
+Hand Dryer,2021-11-16 21:00:00,jump,Ea,13559
+Hand Dryer,2021-11-18 21:00:00,jump,Ea,13600
+Hand Dryer,2021-11-19 19:00:00,jump,Ea,13622
+Hand Dryer,2021-11-23 17:00:00,jump,Ea,13716
+Hand Dryer,2021-11-24 17:00:00,jump,Ea,13739
+Hand Dryer,2021-11-25 17:00:00,jump,Ea,13760
+Hand Dryer,2021-11-26 15:00:00,jump,Ea,13782
+Hand Dryer,2021-11-29 16:00:00,jump,Ea,13855
+Hand Dryer,2021-12-02 20:00:00,jump,Ea,13925
+Hand Dryer,2021-12-03 18:00:00,jump,Ea,13946
+Hand Dryer,2021-12-09 14:00:00,jump,Ea,14086
+Hand Dryer,2021-12-13 18:00:00,jump,Ea,14186
+Hand Dryer,2021-12-15 08:00:00,jump,Ea,14217
+Hand Dryer,2021-12-16 17:00:00,jump,Ea,14248
+Hand Dryer,2021-12-17 15:00:00,jump,Ea,14270
+Hand Dryer,2021-12-20 19:00:00,jump,Ea,14345
+Hand Dryer,2021-12-21 07:00:00,reset,Ea,14357
+Hand Dryer,2021-12-21 21:00:00,jump,Ea,14369
+Hand Dryer,2021-12-22 21:00:00,jump,Ea,14392
+Hand Dryer,2021-12-23 20:00:00,jump,Ea,14414
+Hand Dryer,2022-01-05 10:00:00,jump,Ea,14716
+Hand Dryer,2022-01-10 22:00:00,reset,Ea,14843
+Hand Dryer,2022-01-11 06:00:00,reset,Ea,14851
+Hand Dryer,2022-01-12 17:00:00,jump,Ea,14871
+Hand Dryer,2022-01-21 13:00:00,jump,Ea,15074
+Hand Dryer,2022-01-24 17:00:00,jump,Ea,15150
+Hand Dryer,2022-01-27 15:00:00,jump,Ea,15220
+Hand Dryer,2022-01-27 22:00:00,reset,Ea,15227
+Hand Dryer,2022-01-29 23:00:00,jump,Ea,15273
+Hand Dryer,2022-01-31 16:00:00,jump,Ea,15314
+Hand Dryer,2022-02-02 08:00:00,reset,Ea,15354
+Hand Dryer,2022-02-03 13:00:00,jump,Ea,15383
+Hand Dryer,2022-02-08 08:00:00,reset,Ea,15496
+Hand Dryer,2022-02-09 06:00:00,jump,Ea,15518
+Hand Dryer,2022-02-09 17:00:00,jump,Ea,15529
+Hand Dryer,2022-02-15 15:00:00,jump,Ea,15671
+Hand Dryer,2022-02-20 13:00:00,reset,Ea,15788
+Hand Dryer,2022-02-20 15:00:00,jump,Ea,15790
+Hand Dryer,2022-02-21 14:00:00,jump,Ea,15813
+Hand Dryer,2022-02-26 04:00:00,jump,Ea,15923
+Hand Dryer,2022-03-02 08:00:00,jump,Ea,16014
+Hand Dryer,2022-03-07 16:00:00,jump,Ea,16136
+Hand Dryer,2022-03-09 18:00:00,jump,Ea,16186
+Hand Dryer,2022-03-14 16:00:00,jump,Ea,16304
+Hand Dryer,2022-03-24 18:00:00,jump,Ea,16546
+Hand Dryer,2022-03-29 15:00:00,jump,Ea,16663
+Hand Dryer,2022-03-30 15:00:00,jump,Ea,16687
+Hand Dryer,2022-04-05 15:00:00,jump,Ea,16831
+Hand Dryer,2022-04-07 14:00:00,jump,Ea,16878
+Hand Dryer,2022-05-18 04:00:00,reset,Ea,17849
+Hand Dryer,2022-05-19 06:00:00,jump,Ea,17875
+Hand Dryer,2022-05-19 12:00:00,reset,Ea,17881
+Hand Dryer,2022-09-12 14:00:00,reset,Ea,20277
+Hand Dryer,2022-09-12 16:00:00,jump,Ea,20279
+Hand Dryer,2022-11-21 22:00:00,reset,Ea,21955
+Hand Dryer,2022-11-22 06:00:00,jump,Ea,21963
+Hand Dryer,2022-12-10 05:00:00,reset,Ea,22394
+Hand Dryer,2022-12-21 14:00:00,jump,Ea,22666
+Hand Dryer,2023-01-04 11:00:00,reset,Ea,22973
+Hand Dryer,2023-01-04 13:00:00,jump,Ea,22975
+Hand Dryer,2023-02-09 08:00:00,reset,Ea,23833
+Hand Dryer,2023-02-10 12:00:00,jump,Ea,23836
+Hand Dryer,2025-08-18 18:47:00,jump,Ea,24281
+Hand Dryer,2025-08-18 18:49:00,jump,Ea,24282
+Hand Dryer,2025-10-06 07:20:00,reset,Ea,62507
+Hand Dryer,2025-10-06 07:56:00,jump,Ea,62512
+Hand Dryer,2025-10-08 13:40:00,jump,Ea,62522
+Hand Dryer,2025-10-13 14:32:00,reset,Ea,65894
+Hand Dryer,2020-10-12 11:00:00,reset,Er,4476
+Hand Dryer,2020-12-21 20:00:00,reset,Er,6093
+Hand Dryer,2021-03-29 13:00:00,jump,Er,8438
+Hand Dryer,2021-04-09 06:00:00,reset,Er,8694
+Hand Dryer,2021-04-12 09:00:00,jump,Er,8768
+Hand Dryer,2021-04-19 01:00:00,reset,Er,8927
+Hand Dryer,2021-04-20 06:00:00,jump,Er,8948
+Hand Dryer,2021-06-06 09:00:00,reset,Er,10068
+Hand Dryer,2021-06-06 12:00:00,jump,Er,10071
+Hand Dryer,2021-06-07 11:00:00,jump,Er,10094
+Hand Dryer,2021-07-30 15:00:00,reset,Er,11006
+Hand Dryer,2021-08-01 00:00:00,jump,Er,11038
+Hand Dryer,2021-08-08 13:00:00,reset,Er,11219
+Hand Dryer,2021-08-08 14:00:00,reset,Er,11220
+Hand Dryer,2021-09-30 07:00:00,reset,Er,12451
+Hand Dryer,2021-10-22 16:00:00,reset,Er,12987
+Hand Dryer,2021-10-25 16:00:00,jump,Er,13059
+Hand Dryer,2021-11-03 17:00:00,reset,Er,13270
+Hand Dryer,2021-11-08 17:00:00,jump,Er,13386
+Hand Dryer,2021-11-08 19:00:00,jump,Er,13388
+Hand Dryer,2021-11-12 06:00:00,jump,Er,13461
+Hand Dryer,2021-11-12 07:00:00,reset,Er,13462
+Hand Dryer,2021-11-14 14:00:00,reset,Er,13512
+Hand Dryer,2021-11-16 21:00:00,jump,Er,13559
+Hand Dryer,2021-11-18 21:00:00,jump,Er,13600
+Hand Dryer,2021-11-19 19:00:00,jump,Er,13622
+Hand Dryer,2021-11-23 17:00:00,jump,Er,13716
+Hand Dryer,2021-11-24 17:00:00,jump,Er,13739
+Hand Dryer,2021-11-25 17:00:00,jump,Er,13760
+Hand Dryer,2021-11-26 15:00:00,jump,Er,13782
+Hand Dryer,2021-11-27 15:00:00,jump,Er,13806
+Hand Dryer,2021-11-29 16:00:00,jump,Er,13855
+Hand Dryer,2021-12-02 20:00:00,jump,Er,13925
+Hand Dryer,2021-12-03 18:00:00,jump,Er,13946
+Hand Dryer,2021-12-09 14:00:00,jump,Er,14086
+Hand Dryer,2021-12-13 18:00:00,jump,Er,14186
+Hand Dryer,2021-12-15 08:00:00,jump,Er,14217
+Hand Dryer,2021-12-16 17:00:00,jump,Er,14248
+Hand Dryer,2021-12-17 15:00:00,jump,Er,14270
+Hand Dryer,2021-12-20 19:00:00,jump,Er,14345
+Hand Dryer,2021-12-21 07:00:00,reset,Er,14357
+Hand Dryer,2021-12-21 21:00:00,jump,Er,14369
+Hand Dryer,2021-12-22 21:00:00,jump,Er,14392
+Hand Dryer,2021-12-23 20:00:00,jump,Er,14414
+Hand Dryer,2022-01-05 10:00:00,jump,Er,14716
+Hand Dryer,2022-01-10 22:00:00,reset,Er,14843
+Hand Dryer,2022-01-11 06:00:00,reset,Er,14851
+Hand Dryer,2022-01-12 17:00:00,jump,Er,14871
+Hand Dryer,2022-01-21 13:00:00,jump,Er,15074
+Hand Dryer,2022-01-24 17:00:00,jump,Er,15150
+Hand Dryer,2022-01-27 15:00:00,jump,Er,15220
+Hand Dryer,2022-01-27 22:00:00,reset,Er,15227
+Hand Dryer,2022-01-29 23:00:00,jump,Er,15273
+Hand Dryer,2022-01-31 16:00:00,jump,Er,15314
+Hand Dryer,2022-02-02 08:00:00,reset,Er,15354
+Hand Dryer,2022-02-03 13:00:00,jump,Er,15383
+Hand Dryer,2022-02-08 08:00:00,reset,Er,15496
+Hand Dryer,2022-02-09 06:00:00,jump,Er,15518
+Hand Dryer,2022-02-15 15:00:00,jump,Er,15671
+Hand Dryer,2022-02-20 13:00:00,reset,Er,15788
+Hand Dryer,2022-02-20 15:00:00,jump,Er,15790
+Hand Dryer,2022-02-21 14:00:00,jump,Er,15813
+Hand Dryer,2022-02-26 04:00:00,jump,Er,15923
+Hand Dryer,2022-03-02 08:00:00,jump,Er,16014
+Hand Dryer,2022-03-07 16:00:00,jump,Er,16136
+Hand Dryer,2022-03-09 18:00:00,jump,Er,16186
+Hand Dryer,2022-03-14 16:00:00,jump,Er,16304
+Hand Dryer,2022-03-24 18:00:00,jump,Er,16546
+Hand Dryer,2022-03-29 15:00:00,jump,Er,16663
+Hand Dryer,2022-03-30 15:00:00,jump,Er,16687
+Hand Dryer,2022-04-05 15:00:00,jump,Er,16831
+Hand Dryer,2022-04-07 14:00:00,jump,Er,16878
+Hand Dryer,2022-05-18 04:00:00,reset,Er,17849
+Hand Dryer,2022-05-19 06:00:00,jump,Er,17875
+Hand Dryer,2022-05-19 12:00:00,reset,Er,17881
+Hand Dryer,2022-09-12 14:00:00,reset,Er,20277
+Hand Dryer,2022-11-21 22:00:00,reset,Er,21955
+Hand Dryer,2022-11-22 06:00:00,jump,Er,21963
+Hand Dryer,2022-12-10 05:00:00,reset,Er,22394
+Hand Dryer,2022-12-21 14:00:00,jump,Er,22666
+Hand Dryer,2023-01-04 11:00:00,reset,Er,22973
+Hand Dryer,2023-02-09 08:00:00,reset,Er,23833
+Hand Dryer,2023-02-10 12:00:00,jump,Er,23836
+Hand Dryer,2025-08-18 18:47:00,jump,Er,24281
+Hand Dryer,2025-08-18 18:49:00,jump,Er,24282
+Hand Dryer,2025-10-06 07:20:00,reset,Er,62507
+Hand Dryer,2025-10-06 07:56:00,jump,Er,62512
+Hand Dryer,2025-10-08 13:40:00,jump,Er,62522
+Hand Dryer,2025-10-13 14:32:00,reset,Er,65894
+Lighting,2020-04-03 12:00:00,jump,Ea,15
+Lighting,2020-10-12 11:00:00,reset,Ea,4479
+Lighting,2020-12-18 08:00:00,reset,Ea,6083
+Lighting,2020-12-18 09:00:00,jump,Ea,6084
+Lighting,2020-12-18 18:00:00,reset,Ea,6093
+Lighting,2020-12-21 20:00:00,jump,Ea,6116
+Lighting,2020-12-21 21:00:00,jump,Ea,6117
+Lighting,2021-04-08 12:00:00,reset,Ea,8700
+Lighting,2021-04-09 05:00:00,reset,Ea,8717
+Lighting,2021-04-09 06:00:00,jump,Ea,8718
+Lighting,2021-04-12 09:00:00,jump,Ea,8793
+Lighting,2021-04-12 12:00:00,jump,Ea,8796
+Lighting,2021-04-15 13:00:00,jump,Ea,8869
+Lighting,2021-04-15 15:00:00,reset,Ea,8871
+Lighting,2021-04-16 12:00:00,jump,Ea,8892
+Lighting,2021-04-16 19:00:00,jump,Ea,8899
+Lighting,2021-04-18 20:00:00,reset,Ea,8948
+Lighting,2021-04-19 04:00:00,jump,Ea,8956
+Lighting,2021-04-20 06:00:00,jump,Ea,8982
+Lighting,2021-06-01 12:00:00,jump,Ea,9996
+Lighting,2021-06-05 10:00:00,reset,Ea,10089
+Lighting,2021-06-05 17:00:00,reset,Ea,10096
+Lighting,2021-06-06 07:00:00,jump,Ea,10110
+Lighting,2021-06-06 09:00:00,reset,Ea,10112
+Lighting,2021-06-06 12:00:00,jump,Ea,10115
+Lighting,2021-06-07 11:00:00,jump,Ea,10138
+Lighting,2021-06-07 12:00:00,jump,Ea,10139
+Lighting,2021-06-08 07:00:00,reset,Ea,10158
+Lighting,2021-06-09 15:00:00,jump,Ea,10190
+Lighting,2021-06-10 01:00:00,reset,Ea,10200
+Lighting,2021-06-11 13:00:00,jump,Ea,10236
+Lighting,2021-06-11 14:00:00,jump,Ea,10237
+Lighting,2021-06-11 15:00:00,jump,Ea,10238
+Lighting,2021-06-16 07:00:00,reset,Ea,10348
+Lighting,2021-06-17 15:00:00,jump,Ea,10379
+Lighting,2021-06-20 13:00:00,reset,Ea,10449
+Lighting,2021-06-21 13:00:00,jump,Ea,10473
+Lighting,2021-06-21 14:00:00,jump,Ea,10474
+Lighting,2021-06-22 05:00:00,reset,Ea,10489
+Lighting,2021-06-22 06:00:00,jump,Ea,10490
+Lighting,2021-06-23 14:00:00,jump,Ea,10520
+Lighting,2021-06-26 17:00:00,reset,Ea,10593
+Lighting,2021-06-26 19:00:00,jump,Ea,10595
+Lighting,2021-06-28 14:00:00,jump,Ea,10638
+Lighting,2021-06-29 02:00:00,reset,Ea,10650
+Lighting,2021-06-29 16:00:00,jump,Ea,10664
+Lighting,2021-06-30 13:00:00,jump,Ea,10685
+Lighting,2021-06-30 14:00:00,jump,Ea,10686
+Lighting,2021-07-01 07:00:00,reset,Ea,10703
+Lighting,2021-07-07 10:00:00,jump,Ea,10709
+Lighting,2021-07-30 12:00:00,reset,Ea,11066
+Lighting,2021-07-30 15:00:00,reset,Ea,11069
+Lighting,2021-07-31 03:00:00,jump,Ea,11081
+Lighting,2021-07-31 22:00:00,jump,Ea,11100
+Lighting,2021-08-01 00:00:00,jump,Ea,11102
+Lighting,2021-08-08 13:00:00,reset,Ea,11283
+Lighting,2021-08-08 14:00:00,reset,Ea,11284
+Lighting,2021-08-20 08:00:00,reset,Ea,11562
+Lighting,2021-08-20 18:00:00,jump,Ea,11572
+Lighting,2021-08-21 12:00:00,jump,Ea,11590
+Lighting,2021-09-15 13:00:00,jump,Ea,12191
+Lighting,2021-09-18 10:00:00,reset,Ea,12259
+Lighting,2021-09-18 11:00:00,jump,Ea,12260
+Lighting,2021-09-18 12:00:00,jump,Ea,12261
+Lighting,2021-09-19 12:00:00,jump,Ea,12285
+Lighting,2021-09-20 12:00:00,jump,Ea,12309
+Lighting,2021-09-24 12:00:00,jump,Ea,12405
+Lighting,2021-09-24 14:00:00,reset,Ea,12407
+Lighting,2021-09-24 15:00:00,reset,Ea,12408
+Lighting,2021-09-24 16:00:00,jump,Ea,12409
+Lighting,2021-09-25 09:00:00,jump,Ea,12426
+Lighting,2021-09-25 17:00:00,jump,Ea,12434
+Lighting,2021-09-26 04:00:00,jump,Ea,12445
+Lighting,2021-09-27 16:00:00,jump,Ea,12477
+Lighting,2021-09-29 17:00:00,jump,Ea,12526
+Lighting,2021-09-30 07:00:00,reset,Ea,12539
+Lighting,2021-10-01 15:00:00,jump,Ea,12571
+Lighting,2021-10-04 14:00:00,jump,Ea,12642
+Lighting,2021-10-05 16:00:00,jump,Ea,12668
+Lighting,2021-10-14 17:00:00,jump,Ea,12885
+Lighting,2021-10-18 18:00:00,jump,Ea,12982
+Lighting,2021-10-19 16:00:00,jump,Ea,13004
+Lighting,2021-10-20 16:00:00,jump,Ea,13027
+Lighting,2021-10-22 16:00:00,reset,Ea,13075
+Lighting,2021-10-22 19:00:00,jump,Ea,13078
+Lighting,2021-10-23 00:00:00,jump,Ea,13083
+Lighting,2021-10-23 01:00:00,reset,Ea,13084
+Lighting,2021-10-23 02:00:00,jump,Ea,13085
+Lighting,2021-10-23 03:00:00,jump,Ea,13086
+Lighting,2021-10-23 17:00:00,reset,Ea,13100
+Lighting,2021-10-23 19:00:00,jump,Ea,13102
+Lighting,2021-10-24 21:00:00,jump,Ea,13128
+Lighting,2021-10-25 16:00:00,jump,Ea,13147
+Lighting,2021-10-27 17:00:00,jump,Ea,13196
+Lighting,2021-10-29 16:00:00,jump,Ea,13242
+Lighting,2021-11-02 17:00:00,jump,Ea,13335
+Lighting,2021-11-03 02:00:00,reset,Ea,13344
+Lighting,2021-11-03 07:00:00,jump,Ea,13349
+Lighting,2021-11-03 08:00:00,reset,Ea,13350
+Lighting,2021-11-03 17:00:00,jump,Ea,13359
+Lighting,2021-11-04 18:00:00,jump,Ea,13384
+Lighting,2021-11-04 20:00:00,jump,Ea,13386
+Lighting,2021-11-04 22:00:00,reset,Ea,13388
+Lighting,2021-11-06 08:00:00,reset,Ea,13422
+Lighting,2021-11-08 09:00:00,jump,Ea,13471
+Lighting,2021-11-08 10:00:00,jump,Ea,13472
+Lighting,2021-11-08 17:00:00,jump,Ea,13479
+Lighting,2021-11-08 19:00:00,jump,Ea,13481
+Lighting,2021-11-10 18:00:00,reset,Ea,13524
+Lighting,2021-11-11 20:00:00,jump,Ea,13548
+Lighting,2021-11-12 01:00:00,jump,Ea,13553
+Lighting,2021-11-13 15:00:00,jump,Ea,13590
+Lighting,2021-11-13 18:00:00,jump,Ea,13593
+Lighting,2021-11-13 21:00:00,jump,Ea,13596
+Lighting,2021-11-14 06:00:00,jump,Ea,13605
+Lighting,2021-11-14 07:00:00,reset,Ea,13606
+Lighting,2021-11-14 10:00:00,jump,Ea,13609
+Lighting,2021-11-14 14:00:00,reset,Ea,13613
+Lighting,2021-11-14 16:00:00,jump,Ea,13615
+Lighting,2021-11-14 22:00:00,reset,Ea,13621
+Lighting,2021-11-15 23:00:00,jump,Ea,13646
+Lighting,2021-11-16 01:00:00,jump,Ea,13648
+Lighting,2021-11-16 19:00:00,jump,Ea,13666
+Lighting,2021-11-16 21:00:00,jump,Ea,13668
+Lighting,2021-11-18 05:00:00,jump,Ea,13699
+Lighting,2021-11-18 21:00:00,jump,Ea,13715
+Lighting,2021-11-19 19:00:00,jump,Ea,13737
+Lighting,2021-11-22 17:00:00,jump,Ea,13807
+Lighting,2021-11-23 17:00:00,jump,Ea,13831
+Lighting,2021-11-24 20:00:00,jump,Ea,13858
+Lighting,2021-11-25 17:00:00,jump,Ea,13879
+Lighting,2021-11-26 06:00:00,reset,Ea,13892
+Lighting,2021-11-26 15:00:00,jump,Ea,13901
+Lighting,2021-11-26 16:00:00,reset,Ea,13902
+Lighting,2021-11-27 16:00:00,reset,Ea,13926
+Lighting,2021-11-27 20:00:00,jump,Ea,13930
+Lighting,2021-11-29 16:00:00,jump,Ea,13974
+Lighting,2021-12-02 20:00:00,jump,Ea,14047
+Lighting,2021-12-03 18:00:00,jump,Ea,14069
+Lighting,2021-12-09 15:00:00,jump,Ea,14210
+Lighting,2021-12-10 15:00:00,jump,Ea,14234
+Lighting,2021-12-13 18:00:00,reset,Ea,14309
+Lighting,2021-12-14 05:00:00,reset,Ea,14320
+Lighting,2021-12-15 16:00:00,jump,Ea,14347
+Lighting,2021-12-15 17:00:00,jump,Ea,14348
+Lighting,2021-12-16 17:00:00,jump,Ea,14372
+Lighting,2021-12-17 08:00:00,reset,Ea,14387
+Lighting,2021-12-17 15:00:00,jump,Ea,14394
+Lighting,2021-12-17 18:00:00,jump,Ea,14397
+Lighting,2021-12-18 00:00:00,reset,Ea,14403
+Lighting,2021-12-18 01:00:00,reset,Ea,14404
+Lighting,2021-12-20 08:00:00,jump,Ea,14459
+Lighting,2021-12-20 19:00:00,jump,Ea,14470
+Lighting,2021-12-20 22:00:00,jump,Ea,14473
+Lighting,2021-12-21 05:00:00,reset,Ea,14480
+Lighting,2021-12-21 21:00:00,jump,Ea,14494
+Lighting,2021-12-22 21:00:00,jump,Ea,14517
+Lighting,2022-01-04 12:00:00,reset,Ea,14819
+Lighting,2022-01-04 13:00:00,jump,Ea,14820
+Lighting,2022-01-05 10:00:00,jump,Ea,14841
+Lighting,2022-01-05 15:00:00,jump,Ea,14846
+Lighting,2022-01-10 22:00:00,reset,Ea,14968
+Lighting,2022-01-11 17:00:00,jump,Ea,14987
+Lighting,2022-01-12 17:00:00,jump,Ea,15010
+Lighting,2022-01-13 17:00:00,jump,Ea,15034
+Lighting,2022-01-15 13:00:00,jump,Ea,15077
+Lighting,2022-01-16 07:00:00,reset,Ea,15095
+Lighting,2022-01-16 08:00:00,reset,Ea,15096
+Lighting,2022-01-16 17:00:00,jump,Ea,15105
+Lighting,2022-01-16 21:00:00,reset,Ea,15109
+Lighting,2022-01-18 02:00:00,jump,Ea,15137
+Lighting,2022-01-18 16:00:00,jump,Ea,15148
+Lighting,2022-01-19 17:00:00,jump,Ea,15173
+Lighting,2022-01-20 17:00:00,jump,Ea,15197
+Lighting,2022-01-21 13:00:00,jump,Ea,15217
+Lighting,2022-01-24 17:00:00,jump,Ea,15293
+Lighting,2022-01-25 17:00:00,jump,Ea,15317
+Lighting,2022-01-26 17:00:00,jump,Ea,15341
+Lighting,2022-01-27 18:00:00,reset,Ea,15366
+Lighting,2022-01-27 22:00:00,jump,Ea,15370
+Lighting,2022-01-28 08:00:00,jump,Ea,15380
+Lighting,2022-01-29 10:00:00,jump,Ea,15403
+Lighting,2022-01-29 23:00:00,jump,Ea,15416
+Lighting,2022-01-30 18:00:00,jump,Ea,15435
+Lighting,2022-01-31 16:00:00,jump,Ea,15457
+Lighting,2022-02-02 08:00:00,reset,Ea,15497
+Lighting,2022-02-03 13:00:00,jump,Ea,15526
+Lighting,2022-02-03 16:00:00,jump,Ea,15529
+Lighting,2022-02-08 08:00:00,reset,Ea,15639
+Lighting,2022-02-08 09:00:00,reset,Ea,15640
+Lighting,2022-02-08 10:00:00,jump,Ea,15641
+Lighting,2022-02-09 06:00:00,jump,Ea,15661
+Lighting,2022-02-09 17:00:00,jump,Ea,15672
+Lighting,2022-02-10 16:00:00,jump,Ea,15695
+Lighting,2022-02-15 16:00:00,jump,Ea,15815
+Lighting,2022-02-20 13:00:00,reset,Ea,15932
+Lighting,2022-02-20 14:00:00,reset,Ea,15933
+Lighting,2022-02-21 14:00:00,jump,Ea,15957
+Lighting,2022-02-21 18:00:00,jump,Ea,15961
+Lighting,2022-03-02 15:00:00,jump,Ea,16174
+Lighting,2022-03-07 16:00:00,jump,Ea,16295
+Lighting,2022-03-14 17:00:00,jump,Ea,16464
+Lighting,2022-03-15 15:00:00,reset,Ea,16486
+Lighting,2022-03-15 18:00:00,jump,Ea,16489
+Lighting,2022-03-15 22:00:00,jump,Ea,16493
+Lighting,2022-03-15 23:00:00,jump,Ea,16494
+Lighting,2022-03-17 15:00:00,jump,Ea,16534
+Lighting,2022-03-22 17:00:00,jump,Ea,16656
+Lighting,2022-03-24 18:00:00,jump,Ea,16705
+Lighting,2022-03-25 15:00:00,jump,Ea,16726
+Lighting,2022-03-29 16:00:00,jump,Ea,16823
+Lighting,2022-03-30 15:00:00,jump,Ea,16846
+Lighting,2022-03-31 14:00:00,jump,Ea,16869
+Lighting,2022-04-04 13:00:00,reset,Ea,16964
+Lighting,2022-04-04 16:00:00,jump,Ea,16967
+Lighting,2022-04-05 06:00:00,jump,Ea,16981
+Lighting,2022-04-05 16:00:00,jump,Ea,16991
+Lighting,2022-04-06 16:00:00,jump,Ea,17015
+Lighting,2022-04-07 14:00:00,jump,Ea,17037
+Lighting,2022-04-20 12:00:00,reset,Ea,17347
+Lighting,2022-04-20 16:00:00,jump,Ea,17351
+Lighting,2022-04-20 20:00:00,jump,Ea,17355
+Lighting,2022-04-21 04:00:00,jump,Ea,17363
+Lighting,2022-04-21 15:00:00,jump,Ea,17374
+Lighting,2022-05-18 04:00:00,reset,Ea,18009
+Lighting,2022-05-18 05:00:00,reset,Ea,18010
+Lighting,2022-05-19 12:00:00,jump,Ea,18041
+Lighting,2022-09-12 14:00:00,reset,Ea,20439
+Lighting,2022-09-12 16:00:00,jump,Ea,20441
+Lighting,2022-09-13 14:00:00,jump,Ea,20463
+Lighting,2022-09-29 13:00:00,jump,Ea,20845
+Lighting,2022-10-10 16:00:00,jump,Ea,21112
+Lighting,2022-10-11 15:00:00,jump,Ea,21135
+Lighting,2022-10-17 15:00:00,jump,Ea,21279
+Lighting,2022-10-19 16:00:00,jump,Ea,21328
+Lighting,2022-10-20 15:00:00,jump,Ea,21351
+Lighting,2022-10-21 17:00:00,jump,Ea,21377
+Lighting,2022-10-26 15:00:00,jump,Ea,21495
+Lighting,2022-10-27 15:00:00,jump,Ea,21519
+Lighting,2022-11-02 17:00:00,jump,Ea,21665
+Lighting,2022-11-03 16:00:00,jump,Ea,21688
+Lighting,2022-11-08 15:00:00,jump,Ea,21807
+Lighting,2022-11-17 13:00:00,jump,Ea,22021
+Lighting,2022-11-18 22:00:00,jump,Ea,22054
+Lighting,2022-11-21 18:00:00,reset,Ea,22116
+Lighting,2022-11-21 22:00:00,jump,Ea,22120
+Lighting,2022-11-22 06:00:00,jump,Ea,22128
+Lighting,2022-11-22 17:00:00,jump,Ea,22139
+Lighting,2022-11-23 15:00:00,jump,Ea,22161
+Lighting,2022-11-24 08:00:00,reset,Ea,22178
+Lighting,2022-11-25 16:00:00,jump,Ea,22210
+Lighting,2022-11-28 16:00:00,jump,Ea,22282
+Lighting,2022-11-29 16:00:00,jump,Ea,22306
+Lighting,2022-11-30 16:00:00,jump,Ea,22330
+Lighting,2022-12-02 14:00:00,jump,Ea,22376
+Lighting,2022-12-07 16:00:00,jump,Ea,22498
+Lighting,2022-12-09 16:00:00,jump,Ea,22546
+Lighting,2022-12-12 16:00:00,jump,Ea,22618
+Lighting,2022-12-13 17:00:00,jump,Ea,22643
+Lighting,2022-12-15 16:00:00,jump,Ea,22690
+Lighting,2022-12-17 06:00:00,jump,Ea,22728
+Lighting,2022-12-19 17:00:00,jump,Ea,22787
+Lighting,2022-12-20 16:00:00,jump,Ea,22810
+Lighting,2022-12-21 16:00:00,jump,Ea,22833
+Lighting,2023-01-04 11:00:00,reset,Ea,23138
+Lighting,2023-01-04 14:00:00,jump,Ea,23141
+Lighting,2023-01-09 16:00:00,jump,Ea,23263
+Lighting,2023-01-10 17:00:00,jump,Ea,23288
+Lighting,2023-01-11 16:00:00,jump,Ea,23311
+Lighting,2023-01-18 15:00:00,jump,Ea,23478
+Lighting,2023-01-23 16:00:00,jump,Ea,23599
+Lighting,2023-01-24 16:00:00,jump,Ea,23623
+Lighting,2023-01-25 18:00:00,jump,Ea,23649
+Lighting,2023-01-30 17:00:00,jump,Ea,23768
+Lighting,2023-01-31 17:00:00,jump,Ea,23792
+Lighting,2023-02-01 17:00:00,jump,Ea,23816
+Lighting,2023-02-02 16:00:00,jump,Ea,23838
+Lighting,2023-02-06 17:00:00,jump,Ea,23935
+Lighting,2023-02-07 16:00:00,jump,Ea,23958
+Lighting,2023-02-08 16:00:00,jump,Ea,23982
+Lighting,2023-02-09 06:00:00,reset,Ea,23996
+Lighting,2023-02-09 08:00:00,reset,Ea,23998
+Lighting,2023-02-10 12:00:00,jump,Ea,24001
+Lighting,2023-02-10 14:00:00,jump,Ea,24003
+Lighting,2023-02-14 14:00:00,jump,Ea,24099
+Lighting,2023-02-16 14:00:00,jump,Ea,24147
+Lighting,2023-02-17 15:00:00,jump,Ea,24172
+Lighting,2023-02-21 16:00:00,jump,Ea,24269
+Lighting,2023-02-22 15:00:00,jump,Ea,24292
+Lighting,2023-02-23 18:00:00,jump,Ea,24318
+Lighting,2023-02-24 19:00:00,jump,Ea,24343
+Lighting,2023-02-27 16:00:00,jump,Ea,24412
+Lighting,2023-02-28 16:00:00,jump,Ea,24436
+Lighting,2025-08-18 18:44:00,jump,Ea,24445
+Lighting,2025-08-18 19:31:00,jump,Ea,24484
+Lighting,2025-09-03 14:41:00,jump,Ea,39880
+Lighting,2025-09-22 16:37:00,jump,Ea,58072
+Lighting,2025-09-25 14:21:00,jump,Ea,60763
+Lighting,2025-10-06 06:16:00,reset,Ea,70644
+Lighting,2025-10-06 06:20:00,jump,Ea,70648
+Lighting,2025-10-06 06:26:00,jump,Ea,70651
+Lighting,2025-10-06 07:22:00,reset,Ea,70676
+Lighting,2025-10-06 08:14:00,jump,Ea,70685
+Lighting,2025-10-06 09:15:00,jump,Ea,70690
+Lighting,2025-10-06 09:25:00,reset,Ea,70691
+Lighting,2025-10-06 09:33:00,reset,Ea,70692
+Lighting,2025-10-08 13:59:00,jump,Ea,70708
+Lighting,2025-10-08 15:47:00,jump,Ea,70742
+Lighting,2025-10-08 16:34:00,jump,Ea,70774
+Lighting,2025-10-08 17:14:00,jump,Ea,70797
+Lighting,2025-10-08 17:17:00,jump,Ea,70800
+Lighting,2025-10-13 08:54:00,reset,Ea,74840
+Lighting,2025-10-13 09:03:00,jump,Ea,74842
+Lighting,2025-10-13 14:32:00,reset,Ea,74902
+Lighting,2025-10-13 14:33:00,reset,Ea,74903
+Lighting,2025-10-13 14:34:00,reset,Ea,74904
+Lighting,2020-04-03 12:00:00,jump,Er,15
+Lighting,2020-10-12 11:00:00,reset,Er,4479
+Lighting,2020-12-18 08:00:00,reset,Er,6083
+Lighting,2020-12-18 09:00:00,jump,Er,6084
+Lighting,2020-12-18 18:00:00,reset,Er,6093
+Lighting,2020-12-19 04:00:00,jump,Er,6103
+Lighting,2020-12-21 20:00:00,jump,Er,6116
+Lighting,2020-12-21 21:00:00,jump,Er,6117
+Lighting,2021-04-08 12:00:00,reset,Er,8700
+Lighting,2021-04-09 05:00:00,reset,Er,8717
+Lighting,2021-04-09 06:00:00,jump,Er,8718
+Lighting,2021-04-12 09:00:00,jump,Er,8793
+Lighting,2021-04-12 12:00:00,jump,Er,8796
+Lighting,2021-04-15 13:00:00,jump,Er,8869
+Lighting,2021-04-15 15:00:00,reset,Er,8871
+Lighting,2021-04-16 12:00:00,jump,Er,8892
+Lighting,2021-04-16 19:00:00,jump,Er,8899
+Lighting,2021-04-18 20:00:00,reset,Er,8948
+Lighting,2021-04-19 04:00:00,jump,Er,8956
+Lighting,2021-04-20 06:00:00,jump,Er,8982
+Lighting,2021-06-01 12:00:00,jump,Er,9996
+Lighting,2021-06-05 10:00:00,reset,Er,10089
+Lighting,2021-06-05 17:00:00,reset,Er,10096
+Lighting,2021-06-06 07:00:00,jump,Er,10110
+Lighting,2021-06-06 09:00:00,reset,Er,10112
+Lighting,2021-06-06 12:00:00,jump,Er,10115
+Lighting,2021-06-07 11:00:00,jump,Er,10138
+Lighting,2021-06-07 12:00:00,jump,Er,10139
+Lighting,2021-06-08 07:00:00,reset,Er,10158
+Lighting,2021-06-09 15:00:00,jump,Er,10190
+Lighting,2021-06-10 01:00:00,reset,Er,10200
+Lighting,2021-06-11 13:00:00,jump,Er,10236
+Lighting,2021-06-11 14:00:00,jump,Er,10237
+Lighting,2021-06-11 15:00:00,jump,Er,10238
+Lighting,2021-06-16 07:00:00,reset,Er,10348
+Lighting,2021-06-17 15:00:00,jump,Er,10379
+Lighting,2021-06-20 13:00:00,reset,Er,10449
+Lighting,2021-06-21 13:00:00,jump,Er,10473
+Lighting,2021-06-21 14:00:00,jump,Er,10474
+Lighting,2021-06-22 05:00:00,reset,Er,10489
+Lighting,2021-06-22 06:00:00,jump,Er,10490
+Lighting,2021-06-23 14:00:00,jump,Er,10520
+Lighting,2021-06-26 17:00:00,reset,Er,10593
+Lighting,2021-06-26 19:00:00,jump,Er,10595
+Lighting,2021-06-26 21:00:00,jump,Er,10597
+Lighting,2021-06-26 22:00:00,reset,Er,10598
+Lighting,2021-06-28 14:00:00,jump,Er,10638
+Lighting,2021-06-29 02:00:00,reset,Er,10650
+Lighting,2021-06-29 16:00:00,jump,Er,10664
+Lighting,2021-06-30 13:00:00,jump,Er,10685
+Lighting,2021-06-30 14:00:00,jump,Er,10686
+Lighting,2021-07-01 07:00:00,reset,Er,10703
+Lighting,2021-07-07 10:00:00,jump,Er,10709
+Lighting,2021-07-30 12:00:00,reset,Er,11066
+Lighting,2021-07-30 15:00:00,reset,Er,11069
+Lighting,2021-07-31 03:00:00,jump,Er,11081
+Lighting,2021-07-31 22:00:00,jump,Er,11100
+Lighting,2021-08-01 00:00:00,jump,Er,11102
+Lighting,2021-08-08 13:00:00,reset,Er,11283
+Lighting,2021-08-08 14:00:00,reset,Er,11284
+Lighting,2021-08-20 08:00:00,reset,Er,11562
+Lighting,2021-08-20 18:00:00,jump,Er,11572
+Lighting,2021-08-21 12:00:00,jump,Er,11590
+Lighting,2021-09-15 13:00:00,jump,Er,12191
+Lighting,2021-09-18 10:00:00,reset,Er,12259
+Lighting,2021-09-18 12:00:00,jump,Er,12261
+Lighting,2021-09-19 12:00:00,jump,Er,12285
+Lighting,2021-09-20 12:00:00,jump,Er,12309
+Lighting,2021-09-24 12:00:00,jump,Er,12405
+Lighting,2021-09-24 14:00:00,reset,Er,12407
+Lighting,2021-09-24 15:00:00,reset,Er,12408
+Lighting,2021-09-24 16:00:00,jump,Er,12409
+Lighting,2021-09-25 09:00:00,jump,Er,12426
+Lighting,2021-09-25 17:00:00,jump,Er,12434
+Lighting,2021-09-26 04:00:00,jump,Er,12445
+Lighting,2021-09-27 16:00:00,jump,Er,12477
+Lighting,2021-09-29 17:00:00,jump,Er,12526
+Lighting,2021-09-30 07:00:00,reset,Er,12539
+Lighting,2021-10-01 15:00:00,jump,Er,12571
+Lighting,2021-10-05 16:00:00,jump,Er,12668
+Lighting,2021-10-14 17:00:00,jump,Er,12885
+Lighting,2021-10-18 18:00:00,jump,Er,12982
+Lighting,2021-10-19 16:00:00,jump,Er,13004
+Lighting,2021-10-20 16:00:00,jump,Er,13027
+Lighting,2021-10-22 16:00:00,reset,Er,13075
+Lighting,2021-10-23 00:00:00,jump,Er,13083
+Lighting,2021-10-23 03:00:00,jump,Er,13086
+Lighting,2021-10-23 17:00:00,reset,Er,13100
+Lighting,2021-10-23 19:00:00,jump,Er,13102
+Lighting,2021-10-24 21:00:00,jump,Er,13128
+Lighting,2021-10-25 16:00:00,jump,Er,13147
+Lighting,2021-10-27 17:00:00,jump,Er,13196
+Lighting,2021-10-29 16:00:00,jump,Er,13242
+Lighting,2021-11-02 17:00:00,jump,Er,13335
+Lighting,2021-11-03 02:00:00,reset,Er,13344
+Lighting,2021-11-03 07:00:00,jump,Er,13349
+Lighting,2021-11-03 08:00:00,reset,Er,13350
+Lighting,2021-11-03 17:00:00,jump,Er,13359
+Lighting,2021-11-04 18:00:00,jump,Er,13384
+Lighting,2021-11-04 20:00:00,jump,Er,13386
+Lighting,2021-11-04 22:00:00,reset,Er,13388
+Lighting,2021-11-06 08:00:00,reset,Er,13422
+Lighting,2021-11-08 09:00:00,jump,Er,13471
+Lighting,2021-11-08 10:00:00,jump,Er,13472
+Lighting,2021-11-08 17:00:00,jump,Er,13479
+Lighting,2021-11-08 19:00:00,jump,Er,13481
+Lighting,2021-11-10 18:00:00,reset,Er,13524
+Lighting,2021-11-11 20:00:00,jump,Er,13548
+Lighting,2021-11-12 01:00:00,jump,Er,13553
+Lighting,2021-11-12 07:00:00,reset,Er,13559
+Lighting,2021-11-13 15:00:00,jump,Er,13590
+Lighting,2021-11-13 18:00:00,jump,Er,13593
+Lighting,2021-11-13 21:00:00,jump,Er,13596
+Lighting,2021-11-14 06:00:00,jump,Er,13605
+Lighting,2021-11-14 07:00:00,reset,Er,13606
+Lighting,2021-11-14 10:00:00,jump,Er,13609
+Lighting,2021-11-14 14:00:00,reset,Er,13613
+Lighting,2021-11-14 16:00:00,jump,Er,13615
+Lighting,2021-11-14 22:00:00,reset,Er,13621
+Lighting,2021-11-16 01:00:00,jump,Er,13648
+Lighting,2021-11-16 19:00:00,jump,Er,13666
+Lighting,2021-11-16 21:00:00,jump,Er,13668
+Lighting,2021-11-18 05:00:00,jump,Er,13699
+Lighting,2021-11-18 21:00:00,jump,Er,13715
+Lighting,2021-11-19 19:00:00,jump,Er,13737
+Lighting,2021-11-22 17:00:00,jump,Er,13807
+Lighting,2021-11-23 17:00:00,jump,Er,13831
+Lighting,2021-11-24 20:00:00,jump,Er,13858
+Lighting,2021-11-25 17:00:00,jump,Er,13879
+Lighting,2021-11-26 06:00:00,reset,Er,13892
+Lighting,2021-11-26 15:00:00,jump,Er,13901
+Lighting,2021-11-26 16:00:00,reset,Er,13902
+Lighting,2021-11-27 16:00:00,reset,Er,13926
+Lighting,2021-11-27 20:00:00,jump,Er,13930
+Lighting,2021-11-29 16:00:00,jump,Er,13974
+Lighting,2021-12-02 20:00:00,jump,Er,14047
+Lighting,2021-12-03 18:00:00,jump,Er,14069
+Lighting,2021-12-09 15:00:00,jump,Er,14210
+Lighting,2021-12-10 15:00:00,jump,Er,14234
+Lighting,2021-12-13 18:00:00,reset,Er,14309
+Lighting,2021-12-14 03:00:00,jump,Er,14318
+Lighting,2021-12-14 05:00:00,reset,Er,14320
+Lighting,2021-12-15 16:00:00,jump,Er,14347
+Lighting,2021-12-15 17:00:00,jump,Er,14348
+Lighting,2021-12-16 17:00:00,jump,Er,14372
+Lighting,2021-12-17 08:00:00,reset,Er,14387
+Lighting,2021-12-17 15:00:00,jump,Er,14394
+Lighting,2021-12-17 18:00:00,jump,Er,14397
+Lighting,2021-12-18 00:00:00,reset,Er,14403
+Lighting,2021-12-18 01:00:00,reset,Er,14404
+Lighting,2021-12-20 08:00:00,jump,Er,14459
+Lighting,2021-12-20 19:00:00,jump,Er,14470
+Lighting,2021-12-20 22:00:00,jump,Er,14473
+Lighting,2021-12-21 05:00:00,reset,Er,14480
+Lighting,2021-12-21 21:00:00,jump,Er,14494
+Lighting,2021-12-22 21:00:00,jump,Er,14517
+Lighting,2022-01-04 12:00:00,reset,Er,14819
+Lighting,2022-01-04 20:00:00,jump,Er,14827
+Lighting,2022-01-05 09:00:00,jump,Er,14840
+Lighting,2022-01-05 10:00:00,jump,Er,14841
+Lighting,2022-01-05 15:00:00,jump,Er,14846
+Lighting,2022-01-10 22:00:00,reset,Er,14968
+Lighting,2022-01-11 17:00:00,jump,Er,14987
+Lighting,2022-01-12 17:00:00,jump,Er,15010
+Lighting,2022-01-13 17:00:00,jump,Er,15034
+Lighting,2022-01-15 13:00:00,jump,Er,15077
+Lighting,2022-01-16 07:00:00,reset,Er,15095
+Lighting,2022-01-16 08:00:00,reset,Er,15096
+Lighting,2022-01-16 14:00:00,jump,Er,15102
+Lighting,2022-01-16 17:00:00,jump,Er,15105
+Lighting,2022-01-16 21:00:00,reset,Er,15109
+Lighting,2022-01-18 02:00:00,jump,Er,15137
+Lighting,2022-01-18 16:00:00,jump,Er,15148
+Lighting,2022-01-19 17:00:00,jump,Er,15173
+Lighting,2022-01-20 17:00:00,jump,Er,15197
+Lighting,2022-01-21 13:00:00,jump,Er,15217
+Lighting,2022-01-24 17:00:00,jump,Er,15293
+Lighting,2022-01-25 17:00:00,jump,Er,15317
+Lighting,2022-01-26 17:00:00,jump,Er,15341
+Lighting,2022-01-27 18:00:00,reset,Er,15366
+Lighting,2022-01-27 22:00:00,jump,Er,15370
+Lighting,2022-01-28 08:00:00,jump,Er,15380
+Lighting,2022-01-29 10:00:00,jump,Er,15403
+Lighting,2022-01-30 18:00:00,jump,Er,15435
+Lighting,2022-01-31 16:00:00,jump,Er,15457
+Lighting,2022-02-02 08:00:00,reset,Er,15497
+Lighting,2022-02-03 13:00:00,jump,Er,15526
+Lighting,2022-02-03 16:00:00,jump,Er,15529
+Lighting,2022-02-08 08:00:00,reset,Er,15639
+Lighting,2022-02-08 09:00:00,reset,Er,15640
+Lighting,2022-02-08 10:00:00,jump,Er,15641
+Lighting,2022-02-09 06:00:00,jump,Er,15661
+Lighting,2022-02-09 17:00:00,jump,Er,15672
+Lighting,2022-02-10 16:00:00,jump,Er,15695
+Lighting,2022-02-15 16:00:00,jump,Er,15815
+Lighting,2022-02-20 13:00:00,reset,Er,15932
+Lighting,2022-02-20 14:00:00,reset,Er,15933
+Lighting,2022-02-21 14:00:00,jump,Er,15957
+Lighting,2022-02-21 18:00:00,jump,Er,15961
+Lighting,2022-03-02 15:00:00,jump,Er,16174
+Lighting,2022-03-07 16:00:00,jump,Er,16295
+Lighting,2022-03-14 17:00:00,jump,Er,16464
+Lighting,2022-03-15 15:00:00,reset,Er,16486
+Lighting,2022-03-15 18:00:00,jump,Er,16489
+Lighting,2022-03-15 22:00:00,jump,Er,16493
+Lighting,2022-03-15 23:00:00,jump,Er,16494
+Lighting,2022-03-16 06:00:00,jump,Er,16501
+Lighting,2022-03-16 07:00:00,reset,Er,16502
+Lighting,2022-03-16 17:00:00,jump,Er,16512
+Lighting,2022-03-17 05:00:00,jump,Er,16524
+Lighting,2022-03-17 12:00:00,jump,Er,16531
+Lighting,2022-03-17 15:00:00,jump,Er,16534
+Lighting,2022-03-22 17:00:00,jump,Er,16656
+Lighting,2022-03-24 18:00:00,jump,Er,16705
+Lighting,2022-03-25 15:00:00,jump,Er,16726
+Lighting,2022-03-29 16:00:00,jump,Er,16823
+Lighting,2022-03-30 15:00:00,jump,Er,16846
+Lighting,2022-03-31 14:00:00,jump,Er,16869
+Lighting,2022-04-04 13:00:00,reset,Er,16964
+Lighting,2022-04-04 16:00:00,jump,Er,16967
+Lighting,2022-04-05 16:00:00,jump,Er,16991
+Lighting,2022-04-06 16:00:00,jump,Er,17015
+Lighting,2022-04-07 14:00:00,jump,Er,17037
+Lighting,2022-04-20 12:00:00,reset,Er,17347
+Lighting,2022-04-20 16:00:00,jump,Er,17351
+Lighting,2022-04-20 20:00:00,jump,Er,17355
+Lighting,2022-04-21 04:00:00,jump,Er,17363
+Lighting,2022-04-21 15:00:00,jump,Er,17374
+Lighting,2022-05-18 04:00:00,reset,Er,18009
+Lighting,2022-05-18 05:00:00,reset,Er,18010
+Lighting,2022-05-19 12:00:00,jump,Er,18041
+Lighting,2022-09-12 14:00:00,reset,Er,20439
+Lighting,2022-09-12 16:00:00,jump,Er,20441
+Lighting,2022-09-13 14:00:00,jump,Er,20463
+Lighting,2022-09-29 13:00:00,jump,Er,20845
+Lighting,2022-10-10 16:00:00,jump,Er,21112
+Lighting,2022-10-11 15:00:00,jump,Er,21135
+Lighting,2022-10-17 15:00:00,jump,Er,21279
+Lighting,2022-10-19 16:00:00,jump,Er,21328
+Lighting,2022-10-20 15:00:00,jump,Er,21351
+Lighting,2022-10-21 17:00:00,jump,Er,21377
+Lighting,2022-10-26 15:00:00,jump,Er,21495
+Lighting,2022-10-27 15:00:00,jump,Er,21519
+Lighting,2022-11-02 17:00:00,jump,Er,21665
+Lighting,2022-11-03 16:00:00,jump,Er,21688
+Lighting,2022-11-08 15:00:00,jump,Er,21807
+Lighting,2022-11-17 13:00:00,jump,Er,22021
+Lighting,2022-11-18 22:00:00,jump,Er,22054
+Lighting,2022-11-21 18:00:00,reset,Er,22116
+Lighting,2022-11-21 22:00:00,jump,Er,22120
+Lighting,2022-11-22 06:00:00,jump,Er,22128
+Lighting,2022-11-22 17:00:00,jump,Er,22139
+Lighting,2022-11-23 15:00:00,jump,Er,22161
+Lighting,2022-11-24 08:00:00,reset,Er,22178
+Lighting,2022-11-25 16:00:00,jump,Er,22210
+Lighting,2022-11-28 16:00:00,jump,Er,22282
+Lighting,2022-11-29 16:00:00,jump,Er,22306
+Lighting,2022-11-30 16:00:00,jump,Er,22330
+Lighting,2022-12-02 14:00:00,jump,Er,22376
+Lighting,2022-12-07 16:00:00,jump,Er,22498
+Lighting,2022-12-09 16:00:00,jump,Er,22546
+Lighting,2022-12-12 16:00:00,jump,Er,22618
+Lighting,2022-12-13 17:00:00,jump,Er,22643
+Lighting,2022-12-15 16:00:00,jump,Er,22690
+Lighting,2022-12-17 06:00:00,jump,Er,22728
+Lighting,2022-12-19 17:00:00,jump,Er,22787
+Lighting,2022-12-20 16:00:00,jump,Er,22810
+Lighting,2022-12-21 16:00:00,jump,Er,22833
+Lighting,2023-01-04 11:00:00,reset,Er,23138
+Lighting,2023-01-04 13:00:00,jump,Er,23140
+Lighting,2023-01-04 14:00:00,jump,Er,23141
+Lighting,2023-01-09 16:00:00,jump,Er,23263
+Lighting,2023-01-10 17:00:00,jump,Er,23288
+Lighting,2023-01-11 16:00:00,jump,Er,23311
+Lighting,2023-01-18 15:00:00,jump,Er,23478
+Lighting,2023-01-23 16:00:00,jump,Er,23599
+Lighting,2023-01-24 16:00:00,jump,Er,23623
+Lighting,2023-01-25 18:00:00,jump,Er,23649
+Lighting,2023-01-30 17:00:00,jump,Er,23768
+Lighting,2023-01-31 17:00:00,jump,Er,23792
+Lighting,2023-02-01 17:00:00,jump,Er,23816
+Lighting,2023-02-02 16:00:00,jump,Er,23838
+Lighting,2023-02-07 16:00:00,jump,Er,23958
+Lighting,2023-02-08 16:00:00,jump,Er,23982
+Lighting,2023-02-09 06:00:00,reset,Er,23996
+Lighting,2023-02-09 08:00:00,reset,Er,23998
+Lighting,2023-02-10 12:00:00,jump,Er,24001
+Lighting,2023-02-10 14:00:00,jump,Er,24003
+Lighting,2023-02-14 14:00:00,jump,Er,24099
+Lighting,2023-02-16 14:00:00,jump,Er,24147
+Lighting,2023-02-17 15:00:00,jump,Er,24172
+Lighting,2023-02-21 16:00:00,jump,Er,24269
+Lighting,2023-02-22 15:00:00,jump,Er,24292
+Lighting,2023-02-23 18:00:00,jump,Er,24318
+Lighting,2023-02-24 19:00:00,jump,Er,24343
+Lighting,2023-02-27 16:00:00,jump,Er,24412
+Lighting,2023-02-28 16:00:00,jump,Er,24436
+Lighting,2025-08-18 18:44:00,jump,Er,24445
+Lighting,2025-08-18 19:02:00,jump,Er,24461
+Lighting,2025-08-18 19:27:00,jump,Er,24480
+Lighting,2025-08-18 19:31:00,jump,Er,24484
+Lighting,2025-09-03 14:41:00,jump,Er,39880
+Lighting,2025-09-22 16:37:00,jump,Er,58072
+Lighting,2025-09-25 14:21:00,jump,Er,60763
+Lighting,2025-09-27 06:23:00,reset,Er,62619
+Lighting,2025-09-27 06:24:00,jump,Er,62620
+Lighting,2025-10-06 06:16:00,reset,Er,70644
+Lighting,2025-10-06 06:26:00,jump,Er,70651
+Lighting,2025-10-06 08:00:00,reset,Er,70683
+Lighting,2025-10-06 08:14:00,jump,Er,70685
+Lighting,2025-10-06 09:15:00,jump,Er,70690
+Lighting,2025-10-06 09:25:00,reset,Er,70691
+Lighting,2025-10-06 09:33:00,reset,Er,70692
+Lighting,2025-10-08 13:40:00,jump,Er,70697
+Lighting,2025-10-08 15:57:00,jump,Er,70748
+Lighting,2025-10-08 16:34:00,jump,Er,70774
+Lighting,2025-10-08 17:17:00,jump,Er,70800
+Lighting,2025-10-13 08:54:00,reset,Er,74840
+Lighting,2025-10-13 09:03:00,jump,Er,74842
+Lighting,2025-10-13 14:32:00,reset,Er,74902
+Lighting,2025-10-13 14:33:00,reset,Er,74903
+Lighting,2025-10-13 14:34:00,reset,Er,74904
+Plugs & Sockets,2020-10-12 11:00:00,reset,Ea,4476
+Plugs & Sockets,2020-12-21 20:00:00,reset,Ea,6093
+Plugs & Sockets,2021-04-09 06:00:00,reset,Ea,8695
+Plugs & Sockets,2021-04-12 10:00:00,jump,Ea,8770
+Plugs & Sockets,2021-04-18 20:00:00,reset,Ea,8924
+Plugs & Sockets,2021-04-20 06:00:00,jump,Ea,8954
+Plugs & Sockets,2021-06-05 17:00:00,reset,Ea,10064
+Plugs & Sockets,2021-06-06 03:00:00,jump,Ea,10074
+Plugs & Sockets,2021-06-06 11:00:00,jump,Ea,10082
+Plugs & Sockets,2021-06-07 12:00:00,jump,Ea,10107
+Plugs & Sockets,2021-06-08 07:00:00,reset,Ea,10126
+Plugs & Sockets,2021-06-09 14:00:00,jump,Ea,10157
+Plugs & Sockets,2021-06-16 07:00:00,reset,Ea,10314
+Plugs & Sockets,2021-06-17 15:00:00,jump,Ea,10345
+Plugs & Sockets,2021-06-28 16:00:00,reset,Ea,10605
+Plugs & Sockets,2021-06-29 01:00:00,jump,Ea,10614
+Plugs & Sockets,2021-06-29 22:00:00,jump,Ea,10635
+Plugs & Sockets,2021-07-30 15:00:00,reset,Ea,11032
+Plugs & Sockets,2021-07-30 16:00:00,reset,Ea,11033
+Plugs & Sockets,2021-07-31 15:00:00,jump,Ea,11056
+Plugs & Sockets,2021-08-01 00:00:00,jump,Ea,11065
+Plugs & Sockets,2021-08-08 13:00:00,reset,Ea,11246
+Plugs & Sockets,2021-08-08 14:00:00,reset,Ea,11247
+Plugs & Sockets,2021-08-12 08:00:00,reset,Ea,11333
+Plugs & Sockets,2021-08-20 08:00:00,reset,Ea,11525
+Plugs & Sockets,2021-08-20 18:00:00,jump,Ea,11535
+Plugs & Sockets,2021-08-20 23:00:00,jump,Ea,11540
+Plugs & Sockets,2021-08-21 12:00:00,jump,Ea,11550
+Plugs & Sockets,2021-09-30 07:00:00,reset,Ea,12479
+Plugs & Sockets,2021-10-22 07:00:00,reset,Ea,13006
+Plugs & Sockets,2021-10-23 00:00:00,jump,Ea,13023
+Plugs & Sockets,2021-10-23 03:00:00,reset,Ea,13026
+Plugs & Sockets,2021-10-23 10:00:00,jump,Ea,13033
+Plugs & Sockets,2021-10-25 16:00:00,jump,Ea,13087
+Plugs & Sockets,2021-11-03 17:00:00,reset,Ea,13298
+Plugs & Sockets,2021-11-04 18:00:00,jump,Ea,13322
+Plugs & Sockets,2021-11-05 07:00:00,reset,Ea,13335
+Plugs & Sockets,2021-11-08 19:00:00,jump,Ea,13419
+Plugs & Sockets,2021-11-10 19:00:00,reset,Ea,13461
+Plugs & Sockets,2021-11-12 06:00:00,jump,Ea,13494
+Plugs & Sockets,2021-11-12 07:00:00,reset,Ea,13495
+Plugs & Sockets,2021-11-12 08:00:00,jump,Ea,13496
+Plugs & Sockets,2021-11-13 15:00:00,jump,Ea,13525
+Plugs & Sockets,2021-11-13 16:00:00,jump,Ea,13526
+Plugs & Sockets,2021-11-14 12:00:00,reset,Ea,13546
+Plugs & Sockets,2021-11-14 14:00:00,reset,Ea,13548
+Plugs & Sockets,2021-11-15 22:00:00,jump,Ea,13580
+Plugs & Sockets,2021-11-16 01:00:00,jump,Ea,13583
+Plugs & Sockets,2021-11-16 21:00:00,jump,Ea,13602
+Plugs & Sockets,2021-11-26 06:00:00,reset,Ea,13822
+Plugs & Sockets,2021-11-26 15:00:00,jump,Ea,13831
+Plugs & Sockets,2021-11-27 15:00:00,jump,Ea,13855
+Plugs & Sockets,2021-12-14 10:00:00,reset,Ea,14254
+Plugs & Sockets,2021-12-14 19:00:00,jump,Ea,14263
+Plugs & Sockets,2021-12-14 21:00:00,jump,Ea,14265
+Plugs & Sockets,2021-12-15 16:00:00,jump,Ea,14276
+Plugs & Sockets,2021-12-19 16:00:00,reset,Ea,14371
+Plugs & Sockets,2021-12-19 19:00:00,jump,Ea,14374
+Plugs & Sockets,2021-12-20 18:00:00,jump,Ea,14396
+Plugs & Sockets,2021-12-20 19:00:00,jump,Ea,14397
+Plugs & Sockets,2021-12-21 07:00:00,reset,Ea,14409
+Plugs & Sockets,2021-12-21 21:00:00,jump,Ea,14421
+Plugs & Sockets,2021-12-22 21:00:00,jump,Ea,14444
+Plugs & Sockets,2022-01-10 22:00:00,reset,Ea,14895
+Plugs & Sockets,2022-01-11 23:00:00,jump,Ea,14916
+Plugs & Sockets,2022-01-12 17:00:00,jump,Ea,14933
+Plugs & Sockets,2022-01-16 18:00:00,reset,Ea,15026
+Plugs & Sockets,2022-01-18 02:00:00,jump,Ea,15057
+Plugs & Sockets,2022-01-27 08:00:00,reset,Ea,15275
+Plugs & Sockets,2022-01-27 09:00:00,reset,Ea,15276
+Plugs & Sockets,2022-01-27 15:00:00,jump,Ea,15282
+Plugs & Sockets,2022-01-27 22:00:00,reset,Ea,15289
+Plugs & Sockets,2022-01-29 19:00:00,jump,Ea,15331
+Plugs & Sockets,2022-01-30 04:00:00,jump,Ea,15340
+Plugs & Sockets,2022-02-02 08:00:00,reset,Ea,15416
+Plugs & Sockets,2022-02-03 13:00:00,jump,Ea,15445
+Plugs & Sockets,2022-02-08 08:00:00,reset,Ea,15558
+Plugs & Sockets,2022-02-08 09:00:00,jump,Ea,15559
+Plugs & Sockets,2022-02-09 17:00:00,jump,Ea,15591
+Plugs & Sockets,2022-02-20 13:00:00,reset,Ea,15851
+Plugs & Sockets,2022-02-21 18:00:00,jump,Ea,15880
+Plugs & Sockets,2022-05-18 04:00:00,reset,Ea,17917
+Plugs & Sockets,2022-05-19 12:00:00,reset,Ea,17949
+Plugs & Sockets,2022-09-12 14:00:00,reset,Ea,20346
+Plugs & Sockets,2022-09-12 16:00:00,jump,Ea,20348
+Plugs & Sockets,2022-11-21 22:00:00,reset,Ea,22025
+Plugs & Sockets,2022-11-22 06:00:00,jump,Ea,22033
+Plugs & Sockets,2023-01-04 11:00:00,reset,Ea,23043
+Plugs & Sockets,2023-01-04 13:00:00,jump,Ea,23045
+Plugs & Sockets,2023-02-09 08:00:00,reset,Ea,23903
+Plugs & Sockets,2023-02-10 12:00:00,jump,Ea,23906
+Plugs & Sockets,2025-08-18 18:52:00,jump,Ea,24356
+Plugs & Sockets,2025-08-18 19:05:00,jump,Ea,24366
+Plugs & Sockets,2025-10-06 06:46:00,reset,Ea,65727
+Plugs & Sockets,2025-10-06 08:00:00,reset,Ea,65742
+Plugs & Sockets,2025-10-06 09:25:00,reset,Ea,65747
+Plugs & Sockets,2025-10-08 12:35:00,jump,Ea,65748
+Plugs & Sockets,2025-10-08 13:40:00,jump,Ea,65751
+Plugs & Sockets,2025-10-08 13:59:00,jump,Ea,65759
+Plugs & Sockets,2025-10-13 14:30:00,reset,Ea,69464
+Plugs & Sockets,2025-10-13 14:33:00,reset,Ea,69467
+Plugs & Sockets,2020-10-12 11:00:00,reset,Er,4476
+Plugs & Sockets,2020-12-21 20:00:00,reset,Er,6093
+Plugs & Sockets,2021-04-09 06:00:00,reset,Er,8695
+Plugs & Sockets,2021-04-12 10:00:00,jump,Er,8770
+Plugs & Sockets,2021-04-18 20:00:00,reset,Er,8924
+Plugs & Sockets,2021-04-20 06:00:00,jump,Er,8954
+Plugs & Sockets,2021-06-05 17:00:00,reset,Er,10064
+Plugs & Sockets,2021-06-06 03:00:00,jump,Er,10074
+Plugs & Sockets,2021-06-06 11:00:00,jump,Er,10082
+Plugs & Sockets,2021-06-07 12:00:00,jump,Er,10107
+Plugs & Sockets,2021-06-08 07:00:00,reset,Er,10126
+Plugs & Sockets,2021-06-09 14:00:00,jump,Er,10157
+Plugs & Sockets,2021-06-16 07:00:00,reset,Er,10314
+Plugs & Sockets,2021-06-17 15:00:00,jump,Er,10345
+Plugs & Sockets,2021-06-28 16:00:00,reset,Er,10605
+Plugs & Sockets,2021-06-29 01:00:00,jump,Er,10614
+Plugs & Sockets,2021-06-29 22:00:00,jump,Er,10635
+Plugs & Sockets,2021-07-30 15:00:00,reset,Er,11032
+Plugs & Sockets,2021-07-30 16:00:00,reset,Er,11033
+Plugs & Sockets,2021-07-31 15:00:00,jump,Er,11056
+Plugs & Sockets,2021-08-01 00:00:00,jump,Er,11065
+Plugs & Sockets,2021-08-08 13:00:00,reset,Er,11246
+Plugs & Sockets,2021-08-08 14:00:00,reset,Er,11247
+Plugs & Sockets,2021-08-12 08:00:00,reset,Er,11333
+Plugs & Sockets,2021-08-20 08:00:00,reset,Er,11525
+Plugs & Sockets,2021-08-20 18:00:00,jump,Er,11535
+Plugs & Sockets,2021-08-20 23:00:00,jump,Er,11540
+Plugs & Sockets,2021-08-21 12:00:00,jump,Er,11550
+Plugs & Sockets,2021-09-30 07:00:00,reset,Er,12479
+Plugs & Sockets,2021-10-22 07:00:00,reset,Er,13006
+Plugs & Sockets,2021-10-23 00:00:00,jump,Er,13023
+Plugs & Sockets,2021-10-23 03:00:00,reset,Er,13026
+Plugs & Sockets,2021-10-23 10:00:00,jump,Er,13033
+Plugs & Sockets,2021-10-25 16:00:00,jump,Er,13087
+Plugs & Sockets,2021-11-03 17:00:00,reset,Er,13298
+Plugs & Sockets,2021-11-04 18:00:00,jump,Er,13322
+Plugs & Sockets,2021-11-05 07:00:00,reset,Er,13335
+Plugs & Sockets,2021-11-08 19:00:00,jump,Er,13419
+Plugs & Sockets,2021-11-10 19:00:00,reset,Er,13461
+Plugs & Sockets,2021-11-12 06:00:00,jump,Er,13494
+Plugs & Sockets,2021-11-12 07:00:00,reset,Er,13495
+Plugs & Sockets,2021-11-12 08:00:00,jump,Er,13496
+Plugs & Sockets,2021-11-13 15:00:00,jump,Er,13525
+Plugs & Sockets,2021-11-13 16:00:00,jump,Er,13526
+Plugs & Sockets,2021-11-14 12:00:00,reset,Er,13546
+Plugs & Sockets,2021-11-14 14:00:00,reset,Er,13548
+Plugs & Sockets,2021-11-15 22:00:00,jump,Er,13580
+Plugs & Sockets,2021-11-16 01:00:00,jump,Er,13583
+Plugs & Sockets,2021-11-16 21:00:00,jump,Er,13602
+Plugs & Sockets,2021-11-26 06:00:00,reset,Er,13822
+Plugs & Sockets,2021-11-26 15:00:00,jump,Er,13831
+Plugs & Sockets,2021-11-27 15:00:00,jump,Er,13855
+Plugs & Sockets,2021-12-14 10:00:00,reset,Er,14254
+Plugs & Sockets,2021-12-14 19:00:00,jump,Er,14263
+Plugs & Sockets,2021-12-14 21:00:00,jump,Er,14265
+Plugs & Sockets,2021-12-15 16:00:00,jump,Er,14276
+Plugs & Sockets,2021-12-19 16:00:00,reset,Er,14371
+Plugs & Sockets,2021-12-19 19:00:00,jump,Er,14374
+Plugs & Sockets,2021-12-20 18:00:00,jump,Er,14396
+Plugs & Sockets,2021-12-20 19:00:00,jump,Er,14397
+Plugs & Sockets,2021-12-21 07:00:00,reset,Er,14409
+Plugs & Sockets,2021-12-21 21:00:00,jump,Er,14421
+Plugs & Sockets,2021-12-22 21:00:00,jump,Er,14444
+Plugs & Sockets,2022-01-10 22:00:00,reset,Er,14895
+Plugs & Sockets,2022-01-11 23:00:00,jump,Er,14916
+Plugs & Sockets,2022-01-12 17:00:00,jump,Er,14933
+Plugs & Sockets,2022-01-16 18:00:00,reset,Er,15026
+Plugs & Sockets,2022-01-18 02:00:00,jump,Er,15057
+Plugs & Sockets,2022-01-27 08:00:00,reset,Er,15275
+Plugs & Sockets,2022-01-27 09:00:00,reset,Er,15276
+Plugs & Sockets,2022-01-27 15:00:00,jump,Er,15282
+Plugs & Sockets,2022-01-27 22:00:00,reset,Er,15289
+Plugs & Sockets,2022-01-29 19:00:00,jump,Er,15331
+Plugs & Sockets,2022-01-30 04:00:00,jump,Er,15340
+Plugs & Sockets,2022-02-02 08:00:00,reset,Er,15416
+Plugs & Sockets,2022-02-03 13:00:00,jump,Er,15445
+Plugs & Sockets,2022-02-08 08:00:00,reset,Er,15558
+Plugs & Sockets,2022-02-08 09:00:00,jump,Er,15559
+Plugs & Sockets,2022-02-09 17:00:00,jump,Er,15591
+Plugs & Sockets,2022-02-20 13:00:00,reset,Er,15851
+Plugs & Sockets,2022-02-20 15:00:00,jump,Er,15853
+Plugs & Sockets,2022-02-21 18:00:00,jump,Er,15880
+Plugs & Sockets,2022-05-18 04:00:00,reset,Er,17917
+Plugs & Sockets,2022-05-19 12:00:00,reset,Er,17949
+Plugs & Sockets,2022-09-12 14:00:00,reset,Er,20346
+Plugs & Sockets,2022-09-12 16:00:00,jump,Er,20348
+Plugs & Sockets,2022-11-21 22:00:00,reset,Er,22025
+Plugs & Sockets,2022-11-22 06:00:00,jump,Er,22033
+Plugs & Sockets,2023-01-04 11:00:00,reset,Er,23043
+Plugs & Sockets,2023-01-04 13:00:00,jump,Er,23045
+Plugs & Sockets,2023-02-09 08:00:00,reset,Er,23903
+Plugs & Sockets,2023-02-10 12:00:00,jump,Er,23906
+Plugs & Sockets,2025-08-18 18:52:00,jump,Er,24356
+Plugs & Sockets,2025-08-18 19:05:00,jump,Er,24366
+Plugs & Sockets,2025-10-06 06:46:00,reset,Er,65727
+Plugs & Sockets,2025-10-06 08:00:00,reset,Er,65742
+Plugs & Sockets,2025-10-06 09:25:00,reset,Er,65747
+Plugs & Sockets,2025-10-08 12:35:00,jump,Er,65748
+Plugs & Sockets,2025-10-08 13:40:00,jump,Er,65751
+Plugs & Sockets,2025-10-08 13:59:00,jump,Er,65759
+Plugs & Sockets,2025-10-13 14:30:00,reset,Er,69464
+Plugs & Sockets,2025-10-13 14:33:00,reset,Er,69467
+RACK,2020-09-04 17:00:00,reset,Ea,3498
+RACK,2020-10-12 11:00:00,reset,Ea,3877
+RACK,2020-12-21 21:00:00,reset,Ea,5423
+RACK,2021-08-08 13:00:00,reset,Ea,10262
+RACK,2021-08-08 14:00:00,reset,Ea,10263
+RACK,2021-08-12 08:00:00,reset,Ea,10349
+RACK,2021-09-30 07:00:00,reset,Ea,11516
+RACK,2021-12-02 08:00:00,reset,Ea,13007
+RACK,2020-09-04 17:00:00,reset,Er,3498
+RACK,2020-10-12 11:00:00,reset,Er,3877
+RACK,2020-12-21 21:00:00,reset,Er,5423
+RACK,2021-08-08 13:00:00,reset,Er,10262
+RACK,2021-08-08 14:00:00,reset,Er,10263
+RACK,2021-08-12 08:00:00,reset,Er,10349
+RACK,2021-09-30 07:00:00,reset,Er,11516
+RACK,2021-12-02 08:00:00,reset,Er,13007

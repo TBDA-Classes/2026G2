@@ -1,0 +1,17 @@
+{
+  "+1h": {
+    "file": "task1_rf_p1h.joblib",
+    "sha256": "b89d72f56c653547f8fa60984e4433c74359611833fa305e55cc2e3c1e505365",
+    "size_kb": 1222.2
+  },
+  "+6h": {
+    "file": "task1_rf_p6h.joblib",
+    "sha256": "4fdc9396f7e1549ac28ff17a2784dccfd5fe59137797a3a8d7aca89dbd198062",
+    "size_kb": 367.8
+  },
+  "day-ahead": {
+    "file": "task1_rf_day-ahead.joblib",
+    "sha256": "eed2e48ce33908a883e73c7af84fbafba78a7769184471b2f471497bfe4314a9",
+    "size_kb": 364.1
+  }
+}

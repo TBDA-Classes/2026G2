@@ -1,0 +1,3 @@
+sensor,energy_verdict,reason
+HVAC,below_resolution,"median 2.8 W, near the counter step"
+Plugs & Sockets,ok,bias 1.001

@@ -1,0 +1,2 @@
+run_id,file,cfg.zone_pattern,cfg.new_period_gap_days,cfg.corrupted_x_median,cfg.corrupted_x_p999,cfg.tukey_k,cfg.counter_tolerance,cfg.drop_return_hours,cfg.jump_margin,cfg.jump_confirm_readings,cfg.min_power_for_current_W,cfg.partial_ratio,cfg.temp_physical,cfg.hum_jump,cfg.partial_ref_window_h,cfg.hum_median_window_h,cfg.max_interp_gap_h,cfg.max_power_energy_gap_h
+20261007T071344-fae2cf95,Storey1_NE_report_by_device.xlsx,(?:^|[^A-Z0-9])(NE|NW|SE|SW)(?:[^A-Z0-9]|$),90,1000,20,3.0,200,24,3.0,10,5.0,0.6,"(-10.0, 60.0)",5.0,3.0,3.0,0.25,6

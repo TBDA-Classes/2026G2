@@ -1,0 +1,417 @@
+sensor,timestamp,event,column,excel_row
+Emerg. Lighting,2020-10-12 11:00:00,reset,Ea,4467
+Emerg. Lighting,2020-12-21 20:00:00,reset,Ea,6104
+Emerg. Lighting,2020-12-21 21:00:00,jump,Ea,6105
+Emerg. Lighting,2021-04-09 10:00:00,reset,Ea,8710
+Emerg. Lighting,2021-04-11 14:00:00,jump,Ea,8762
+Emerg. Lighting,2021-06-22 08:00:00,reset,Ea,10484
+Emerg. Lighting,2021-06-23 12:00:00,jump,Ea,10511
+Emerg. Lighting,2021-07-12 07:00:00,reset,Ea,10818
+Emerg. Lighting,2021-07-20 11:00:00,jump,Ea,10822
+Emerg. Lighting,2021-08-08 13:00:00,reset,Ea,11278
+Emerg. Lighting,2021-08-08 14:00:00,reset,Ea,11279
+Emerg. Lighting,2021-08-12 08:00:00,reset,Ea,11365
+Emerg. Lighting,2021-09-30 07:00:00,reset,Ea,12535
+Emerg. Lighting,2021-11-05 02:00:00,reset,Ea,13390
+Emerg. Lighting,2021-11-06 09:00:00,jump,Ea,13421
+Emerg. Lighting,2021-11-06 11:00:00,reset,Ea,13423
+Emerg. Lighting,2021-11-06 12:00:00,reset,Ea,13424
+Emerg. Lighting,2021-11-07 13:00:00,jump,Ea,13449
+Emerg. Lighting,2021-12-02 08:00:00,reset,Ea,14040
+Emerg. Lighting,2021-12-17 20:00:00,reset,Ea,14405
+Emerg. Lighting,2021-12-18 00:00:00,jump,Ea,14409
+Emerg. Lighting,2021-12-19 02:00:00,jump,Ea,14435
+Emerg. Lighting,2022-02-08 08:00:00,reset,Ea,15648
+Emerg. Lighting,2022-02-08 14:00:00,reset,Ea,15654
+Emerg. Lighting,2022-02-09 12:00:00,jump,Ea,15676
+Emerg. Lighting,2022-02-09 16:00:00,jump,Ea,15680
+Emerg. Lighting,2022-09-12 16:00:00,reset,Ea,20447
+Emerg. Lighting,2022-11-21 18:00:00,reset,Ea,22120
+Emerg. Lighting,2023-01-04 13:00:00,reset,Ea,23145
+Emerg. Lighting,2023-02-09 08:00:00,reset,Ea,24004
+Emerg. Lighting,2023-02-10 12:00:00,jump,Ea,24007
+Emerg. Lighting,2025-08-18 18:45:00,jump,Ea,24452
+Emerg. Lighting,2025-08-18 18:46:00,jump,Ea,24453
+Emerg. Lighting,2025-10-06 08:07:00,reset,Ea,60588
+Emerg. Lighting,2025-10-08 12:45:00,jump,Ea,60597
+Emerg. Lighting,2025-10-08 13:39:00,jump,Ea,60599
+Emerg. Lighting,2020-10-12 11:00:00,reset,Er,4467
+Emerg. Lighting,2020-12-21 20:00:00,reset,Er,6104
+Emerg. Lighting,2021-04-09 10:00:00,reset,Er,8710
+Emerg. Lighting,2021-04-11 14:00:00,jump,Er,8762
+Emerg. Lighting,2021-06-22 08:00:00,reset,Er,10484
+Emerg. Lighting,2021-06-23 12:00:00,jump,Er,10511
+Emerg. Lighting,2021-07-12 07:00:00,reset,Er,10818
+Emerg. Lighting,2021-07-20 11:00:00,jump,Er,10822
+Emerg. Lighting,2021-08-08 13:00:00,reset,Er,11278
+Emerg. Lighting,2021-08-08 14:00:00,reset,Er,11279
+Emerg. Lighting,2021-09-30 07:00:00,reset,Er,12535
+Emerg. Lighting,2021-11-05 02:00:00,reset,Er,13390
+Emerg. Lighting,2021-11-06 09:00:00,jump,Er,13421
+Emerg. Lighting,2021-11-06 11:00:00,reset,Er,13423
+Emerg. Lighting,2021-11-06 12:00:00,reset,Er,13424
+Emerg. Lighting,2021-11-07 13:00:00,jump,Er,13449
+Emerg. Lighting,2021-12-02 08:00:00,reset,Er,14040
+Emerg. Lighting,2021-12-17 20:00:00,reset,Er,14405
+Emerg. Lighting,2021-12-18 00:00:00,jump,Er,14409
+Emerg. Lighting,2021-12-19 02:00:00,jump,Er,14435
+Emerg. Lighting,2022-02-08 08:00:00,reset,Er,15648
+Emerg. Lighting,2022-09-12 16:00:00,reset,Er,20447
+Emerg. Lighting,2022-11-21 18:00:00,reset,Er,22120
+Emerg. Lighting,2023-01-04 13:00:00,reset,Er,23145
+Emerg. Lighting,2023-02-09 08:00:00,reset,Er,24004
+Emerg. Lighting,2023-02-10 12:00:00,jump,Er,24007
+Emerg. Lighting,2025-08-18 18:45:00,jump,Er,24452
+Emerg. Lighting,2025-08-18 18:46:00,jump,Er,24453
+Emerg. Lighting,2025-10-06 08:07:00,reset,Er,60588
+Emerg. Lighting,2025-10-08 12:45:00,jump,Er,60597
+Emerg. Lighting,2025-10-08 13:39:00,jump,Er,60599
+HVAC,2020-10-12 11:00:00,reset,Ea,4467
+HVAC,2020-12-21 20:00:00,reset,Ea,6104
+HVAC,2020-12-21 21:00:00,jump,Ea,6105
+HVAC,2021-04-09 10:00:00,reset,Ea,8710
+HVAC,2021-04-11 07:00:00,jump,Ea,8755
+HVAC,2021-04-11 14:00:00,jump,Ea,8762
+HVAC,2021-06-22 08:00:00,reset,Ea,10484
+HVAC,2021-06-23 12:00:00,jump,Ea,10511
+HVAC,2021-07-12 07:00:00,reset,Ea,10818
+HVAC,2021-07-20 11:00:00,jump,Ea,10822
+HVAC,2021-08-08 13:00:00,reset,Ea,11278
+HVAC,2021-08-08 14:00:00,reset,Ea,11279
+HVAC,2021-08-12 08:00:00,reset,Ea,11365
+HVAC,2021-09-30 07:00:00,reset,Ea,12535
+HVAC,2021-11-05 02:00:00,reset,Ea,13390
+HVAC,2021-11-06 09:00:00,jump,Ea,13421
+HVAC,2021-11-06 11:00:00,reset,Ea,13423
+HVAC,2021-11-06 12:00:00,reset,Ea,13424
+HVAC,2021-11-07 13:00:00,jump,Ea,13449
+HVAC,2021-12-02 08:00:00,reset,Ea,14040
+HVAC,2021-12-17 20:00:00,reset,Ea,14405
+HVAC,2021-12-19 02:00:00,jump,Ea,14435
+HVAC,2022-02-08 08:00:00,reset,Ea,15648
+HVAC,2022-02-08 14:00:00,reset,Ea,15654
+HVAC,2022-02-09 16:00:00,jump,Ea,15680
+HVAC,2022-07-26 15:00:00,jump,Ea,19636
+HVAC,2022-09-12 16:00:00,reset,Ea,20447
+HVAC,2022-11-21 18:00:00,reset,Ea,22120
+HVAC,2023-01-04 13:00:00,reset,Ea,23145
+HVAC,2023-02-09 08:00:00,reset,Ea,24004
+HVAC,2023-02-10 12:00:00,jump,Ea,24007
+HVAC,2025-08-18 18:46:00,jump,Ea,24453
+HVAC,2025-10-06 08:07:00,reset,Ea,60579
+HVAC,2025-10-08 13:39:00,jump,Ea,60590
+HVAC,2020-10-12 11:00:00,reset,Er,4467
+HVAC,2020-12-21 20:00:00,reset,Er,6104
+HVAC,2020-12-21 21:00:00,jump,Er,6105
+HVAC,2021-04-09 10:00:00,reset,Er,8710
+HVAC,2021-04-11 07:00:00,jump,Er,8755
+HVAC,2021-04-11 14:00:00,jump,Er,8762
+HVAC,2021-06-22 08:00:00,reset,Er,10484
+HVAC,2021-06-23 12:00:00,jump,Er,10511
+HVAC,2021-07-12 07:00:00,reset,Er,10818
+HVAC,2021-07-20 11:00:00,jump,Er,10822
+HVAC,2021-08-08 13:00:00,reset,Er,11278
+HVAC,2021-08-08 14:00:00,reset,Er,11279
+HVAC,2021-08-12 08:00:00,reset,Er,11365
+HVAC,2021-09-30 07:00:00,reset,Er,12535
+HVAC,2021-11-05 02:00:00,reset,Er,13390
+HVAC,2021-11-05 03:00:00,jump,Er,13391
+HVAC,2021-11-06 09:00:00,jump,Er,13421
+HVAC,2021-11-06 11:00:00,reset,Er,13423
+HVAC,2021-11-06 12:00:00,jump,Er,13424
+HVAC,2021-11-07 13:00:00,jump,Er,13449
+HVAC,2021-12-02 08:00:00,reset,Er,14040
+HVAC,2021-12-17 20:00:00,reset,Er,14405
+HVAC,2021-12-19 02:00:00,jump,Er,14435
+HVAC,2022-02-08 08:00:00,reset,Er,15648
+HVAC,2022-02-08 14:00:00,reset,Er,15654
+HVAC,2022-02-09 16:00:00,jump,Er,15680
+HVAC,2022-07-26 15:00:00,jump,Er,19636
+HVAC,2022-09-12 16:00:00,reset,Er,20447
+HVAC,2022-11-21 18:00:00,reset,Er,22120
+HVAC,2023-01-04 13:00:00,reset,Er,23145
+HVAC,2023-02-09 08:00:00,reset,Er,24004
+HVAC,2023-02-10 12:00:00,jump,Er,24007
+HVAC,2025-08-18 18:46:00,jump,Er,24453
+HVAC,2025-10-06 08:07:00,reset,Er,60579
+HVAC,2025-10-08 13:39:00,jump,Er,60590
+Lighting,2020-10-12 11:00:00,reset,Ea,4478
+Lighting,2020-12-21 20:00:00,reset,Ea,6113
+Lighting,2021-03-29 17:00:00,reset,Ea,8462
+Lighting,2021-04-09 07:00:00,reset,Ea,8716
+Lighting,2021-04-12 08:00:00,jump,Ea,8789
+Lighting,2021-07-01 07:00:00,reset,Ea,10707
+Lighting,2021-07-01 08:00:00,reset,Ea,10708
+Lighting,2021-07-07 10:00:00,jump,Ea,10713
+Lighting,2021-07-12 07:00:00,reset,Ea,10827
+Lighting,2021-07-20 11:00:00,jump,Ea,10831
+Lighting,2021-08-08 13:00:00,reset,Ea,11288
+Lighting,2021-08-08 14:00:00,reset,Ea,11289
+Lighting,2021-08-12 08:00:00,reset,Ea,11375
+Lighting,2021-09-30 04:00:00,reset,Ea,12544
+Lighting,2021-11-05 17:00:00,reset,Ea,13420
+Lighting,2021-11-06 01:00:00,reset,Ea,13428
+Lighting,2021-11-07 04:00:00,jump,Ea,13455
+Lighting,2021-11-25 17:00:00,jump,Ea,13900
+Lighting,2021-12-02 08:00:00,reset,Ea,14057
+Lighting,2022-01-25 16:00:00,jump,Ea,15351
+Lighting,2022-02-08 08:00:00,reset,Ea,15674
+Lighting,2022-03-22 14:00:00,jump,Ea,16688
+Lighting,2022-03-24 18:00:00,jump,Ea,16740
+Lighting,2022-03-29 15:00:00,jump,Ea,16857
+Lighting,2022-03-30 15:00:00,jump,Ea,16881
+Lighting,2022-04-07 14:00:00,jump,Ea,17072
+Lighting,2022-04-26 14:00:00,jump,Ea,17528
+Lighting,2022-09-12 16:00:00,reset,Ea,20481
+Lighting,2022-09-13 14:00:00,jump,Ea,20503
+Lighting,2022-09-14 15:00:00,jump,Ea,20528
+Lighting,2022-09-28 17:00:00,jump,Ea,20865
+Lighting,2022-10-04 15:00:00,jump,Ea,21007
+Lighting,2022-10-07 16:00:00,jump,Ea,21080
+Lighting,2022-10-20 15:00:00,jump,Ea,21391
+Lighting,2022-11-18 16:00:00,jump,Ea,22088
+Lighting,2022-11-21 16:00:00,reset,Ea,22154
+Lighting,2022-12-12 16:00:00,jump,Ea,22658
+Lighting,2022-12-19 17:00:00,jump,Ea,22827
+Lighting,2022-12-20 17:00:00,jump,Ea,22851
+Lighting,2023-01-04 12:00:00,reset,Ea,23180
+Lighting,2023-01-24 16:00:00,jump,Ea,23664
+Lighting,2023-01-25 18:00:00,jump,Ea,23690
+Lighting,2023-01-30 16:00:00,jump,Ea,23808
+Lighting,2023-02-23 17:00:00,jump,Ea,24360
+Lighting,2025-08-18 19:01:00,jump,Ea,24497
+Lighting,2025-08-27 14:45:00,jump,Ea,31764
+Lighting,2025-10-06 07:51:00,reset,Ea,68133
+Lighting,2025-10-06 07:52:00,jump,Ea,68134
+Lighting,2025-10-06 08:27:00,reset,Ea,68141
+Lighting,2025-10-06 08:34:00,jump,Ea,68142
+Lighting,2025-10-08 13:09:00,jump,Ea,68153
+Lighting,2025-10-13 14:16:00,reset,Ea,72542
+Lighting,2025-10-13 14:17:00,jump,Ea,72543
+Lighting,2020-10-21 08:00:00,reset,Er,4688
+Lighting,2020-12-22 07:00:00,reset,Er,6124
+Lighting,2021-03-29 17:00:00,reset,Er,8462
+Lighting,2021-04-09 07:00:00,reset,Er,8716
+Lighting,2021-04-09 09:00:00,reset,Er,8718
+Lighting,2021-04-10 11:00:00,jump,Er,8744
+Lighting,2021-04-12 08:00:00,jump,Er,8789
+Lighting,2021-07-01 07:00:00,reset,Er,10707
+Lighting,2021-07-01 08:00:00,reset,Er,10708
+Lighting,2021-07-07 10:00:00,jump,Er,10713
+Lighting,2021-07-12 07:00:00,reset,Er,10827
+Lighting,2021-07-20 11:00:00,jump,Er,10831
+Lighting,2021-08-08 13:00:00,reset,Er,11288
+Lighting,2021-08-08 15:00:00,reset,Er,11290
+Lighting,2021-11-25 17:00:00,jump,Er,13900
+Lighting,2021-12-02 08:00:00,reset,Er,14057
+Lighting,2021-12-21 21:00:00,jump,Er,14519
+Lighting,2021-12-22 10:00:00,jump,Er,14532
+Lighting,2022-01-19 16:00:00,jump,Er,15207
+Lighting,2022-01-25 16:00:00,jump,Er,15351
+Lighting,2022-02-04 13:00:00,jump,Er,15585
+Lighting,2022-02-08 13:00:00,reset,Er,15679
+Lighting,2022-03-24 18:00:00,jump,Er,16740
+Lighting,2022-03-29 15:00:00,jump,Er,16857
+Lighting,2022-03-30 14:00:00,jump,Er,16880
+Lighting,2022-04-07 14:00:00,jump,Er,17072
+Lighting,2022-04-26 14:00:00,jump,Er,17528
+Lighting,2022-09-12 16:00:00,reset,Er,20481
+Lighting,2022-09-14 14:00:00,jump,Er,20527
+Lighting,2022-09-16 15:00:00,jump,Er,20576
+Lighting,2022-09-27 16:00:00,jump,Er,20840
+Lighting,2022-10-20 15:00:00,jump,Er,21391
+Lighting,2022-11-17 13:00:00,jump,Er,22061
+Lighting,2022-11-18 16:00:00,jump,Er,22088
+Lighting,2022-11-21 16:00:00,reset,Er,22154
+Lighting,2022-11-24 17:00:00,jump,Er,22227
+Lighting,2022-12-01 14:00:00,jump,Er,22392
+Lighting,2022-12-16 17:00:00,jump,Er,22755
+Lighting,2022-12-19 17:00:00,jump,Er,22827
+Lighting,2022-12-20 17:00:00,jump,Er,22851
+Lighting,2023-01-04 12:00:00,reset,Er,23180
+Lighting,2023-01-09 16:00:00,jump,Er,23304
+Lighting,2023-01-11 16:00:00,jump,Er,23352
+Lighting,2023-01-24 16:00:00,jump,Er,23664
+Lighting,2023-01-25 18:00:00,jump,Er,23690
+Lighting,2023-01-30 16:00:00,jump,Er,23808
+Lighting,2023-02-02 14:00:00,jump,Er,23878
+Lighting,2023-02-07 16:00:00,jump,Er,24000
+Lighting,2023-02-10 12:00:00,jump,Er,24043
+Lighting,2023-02-22 15:00:00,jump,Er,24334
+Lighting,2023-02-23 17:00:00,jump,Er,24360
+Lighting,2025-08-18 19:01:00,jump,Er,24497
+Lighting,2025-08-27 14:45:00,jump,Er,31764
+Lighting,2025-10-02 15:56:00,jump,Er,64786
+Lighting,2025-10-06 07:51:00,reset,Er,68133
+Lighting,2025-10-06 07:52:00,jump,Er,68134
+Lighting,2025-10-06 08:27:00,reset,Er,68141
+Lighting,2025-10-06 08:34:00,jump,Er,68142
+Lighting,2025-10-06 09:15:00,jump,Er,68147
+Lighting,2025-10-06 09:17:00,reset,Er,68148
+Lighting,2025-10-08 13:09:00,jump,Er,68153
+Lighting,2025-10-09 14:40:00,jump,Er,68920
+Lighting,2025-10-13 14:16:00,reset,Er,72542
+Lighting,2025-10-13 14:31:00,reset,Er,72550
+Plugs & Sockets,2020-04-26 19:00:00,reset,Ea,574
+Plugs & Sockets,2020-04-28 01:00:00,jump,Ea,604
+Plugs & Sockets,2020-04-30 09:00:00,reset,Ea,640
+Plugs & Sockets,2020-05-03 15:00:00,reset,Ea,718
+Plugs & Sockets,2020-05-04 17:00:00,jump,Ea,744
+Plugs & Sockets,2020-09-04 10:00:00,reset,Ea,3572
+Plugs & Sockets,2020-09-04 14:00:00,reset,Ea,3576
+Plugs & Sockets,2020-09-04 17:00:00,jump,Ea,3579
+Plugs & Sockets,2020-09-04 18:00:00,jump,Ea,3580
+Plugs & Sockets,2020-09-09 10:00:00,reset,Ea,3692
+Plugs & Sockets,2020-09-09 13:00:00,reset,Ea,3695
+Plugs & Sockets,2020-09-25 09:00:00,jump,Ea,4075
+Plugs & Sockets,2020-10-06 06:00:00,reset,Ea,4336
+Plugs & Sockets,2020-10-12 11:00:00,jump,Ea,4480
+Plugs & Sockets,2020-10-15 09:00:00,reset,Ea,4549
+Plugs & Sockets,2020-10-17 14:00:00,jump,Ea,4602
+Plugs & Sockets,2020-12-18 20:00:00,reset,Ea,6096
+Plugs & Sockets,2020-12-21 20:00:00,reset,Ea,6117
+Plugs & Sockets,2020-12-21 21:00:00,jump,Ea,6118
+Plugs & Sockets,2021-04-09 07:00:00,reset,Ea,8720
+Plugs & Sockets,2021-04-09 13:00:00,reset,Ea,8726
+Plugs & Sockets,2021-04-09 21:00:00,jump,Ea,8734
+Plugs & Sockets,2021-04-10 06:00:00,jump,Ea,8743
+Plugs & Sockets,2021-04-11 05:00:00,jump,Ea,8766
+Plugs & Sockets,2021-04-11 08:00:00,jump,Ea,8769
+Plugs & Sockets,2021-04-12 05:00:00,jump,Ea,8790
+Plugs & Sockets,2021-05-17 15:00:00,reset,Ea,9640
+Plugs & Sockets,2021-05-23 06:00:00,jump,Ea,9775
+Plugs & Sockets,2021-06-05 05:00:00,reset,Ea,10086
+Plugs & Sockets,2021-06-05 10:00:00,reset,Ea,10091
+Plugs & Sockets,2021-06-06 19:00:00,jump,Ea,10124
+Plugs & Sockets,2021-06-06 23:00:00,jump,Ea,10128
+Plugs & Sockets,2021-06-10 07:00:00,reset,Ea,10208
+Plugs & Sockets,2021-06-10 18:00:00,jump,Ea,10219
+Plugs & Sockets,2021-06-10 19:00:00,jump,Ea,10220
+Plugs & Sockets,2021-06-11 15:00:00,jump,Ea,10240
+Plugs & Sockets,2021-06-27 17:00:00,reset,Ea,10626
+Plugs & Sockets,2021-06-27 18:00:00,jump,Ea,10627
+Plugs & Sockets,2021-06-28 00:00:00,reset,Ea,10633
+Plugs & Sockets,2021-07-20 13:00:00,jump,Ea,10839
+Plugs & Sockets,2021-08-08 13:00:00,reset,Ea,11294
+Plugs & Sockets,2021-08-08 14:00:00,reset,Ea,11295
+Plugs & Sockets,2021-08-12 02:00:00,reset,Ea,11379
+Plugs & Sockets,2021-08-12 08:00:00,jump,Ea,11381
+Plugs & Sockets,2021-09-30 07:00:00,reset,Ea,12554
+Plugs & Sockets,2021-11-05 08:00:00,reset,Ea,13419
+Plugs & Sockets,2021-11-05 10:00:00,jump,Ea,13421
+Plugs & Sockets,2021-11-06 17:00:00,reset,Ea,13452
+Plugs & Sockets,2021-11-08 02:00:00,jump,Ea,13485
+Plugs & Sockets,2021-11-08 06:00:00,jump,Ea,13489
+Plugs & Sockets,2021-12-02 08:00:00,reset,Ea,14065
+Plugs & Sockets,2021-12-03 09:00:00,reset,Ea,14090
+Plugs & Sockets,2021-12-10 07:00:00,reset,Ea,14256
+Plugs & Sockets,2021-12-10 14:00:00,reset,Ea,14263
+Plugs & Sockets,2022-01-04 14:00:00,jump,Ea,14856
+Plugs & Sockets,2022-01-04 19:00:00,reset,Ea,14861
+Plugs & Sockets,2022-01-11 09:00:00,jump,Ea,15016
+Plugs & Sockets,2022-01-11 10:00:00,reset,Ea,15017
+Plugs & Sockets,2022-01-15 03:00:00,jump,Ea,15106
+Plugs & Sockets,2022-01-15 04:00:00,reset,Ea,15107
+Plugs & Sockets,2022-01-17 21:00:00,jump,Ea,15172
+Plugs & Sockets,2022-01-19 17:00:00,reset,Ea,15216
+Plugs & Sockets,2022-01-26 16:00:00,jump,Ea,15383
+Plugs & Sockets,2022-01-26 17:00:00,reset,Ea,15384
+Plugs & Sockets,2022-01-29 13:00:00,jump,Ea,15449
+Plugs & Sockets,2022-01-29 14:00:00,reset,Ea,15450
+Plugs & Sockets,2022-02-03 03:00:00,jump,Ea,15559
+Plugs & Sockets,2022-02-03 13:00:00,reset,Ea,15569
+Plugs & Sockets,2022-02-08 08:00:00,reset,Ea,15682
+Plugs & Sockets,2022-09-12 14:00:00,reset,Ea,20487
+Plugs & Sockets,2022-11-21 12:00:00,reset,Ea,22159
+Plugs & Sockets,2023-01-04 09:00:00,reset,Ea,23186
+Plugs & Sockets,2025-09-12 04:18:00,jump,Ea,50936
+Plugs & Sockets,2025-09-12 05:30:00,jump,Ea,51002
+Plugs & Sockets,2025-09-12 10:12:00,jump,Ea,51242
+Plugs & Sockets,2025-09-14 00:38:00,jump,Ea,53054
+Plugs & Sockets,2025-09-14 02:07:00,jump,Ea,53134
+Plugs & Sockets,2025-09-15 17:22:00,jump,Ea,54911
+Plugs & Sockets,2025-09-15 21:07:00,jump,Ea,55108
+Plugs & Sockets,2025-09-16 13:44:00,jump,Ea,55806
+Plugs & Sockets,2025-09-19 11:39:00,jump,Ea,58125
+Plugs & Sockets,2025-09-22 08:16:00,jump,Ea,61739
+Plugs & Sockets,2025-09-25 05:41:00,jump,Ea,64725
+Plugs & Sockets,2025-09-30 15:43:00,jump,Ea,70974
+Plugs & Sockets,2025-10-06 08:31:00,reset,Ea,77417
+Plugs & Sockets,2025-10-06 08:52:00,reset,Ea,77428
+Plugs & Sockets,2025-10-06 08:59:00,jump,Ea,77430
+Plugs & Sockets,2025-10-08 12:19:00,jump,Ea,77446
+Plugs & Sockets,2025-10-13 11:34:00,reset,Ea,83030
+Plugs & Sockets,2025-10-13 11:44:00,jump,Ea,83034
+Plugs & Sockets,2025-10-13 11:51:00,jump,Ea,83036
+Plugs & Sockets,2025-10-13 13:38:00,jump,Ea,83084
+Plugs & Sockets,2025-10-13 13:51:00,jump,Ea,83092
+Plugs & Sockets,2025-10-13 14:28:00,reset,Ea,83120
+Plugs & Sockets,2025-10-13 14:33:00,jump,Ea,83125
+Plugs & Sockets,2020-04-29 15:00:00,jump,Er,634
+Plugs & Sockets,2020-04-30 09:00:00,reset,Er,640
+Plugs & Sockets,2020-05-03 15:00:00,reset,Er,718
+Plugs & Sockets,2020-05-04 17:00:00,jump,Er,744
+Plugs & Sockets,2020-09-04 10:00:00,reset,Er,3572
+Plugs & Sockets,2020-09-04 14:00:00,reset,Er,3576
+Plugs & Sockets,2020-09-04 17:00:00,jump,Er,3579
+Plugs & Sockets,2020-09-04 18:00:00,jump,Er,3580
+Plugs & Sockets,2020-09-09 10:00:00,reset,Er,3692
+Plugs & Sockets,2020-09-09 13:00:00,reset,Er,3695
+Plugs & Sockets,2020-09-25 09:00:00,jump,Er,4075
+Plugs & Sockets,2020-10-06 06:00:00,reset,Er,4336
+Plugs & Sockets,2020-10-12 11:00:00,jump,Er,4480
+Plugs & Sockets,2020-10-15 09:00:00,reset,Er,4549
+Plugs & Sockets,2020-10-17 14:00:00,jump,Er,4602
+Plugs & Sockets,2020-12-18 20:00:00,reset,Er,6096
+Plugs & Sockets,2020-12-21 20:00:00,reset,Er,6117
+Plugs & Sockets,2020-12-21 21:00:00,jump,Er,6118
+Plugs & Sockets,2021-04-09 07:00:00,reset,Er,8720
+Plugs & Sockets,2021-04-09 13:00:00,reset,Er,8726
+Plugs & Sockets,2021-04-10 06:00:00,jump,Er,8743
+Plugs & Sockets,2021-04-11 08:00:00,jump,Er,8769
+Plugs & Sockets,2021-04-12 05:00:00,jump,Er,8790
+Plugs & Sockets,2021-05-17 15:00:00,reset,Er,9640
+Plugs & Sockets,2021-05-23 06:00:00,jump,Er,9775
+Plugs & Sockets,2021-06-05 05:00:00,reset,Er,10086
+Plugs & Sockets,2021-06-05 10:00:00,reset,Er,10091
+Plugs & Sockets,2021-06-06 19:00:00,jump,Er,10124
+Plugs & Sockets,2021-06-06 23:00:00,jump,Er,10128
+Plugs & Sockets,2021-06-10 07:00:00,reset,Er,10208
+Plugs & Sockets,2021-06-10 18:00:00,jump,Er,10219
+Plugs & Sockets,2021-06-11 15:00:00,jump,Er,10240
+Plugs & Sockets,2021-06-27 17:00:00,reset,Er,10626
+Plugs & Sockets,2021-06-27 18:00:00,jump,Er,10627
+Plugs & Sockets,2021-06-28 00:00:00,reset,Er,10633
+Plugs & Sockets,2021-07-20 13:00:00,jump,Er,10839
+Plugs & Sockets,2021-08-08 13:00:00,reset,Er,11294
+Plugs & Sockets,2021-08-08 14:00:00,reset,Er,11295
+Plugs & Sockets,2021-08-12 02:00:00,reset,Er,11379
+Plugs & Sockets,2021-08-12 08:00:00,jump,Er,11381
+Plugs & Sockets,2021-09-30 04:00:00,reset,Er,12552
+Plugs & Sockets,2021-09-30 07:00:00,reset,Er,12554
+Plugs & Sockets,2021-11-05 08:00:00,reset,Er,13419
+Plugs & Sockets,2021-11-05 10:00:00,jump,Er,13421
+Plugs & Sockets,2021-11-06 17:00:00,reset,Er,13452
+Plugs & Sockets,2021-11-08 02:00:00,jump,Er,13485
+Plugs & Sockets,2021-11-08 06:00:00,jump,Er,13489
+Plugs & Sockets,2021-12-02 08:00:00,reset,Er,14065
+Plugs & Sockets,2021-12-03 09:00:00,reset,Er,14090
+Plugs & Sockets,2021-12-10 07:00:00,reset,Er,14256
+Plugs & Sockets,2021-12-10 14:00:00,reset,Er,14263
+Plugs & Sockets,2022-02-08 08:00:00,reset,Er,15682
+Plugs & Sockets,2022-09-12 14:00:00,reset,Er,20487
+Plugs & Sockets,2022-11-21 12:00:00,reset,Er,22159
+Plugs & Sockets,2023-01-04 09:00:00,reset,Er,23186
+Plugs & Sockets,2025-09-24 02:23:00,jump,Er,63526
+Plugs & Sockets,2025-09-25 21:44:00,jump,Er,65336
+Plugs & Sockets,2025-09-26 00:58:00,jump,Er,65490
+Plugs & Sockets,2025-09-26 06:38:00,jump,Er,65791
+Plugs & Sockets,2025-09-26 07:50:00,jump,Er,65854
+Plugs & Sockets,2025-09-26 18:10:00,jump,Er,66333
+Plugs & Sockets,2025-10-01 13:46:00,jump,Er,71847
+Plugs & Sockets,2025-10-06 08:31:00,reset,Er,77417
+Plugs & Sockets,2025-10-06 08:52:00,reset,Er,77428
+Plugs & Sockets,2025-10-08 12:16:00,jump,Er,77444
+Plugs & Sockets,2025-10-08 12:19:00,jump,Er,77446
+Plugs & Sockets,2025-10-13 14:29:00,reset,Er,83121
+Plugs & Sockets,2025-10-13 14:33:00,reset,Er,83125

@@ -1,0 +1,6 @@
+sensor,energy_verdict,reason
+Emerg. Lighting,ok,bias 0.996
+Hand Dryer,below_resolution,"median 1.3 W, near the counter step"
+Lighting,counter_biased,counter runs at 0.707 of power
+Plugs & Sockets,ok,bias 1.000
+RACK,ok,bias 0.999

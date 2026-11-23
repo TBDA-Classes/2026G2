@@ -1,0 +1,2 @@
+Test week scored from models/task1_rf_final_config.json on 2026-10-27T15:33:22.094938+00:00.
+Configuration frozen beforehand; no tuning is permitted after this point.

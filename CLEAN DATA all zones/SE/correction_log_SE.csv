@@ -1,0 +1,140 @@
+sensor,rule,column,cells
+Lighting,counter_partial,Ea,31337
+Lighting,counter_partial,Er,30941
+Plugs & Sockets,counter_partial,Ea,29853
+Plugs & Sockets,counter_partial,Er,27323
+Lighting,interpolated,I,25074
+Emerg. Lighting,interpolated,I,23009
+Lighting,interpolated,W,20478
+Plugs & Sockets,interpolated,I,18080
+Lighting,interpolated,Pa,17812
+HVAC,counter_partial,Er,17719
+HVAC,counter_partial,Ea,17717
+Emerg. Lighting,counter_partial,Ea,17708
+Emerg. Lighting,counter_partial,Er,17683
+Plugs & Sockets,interpolated,Pa,16765
+Plugs & Sockets,interpolated,W,16744
+HVAC,interpolated,I,16724
+Lighting,partial_power,I,15168
+Lighting,partial_power,Pa,15168
+Lighting,partial_power,W,15167
+Emerg. Lighting,zero_is_missing,I,12543
+Lighting,zero_is_missing,I,12493
+Plugs & Sockets,all_zero_reading,Ea,12028
+Plugs & Sockets,all_zero_reading,Er,12028
+Plugs & Sockets,all_zero_reading,I,12028
+Plugs & Sockets,all_zero_reading,Pa,12028
+Plugs & Sockets,all_zero_reading,W,12028
+Emerg. Lighting,interpolated,W,10744
+Emerg. Lighting,interpolated,Pa,10520
+Lighting,negative_recovered,W,9772
+HVAC,zero_is_missing,I,9535
+Emerg. Lighting,partial_power,Pa,9506
+Emerg. Lighting,partial_power,I,9506
+Emerg. Lighting,partial_power,W,9506
+Plugs & Sockets,partial_power,Pa,8153
+Plugs & Sockets,partial_power,W,8153
+Plugs & Sockets,partial_power,I,8153
+Lighting,negative_recovered,Pa,7552
+Lighting,negative_recovered,I,7550
+HVAC,interpolated,W,7313
+HVAC,interpolated,Pa,7266
+HVAC,partial_power,Pa,6522
+HVAC,partial_power,W,6522
+HVAC,partial_power,I,6522
+Plugs & Sockets,negative_recovered,I,6316
+Plugs & Sockets,counter_negative,Er,6131
+Plugs & Sockets,counter_negative,Ea,6127
+Plugs & Sockets,negative_recovered,Pa,6019
+Plugs & Sockets,negative_recovered,W,5985
+Lighting,outlier_nulled,I,5473
+Lighting,outlier_nulled,W,4283
+zone SE,env_reading_missing,Temp,4272
+zone SE,env_reading_missing,Hum,4271
+zone SE,env_reading_missing,Pres,4271
+zone SE,env_reading_missing,Lum,4271
+zone SE,interpolated,Hum,4209
+zone SE,interpolated,Temp,3997
+Lighting,outlier_nulled,Pa,3689
+Lighting,zero_is_missing,W,2178
+Lighting,outlier_kept,W,1988
+Lighting,outlier_kept,Pa,1892
+HVAC,outlier_kept,W,1757
+Plugs & Sockets,zero_is_missing,I,1385
+HVAC,outlier_kept,Pa,1329
+HVAC,counter_zero,Ea,1328
+HVAC,counter_zero,Er,1327
+Plugs & Sockets,pf_implausible,W,1277
+Plugs & Sockets,pf_implausible,Pa,1277
+Lighting,counter_zero,Er,1076
+Emerg. Lighting,all_zero_reading,Ea,1013
+Emerg. Lighting,all_zero_reading,Er,1013
+Emerg. Lighting,all_zero_reading,I,1013
+Emerg. Lighting,all_zero_reading,W,1013
+Emerg. Lighting,all_zero_reading,Pa,1013
+Emerg. Lighting,counter_zero,Er,961
+Emerg. Lighting,counter_zero,Ea,956
+Lighting,counter_zero,Ea,865
+Plugs & Sockets,counter_zero,Er,714
+HVAC,all_zero_reading,Er,627
+HVAC,all_zero_reading,I,627
+HVAC,all_zero_reading,W,627
+HVAC,all_zero_reading,Ea,627
+HVAC,all_zero_reading,Pa,627
+Lighting,outlier_kept,I,571
+Lighting,pf_implausible,Pa,518
+Lighting,pf_implausible,W,518
+Plugs & Sockets,counter_zero,Ea,469
+Lighting,all_zero_reading,Pa,447
+Lighting,all_zero_reading,Ea,447
+Lighting,all_zero_reading,Er,447
+Lighting,all_zero_reading,W,447
+Lighting,all_zero_reading,I,447
+HVAC,outlier_kept,I,257
+zone SE,hum_isolated,Hum,229
+Emerg. Lighting,zero_is_missing,W,225
+Emerg. Lighting,negative_recovered,I,188
+Emerg. Lighting,negative_recovered,Pa,188
+Emerg. Lighting,negative_recovered,W,178
+HVAC,outlier_nulled,W,159
+Plugs & Sockets,outlier_kept,W,125
+HVAC,outlier_nulled,Pa,114
+Plugs & Sockets,outlier_kept,Pa,113
+Plugs & Sockets,outlier_kept,I,113
+Plugs & Sockets,counter_jump,Ea,51
+Lighting,counter_jump,Er,44
+Plugs & Sockets,counter_reset,Ea,44
+HVAC,outlier_nulled,I,43
+Plugs & Sockets,counter_reset,Er,37
+Lighting,counter_jump,Ea,32
+Plugs & Sockets,counter_jump,Er,31
+Plugs & Sockets,zero_is_missing,Pa,29
+Plugs & Sockets,counter_spike,Ea,27
+Plugs & Sockets,counter_spike,Er,22
+HVAC,counter_reset,Ea,21
+Lighting,counter_reset,Ea,21
+Emerg. Lighting,counter_reset,Ea,21
+HVAC,counter_reset,Er,20
+Lighting,counter_reset,Er,20
+Emerg. Lighting,counter_reset,Er,19
+Emerg. Lighting,counter_jump,Ea,15
+HVAC,counter_jump,Er,15
+Lighting,counter_negative,Er,13
+HVAC,counter_jump,Ea,13
+Emerg. Lighting,counter_jump,Er,12
+Plugs & Sockets,zero_is_missing,W,8
+Lighting,negative_nulled,W,8
+HVAC,pf_implausible,W,6
+HVAC,pf_implausible,Pa,6
+Lighting,zero_is_missing,Pa,6
+HVAC,zero_is_missing,W,5
+Emerg. Lighting,pf_implausible,W,3
+Emerg. Lighting,pf_implausible,Pa,3
+HVAC,zero_is_missing,Pa,3
+Lighting,counter_spike,Er,3
+Lighting,counter_spike,Ea,3
+Emerg. Lighting,counter_spike,Ea,2
+Emerg. Lighting,counter_spike,Er,1
+Emerg. Lighting,zero_is_missing,Pa,1
+HVAC,counter_spike,Ea,1
+HVAC,counter_spike,Er,1

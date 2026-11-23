@@ -1,0 +1,54 @@
+sensor,rule,column,cells
+zone NE,env_sensor_absent,Temp,88828
+zone NE,env_sensor_absent,Hum,88828
+zone NE,env_sensor_absent,Lum,88828
+zone NE,env_sensor_absent,Pres,88828
+HVAC,zero_is_missing,I,22488
+HVAC,interpolated,I,10906
+Plugs & Sockets,counter_partial,Ea,7549
+Plugs & Sockets,counter_partial,Er,7539
+HVAC,zero_is_missing,Pa,4009
+HVAC,interpolated,Pa,4009
+Plugs & Sockets,interpolated,I,2944
+Plugs & Sockets,interpolated,W,2117
+Plugs & Sockets,interpolated,Pa,2110
+Plugs & Sockets,partial_power,I,2109
+Plugs & Sockets,partial_power,Pa,2109
+Plugs & Sockets,partial_power,W,2109
+HVAC,negative_recovered,W,1710
+HVAC,negative_recovered,I,1710
+HVAC,negative_recovered,Pa,1710
+HVAC,zero_is_missing,W,1122
+HVAC,interpolated,W,1122
+Plugs & Sockets,zero_is_missing,I,820
+Plugs & Sockets,negative_recovered,Pa,229
+Plugs & Sockets,negative_recovered,I,218
+Plugs & Sockets,negative_recovered,W,172
+HVAC,outlier_kept,Pa,145
+HVAC,outlier_kept,W,145
+HVAC,outlier_kept,I,142
+Plugs & Sockets,outlier_kept,W,40
+HVAC,counter_zero,Ea,40
+HVAC,counter_zero,Er,37
+Plugs & Sockets,counter_zero,Ea,33
+Plugs & Sockets,counter_zero,Er,30
+HVAC,counter_partial,Er,16
+Plugs & Sockets,counter_reset,Ea,15
+Plugs & Sockets,outlier_kept,I,14
+Plugs & Sockets,counter_reset,Er,14
+Plugs & Sockets,outlier_nulled,I,14
+HVAC,counter_reset,Ea,11
+HVAC,counter_reset,Er,10
+HVAC,pf_implausible,W,9
+Plugs & Sockets,pf_implausible,Pa,9
+Plugs & Sockets,pf_implausible,W,9
+HVAC,pf_implausible,Pa,9
+Plugs & Sockets,outlier_nulled,W,7
+Plugs & Sockets,outlier_kept,Pa,5
+Plugs & Sockets,all_zero_reading,Ea,1
+Plugs & Sockets,all_zero_reading,Er,1
+Plugs & Sockets,counter_jump,Ea,1
+Plugs & Sockets,counter_jump,Er,1
+Plugs & Sockets,all_zero_reading,W,1
+Plugs & Sockets,all_zero_reading,Pa,1
+Plugs & Sockets,all_zero_reading,I,1
