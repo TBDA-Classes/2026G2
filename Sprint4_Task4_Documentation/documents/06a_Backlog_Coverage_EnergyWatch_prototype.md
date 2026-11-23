@@ -78,7 +78,7 @@ Evidence paths are relative to the repository root. `DOC/` stands for `Sprint4_T
 | PB-40 | Overview with kWh, €, CO₂, waste, alerts | Covered | Overview |
 | PB-41 | Filters by zone, load, period, consistent | Covered | Global filter bar applied to every screen |
 | PB-42 | Actual, forecast, band, alert markers on one chart | Covered | Actual vs expected |
-| PB-43 | Storey 1 with four selectable zones | Partly | Schematic plan with NE/NW/SE/SW. **Gap:** the repository holds the building plan (`proyectoedificio-planta-1.svg`); using it would be more realistic. |
+| PB-43 | Storey 1 with four selectable zones | Partly | Schematic plan with NE/NW/SE/SW. **Gap:** the repository holds the building plan (`Building_Plans/proyectoedificio-planta-1.svg`); using it would be more realistic. |
 | PB-44 | Sortable, filterable alert list | Covered | Alerts (time, zone, circuit, severity, kWh, €, CO₂) |
 | PB-45 | Alert detail with context and plain reason | Covered | Alert drawer: 24 h either side, reason, checks |
 | PB-46 | Recurring waste heatmap | Covered | Waste patterns, day × hour, out-of-hours shaded |

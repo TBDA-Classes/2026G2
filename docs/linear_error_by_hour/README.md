@@ -2,7 +2,7 @@
 
 Post-hoc description of the test results Mert published in `model1_LinearRegression_all16/`. **Nothing is tuned or
 changed here**, and no model decision should be taken from it (sprint rule 3). It fills section 9 of
-`Analysis Linear Model.pdf` (hour-of-day analysis) and gives numbers for the teacher's request to explain the
+`Archive/02_Early_Analysis_and_Reports/Analysis Linear Model.pdf` (hour-of-day analysis) and gives numbers for the teacher's request to explain the
 validation -> test jump.
 
 Run from the repo root: `python docs/linear_error_by_hour/analysis_linear_by_hour.py`. It first reproduces the 16-circuit

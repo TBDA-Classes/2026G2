@@ -6,7 +6,7 @@ consumption**. It shows the **latest measured data with the forecast ahead** (Li
 the evaluation weeks, and shows the model's **performance indicators** and **known limitations**. It **runs the
 frozen model** itself.
 
-This is a second interface, separate from the Streamlit app (`UX_V3.py`). It is built with Dash and
+This is a second interface, separate from the Streamlit app (`Archive/05_Earlier_UX_Prototypes/UX_V3.py`). It is built with Dash and
 Dash Bootstrap Components.
 
 ## How to run it

@@ -17,9 +17,9 @@
 - **Provider:** Open-Meteo, Previous Runs API (`https://previous-runs-api.open-meteo.com/v1/forecast`), free, no registration.
 - **Location:** requested at the CeDInt coordinates (40.4044, −3.8368, Campus de Montegancedo). The provider returns the
   nearest model grid point: 40.414, −3.854, **1.8 km** from CeDInt, elevation 718 m.
-- **Why this source:** it is the only source among those in `Source Evaluation.xlsx` that offers, at the same time,
+- **Why this source:** it is the only source among those in `Data_Weather/Source Evaluation.xlsx` that offers, at the same time,
   (1) hourly values, (2) the building's exact location, and (3) archived forecasts.
-  - AEMET and the Madrid city network (`S1-B2 Data *.csv`) provide **daily** values only, and CeDInt is outside the
+  - AEMET and the Madrid city network (`Data_Weather/S1-B2 Data *.csv`) provide **daily** values only, and CeDInt is outside the
     Madrid municipality.
   - ERA5 is hourly but is a reanalysis: it gives the actual temperature, not a forecast.
 - **Why the forecast matters:** when a forecast is issued, the actual temperature of future hours is not yet known.

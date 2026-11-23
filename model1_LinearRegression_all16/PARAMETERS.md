@@ -34,7 +34,7 @@ Identical to the one used by the GBM (Task 8) and the random forest (Model 3).
 | `ENERGY_MAX_GAP` | 15 min | `config.py` | frozen | Outage catch-up guard |
 | `ENERGY_TAIL_MAX` | 5 min | `config.py` | frozen | Pre-outage guard |
 | `DERIVED_VERSION` | 1.1 | `config.py` | frozen | Bump on any change above |
-| Weather variables | not used | `S1-B2 Data *.csv` | **open** | Same as all other models |
+| Weather variables | not used | `Data_Weather/S1-B2 Data *.csv` | **open** | Same as all other models |
 | UPM academic calendar | not used | `upm_calendar.xlsx` | **open** | Same as all other models |
 
 ## 3. Model — tuned on validation

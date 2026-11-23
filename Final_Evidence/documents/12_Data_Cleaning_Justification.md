@@ -200,7 +200,7 @@ Format of each block: **Decision · Why · Evidence · Alternative rejected · W
 - **Decision.** The original `Timestamp` is treated as **UTC** and kept as the key for sorting, differences and joins. A `timestamp_madrid` column (CET/CEST) is added for hour, weekday and holiday features.
 - **Why.** Using local time as a key would create false duplicates in autumn and false gaps in spring at the clock changes.
 - **Evidence.**
-  - `Task2_Temporal_QA_compact.zip`: 0 invalid timestamps, 0 duplicates, 0 conversion mismatches.
+  - `Archive/03_Model_Packages_zip/Task2_Temporal_QA_compact.zip`: 0 invalid timestamps, 0 duplicates, 0 conversion mismatches.
   - 100 rows (50 pairs) share a Madrid wall-clock time at autumn clock changes but are different UTC instants, so they are not duplicates.
   - The historical data shows no clock-change jumps, consistent with UTC.
 - **Weakness.** UTC is inferred from the data, not from system documentation. The clock change is not exercised in our 2025 test weeks (PB-16).

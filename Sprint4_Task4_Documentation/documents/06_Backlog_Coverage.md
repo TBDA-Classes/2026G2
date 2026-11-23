@@ -76,14 +76,14 @@ Evidence paths are relative to the repository root. `DOC/` is `Sprint4_Task4_Doc
 | PB-40 | Overview with kWh, €, CO₂, waste, alerts | Covered | Overview (forecast health, key figures, anomalies) |
 | PB-41 | Filters by zone, load, period, consistent | Covered | Zone and consumption-type filters; Settings panel applies to every page |
 | PB-42 | Actual, forecast, band, alert markers on one chart | Covered | Forecast replay and Live forecast |
-| PB-43 | Storey 1 with four selectable zones | Covered | Energy & costs → "Where the energy goes": block map of the floor, click a zone to filter the page. Note: a block map, not the architectural plan (`proyectoedificio-planta-1.svg`). |
+| PB-43 | Storey 1 with four selectable zones | Covered | Energy & costs → "Where the energy goes": block map of the floor, click a zone to filter the page. Note: a block map, not the architectural plan (`Building_Plans/proyectoedificio-planta-1.svg`). |
 | PB-44 | Sortable, filterable alert list | Covered | Anomaly list (sort, filter, pages, CSV download) |
 | PB-45 | Alert detail with context and plain reason | Covered | Side panel: story in words, kWh and € by tariff period, day before and after, where to start |
 | PB-46 | Recurring waste heatmap | Covered | Energy & costs → weekly rhythm (weekday × hour, average use or extra in spikes); Anomalies → deviation map |
 | PB-47 | Monthly € and CO₂ and leading sources | Partly | Projected monthly bill and CO₂ and "where the energy goes". **Gap:** the monthly values are projected from the period shown, not from a measured month. |
 | PB-48 | Consistent normal / warning / high states | Covered | One colour legend and Critical / Moderate / Minor vocabulary (Guide §3.1) |
 | PB-49 | Usable without code or datasets | Covered | Launchers `Start_dashboard.bat` and `.command`; guide |
-| PB-50 | Mock-ups with recorded feedback | Partly | Mock-up (`Mockup - UX - Streamlite.py`) and mid-term feedback; record in `DOC/documents/02` §8. **Gap:** feedback of the 30 Nov session. |
+| PB-50 | Mock-ups with recorded feedback | Partly | Mock-up (`Archive/05_Earlier_UX_Prototypes/Mockup - UX - Streamlite.py`) and mid-term feedback; record in `DOC/documents/02` §8. **Gap:** feedback of the 30 Nov session. |
 | PB-51 | Task-based usability test | Partly | Done by the team and used to improve the Dash iteratively. **Gap:** there is no written report in the repository (audit check L1-17). |
 | PB-52 | Historical demonstration mode | Covered | Forecast replay with hour-by-hour playback |
 | PB-53 | Export alerts and savings | Covered | CSV download on the anomaly list and on the Performance tables (Guide §4.3, §4.6) |
@@ -93,7 +93,7 @@ Evidence paths are relative to the repository root. `DOC/` is `Sprint4_Task4_Doc
 | PB | Requirement | Status | Dash page / evidence / remaining gap |
 |---|---|---|---|
 | PB-54 | Technical documentation | Covered | `DASH/README.md`; `DOC/documents/01` (written around Energy Watch, see its status note); model READMEs; `FE/documents/` |
-| PB-55 | User guide with screenshots | Covered | `dash_guide.pdf` (22 pages, 22 Nov 2026) for the validated Dash. `dashboard_user_guide.pdf` describes the earlier Streamlit prototype. |
+| PB-55 | User guide with screenshots | Covered | `dash_guide.pdf` (22 pages, 22 Nov 2026) for the validated Dash. `Archive/05_Earlier_UX_Prototypes/dashboard_user_guide.pdf` describes the earlier Streamlit prototype. |
 | PB-56 | Deployment and handover plan | Covered | `DOC/documents/05_Deployment_and_Handover_Plan.md` |
 | PB-57 | Reproducible deliverables, code, data dictionary | Covered | `DOC/documents/07`; `Sprint4_Audit_Reproducibility/` (64 of 72 automatic checks passed on 18 Nov, open items in `results/audit_summary.md`) |
 | PB-58 | Final presentation and demonstration | Pending | 30 Nov 2026; the Dash is the demonstration, Energy Watch `index.html` is the offline backup |
