@@ -1,0 +1,156 @@
+sensor,rule,column,cells
+Lighting,counter_partial,Ea,47300
+Lighting,counter_partial,Er,47282
+Plugs & Sockets,counter_partial,Ea,33200
+Plugs & Sockets,counter_partial,Er,33187
+Emerg. Lighting,counter_partial,Ea,29559
+Emerg. Lighting,counter_partial,Er,29527
+Lighting,negative_recovered,W,29011
+Lighting,interpolated,I,26248
+Hand Dryer,counter_partial,Ea,21919
+Hand Dryer,counter_partial,Er,21912
+Hand Dryer,zero_is_missing,I,18821
+Hand Dryer,interpolated,I,17916
+Lighting,interpolated,W,17231
+Lighting,interpolated,Pa,16599
+Hand Dryer,negative_recovered,W,15706
+Lighting,zero_is_missing,I,12917
+Lighting,partial_power,Pa,12582
+Lighting,partial_power,I,12582
+Lighting,partial_power,W,12582
+Hand Dryer,negative_recovered,Pa,11944
+Hand Dryer,negative_recovered,I,11828
+Lighting,negative_recovered,I,11339
+Lighting,negative_recovered,Pa,11309
+Emerg. Lighting,interpolated,I,11132
+Plugs & Sockets,interpolated,I,9278
+Plugs & Sockets,interpolated,W,9126
+Plugs & Sockets,interpolated,Pa,9044
+Plugs & Sockets,partial_power,I,9029
+Plugs & Sockets,partial_power,Pa,9029
+Plugs & Sockets,partial_power,W,9029
+Lighting,outlier_nulled,W,7541
+Emerg. Lighting,interpolated,W,7008
+Emerg. Lighting,interpolated,Pa,6990
+Emerg. Lighting,partial_power,I,6989
+Emerg. Lighting,partial_power,W,6989
+Emerg. Lighting,partial_power,Pa,6989
+Lighting,outlier_nulled,Pa,6704
+Hand Dryer,interpolated,W,4250
+Emerg. Lighting,zero_is_missing,I,4144
+Lighting,outlier_nulled,I,3981
+Hand Dryer,counter_zero,Er,3568
+Hand Dryer,counter_zero,Ea,3568
+Emerg. Lighting,counter_zero,Er,3423
+Emerg. Lighting,counter_zero,Ea,3422
+Plugs & Sockets,counter_zero,Er,3294
+Plugs & Sockets,counter_zero,Ea,3292
+Emerg. Lighting,counter_negative,Ea,3147
+Hand Dryer,interpolated,Pa,2763
+zone SW,env_reading_missing,Hum,2589
+zone SW,env_reading_missing,Pres,2588
+zone SW,env_reading_missing,Lum,2588
+zone SW,env_reading_missing,Temp,2588
+Lighting,counter_zero,Ea,2561
+Lighting,counter_zero,Er,2558
+Hand Dryer,pf_implausible,Pa,2472
+Hand Dryer,pf_implausible,W,2472
+zone SW,interpolated,Hum,2444
+zone SW,interpolated,Temp,2427
+Hand Dryer,zero_is_missing,W,2214
+Lighting,outlier_kept,W,1828
+Lighting,outlier_kept,Pa,1748
+Hand Dryer,partial_power,W,1615
+Hand Dryer,partial_power,Pa,1615
+Hand Dryer,partial_power,I,1615
+RACK,counter_zero,Ea,1554
+RACK,counter_zero,Er,1554
+Hand Dryer,zero_is_missing,Pa,737
+Emerg. Lighting,counter_negative,Er,622
+Lighting,outlier_kept,I,616
+Emerg. Lighting,negative_recovered,I,601
+Emerg. Lighting,negative_recovered,Pa,555
+Hand Dryer,outlier_nulled,W,414
+Hand Dryer,outlier_nulled,Pa,406
+Plugs & Sockets,negative_recovered,I,390
+Plugs & Sockets,negative_recovered,Pa,385
+Emerg. Lighting,negative_recovered,W,370
+Plugs & Sockets,outlier_kept,W,309
+Lighting,pf_implausible,W,298
+Lighting,pf_implausible,Pa,298
+Hand Dryer,outlier_kept,Pa,285
+Hand Dryer,outlier_kept,W,278
+Plugs & Sockets,outlier_kept,Pa,276
+Hand Dryer,outlier_nulled,I,258
+Hand Dryer,outlier_kept,I,253
+Plugs & Sockets,zero_is_missing,I,247
+Lighting,counter_jump,Er,242
+Lighting,counter_jump,Ea,239
+zone SW,temp_impossible,Temp,140
+Plugs & Sockets,negative_recovered,W,131
+Lighting,zero_is_missing,W,125
+Plugs & Sockets,outlier_kept,I,124
+Emerg. Lighting,counter_jump,Er,104
+Plugs & Sockets,outlier_nulled,W,95
+Emerg. Lighting,counter_jump,Ea,94
+Emerg. Lighting,counter_reset,Er,92
+Emerg. Lighting,counter_reset,Ea,86
+Lighting,counter_reset,Er,80
+Lighting,counter_reset,Ea,77
+RACK,outlier_kept,W,66
+Hand Dryer,counter_jump,Ea,61
+Hand Dryer,counter_jump,Er,60
+Emerg. Lighting,counter_spike,Er,60
+Lighting,counter_spike,Ea,56
+Plugs & Sockets,counter_jump,Er,56
+Plugs & Sockets,counter_jump,Ea,55
+Emerg. Lighting,counter_spike,Ea,48
+Lighting,counter_spike,Er,47
+Plugs & Sockets,counter_reset,Ea,46
+Plugs & Sockets,counter_reset,Er,46
+RACK,outlier_kept,I,41
+Lighting,zero_is_missing,Pa,41
+RACK,outlier_kept,Pa,36
+Hand Dryer,counter_reset,Ea,30
+Hand Dryer,counter_reset,Er,29
+zone SW,hum_isolated,Hum,16
+Plugs & Sockets,counter_spike,Ea,16
+Plugs & Sockets,counter_spike,Er,15
+Emerg. Lighting,outlier_nulled,W,14
+Plugs & Sockets,outlier_nulled,Pa,13
+Plugs & Sockets,pf_implausible,Pa,9
+Plugs & Sockets,counter_negative,Er,9
+Plugs & Sockets,pf_implausible,W,9
+Lighting,all_zero_reading,Er,8
+Lighting,all_zero_reading,W,8
+Lighting,all_zero_reading,Pa,8
+Lighting,all_zero_reading,Ea,8
+Lighting,all_zero_reading,I,8
+RACK,counter_reset,Er,8
+RACK,counter_reset,Ea,8
+Emerg. Lighting,pf_implausible,W,7
+Emerg. Lighting,pf_implausible,Pa,7
+Hand Dryer,all_zero_reading,Pa,5
+Hand Dryer,all_zero_reading,Er,5
+Hand Dryer,all_zero_reading,I,5
+Hand Dryer,all_zero_reading,W,5
+Hand Dryer,all_zero_reading,Ea,5
+Emerg. Lighting,zero_is_missing,W,4
+Lighting,counter_negative,Er,3
+Hand Dryer,negative_nulled,W,2
+Plugs & Sockets,all_zero_reading,W,2
+Plugs & Sockets,all_zero_reading,Er,2
+Plugs & Sockets,all_zero_reading,I,2
+Plugs & Sockets,all_zero_reading,Pa,2
+RACK,counter_partial,Er,2
+Hand Dryer,counter_spike,Ea,2
+Hand Dryer,counter_spike,Er,2
+Plugs & Sockets,all_zero_reading,Ea,2
+RACK,outlier_nulled,W,2
+RACK,counter_partial,Ea,2
+RACK,interpolated,W,2
+Emerg. Lighting,all_zero_reading,I,1
+Emerg. Lighting,all_zero_reading,W,1
+Emerg. Lighting,all_zero_reading,Er,1
+Emerg. Lighting,all_zero_reading,Pa,1
+Emerg. Lighting,all_zero_reading,Ea,1

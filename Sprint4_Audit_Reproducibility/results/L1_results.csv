@@ -1,0 +1,22 @@
+check_id,level,pb,claim,what,status,expected,obtained,detail
+L1-01,L1 exists,,EM all,Every repository path cited in the Evidence Map exists,PASS,0 missing,0 missing of 47,
+L1-02,L1 exists,PB-01..PB-58,,Every repository path cited in the Backlog Coverage exists,PASS,0 missing,0 missing of 24,
+L1-03,L1 exists,PB-57,,Every repository path cited in the Deliverables Index exists,FAIL,0 missing,1 missing of 27,Sprint4_Task3_UX_Dash/cache/ML_Blend_v1.3_test_recomputed.csv
+L1-04,L1 exists,PB-01;PB-02;PB-03;PB-54,,Technical documentation,PASS,found,found,
+L1-05,L1 exists,PB-04;PB-05;PB-56,,Deployment and handover plan,PASS,found,found,
+L1-06,L1 exists,PB-13,EM3,Frozen hourly dataset and its metadata,PASS,found,found,
+L1-07,L1 exists,PB-14,,Data dictionary,PASS,found,found,
+L1-08,L1 exists,PB-15;PB-17,EM3,Decision register D1-D12,PASS,found,found,
+L1-09,L1 exists,PB-20,,Standby baseline evidence,PASS,found,found,
+L1-10,L1 exists,PB-21,EM18,Temperature experiment,PASS,found,found,
+L1-11,L1 exists,PB-23,,Model variables and leakage asserts,PASS,found,found,
+L1-12,L1 exists,PB-26;PB-27,EM6,Baseline and model predictions (11 models),PASS,11 files,11 files,
+L1-13,L1 exists,PB-28,EM17,Prophet check,PASS,found,found,
+L1-14,L1 exists,PB-31,,Experiment log,PASS,found,found,
+L1-15,L1 exists,PB-38;PB-39,EM19,Detection validation of the Dash app,PASS,found,found,
+L1-16,L1 exists,PB-43,,Building plan of storey 1,PASS,found,found,
+L1-17,L1 exists,PB-51,,Task-based usability test report,FAIL,found,not found,missing: *sabilit*
+L1-18,L1 exists,PB-55,,User guide with screenshots,FAIL,found,not found,missing: *ser*uide*
+L1-19,L1 exists,PB-49;PB-52,,Main dashboard (Dash) and launchers,PASS,found,found,
+L1-20,L1 exists,PB-58,,Backup dashboard (Energy Watch) opens offline,PASS,found,found,
+L1-21,L1 exists,PB-57,,Cleaning notebook and clean data,PASS,found,found,

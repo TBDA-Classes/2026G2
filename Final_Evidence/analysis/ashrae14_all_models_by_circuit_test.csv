@@ -1,0 +1,433 @@
+model,horizon,circuit,n,mean_Wh,MAE_Wh,CV_RMSE_pct,NMBE_ashrae_pct,NMBE_forecast_minus_actual_pct,passes
+ML_RandomForest,+1h,NE|HVAC,167,12.53,10.27,616.6,77.3,-77.3,False
+ML_RandomForest,+1h,NE|Plugs & Sockets,167,189.63,3.12,2.2,-0.7,0.7,True
+ML_RandomForest,+1h,NW|Emerg. Lighting,149,11.17,0.9,19.0,-0.4,0.4,True
+ML_RandomForest,+1h,NW|HVAC,167,70.73,14.24,59.4,2.7,-2.7,False
+ML_RandomForest,+1h,NW|Hand Dryer,167,0.63,0.52,137.9,19.1,-19.1,False
+ML_RandomForest,+1h,NW|Lighting,167,83.7,35.88,94.4,28.9,-28.9,False
+ML_RandomForest,+1h,NW|Plugs & Sockets,167,763.35,192.23,44.3,5.5,-5.5,False
+ML_RandomForest,+1h,NW|RACK,167,187.08,3.11,1.9,1.4,-1.4,True
+ML_RandomForest,+1h,SE|Emerg. Lighting,62,2.05,0.51,33.9,-5.4,5.4,False
+ML_RandomForest,+1h,SE|HVAC,62,41.8,1.45,4.9,1.3,-1.3,True
+ML_RandomForest,+1h,SE|Lighting,101,31.38,24.29,218.8,-15.7,15.7,False
+ML_RandomForest,+1h,SE|Plugs & Sockets,63,190.17,74.53,52.1,-16.6,16.6,False
+ML_RandomForest,+1h,SW|Emerg. Lighting,56,11.64,0.58,6.8,0.2,-0.2,True
+ML_RandomForest,+1h,SW|Hand Dryer,73,0.69,0.88,161.5,3.9,-3.9,False
+ML_RandomForest,+1h,SW|Lighting,86,1.17,2.41,756.6,-139.9,139.9,False
+ML_RandomForest,+1h,SW|Plugs & Sockets,90,238.7,21.95,14.0,-2.2,2.2,True
+ML_RandomForest,+6h,NE|HVAC,167,12.53,10.37,620.4,79.0,-79.0,False
+ML_RandomForest,+6h,NE|Plugs & Sockets,167,189.63,3.89,2.5,-1.4,1.4,True
+ML_RandomForest,+6h,NW|Emerg. Lighting,149,11.17,0.72,10.6,2.7,-2.7,True
+ML_RandomForest,+6h,NW|HVAC,167,70.73,31.56,98.6,31.6,-31.6,False
+ML_RandomForest,+6h,NW|Hand Dryer,167,0.63,0.74,166.7,26.9,-26.9,False
+ML_RandomForest,+6h,NW|Lighting,167,83.7,51.48,111.4,45.6,-45.6,False
+ML_RandomForest,+6h,NW|Plugs & Sockets,167,763.35,246.67,58.3,19.1,-19.1,False
+ML_RandomForest,+6h,NW|RACK,167,187.08,3.34,2.2,1.4,-1.4,True
+ML_RandomForest,+6h,SE|Emerg. Lighting,62,2.05,0.52,35.2,5.7,-5.7,False
+ML_RandomForest,+6h,SE|HVAC,62,41.8,1.63,5.1,1.4,-1.4,True
+ML_RandomForest,+6h,SE|Lighting,101,31.38,72.74,339.6,-84.7,84.7,False
+ML_RandomForest,+6h,SE|Plugs & Sockets,63,190.17,28.2,21.6,-5.6,5.6,True
+ML_RandomForest,+6h,SW|Emerg. Lighting,56,11.64,0.59,6.5,-0.3,0.3,True
+ML_RandomForest,+6h,SW|Hand Dryer,73,0.69,0.58,102.5,-9.7,9.7,False
+ML_RandomForest,+6h,SW|Lighting,86,1.17,15.01,1472.4,-1283.1,1283.1,False
+ML_RandomForest,+6h,SW|Plugs & Sockets,90,238.7,28.45,15.3,-5.4,5.4,True
+ML_RandomForest,day-ahead,NE|HVAC,167,12.53,10.37,620.3,79.1,-79.1,False
+ML_RandomForest,day-ahead,NE|Plugs & Sockets,167,189.63,3.77,2.4,-1.3,1.3,True
+ML_RandomForest,day-ahead,NW|Emerg. Lighting,149,11.17,0.71,10.4,3.1,-3.1,True
+ML_RandomForest,day-ahead,NW|HVAC,167,70.73,31.93,98.3,31.0,-31.0,False
+ML_RandomForest,day-ahead,NW|Hand Dryer,167,0.63,0.75,167.2,26.8,-26.8,False
+ML_RandomForest,day-ahead,NW|Lighting,167,83.7,50.54,110.2,43.7,-43.7,False
+ML_RandomForest,day-ahead,NW|Plugs & Sockets,167,763.35,243.6,58.7,20.2,-20.2,False
+ML_RandomForest,day-ahead,NW|RACK,167,187.08,3.36,2.2,1.4,-1.4,True
+ML_RandomForest,day-ahead,SE|Emerg. Lighting,62,2.05,0.52,34.7,3.2,-3.2,False
+ML_RandomForest,day-ahead,SE|HVAC,62,41.8,1.37,4.9,-0.9,0.9,True
+ML_RandomForest,day-ahead,SE|Lighting,101,31.38,76.11,345.7,-95.8,95.8,False
+ML_RandomForest,day-ahead,SE|Plugs & Sockets,63,190.17,27.01,22.0,-6.9,6.9,True
+ML_RandomForest,day-ahead,SW|Emerg. Lighting,56,11.64,0.56,6.4,-0.8,0.8,True
+ML_RandomForest,day-ahead,SW|Hand Dryer,73,0.69,0.58,103.0,-10.2,10.2,False
+ML_RandomForest,day-ahead,SW|Lighting,86,1.17,15.74,1518.0,-1345.6,1345.6,False
+ML_RandomForest,day-ahead,SW|Plugs & Sockets,90,238.7,31.69,16.7,-6.3,6.3,True
+ML_Linear,+1h,NE|HVAC,167,12.53,8.82,488.8,12.5,-12.5,False
+ML_Linear,+1h,NE|Plugs & Sockets,167,189.63,4.55,3.2,0.2,-0.2,True
+ML_Linear,+1h,NW|Emerg. Lighting,149,11.17,7.02,369.5,-55.8,55.8,False
+ML_Linear,+1h,NW|HVAC,167,70.73,16.75,63.7,7.1,-7.1,False
+ML_Linear,+1h,NW|Hand Dryer,167,0.63,0.55,150.5,7.9,-7.9,False
+ML_Linear,+1h,NW|Lighting,167,83.7,30.83,73.8,6.3,-6.3,False
+ML_Linear,+1h,NW|Plugs & Sockets,167,763.35,175.65,39.0,2.0,-2.0,False
+ML_Linear,+1h,NW|RACK,167,187.08,4.27,3.0,0.1,-0.1,True
+ML_Linear,+1h,SE|Emerg. Lighting,62,2.05,0.69,45.5,1.4,-1.4,False
+ML_Linear,+1h,SE|HVAC,62,41.8,1.76,6.2,0.7,-0.7,True
+ML_Linear,+1h,SE|Lighting,101,31.38,23.54,223.6,-67.9,67.9,False
+ML_Linear,+1h,SE|Plugs & Sockets,63,190.17,37.67,24.3,1.6,-1.6,True
+ML_Linear,+1h,SW|Emerg. Lighting,56,11.64,0.95,10.2,0.7,-0.7,True
+ML_Linear,+1h,SW|Hand Dryer,73,0.69,1.02,276.9,-11.4,11.4,False
+ML_Linear,+1h,SW|Lighting,86,1.17,2.0,575.2,-84.5,84.5,False
+ML_Linear,+1h,SW|Plugs & Sockets,90,238.7,16.37,13.3,-0.6,0.6,True
+ML_Linear,+6h,NE|HVAC,167,12.53,13.68,651.3,57.3,-57.3,False
+ML_Linear,+6h,NE|Plugs & Sockets,167,189.63,3.56,2.5,0.1,-0.1,True
+ML_Linear,+6h,NW|Emerg. Lighting,149,11.17,0.85,18.5,0.1,-0.1,True
+ML_Linear,+6h,NW|HVAC,167,70.73,32.8,97.0,30.1,-30.1,False
+ML_Linear,+6h,NW|Hand Dryer,167,0.63,0.78,169.0,12.3,-12.3,False
+ML_Linear,+6h,NW|Lighting,167,83.7,50.98,101.9,28.3,-28.3,False
+ML_Linear,+6h,NW|Plugs & Sockets,167,763.35,253.09,55.8,6.7,-6.7,False
+ML_Linear,+6h,NW|RACK,167,187.08,3.14,2.2,-0.3,0.3,True
+ML_Linear,+6h,SE|Emerg. Lighting,62,2.05,0.5,33.2,6.6,-6.6,False
+ML_Linear,+6h,SE|HVAC,62,41.8,1.32,4.3,0.2,-0.2,True
+ML_Linear,+6h,SE|Lighting,101,31.38,94.75,391.1,-259.0,259.0,False
+ML_Linear,+6h,SE|Plugs & Sockets,63,190.17,30.11,21.9,-8.0,8.0,True
+ML_Linear,+6h,SW|Emerg. Lighting,56,11.64,0.59,6.6,1.4,-1.4,True
+ML_Linear,+6h,SW|Hand Dryer,73,0.69,0.56,99.6,11.3,-11.3,False
+ML_Linear,+6h,SW|Lighting,86,1.17,10.22,2468.7,-834.4,834.4,False
+ML_Linear,+6h,SW|Plugs & Sockets,90,238.7,31.05,16.8,-5.6,5.6,True
+ML_Linear,day-ahead,NE|HVAC,167,12.53,13.83,653.3,56.5,-56.5,False
+ML_Linear,day-ahead,NE|Plugs & Sockets,167,189.63,3.78,2.6,0.3,-0.3,True
+ML_Linear,day-ahead,NW|Emerg. Lighting,149,11.17,0.73,10.7,2.7,-2.7,True
+ML_Linear,day-ahead,NW|HVAC,167,70.73,32.07,95.7,30.0,-30.0,False
+ML_Linear,day-ahead,NW|Hand Dryer,167,0.63,0.79,172.1,9.1,-9.1,False
+ML_Linear,day-ahead,NW|Lighting,167,83.7,50.67,101.6,27.3,-27.3,False
+ML_Linear,day-ahead,NW|Plugs & Sockets,167,763.35,254.5,56.6,7.1,-7.1,False
+ML_Linear,day-ahead,NW|RACK,167,187.08,3.26,2.3,-0.1,0.1,True
+ML_Linear,day-ahead,SE|Emerg. Lighting,62,2.05,0.49,31.6,2.1,-2.1,False
+ML_Linear,day-ahead,SE|HVAC,62,41.8,1.35,4.4,-0.1,0.1,True
+ML_Linear,day-ahead,SE|Lighting,101,31.38,100.59,425.8,-275.2,275.2,False
+ML_Linear,day-ahead,SE|Plugs & Sockets,63,190.17,31.04,22.5,-10.2,10.2,False
+ML_Linear,day-ahead,SW|Emerg. Lighting,56,11.64,0.6,6.8,0.9,-0.9,True
+ML_Linear,day-ahead,SW|Hand Dryer,73,0.69,0.59,104.0,6.5,-6.5,False
+ML_Linear,day-ahead,SW|Lighting,86,1.17,9.74,2530.0,-800.9,800.9,False
+ML_Linear,day-ahead,SW|Plugs & Sockets,90,238.7,29.62,16.5,-4.9,4.9,True
+ML_GBM_v1.3,+1h,NE|HVAC,167,12.53,10.41,612.1,74.4,-74.4,False
+ML_GBM_v1.3,+1h,NE|Plugs & Sockets,167,189.63,2.94,2.0,-0.9,0.9,True
+ML_GBM_v1.3,+1h,NW|Emerg. Lighting,149,11.17,0.94,11.0,7.6,-7.6,True
+ML_GBM_v1.3,+1h,NW|HVAC,167,70.73,15.08,61.8,2.9,-2.9,False
+ML_GBM_v1.3,+1h,NW|Hand Dryer,167,0.63,0.54,143.7,36.7,-36.7,False
+ML_GBM_v1.3,+1h,NW|Lighting,167,83.7,35.75,82.1,15.1,-15.1,False
+ML_GBM_v1.3,+1h,NW|Plugs & Sockets,167,763.35,204.58,47.7,16.7,-16.7,False
+ML_GBM_v1.3,+1h,NW|RACK,167,187.08,2.86,1.7,1.4,-1.4,True
+ML_GBM_v1.3,+1h,SE|Emerg. Lighting,62,2.05,0.45,28.5,-13.3,13.3,False
+ML_GBM_v1.3,+1h,SE|HVAC,62,41.8,1.42,4.6,0.4,-0.4,True
+ML_GBM_v1.3,+1h,SE|Lighting,101,31.38,8.92,107.6,-25.6,25.6,False
+ML_GBM_v1.3,+1h,SE|Plugs & Sockets,63,190.17,27.8,19.5,-11.1,11.1,False
+ML_GBM_v1.3,+1h,SW|Emerg. Lighting,56,11.64,0.5,5.8,-1.8,1.8,True
+ML_GBM_v1.3,+1h,SW|Hand Dryer,73,0.69,0.47,97.6,32.2,-32.2,False
+ML_GBM_v1.3,+1h,SW|Lighting,86,1.17,1.03,137.0,76.1,-76.1,False
+ML_GBM_v1.3,+1h,SW|Plugs & Sockets,90,238.7,20.46,11.5,-3.4,3.4,True
+ML_GBM_v1.3,+6h,NE|HVAC,167,12.53,10.38,620.0,77.3,-77.3,False
+ML_GBM_v1.3,+6h,NE|Plugs & Sockets,167,189.63,4.09,2.6,-1.6,1.6,True
+ML_GBM_v1.3,+6h,NW|Emerg. Lighting,149,11.17,1.12,14.5,9.4,-9.4,True
+ML_GBM_v1.3,+6h,NW|HVAC,167,70.73,31.46,93.6,25.3,-25.3,False
+ML_GBM_v1.3,+6h,NW|Hand Dryer,167,0.63,0.7,167.5,41.2,-41.2,False
+ML_GBM_v1.3,+6h,NW|Lighting,167,83.7,48.72,100.7,27.2,-27.2,False
+ML_GBM_v1.3,+6h,NW|Plugs & Sockets,167,763.35,270.94,63.0,10.3,-10.3,False
+ML_GBM_v1.3,+6h,NW|RACK,167,187.08,2.36,1.7,0.5,-0.5,True
+ML_GBM_v1.3,+6h,SE|Emerg. Lighting,62,2.05,0.47,30.4,-5.3,5.3,False
+ML_GBM_v1.3,+6h,SE|HVAC,62,41.8,1.19,3.9,1.2,-1.2,True
+ML_GBM_v1.3,+6h,SE|Lighting,101,31.38,26.9,177.5,-30.9,30.9,False
+ML_GBM_v1.3,+6h,SE|Plugs & Sockets,63,190.17,48.28,29.9,-23.2,23.2,False
+ML_GBM_v1.3,+6h,SW|Emerg. Lighting,56,11.64,0.61,6.8,-2.7,2.7,True
+ML_GBM_v1.3,+6h,SW|Hand Dryer,73,0.69,0.6,105.9,7.1,-7.1,False
+ML_GBM_v1.3,+6h,SW|Lighting,86,1.17,1.34,154.5,28.4,-28.4,False
+ML_GBM_v1.3,+6h,SW|Plugs & Sockets,90,238.7,34.56,17.7,-9.4,9.4,True
+ML_GBM_v1.3,day-ahead,NE|HVAC,167,12.53,10.34,620.1,78.2,-78.2,False
+ML_GBM_v1.3,day-ahead,NE|Plugs & Sockets,167,189.63,3.42,2.2,-1.0,1.0,True
+ML_GBM_v1.3,day-ahead,NW|Emerg. Lighting,149,11.17,1.03,13.9,8.4,-8.4,True
+ML_GBM_v1.3,day-ahead,NW|HVAC,167,70.73,29.66,93.1,26.8,-26.8,False
+ML_GBM_v1.3,day-ahead,NW|Hand Dryer,167,0.63,0.68,168.1,43.0,-43.0,False
+ML_GBM_v1.3,day-ahead,NW|Lighting,167,83.7,48.92,105.3,39.7,-39.7,False
+ML_GBM_v1.3,day-ahead,NW|Plugs & Sockets,167,763.35,246.49,60.1,20.8,-20.8,False
+ML_GBM_v1.3,day-ahead,NW|RACK,167,187.08,2.63,1.9,0.8,-0.8,True
+ML_GBM_v1.3,day-ahead,SE|Emerg. Lighting,62,2.05,0.46,30.0,-4.4,4.4,True
+ML_GBM_v1.3,day-ahead,SE|HVAC,62,41.8,1.16,4.0,1.3,-1.3,True
+ML_GBM_v1.3,day-ahead,SE|Lighting,101,31.38,46.97,325.9,-86.5,86.5,False
+ML_GBM_v1.3,day-ahead,SE|Plugs & Sockets,63,190.17,48.47,29.6,-23.6,23.6,False
+ML_GBM_v1.3,day-ahead,SW|Emerg. Lighting,56,11.64,0.6,6.9,-2.7,2.7,True
+ML_GBM_v1.3,day-ahead,SW|Hand Dryer,73,0.69,0.59,102.9,22.8,-22.8,False
+ML_GBM_v1.3,day-ahead,SW|Lighting,86,1.17,1.1,140.5,82.7,-82.7,False
+ML_GBM_v1.3,day-ahead,SW|Plugs & Sockets,90,238.7,32.33,16.8,-8.1,8.1,True
+ML_Chronos_v1.3,+1h,NE|HVAC,167,12.53,9.0,573.2,64.6,-64.6,False
+ML_Chronos_v1.3,+1h,NE|Plugs & Sockets,167,189.63,2.84,2.0,0.2,-0.2,True
+ML_Chronos_v1.3,+1h,NW|Emerg. Lighting,149,11.17,0.5,6.6,0.8,-0.8,True
+ML_Chronos_v1.3,+1h,NW|HVAC,167,70.73,13.24,48.7,-2.6,2.6,False
+ML_Chronos_v1.3,+1h,NW|Hand Dryer,167,0.63,0.65,143.0,7.0,-7.0,False
+ML_Chronos_v1.3,+1h,NW|Lighting,167,83.7,32.2,72.0,7.6,-7.6,False
+ML_Chronos_v1.3,+1h,NW|Plugs & Sockets,167,763.35,164.01,36.3,1.1,-1.1,False
+ML_Chronos_v1.3,+1h,NW|RACK,167,187.08,2.37,1.7,0.0,-0.0,True
+ML_Chronos_v1.3,+1h,SE|Emerg. Lighting,62,2.05,0.41,27.2,-3.2,3.2,True
+ML_Chronos_v1.3,+1h,SE|HVAC,62,41.8,1.13,4.0,1.1,-1.1,True
+ML_Chronos_v1.3,+1h,SE|Lighting,101,31.38,5.86,60.8,-15.8,15.8,False
+ML_Chronos_v1.3,+1h,SE|Plugs & Sockets,63,190.17,28.77,17.9,1.5,-1.5,True
+ML_Chronos_v1.3,+1h,SW|Emerg. Lighting,56,11.64,0.55,6.3,-1.2,1.2,True
+ML_Chronos_v1.3,+1h,SW|Hand Dryer,73,0.69,0.58,94.3,7.4,-7.4,False
+ML_Chronos_v1.3,+1h,SW|Lighting,86,1.17,0.97,107.4,4.2,-4.2,False
+ML_Chronos_v1.3,+1h,SW|Plugs & Sockets,90,238.7,10.65,7.1,0.4,-0.4,True
+ML_Chronos_v1.3,+6h,NE|HVAC,167,12.53,11.95,623.4,66.9,-66.9,False
+ML_Chronos_v1.3,+6h,NE|Plugs & Sockets,167,189.63,2.91,2.0,0.4,-0.4,True
+ML_Chronos_v1.3,+6h,NW|Emerg. Lighting,149,11.17,0.66,9.3,2.8,-2.8,True
+ML_Chronos_v1.3,+6h,NW|HVAC,167,70.73,30.82,88.2,20.6,-20.6,False
+ML_Chronos_v1.3,+6h,NW|Hand Dryer,167,0.63,0.78,180.8,31.6,-31.6,False
+ML_Chronos_v1.3,+6h,NW|Lighting,167,83.7,59.4,111.2,16.2,-16.2,False
+ML_Chronos_v1.3,+6h,NW|Plugs & Sockets,167,763.35,278.8,58.6,6.2,-6.2,False
+ML_Chronos_v1.3,+6h,NW|RACK,167,187.08,2.32,1.7,0.1,-0.1,True
+ML_Chronos_v1.3,+6h,SE|Emerg. Lighting,62,2.05,0.45,30.0,3.3,-3.3,True
+ML_Chronos_v1.3,+6h,SE|HVAC,62,41.8,1.19,4.0,1.1,-1.1,True
+ML_Chronos_v1.3,+6h,SE|Lighting,101,31.38,20.59,186.5,-61.6,61.6,False
+ML_Chronos_v1.3,+6h,SE|Plugs & Sockets,63,190.17,24.84,16.8,-0.7,0.7,True
+ML_Chronos_v1.3,+6h,SW|Emerg. Lighting,56,11.64,0.54,6.1,0.5,-0.5,True
+ML_Chronos_v1.3,+6h,SW|Hand Dryer,73,0.69,0.6,99.7,20.0,-20.0,False
+ML_Chronos_v1.3,+6h,SW|Lighting,86,1.17,1.27,143.4,6.5,-6.5,False
+ML_Chronos_v1.3,+6h,SW|Plugs & Sockets,90,238.7,20.13,14.2,0.3,-0.3,True
+ML_Chronos_v1.3,day-ahead,NE|HVAC,167,12.53,10.36,620.2,78.7,-78.7,False
+ML_Chronos_v1.3,day-ahead,NE|Plugs & Sockets,167,189.63,3.02,2.0,0.1,-0.1,True
+ML_Chronos_v1.3,day-ahead,NW|Emerg. Lighting,149,11.17,0.53,7.6,1.1,-1.1,True
+ML_Chronos_v1.3,day-ahead,NW|HVAC,167,70.73,28.85,83.7,10.4,-10.4,False
+ML_Chronos_v1.3,day-ahead,NW|Hand Dryer,167,0.63,0.67,178.4,73.1,-73.1,False
+ML_Chronos_v1.3,day-ahead,NW|Lighting,167,83.7,54.3,105.1,4.7,-4.7,False
+ML_Chronos_v1.3,day-ahead,NW|Plugs & Sockets,167,763.35,270.42,62.1,-0.4,0.4,False
+ML_Chronos_v1.3,day-ahead,NW|RACK,167,187.08,2.37,1.7,-0.1,0.1,True
+ML_Chronos_v1.3,day-ahead,SE|Emerg. Lighting,62,2.05,0.44,29.5,-1.6,1.6,True
+ML_Chronos_v1.3,day-ahead,SE|HVAC,62,41.8,1.01,3.6,0.2,-0.2,True
+ML_Chronos_v1.3,day-ahead,SE|Lighting,101,31.38,39.3,397.2,-122.0,122.0,False
+ML_Chronos_v1.3,day-ahead,SE|Plugs & Sockets,63,190.17,22.62,15.2,-3.0,3.0,True
+ML_Chronos_v1.3,day-ahead,SW|Emerg. Lighting,56,11.64,0.57,6.6,-1.1,1.1,True
+ML_Chronos_v1.3,day-ahead,SW|Hand Dryer,73,0.69,0.6,99.8,20.1,-20.1,False
+ML_Chronos_v1.3,day-ahead,SW|Lighting,86,1.17,1.03,120.3,-10.7,10.7,False
+ML_Chronos_v1.3,day-ahead,SW|Plugs & Sockets,90,238.7,18.68,13.2,3.3,-3.3,True
+ML_ChronosGBM_v1.3,+1h,NE|HVAC,167,12.53,10.21,608.1,75.7,-75.7,False
+ML_ChronosGBM_v1.3,+1h,NE|Plugs & Sockets,167,189.63,2.78,1.8,-0.7,0.7,True
+ML_ChronosGBM_v1.3,+1h,NW|Emerg. Lighting,149,11.17,0.76,10.0,5.4,-5.4,True
+ML_ChronosGBM_v1.3,+1h,NW|HVAC,167,70.73,15.21,50.9,-7.1,7.1,False
+ML_ChronosGBM_v1.3,+1h,NW|Hand Dryer,167,0.63,0.54,143.2,32.2,-32.2,False
+ML_ChronosGBM_v1.3,+1h,NW|Lighting,167,83.7,34.42,85.9,17.0,-17.0,False
+ML_ChronosGBM_v1.3,+1h,NW|Plugs & Sockets,167,763.35,188.67,44.2,14.5,-14.5,False
+ML_ChronosGBM_v1.3,+1h,NW|RACK,167,187.08,2.68,1.7,1.2,-1.2,True
+ML_ChronosGBM_v1.3,+1h,SE|Emerg. Lighting,62,2.05,0.38,26.3,-5.7,5.7,True
+ML_ChronosGBM_v1.3,+1h,SE|HVAC,62,41.8,1.04,3.3,1.5,-1.5,True
+ML_ChronosGBM_v1.3,+1h,SE|Lighting,101,31.38,4.21,62.0,-6.9,6.9,False
+ML_ChronosGBM_v1.3,+1h,SE|Plugs & Sockets,63,190.17,31.99,21.2,-14.1,14.1,False
+ML_ChronosGBM_v1.3,+1h,SW|Emerg. Lighting,56,11.64,0.56,6.4,-2.3,2.3,True
+ML_ChronosGBM_v1.3,+1h,SW|Hand Dryer,73,0.69,0.45,84.2,20.3,-20.3,False
+ML_ChronosGBM_v1.3,+1h,SW|Lighting,86,1.17,0.99,126.9,69.8,-69.8,False
+ML_ChronosGBM_v1.3,+1h,SW|Plugs & Sockets,90,238.7,21.52,11.7,-5.0,5.0,True
+ML_ChronosGBM_v1.3,+6h,NE|HVAC,167,12.53,10.43,620.2,78.0,-78.0,False
+ML_ChronosGBM_v1.3,+6h,NE|Plugs & Sockets,167,189.63,3.1,2.1,-0.5,0.5,True
+ML_ChronosGBM_v1.3,+6h,NW|Emerg. Lighting,149,11.17,0.92,13.1,7.0,-7.0,True
+ML_ChronosGBM_v1.3,+6h,NW|HVAC,167,70.73,31.53,90.7,22.8,-22.8,False
+ML_ChronosGBM_v1.3,+6h,NW|Hand Dryer,167,0.63,0.71,168.0,38.1,-38.1,False
+ML_ChronosGBM_v1.3,+6h,NW|Lighting,167,83.7,49.64,106.2,37.3,-37.3,False
+ML_ChronosGBM_v1.3,+6h,NW|Plugs & Sockets,167,763.35,250.79,58.8,18.1,-18.1,False
+ML_ChronosGBM_v1.3,+6h,NW|RACK,167,187.08,2.63,1.9,0.3,-0.3,True
+ML_ChronosGBM_v1.3,+6h,SE|Emerg. Lighting,62,2.05,0.43,29.2,-1.3,1.3,True
+ML_ChronosGBM_v1.3,+6h,SE|HVAC,62,41.8,1.17,4.1,1.2,-1.2,True
+ML_ChronosGBM_v1.3,+6h,SE|Lighting,101,31.38,10.3,154.8,-30.2,30.2,False
+ML_ChronosGBM_v1.3,+6h,SE|Plugs & Sockets,63,190.17,47.19,29.1,-23.7,23.7,False
+ML_ChronosGBM_v1.3,+6h,SW|Emerg. Lighting,56,11.64,0.6,6.7,-2.3,2.3,True
+ML_ChronosGBM_v1.3,+6h,SW|Hand Dryer,73,0.69,0.58,99.1,-10.6,10.6,False
+ML_ChronosGBM_v1.3,+6h,SW|Lighting,86,1.17,1.09,131.0,49.1,-49.1,False
+ML_ChronosGBM_v1.3,+6h,SW|Plugs & Sockets,90,238.7,30.33,15.8,-7.1,7.1,True
+ML_ChronosGBM_v1.3,day-ahead,NE|HVAC,167,12.53,10.38,620.2,80.1,-80.1,False
+ML_ChronosGBM_v1.3,day-ahead,NE|Plugs & Sockets,167,189.63,3.73,2.4,-1.3,1.3,True
+ML_ChronosGBM_v1.3,day-ahead,NW|Emerg. Lighting,149,11.17,0.89,12.9,6.7,-6.7,True
+ML_ChronosGBM_v1.3,day-ahead,NW|HVAC,167,70.73,31.12,85.3,8.3,-8.3,False
+ML_ChronosGBM_v1.3,day-ahead,NW|Hand Dryer,167,0.63,0.69,166.6,43.9,-43.9,False
+ML_ChronosGBM_v1.3,day-ahead,NW|Lighting,167,83.7,49.38,107.6,41.5,-41.5,False
+ML_ChronosGBM_v1.3,day-ahead,NW|Plugs & Sockets,167,763.35,238.18,60.0,19.8,-19.8,False
+ML_ChronosGBM_v1.3,day-ahead,NW|RACK,167,187.08,2.59,1.9,0.7,-0.7,True
+ML_ChronosGBM_v1.3,day-ahead,SE|Emerg. Lighting,62,2.05,0.46,30.2,-5.6,5.6,False
+ML_ChronosGBM_v1.3,day-ahead,SE|HVAC,62,41.8,1.2,4.1,1.0,-1.0,True
+ML_ChronosGBM_v1.3,day-ahead,SE|Lighting,101,31.38,63.68,545.4,-200.1,200.1,False
+ML_ChronosGBM_v1.3,day-ahead,SE|Plugs & Sockets,63,190.17,46.01,29.0,-19.3,19.3,False
+ML_ChronosGBM_v1.3,day-ahead,SW|Emerg. Lighting,56,11.64,0.59,6.7,-2.2,2.2,True
+ML_ChronosGBM_v1.3,day-ahead,SW|Hand Dryer,73,0.69,0.57,100.1,-14.0,14.0,False
+ML_ChronosGBM_v1.3,day-ahead,SW|Lighting,86,1.17,1.14,146.6,89.9,-89.9,False
+ML_ChronosGBM_v1.3,day-ahead,SW|Plugs & Sockets,90,238.7,31.43,16.6,-7.1,7.1,True
+ML_Blend_v1.3,+1h,NE|HVAC,167,12.53,9.61,589.2,69.8,-69.8,False
+ML_Blend_v1.3,+1h,NE|Plugs & Sockets,167,189.63,2.6,1.7,-0.3,0.3,True
+ML_Blend_v1.3,+1h,NW|Emerg. Lighting,149,11.17,0.62,8.0,3.8,-3.8,True
+ML_Blend_v1.3,+1h,NW|HVAC,167,70.73,13.05,51.9,-1.9,1.9,False
+ML_Blend_v1.3,+1h,NW|Hand Dryer,167,0.63,0.59,141.0,20.9,-20.9,False
+ML_Blend_v1.3,+1h,NW|Lighting,167,83.7,32.13,74.5,11.7,-11.7,False
+ML_Blend_v1.3,+1h,NW|Plugs & Sockets,167,763.35,171.11,39.0,8.4,-8.4,False
+ML_Blend_v1.3,+1h,NW|RACK,167,187.08,2.17,1.5,0.7,-0.7,True
+ML_Blend_v1.3,+1h,SE|Emerg. Lighting,62,2.05,0.41,26.2,-6.7,6.7,True
+ML_Blend_v1.3,+1h,SE|HVAC,62,41.8,1.15,3.8,1.0,-1.0,True
+ML_Blend_v1.3,+1h,SE|Lighting,101,31.38,5.98,70.0,-17.0,17.0,False
+ML_Blend_v1.3,+1h,SE|Plugs & Sockets,63,190.17,24.5,17.3,-5.4,5.4,True
+ML_Blend_v1.3,+1h,SW|Emerg. Lighting,56,11.64,0.52,6.0,-1.6,1.6,True
+ML_Blend_v1.3,+1h,SW|Hand Dryer,73,0.69,0.51,88.1,17.4,-17.4,False
+ML_Blend_v1.3,+1h,SW|Lighting,86,1.17,0.96,114.4,38.9,-38.9,False
+ML_Blend_v1.3,+1h,SW|Plugs & Sockets,90,238.7,13.66,8.4,-1.8,1.8,True
+ML_Blend_v1.3,+6h,NE|HVAC,167,12.53,11.25,621.3,71.9,-71.9,False
+ML_Blend_v1.3,+6h,NE|Plugs & Sockets,167,189.63,2.9,2.0,-0.1,0.1,True
+ML_Blend_v1.3,+6h,NW|Emerg. Lighting,149,11.17,0.75,10.9,4.9,-4.9,True
+ML_Blend_v1.3,+6h,NW|HVAC,167,70.73,30.93,88.4,21.9,-21.9,False
+ML_Blend_v1.3,+6h,NW|Hand Dryer,167,0.63,0.74,171.7,34.9,-34.9,False
+ML_Blend_v1.3,+6h,NW|Lighting,167,83.7,52.96,103.9,24.7,-24.7,False
+ML_Blend_v1.3,+6h,NW|Plugs & Sockets,167,763.35,260.92,57.1,10.8,-10.8,False
+ML_Blend_v1.3,+6h,NW|RACK,167,187.08,2.37,1.7,0.2,-0.2,True
+ML_Blend_v1.3,+6h,SE|Emerg. Lighting,62,2.05,0.43,29.5,0.8,-0.8,True
+ML_Blend_v1.3,+6h,SE|HVAC,62,41.8,1.17,4.0,1.1,-1.1,True
+ML_Blend_v1.3,+6h,SE|Lighting,101,31.38,17.01,156.7,-47.5,47.5,False
+ML_Blend_v1.3,+6h,SE|Plugs & Sockets,63,190.17,28.18,20.0,-11.0,11.0,False
+ML_Blend_v1.3,+6h,SW|Emerg. Lighting,56,11.64,0.55,6.2,-0.8,0.8,True
+ML_Blend_v1.3,+6h,SW|Hand Dryer,73,0.69,0.59,98.2,8.0,-8.0,False
+ML_Blend_v1.3,+6h,SW|Lighting,86,1.17,1.15,127.2,23.6,-23.6,False
+ML_Blend_v1.3,+6h,SW|Plugs & Sockets,90,238.7,22.39,13.7,-3.3,3.3,True
+ML_Blend_v1.3,day-ahead,NE|HVAC,167,12.53,10.34,620.2,78.8,-78.8,False
+ML_Blend_v1.3,day-ahead,NE|Plugs & Sockets,167,189.63,2.98,2.0,-0.2,0.2,True
+ML_Blend_v1.3,day-ahead,NW|Emerg. Lighting,149,11.17,0.6,8.5,2.7,-2.7,True
+ML_Blend_v1.3,day-ahead,NW|HVAC,167,70.73,28.89,82.8,12.6,-12.6,False
+ML_Blend_v1.3,day-ahead,NW|Hand Dryer,167,0.63,0.67,174.4,65.7,-65.7,False
+ML_Blend_v1.3,day-ahead,NW|Lighting,167,83.7,49.12,100.4,13.6,-13.6,False
+ML_Blend_v1.3,day-ahead,NW|Plugs & Sockets,167,763.35,250.86,57.8,4.8,-4.8,False
+ML_Blend_v1.3,day-ahead,NW|RACK,167,187.08,2.36,1.7,0.1,-0.1,True
+ML_Blend_v1.3,day-ahead,SE|Emerg. Lighting,62,2.05,0.44,29.6,-2.4,2.4,True
+ML_Blend_v1.3,day-ahead,SE|HVAC,62,41.8,1.03,3.7,0.5,-0.5,True
+ML_Blend_v1.3,day-ahead,SE|Lighting,101,31.38,40.45,386.6,-124.5,124.5,False
+ML_Blend_v1.3,day-ahead,SE|Plugs & Sockets,63,190.17,24.9,17.4,-7.7,7.7,True
+ML_Blend_v1.3,day-ahead,SW|Emerg. Lighting,56,11.64,0.57,6.6,-1.4,1.4,True
+ML_Blend_v1.3,day-ahead,SW|Hand Dryer,73,0.69,0.6,98.6,17.1,-17.1,False
+ML_Blend_v1.3,day-ahead,SW|Lighting,86,1.17,0.95,112.9,13.4,-13.4,False
+ML_Blend_v1.3,day-ahead,SW|Plugs & Sockets,90,238.7,18.08,12.5,0.5,-0.5,True
+B1_last_week,+1h,NE|HVAC,167,12.53,10.44,619.8,78.5,-78.5,False
+B1_last_week,+1h,NE|Plugs & Sockets,167,189.63,5.65,4.2,1.7,-1.7,True
+B1_last_week,+1h,NW|Emerg. Lighting,149,11.17,0.93,12.8,1.8,-1.8,True
+B1_last_week,+1h,NW|HVAC,167,70.73,37.69,128.7,52.4,-52.4,False
+B1_last_week,+1h,NW|Hand Dryer,167,0.63,1.15,258.5,-52.8,52.8,False
+B1_last_week,+1h,NW|Lighting,167,83.7,61.81,122.6,27.9,-27.9,False
+B1_last_week,+1h,NW|Plugs & Sockets,167,763.35,355.93,80.3,-6.9,6.9,False
+B1_last_week,+1h,NW|RACK,167,187.08,3.72,2.5,0.2,-0.2,True
+B1_last_week,+1h,SE|Emerg. Lighting,62,2.05,0.59,39.2,1.8,-1.8,False
+B1_last_week,+1h,SE|HVAC,62,41.8,1.32,4.3,0.8,-0.8,True
+B1_last_week,+1h,SE|Lighting,101,31.38,256.26,1107.3,-617.6,617.6,False
+B1_last_week,+1h,SE|Plugs & Sockets,63,190.17,51.59,40.4,14.6,-14.6,False
+B1_last_week,+1h,SW|Emerg. Lighting,56,11.64,0.91,9.3,-0.2,0.2,True
+B1_last_week,+1h,SW|Hand Dryer,73,0.69,0.66,129.0,6.1,-6.1,False
+B1_last_week,+1h,SW|Lighting,86,1.17,1.14,138.7,68.3,-68.3,False
+B1_last_week,+1h,SW|Plugs & Sockets,90,238.7,41.4,20.8,-12.0,12.0,False
+B1_last_week,+6h,NE|HVAC,167,12.53,10.44,619.8,78.5,-78.5,False
+B1_last_week,+6h,NE|Plugs & Sockets,167,189.63,5.65,4.2,1.7,-1.7,True
+B1_last_week,+6h,NW|Emerg. Lighting,149,11.17,0.93,12.8,1.8,-1.8,True
+B1_last_week,+6h,NW|HVAC,167,70.73,37.69,128.7,52.4,-52.4,False
+B1_last_week,+6h,NW|Hand Dryer,167,0.63,1.15,258.5,-52.8,52.8,False
+B1_last_week,+6h,NW|Lighting,167,83.7,61.81,122.6,27.9,-27.9,False
+B1_last_week,+6h,NW|Plugs & Sockets,167,763.35,355.93,80.3,-6.9,6.9,False
+B1_last_week,+6h,NW|RACK,167,187.08,3.72,2.5,0.2,-0.2,True
+B1_last_week,+6h,SE|Emerg. Lighting,62,2.05,0.59,39.2,1.8,-1.8,False
+B1_last_week,+6h,SE|HVAC,62,41.8,1.32,4.3,0.8,-0.8,True
+B1_last_week,+6h,SE|Lighting,101,31.38,256.26,1107.3,-617.6,617.6,False
+B1_last_week,+6h,SE|Plugs & Sockets,63,190.17,51.59,40.4,14.6,-14.6,False
+B1_last_week,+6h,SW|Emerg. Lighting,56,11.64,0.91,9.3,-0.2,0.2,True
+B1_last_week,+6h,SW|Hand Dryer,73,0.69,0.66,129.0,6.1,-6.1,False
+B1_last_week,+6h,SW|Lighting,86,1.17,1.14,138.7,68.3,-68.3,False
+B1_last_week,+6h,SW|Plugs & Sockets,90,238.7,41.4,20.8,-12.0,12.0,False
+B1_last_week,day-ahead,NE|HVAC,167,12.53,10.44,619.8,78.5,-78.5,False
+B1_last_week,day-ahead,NE|Plugs & Sockets,167,189.63,5.65,4.2,1.7,-1.7,True
+B1_last_week,day-ahead,NW|Emerg. Lighting,149,11.17,0.93,12.8,1.8,-1.8,True
+B1_last_week,day-ahead,NW|HVAC,167,70.73,37.69,128.7,52.4,-52.4,False
+B1_last_week,day-ahead,NW|Hand Dryer,167,0.63,1.15,258.5,-52.8,52.8,False
+B1_last_week,day-ahead,NW|Lighting,167,83.7,61.81,122.6,27.9,-27.9,False
+B1_last_week,day-ahead,NW|Plugs & Sockets,167,763.35,355.93,80.3,-6.9,6.9,False
+B1_last_week,day-ahead,NW|RACK,167,187.08,3.72,2.5,0.2,-0.2,True
+B1_last_week,day-ahead,SE|Emerg. Lighting,62,2.05,0.59,39.2,1.8,-1.8,False
+B1_last_week,day-ahead,SE|HVAC,62,41.8,1.32,4.3,0.8,-0.8,True
+B1_last_week,day-ahead,SE|Lighting,101,31.38,256.26,1107.3,-617.6,617.6,False
+B1_last_week,day-ahead,SE|Plugs & Sockets,63,190.17,51.59,40.4,14.6,-14.6,False
+B1_last_week,day-ahead,SW|Emerg. Lighting,56,11.64,0.91,9.3,-0.2,0.2,True
+B1_last_week,day-ahead,SW|Hand Dryer,73,0.69,0.66,129.0,6.1,-6.1,False
+B1_last_week,day-ahead,SW|Lighting,86,1.17,1.14,138.7,68.3,-68.3,False
+B1_last_week,day-ahead,SW|Plugs & Sockets,90,238.7,41.4,20.8,-12.0,12.0,False
+B2_weekday_hour_median,+1h,NE|HVAC,167,12.53,10.39,620.4,79.2,-79.2,False
+B2_weekday_hour_median,+1h,NE|Plugs & Sockets,167,189.63,3.93,2.6,-1.0,1.0,True
+B2_weekday_hour_median,+1h,NW|Emerg. Lighting,149,11.17,1.19,15.5,9.8,-9.8,True
+B2_weekday_hour_median,+1h,NW|HVAC,167,70.73,43.86,113.7,-46.2,46.2,False
+B2_weekday_hour_median,+1h,NW|Hand Dryer,167,0.63,0.77,183.4,10.0,-10.0,False
+B2_weekday_hour_median,+1h,NW|Lighting,167,83.7,49.02,109.5,47.0,-47.0,False
+B2_weekday_hour_median,+1h,NW|Plugs & Sockets,167,763.35,265.15,66.2,26.3,-26.3,False
+B2_weekday_hour_median,+1h,NW|RACK,167,187.08,3.3,2.2,0.8,-0.8,True
+B2_weekday_hour_median,+1h,SE|Emerg. Lighting,62,2.05,0.61,38.9,-12.8,12.8,False
+B2_weekday_hour_median,+1h,SE|HVAC,62,41.8,1.8,10.8,-0.1,0.1,True
+B2_weekday_hour_median,+1h,SE|Lighting,101,31.38,39.76,454.9,71.1,-71.1,False
+B2_weekday_hour_median,+1h,SE|Plugs & Sockets,63,190.17,194.76,120.3,-39.8,39.8,False
+B2_weekday_hour_median,+1h,SW|Emerg. Lighting,56,11.64,0.72,7.8,-2.3,2.3,True
+B2_weekday_hour_median,+1h,SW|Hand Dryer,73,0.69,0.68,129.1,26.5,-26.5,False
+B2_weekday_hour_median,+1h,SW|Lighting,86,1.17,14.96,7320.6,-1115.8,1115.8,False
+B2_weekday_hour_median,+1h,SW|Plugs & Sockets,90,238.7,30.22,15.8,-6.5,6.5,True
+B2_weekday_hour_median,+6h,NE|HVAC,167,12.53,10.39,620.4,79.2,-79.2,False
+B2_weekday_hour_median,+6h,NE|Plugs & Sockets,167,189.63,3.93,2.6,-1.0,1.0,True
+B2_weekday_hour_median,+6h,NW|Emerg. Lighting,149,11.17,1.19,15.5,9.8,-9.8,True
+B2_weekday_hour_median,+6h,NW|HVAC,167,70.73,43.86,113.7,-46.2,46.2,False
+B2_weekday_hour_median,+6h,NW|Hand Dryer,167,0.63,0.77,183.4,10.0,-10.0,False
+B2_weekday_hour_median,+6h,NW|Lighting,167,83.7,49.02,109.5,47.0,-47.0,False
+B2_weekday_hour_median,+6h,NW|Plugs & Sockets,167,763.35,265.15,66.2,26.3,-26.3,False
+B2_weekday_hour_median,+6h,NW|RACK,167,187.08,3.3,2.2,0.8,-0.8,True
+B2_weekday_hour_median,+6h,SE|Emerg. Lighting,62,2.05,0.61,38.9,-12.8,12.8,False
+B2_weekday_hour_median,+6h,SE|HVAC,62,41.8,1.8,10.8,-0.1,0.1,True
+B2_weekday_hour_median,+6h,SE|Lighting,101,31.38,39.76,454.9,71.1,-71.1,False
+B2_weekday_hour_median,+6h,SE|Plugs & Sockets,63,190.17,194.76,120.3,-39.8,39.8,False
+B2_weekday_hour_median,+6h,SW|Emerg. Lighting,56,11.64,0.72,7.8,-2.3,2.3,True
+B2_weekday_hour_median,+6h,SW|Hand Dryer,73,0.69,0.68,129.1,26.5,-26.5,False
+B2_weekday_hour_median,+6h,SW|Lighting,86,1.17,14.96,7320.6,-1115.8,1115.8,False
+B2_weekday_hour_median,+6h,SW|Plugs & Sockets,90,238.7,30.22,15.8,-6.5,6.5,True
+B2_weekday_hour_median,day-ahead,NE|HVAC,167,12.53,10.39,620.4,79.2,-79.2,False
+B2_weekday_hour_median,day-ahead,NE|Plugs & Sockets,167,189.63,3.93,2.6,-1.0,1.0,True
+B2_weekday_hour_median,day-ahead,NW|Emerg. Lighting,149,11.17,1.19,15.5,9.8,-9.8,True
+B2_weekday_hour_median,day-ahead,NW|HVAC,167,70.73,43.86,113.7,-46.2,46.2,False
+B2_weekday_hour_median,day-ahead,NW|Hand Dryer,167,0.63,0.77,183.4,10.0,-10.0,False
+B2_weekday_hour_median,day-ahead,NW|Lighting,167,83.7,49.02,109.5,47.0,-47.0,False
+B2_weekday_hour_median,day-ahead,NW|Plugs & Sockets,167,763.35,265.15,66.2,26.3,-26.3,False
+B2_weekday_hour_median,day-ahead,NW|RACK,167,187.08,3.3,2.2,0.8,-0.8,True
+B2_weekday_hour_median,day-ahead,SE|Emerg. Lighting,62,2.05,0.61,38.9,-12.8,12.8,False
+B2_weekday_hour_median,day-ahead,SE|HVAC,62,41.8,1.8,10.8,-0.1,0.1,True
+B2_weekday_hour_median,day-ahead,SE|Lighting,101,31.38,39.76,454.9,71.1,-71.1,False
+B2_weekday_hour_median,day-ahead,SE|Plugs & Sockets,63,190.17,194.76,120.3,-39.8,39.8,False
+B2_weekday_hour_median,day-ahead,SW|Emerg. Lighting,56,11.64,0.72,7.8,-2.3,2.3,True
+B2_weekday_hour_median,day-ahead,SW|Hand Dryer,73,0.69,0.68,129.1,26.5,-26.5,False
+B2_weekday_hour_median,day-ahead,SW|Lighting,86,1.17,14.96,7320.6,-1115.8,1115.8,False
+B2_weekday_hour_median,day-ahead,SW|Plugs & Sockets,90,238.7,30.22,15.8,-6.5,6.5,True
+B3_persistence,+1h,NE|HVAC,167,12.53,8.8,519.1,-0.0,0.0,False
+B3_persistence,+1h,NE|Plugs & Sockets,167,189.63,4.69,3.3,-0.0,0.0,True
+B3_persistence,+1h,NW|Emerg. Lighting,149,11.17,0.62,7.1,0.2,-0.2,True
+B3_persistence,+1h,NW|HVAC,167,70.73,15.81,66.2,-0.0,0.0,False
+B3_persistence,+1h,NW|Hand Dryer,167,0.63,0.56,159.7,0.9,-0.9,False
+B3_persistence,+1h,NW|Lighting,167,83.7,30.12,77.9,0.3,-0.3,False
+B3_persistence,+1h,NW|Plugs & Sockets,167,763.35,183.61,41.2,-0.4,0.4,False
+B3_persistence,+1h,NW|RACK,167,187.08,4.41,3.2,-0.0,0.0,True
+B3_persistence,+1h,SE|Emerg. Lighting,62,2.05,0.81,51.6,-0.8,0.8,False
+B3_persistence,+1h,SE|HVAC,62,41.8,1.91,6.7,0.4,-0.4,True
+B3_persistence,+1h,SE|Lighting,101,31.38,3.19,62.4,-5.8,5.8,False
+B3_persistence,+1h,SE|Plugs & Sockets,63,190.17,37.4,23.6,-1.1,1.1,True
+B3_persistence,+1h,SW|Emerg. Lighting,56,11.64,1.02,11.7,-1.6,1.6,True
+B3_persistence,+1h,SW|Hand Dryer,73,0.69,0.96,173.3,-0.6,0.6,False
+B3_persistence,+1h,SW|Lighting,86,1.17,0.77,97.0,2.8,-2.8,False
+B3_persistence,+1h,SW|Plugs & Sockets,90,238.7,13.63,10.2,-0.1,0.1,True
+B3_persistence,+6h,NE|HVAC,167,12.53,20.19,877.7,0.2,-0.2,False
+B3_persistence,+6h,NE|Plugs & Sockets,167,189.63,3.9,2.5,0.0,-0.0,True
+B3_persistence,+6h,NW|Emerg. Lighting,149,11.17,0.69,9.0,1.2,-1.2,True
+B3_persistence,+6h,NW|HVAC,167,70.73,69.31,176.6,1.2,-1.2,False
+B3_persistence,+6h,NW|Hand Dryer,167,0.63,0.97,226.8,-4.1,4.1,False
+B3_persistence,+6h,NW|Lighting,167,83.7,89.48,156.9,-0.1,0.1,False
+B3_persistence,+6h,NW|Plugs & Sockets,167,763.35,441.31,87.7,-1.0,1.0,False
+B3_persistence,+6h,NW|RACK,167,187.08,3.29,2.1,-0.0,0.0,True
+B3_persistence,+6h,SE|Emerg. Lighting,62,2.05,0.7,45.2,-2.5,2.5,False
+B3_persistence,+6h,SE|HVAC,62,41.8,2.11,6.5,0.0,-0.0,True
+B3_persistence,+6h,SE|Lighting,101,31.38,3.75,65.7,-7.3,7.3,False
+B3_persistence,+6h,SE|Plugs & Sockets,63,190.17,41.39,27.6,-5.8,5.8,True
+B3_persistence,+6h,SW|Emerg. Lighting,56,11.64,1.0,10.5,-1.3,1.3,True
+B3_persistence,+6h,SW|Hand Dryer,73,0.69,0.79,151.8,-18.4,18.4,False
+B3_persistence,+6h,SW|Lighting,86,1.17,1.47,170.5,-42.5,42.5,False
+B3_persistence,+6h,SW|Plugs & Sockets,90,238.7,22.95,17.4,-5.5,5.5,True
+B3_persistence,day-ahead,NE|HVAC,167,12.53,10.28,620.8,79.5,-79.5,False
+B3_persistence,day-ahead,NE|Plugs & Sockets,167,189.63,4.31,2.8,0.8,-0.8,True
+B3_persistence,day-ahead,NW|Emerg. Lighting,149,11.17,0.78,9.0,3.0,-3.0,True
+B3_persistence,day-ahead,NW|HVAC,167,70.73,37.88,128.9,52.3,-52.3,False
+B3_persistence,day-ahead,NW|Hand Dryer,167,0.63,0.82,200.7,50.4,-50.4,False
+B3_persistence,day-ahead,NW|Lighting,167,83.7,52.53,110.0,18.1,-18.1,False
+B3_persistence,day-ahead,NW|Plugs & Sockets,167,763.35,322.12,70.4,19.8,-19.8,False
+B3_persistence,day-ahead,NW|RACK,167,187.08,3.51,2.3,0.4,-0.4,True
+B3_persistence,day-ahead,SE|Emerg. Lighting,62,2.05,0.7,43.1,-18.3,18.3,False
+B3_persistence,day-ahead,SE|HVAC,62,41.8,2.01,6.0,1.5,-1.5,True
+B3_persistence,day-ahead,SE|Lighting,101,31.38,35.06,395.0,-106.5,106.5,False
+B3_persistence,day-ahead,SE|Plugs & Sockets,63,190.17,27.18,18.1,1.0,-1.0,True
+B3_persistence,day-ahead,SW|Emerg. Lighting,56,11.64,0.89,9.7,-4.4,4.4,True
+B3_persistence,day-ahead,SW|Hand Dryer,73,0.69,0.62,122.0,11.0,-11.0,False
+B3_persistence,day-ahead,SW|Lighting,86,1.17,1.55,181.7,-28.0,28.0,False
+B3_persistence,day-ahead,SW|Plugs & Sockets,90,238.7,16.53,12.5,1.4,-1.4,True

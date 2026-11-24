@@ -1,0 +1,4 @@
+horizon,circuits,rows,recomputed_scaled_MAE,frozen_scaled_MAE,difference
++1h,15,2315,0.2824,0.2824,0.0
++6h,15,2315,0.3988,0.3975,0.0013
+day-ahead,15,2315,0.3976,0.397,0.0007

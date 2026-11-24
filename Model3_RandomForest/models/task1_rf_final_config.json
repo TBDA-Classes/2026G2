@@ -1,0 +1,115 @@
+{
+  "model": "ML_RandomForest",
+  "version": "final-step3",
+  "created_utc": "2026-10-27T15:20:46+00:00",
+  "design": "B \u2014 no circuit identity; every circuit scaled by its own training mean",
+  "training_circuits": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK"
+  ],
+  "predicted_circuits": [
+    "NE|HVAC",
+    "NE|Plugs & Sockets",
+    "NW|Emerg. Lighting",
+    "NW|HVAC",
+    "NW|Hand Dryer",
+    "NW|Lighting",
+    "NW|Plugs & Sockets",
+    "NW|RACK",
+    "SE|Emerg. Lighting",
+    "SE|HVAC",
+    "SE|Lighting",
+    "SE|Plugs & Sockets",
+    "SW|Emerg. Lighting",
+    "SW|Hand Dryer",
+    "SW|Lighting",
+    "SW|Plugs & Sockets"
+  ],
+  "selection": "Chosen on the official validation week scoring all 16 circuits, then confirmed on three expanding-window rolling-origin folds inside the training period. Seed repetition (5 seeds) used to separate real differences from run-to-run noise; the one-standard-error rule used to prefer the simpler model on ties. Test not used.",
+  "dataset": {
+    "file": "Storey1_hourly_v1.1.parquet",
+    "version": "1.1",
+    "sha256": "363dfdfababacb8de4d453c3fddde4e129538e289b346351d5c6bbcd66e8db8b",
+    "source_sha256": "10691347b942d279eafce8409d804784e12eee4f7122285da797cab39ffb37d9"
+  },
+  "splits_utc": {
+    "train": [
+      "2025-08-19 00:00",
+      "2025-09-22 00:00"
+    ],
+    "validation": [
+      "2025-09-22 00:00",
+      "2025-09-29 00:00"
+    ],
+    "test": [
+      "2025-09-29 00:00",
+      "2025-10-06 00:00"
+    ]
+  },
+  "features": [
+    "last_val",
+    "mean_24",
+    "std_24",
+    "mean_168",
+    "lag_T24",
+    "lag_T168",
+    "wk_median",
+    "last_age_h",
+    "n_24",
+    "n_168",
+    "n_weeks",
+    "hour",
+    "weekday",
+    "is_weekend",
+    "lead"
+  ],
+  "fixed": {
+    "n_estimators": 300,
+    "bootstrap": true,
+    "random_state": 0
+  },
+  "horizons": {
+    "+1h": {
+      "criterion": "absolute_error",
+      "max_depth": 12,
+      "min_samples_leaf": 100,
+      "max_features": 1.0,
+      "min_samples_leaf_as_share": 0.01769,
+      "n_estimators": 300,
+      "training_rows": 5681,
+      "fit_cutoff_utc": "2025-09-22 00:00:00+00:00"
+    },
+    "+6h": {
+      "criterion": "absolute_error",
+      "max_depth": 4,
+      "min_samples_leaf": 250,
+      "max_features": 0.5,
+      "min_samples_leaf_as_share": 0.04422,
+      "n_estimators": 300,
+      "training_rows": 5641,
+      "fit_cutoff_utc": "2025-09-21 19:00:00+00:00"
+    },
+    "day-ahead": {
+      "criterion": "absolute_error",
+      "max_depth": 4,
+      "min_samples_leaf": 250,
+      "max_features": 0.5,
+      "min_samples_leaf_as_share": 0.04422,
+      "n_estimators": 300,
+      "training_rows": 5665,
+      "fit_cutoff_utc": "2025-09-21 22:00:00+00:00"
+    }
+  },
+  "versions": {
+    "python": "3.13.17",
+    "sklearn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3"
+  }
+}

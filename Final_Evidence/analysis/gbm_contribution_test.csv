@@ -1,0 +1,7 @@
+horizon,mask,circuit_hours,chosen_w_gbm,chosen_w_hybrid,chosen_w_chronos,chosen_val_scaled_MAE,chosen_val_scaled_RMSE,noGBM_w_hybrid,noGBM_w_chronos,noGBM_tied_mixes,noGBM_val_scaled_MAE,noGBM_val_scaled_RMSE,test_MAE_blend_Wh,test_MAE_without_GBM_Wh,diff_blend_minus_noGBM_Wh,diff_lo,diff_hi,significant,blend_reconstruction_max_abs_err_Wh
++1h,blend_valid,2316,0.3,0.2,0.5,0.2712,0.6078,0.45,0.55,12,0.2712,0.6111,20.645,20.65,-0.005,-0.542,0.569,False,2.2737367544323206e-13
++1h,task6_official,1911,0.3,0.2,0.5,0.2712,0.6078,0.45,0.55,12,0.2712,0.6111,22.155,22.15,0.005,-0.648,0.648,False,2.2737367544323206e-13
++6h,blend_valid,2316,0.1,0.35,0.55,0.3488,0.7059,0.4,0.6,15,0.3465,0.7065,32.147,32.236,-0.089,-0.357,0.162,False,1.1368683772161603e-13
++6h,task6_official,1911,0.1,0.35,0.55,0.3488,0.7059,0.4,0.6,15,0.3465,0.7065,34.726,34.844,-0.119,-0.49,0.181,False,1.1368683772161603e-13
+day-ahead,blend_valid,2316,0.15,0.1,0.75,0.3513,0.7027,0.25,0.75,7,0.3502,0.7036,31.622,32.019,-0.397,-1.088,0.074,False,2.2737367544323206e-13
+day-ahead,task6_official,1911,0.15,0.1,0.75,0.3513,0.7027,0.25,0.75,7,0.3502,0.7036,34.155,34.442,-0.286,-0.828,0.133,False,2.2737367544323206e-13

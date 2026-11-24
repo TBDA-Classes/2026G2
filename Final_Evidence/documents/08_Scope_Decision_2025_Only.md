@@ -86,7 +86,7 @@ What we do **not** claim: that the old data is useless; that 2025-only is better
 
 ## 7. Last 8 days of 2025 (6–13 Oct, about 189 hours)
 
-These hours are **not used for training, validation, test or tuning**. The reason for keeping them untouched was not written down at the time. They can be presented as an **untouched out-of-sample reserve**. Scoring the frozen Blend on them is a cheap extra check (not done yet).
+These hours are **not used for training, validation, test or tuning**. The reason for keeping them out is in `task6.pdf` §4 (see doc 14). They can be presented as a reserve **not used for training, selection or official scoring**; they are not untouched, because the Dash live page shows and forecasts them. Scoring the frozen Blend on them is a cheap extra check (not done yet).
 
 ## 8. Limits of this document
 

@@ -1,0 +1,53 @@
+sensor,timestamp,event,column,excel_row
+HVAC,2020-10-12 11:00:00,reset,Ea,4579
+HVAC,2020-12-21 12:00:00,reset,Ea,6255
+HVAC,2021-08-08 13:00:00,reset,Ea,11776
+HVAC,2021-08-08 14:00:00,reset,Ea,11777
+HVAC,2021-08-12 07:00:00,reset,Ea,11862
+HVAC,2021-09-30 07:00:00,reset,Ea,13037
+HVAC,2021-12-02 08:00:00,reset,Ea,14548
+HVAC,2022-02-08 08:00:00,reset,Ea,16175
+HVAC,2022-09-12 13:00:00,reset,Ea,20979
+HVAC,2022-11-21 12:00:00,reset,Ea,22652
+HVAC,2023-01-04 09:00:00,reset,Ea,23679
+HVAC,2020-10-12 11:00:00,reset,Er,4579
+HVAC,2020-12-21 12:00:00,reset,Er,6255
+HVAC,2021-08-08 13:00:00,reset,Er,11776
+HVAC,2021-08-08 14:00:00,reset,Er,11777
+HVAC,2021-09-30 07:00:00,reset,Er,13037
+HVAC,2021-12-02 08:00:00,reset,Er,14548
+HVAC,2022-02-08 08:00:00,reset,Er,16175
+HVAC,2022-09-12 13:00:00,reset,Er,20979
+HVAC,2022-11-21 12:00:00,reset,Er,22652
+HVAC,2023-01-04 09:00:00,reset,Er,23679
+Plugs & Sockets,2020-10-12 11:00:00,reset,Ea,4579
+Plugs & Sockets,2020-12-21 12:00:00,reset,Ea,6255
+Plugs & Sockets,2021-04-27 13:00:00,reset,Ea,9304
+Plugs & Sockets,2021-04-27 14:00:00,reset,Ea,9305
+Plugs & Sockets,2021-08-08 13:00:00,reset,Ea,11776
+Plugs & Sockets,2021-08-08 14:00:00,reset,Ea,11777
+Plugs & Sockets,2021-08-12 07:00:00,reset,Ea,11862
+Plugs & Sockets,2021-09-30 07:00:00,reset,Ea,13037
+Plugs & Sockets,2021-12-02 08:00:00,reset,Ea,14548
+Plugs & Sockets,2022-02-08 08:00:00,reset,Ea,16175
+Plugs & Sockets,2022-09-12 13:00:00,reset,Ea,20979
+Plugs & Sockets,2022-11-21 12:00:00,reset,Ea,22652
+Plugs & Sockets,2023-01-04 09:00:00,reset,Ea,23679
+Plugs & Sockets,2023-02-16 09:00:00,reset,Ea,24711
+Plugs & Sockets,2025-08-18 18:44:00,jump,Ea,25015
+Plugs & Sockets,2025-10-13 14:35:00,reset,Ea,88827
+Plugs & Sockets,2020-10-12 11:00:00,reset,Er,4579
+Plugs & Sockets,2020-12-21 12:00:00,reset,Er,6255
+Plugs & Sockets,2021-04-27 13:00:00,reset,Er,9304
+Plugs & Sockets,2021-04-27 14:00:00,reset,Er,9305
+Plugs & Sockets,2021-08-08 13:00:00,reset,Er,11776
+Plugs & Sockets,2021-08-08 14:00:00,reset,Er,11777
+Plugs & Sockets,2021-08-12 07:00:00,reset,Er,11862
+Plugs & Sockets,2021-09-30 07:00:00,reset,Er,13037
+Plugs & Sockets,2021-12-02 08:00:00,reset,Er,14548
+Plugs & Sockets,2022-02-08 08:00:00,reset,Er,16175
+Plugs & Sockets,2022-09-12 13:00:00,reset,Er,20979
+Plugs & Sockets,2022-11-21 12:00:00,reset,Er,22652
+Plugs & Sockets,2023-01-04 09:00:00,reset,Er,23679
+Plugs & Sockets,2025-08-18 18:44:00,jump,Er,25015
+Plugs & Sockets,2025-10-13 14:35:00,reset,Er,88827

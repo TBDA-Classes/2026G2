@@ -80,7 +80,7 @@ def get_temperature() -> pd.DataFrame:
 # ---------------------------------------------------------------- 2. quality checks
 def madrid_station_daily(stations=(24, 58)) -> pd.DataFrame:
     """Daily mean temperature of Madrid city stations (S1-B2 file, magnitude 83). 24 = Casa de Campo, 58 = El Pardo."""
-    s = pd.read_csv(REPO / "S1-B2 Data 2025-26.csv", sep=";", dtype=str)
+    s = pd.read_csv(REPO / "Data_Weather/S1-B2 Data 2025-26.csv", sep=";", dtype=str)
     s = s[(s["MAGNITUD"].astype(int) == 83) & (s["ANO"] == "2025") & s["ESTACION"].astype(int).isin(stations)]
     rows = []
     for _, r in s.iterrows():
