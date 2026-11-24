@@ -1,0 +1,13 @@
+horizon,vs,days_Blend_better,days
++1h,B2_weekday_hour_median,7,7
++1h,B3_persistence,6,7
++1h,ML_GBM_v1.3,7,7
++1h,ML_Chronos_v1.3,4,7
++6h,B2_weekday_hour_median,6,7
++6h,B3_persistence,7,7
++6h,ML_GBM_v1.3,6,7
++6h,ML_Chronos_v1.3,6,7
+day-ahead,B2_weekday_hour_median,6,7
+day-ahead,B3_persistence,6,7
+day-ahead,ML_GBM_v1.3,4,7
+day-ahead,ML_Chronos_v1.3,6,7

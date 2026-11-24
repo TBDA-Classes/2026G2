@@ -61,6 +61,9 @@ Then open **http://127.0.0.1:8050** in a browser. Stop the app with `Ctrl+C`.
   `TBDA_REPO=/path/to/2026G2`.
 - `python Sprint4_Task3_UX_Dash/app.py --debug` shows Dash's error panel in the browser.
 
+Every design choice is justified, with its evidence, weaknesses and alternatives, in
+[`documents/02_Assumptions_and_Decisions_Dash.md`](documents/02_Assumptions_and_Decisions_Dash.md).
+
 ## 1. Users and their needs
 
 | User | Who they are | What they need | Where in the app |
@@ -260,6 +263,7 @@ separate process, which can also be run by hand). It works in the repository clo
 | `engines/update_data.py` | Rebuilds the hourly dataset from a newer export (scalability) |
 | `engines/injection_test.py` | Detection test: injects spikes and drops and measures how many the dashboard finds |
 | `analysis/injection_*_dash.csv` | Results of the detection test (Energy Watch file names + `_dash`), shown on the Performance page |
+| `documents/02_Assumptions_and_Decisions_Dash.md` | Every design choice with its evidence, weaknesses and alternatives |
 | `documents/04_Detection_Validation_Dash.md` | Method, results and limits of the detection test |
 | `documents/Injection_Tests_Explained.md` | The two injection tests explained and compared with Energy Watch |
 | `new_data/` | Where the user puts a new data export (its contents are not committed) |

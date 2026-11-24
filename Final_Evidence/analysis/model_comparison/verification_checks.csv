@@ -1,0 +1,9 @@
+check,result,detail
+Structure of the 22 prediction files,OK,"16 (or 8) circuits x 168 h x 3 horizons, no duplicates; problems: none"
+Target hours inside the right split,OK,"test 29 Sep-5 Oct, validation 22-28 Sep (UTC); problems: none"
+No information from the future,OK,"issue time before target, lead consistent, day-ahead issued 00:00 Madrid; problems: none"
+Same actual values in every file where valid,OK,problems: none
+No negative forecasts,OK,
+Blend = frozen weighted average of its three parts,OK,max difference 2.3e-13 Wh (test and validation)
+Numbers of RESULTS.md = result CSV,OK,"main table, 9 models x 3 horizons; differences: none"
+Hours scored,OK,"1,911 per horizon on 16 circuits = 71% of 2,688"

@@ -1,0 +1,4 @@
+horizon,spearman_val_vs_test,best_on_val_by_MAE_Wh,its_test_MAE,Blend_test_MAE,best_on_test,best_test_MAE
++1h,1.0,ML_Chronos_v1.3,21.53,22.15,ML_Chronos_v1.3,21.53
++6h,0.83,ML_ChronosGBM_v1.3,34.22,34.73,ML_ChronosGBM_v1.3,34.22
+day-ahead,0.14,ML_Chronos_v1.3,36.21,34.16,ML_Blend_v1.3,34.16
